@@ -7,7 +7,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="Page not found | Johdanto GeoServerin käyttöön" />
+<meta property="og:title" content="3 HARJOITUS II.3: ARKKITEHTUURI JA KÄYTTÖÖNOTTO | Johdanto GeoServerin käyttöön" />
 <meta property="og:type" content="book" />
 
 
@@ -19,9 +19,9 @@
 <meta name="date" content="2023-01-31" />
 
 
-<meta name="description" content="Page not found | Johdanto GeoServerin käyttöön">
+<meta name="description" content="3 HARJOITUS II.3: ARKKITEHTUURI JA KÄYTTÖÖNOTTO | Johdanto GeoServerin käyttöön">
 
-<title>Page not found | Johdanto GeoServerin käyttöön</title>
+<title>3 HARJOITUS II.3: ARKKITEHTUURI JA KÄYTTÖÖNOTTO | Johdanto GeoServerin käyttöön</title>
 
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
@@ -240,13 +240,156 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="harjoitus-ii.3-arkkitehtuuri-ja-käyttöönotto" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> HARJOITUS II.3: ARKKITEHTUURI JA KÄYTTÖÖNOTTO</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa tutustutaan tarkemmin GeoServerin lokeihin ja erilaisiin asetuksiin, jotka vaikuttavat suorituskykyyn.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Harjoituksen jälkeen opiskelija osaa arvioida GeoServerin suorituskykyä lokien avulla ja tunnistaa erilaisia ongelmatilanteita.</p>
+<p><strong>Arvioitu kesto</strong></p>
+<p>30 minuuttia.</p>
+<div id="valmistautuminen-1" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> <strong>Valmistautuminen</strong></h2>
+<p>GeoServerin palvelimeen on ladattu erilaisia aineistoja ja GeoServerin <strong>Monitor</strong>-lisäosa on asennettu palvelimeen.</p>
+</div>
+<div id="yleistiedot-geoserverin-palvelimesta" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> <strong>Yleistiedot GeoServerin palvelimesta</strong></h2>
+<p>Avaa GeoServerin vasemmasta palkista <strong>About &amp; Status → Server Status</strong>.<img src="https://lh5.googleusercontent.com/INuGmb5JpS_qRR_wK0TBHGhsiUddFA9yTmTj86zFqVK9Tnwjfgoy-0E_-M3-djGwGv82aqGnF36u47zGJQbqqC02ILB_mIcy8pnGWy7YwRLI8sLYUbsTWJbhxW_Tqzm_tojOlmf6Nm3W3aNQeqlcxw" /></p>
+<p><strong>Locks</strong>-toiminnon kautta voit tarkistaa olemassa olevat WFS-T -aineistojen lukitukset. Voit tarvittaessa vapauttaa lukitukset painamalla <strong>Free locks</strong>.</p>
+<p><strong>Connections</strong>-tieto viittaa siihen, kuinka monta vektori-storea on saatavilla. </p>
+<p>Voit tarkistaa ja vapauttaa GeoServerin käyttämää muistia <strong>Memory Usage</strong> kohdalla.</p>
+</div>
+<div id="image-processing--asetukset" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> <strong>Image Processing -asetukset</strong></h2>
+<p>Tarkista vielä, mitkä Java-asetukset ovat voimassa palvelimessa kuvien käsittelyä varten. Lähtökohtaisesti ei ole kovin tehokasta käsitellä kuvia kokonaisina tietokoneen muistissa. Yleisesti käytetty tapa on jakaa kuvat pienempiin osiin (tiilet/tiles) ja tehdä mahdolliset kuvaoperaattorit pienempiin kuviin. JAI-asetukset (määritelty <strong>Image Processing</strong> -asetuksissa) hallinnoivat näiden menetelmien toimintaa.</p>
+<p>JAI (Java Advanced Imaging) asetuksia voit muokata <strong>Settings → Image Processing</strong> -näkymän kautta.<img src="https://lh4.googleusercontent.com/UmvlxNo3LBn2cbKl4HmaV3M4bmr3NvmO8BQ3s5JHEkYLfMLee7eCX7_gHSElq9UwBVg10YD05KOtDSzEoG7NXdDLAtooQfO8I8A0BzoqalLKBVqCYRE05hWLbeB_urRoTbml_hlIFsh_1j_x-I5tGw" /></p>
+<table style="width:57%;">
+<colgroup>
+<col width="56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>##### <strong>Image Processing -asetukset</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><h4 id="memory-capacity-ja"><strong>Memory Capacity ja</strong></h4>
+<h4 id="memory-threshold"><strong>Memory Threshold</strong></h4></td>
+</tr>
+<tr class="even">
+<td><h4 id="tile-recycling"><strong>Tile Recycling</strong></h4></td>
+</tr>
+<tr class="odd">
+<td><h4 id="tile-threads-ja"><strong>Tile Threads ja</strong></h4>
+<h4 id="tile-thread-priority"><strong>Tile Thread Priority</strong></h4></td>
+</tr>
+<tr class="even">
+<td><h4 id="png-encoder-type"><strong>PNG Encoder Type</strong></h4></td>
+</tr>
+<tr class="odd">
+<td><h4 id="jpeg-native-acceleration"><strong>JPEG Native Acceleration</strong></h4></td>
+</tr>
+<tr class="even">
+<td><h4 id="mosaic-native-acceleration-ja"><strong>Mosaic Native Acceleration ja</strong></h4>
+<h4 id="warp-native-acceleration"><strong>Warp Native Acceleration</strong></h4></td>
+</tr>
+</tbody>
+</table>
+<p>Asetusten muutokset näkyvät <strong>Server Status</strong> -sivulla.</p>
+</div>
+<div id="raster-access" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> <strong>Raster Access</strong></h2>
+<p>Toisin kuin WMS-kuvapyynnöt, WCS-pyynnöt tuottavat mahdollisesti hyvin suuria kuvatiedostoja. Näissä tapauksissa kuvien lataaminen muistista ei ole hyvä ratkaisu, vaan olisi suotavaa käyttää väliaikaista tiedostoa.</p>
+<p><strong>Raster Access</strong> -asetukset määräävät GeoServerin toimintaa kuvapyyntöjen saapuessa. Saat asetukset näkyviin <strong>Settings → Raster Access</strong> -näkymästä:</p>
+<table style="width:65%;">
+<colgroup>
+<col width="65%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>##### <strong>Raster Access -asetukset</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><h4 id="imageio-cache-memory-threshold-kb"><strong>ImageIO cache memory threshold (KB)</strong></h4></td>
+</tr>
+<tr class="even">
+<td><h4 id="cpu-use"><strong>CPU Use</strong></h4></td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://lh5.googleusercontent.com/aExGq6pLjVb96e1v1UvZbKaPpzfjDE7DP8H8AT-KrUnXEelLMlK5osC18TScKcdu9ve9p59emyPc400oFVoWna82jjlouUMQOYjR_csBWOcklF1kigvlEDREwtI_t45vXSeAICwu0Dl83gTSb5XSnQ" /></p>
+<p><strong>Server Status</strong> -näkymän lopussa on palvelimeen liittyviä asetuksia:</p>
+<table style="width:53%;">
+<colgroup>
+<col width="52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>##### <strong>Muut palvelimen asetukset</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><h4 id="update-sequence"><strong>Update Sequence</strong></h4></td>
+</tr>
+<tr class="even">
+<td><h4 id="resource-cache"><strong>Resource cache</strong></h4></td>
+</tr>
+<tr class="odd">
+<td><h4 id="configuration-and-catalog"><strong>Configuration and catalog</strong></h4></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="geoserverin-loki" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> <strong>GeoServerin loki</strong></h2>
+<p>Tutustutaan GeoServerin lokin sisältöön ja sen asetuksiin suorittamalla pyyntöjä palvelimeen käyttäen esikatselun toimintoa.</p>
+<p>Avaa erilliseen selainikkunaan jonkun tason esikatselu (<strong>Layer Preview</strong>) ja pidä karttaikkuna auki.</p>
+<p>Avaa eri selainikkunaan <strong>Settings → Global</strong> näkymää oikeasta palkista.</p>
+<p>Avaa kolmanteen selainikkunaan GeoServerin lokien esikatselu (<strong>GeoServer Logs</strong>).<img src="https://lh6.googleusercontent.com/F_oKajg_wBpuM1deL12niJQKLySlKUwWtUi7UZi_BGvdHTJyvyOs0jXMu6TUlRW3ssKdpawlhYJNa0EsQx0DJuV_pbfz_8em43InVU3Q2fUit7W4uCJk5xhw9kAOtixtVVJ1KJGGl492KuSNoB4wtg" /></p>
+<p>Tutustu asetuksiin kouluttajan ohjauksella sekä lukemalla lisää tietoa asetuksista Geoserverin manuaalista (<strong>Web Administration Interface → Server → Global Settings</strong>). Avaa manuaali erilliseen selainikkunaan.</p>
+<p>Suorita nyt muutamia toimintoja (zoom in, zoom out, pan) karttaikkunassa. </p>
+<p>Tarkista tuliko lokeihin mitään: paina <strong>Refresh</strong>, niin uusimmat rivit lokitiedostosta tuleva näkyville. Voit myös vähentää lokirivien määrää (<strong>Maximum console lines</strong>).</p>
+<p>GeoServerin asennuksessa on valmiina ladattuja erilaisia loki-profiileja, jotka raportoivat erilaisia tietoja lokiin.<img src="https://lh5.googleusercontent.com/n8O89QRr5TYYwVa9A9tpAbx8Z1GQzOhGi3zqqQEFyQeoplVFQH6gMRz-_plhg7gUSsDs8wDSRA9CCYrZ7VubulYvO8a0HkjUZjlye65jTtcTdlto0ldSGEum60Ohb4s1yfPMidv1rlPKBWOXFSNybw" /></p>
+<p>Voit nyt vaihtaa erilaisia lokitus profiileja ja havainnoida toimintojen aiheuttamat vaikutukset lokitiedostoihin. Kokeile asettaa profiiliksi VERBOSE_LOGGING.properties ja liikuttele karttaa. Päivitä tämän jälkeen loki (refresh) ja katso mitä rivejä lokiin on ilmestynyt.</p>
+</div>
+<div id="rest-apin-toimintaa" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> <strong>REST API:n toimintaa</strong></h2>
+<p>GeoServerin palvelimen asetuksia on mahdollista hallita myös REST-rajapinnan kautta.</p>
+<p>Voit tarkistaa REST-rajapinnan kautta saatavilla olevat aineistot kirjoittamalla seuraavan osoitteen web-selaimeen (käytä oman palvelimesi ip-osoitetta):</p>
+<table>
+<thead>
+<tr class="header">
+<th><a href="http://" class="uri">http://</a><strong>oma-ip-osoite</strong>:8080/geoserver/rest/workspaces/</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>Etsi tiedot edellisissä harjoituksissa luoduista karttatasoista.<img src="https://lh6.googleusercontent.com/sQy53lRRvI3NAxN8SBiaDb1QC_3JmbpBC7wEcgxXWnVrLmsK6t4BwPLI6zb7vL1tzKVuYwgZg6Vc-_W8bJ1PPzTG-nkuGdLLIA8GG58ybdfuXwkVZiueNwc7K9MBpS8ELyizZuD5jpFhYStY9ZqXRg" /></p>
+<p>+——————————————————————————————————–+
+| ##### <strong>Kuinka toteuttaisit uuden kuvaustekniikan tallentamisen GeoServeriin REST-rajapinnan avulla?</strong> |
++========================================================================================================+
++——————————————————————————————————–+</p>
+<p>+———————————————————————+
+| ##### <strong>Psst! Tutustu REST API:n kuvaukseen GeoServerin ohjeessa.</strong> |
++=====================================================================+
++———————————————————————+</p>
+</div>
+<div id="monitor-lisäosan-käyttö" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> <strong>Monitor-lisäosan käyttö</strong></h2>
+<p>GeoServerin <strong>Monitor</strong>-lisäosa on valmiiksi asennettu koulutus palvelimiin ja se näkyy päävalikosta alapuolelta.</p>
+<p>Avaa <strong>Monitor → Activity</strong>.</p>
+<p>Kokeile esikatsella eri tasoja ja katso sen jälkeen <strong>Monitor → Activity → Daily</strong>-osiosta järjestelmän aktiviteettigrafiikkaa, jonka pitäisi näyttää seuraavanlaiselta:<img src="https://lh3.googleusercontent.com/LXw6t-Q3tCVBJ3iixQeGSWb84G3EIVJRgS5wv1MKLblvNmEB0ULRDQvlIR8LdL92rBB6ap6uvxYLjn7-41vmickXX20VTk-RKgQ9BzREBTAPmHQm7zbPNKm03v7xNBYLA611QUhmZFOz1UtSDYv-Vg" /><img src="https://lh3.googleusercontent.com/x1mZIWOjI4Y7AoVxey7zNkMsHtLUV8wMsfsrWYAzzm7-5gf9sK_5cngJt0hhfoW5OgmUDkvfdoLugBf6VWzGbeo3SKp4tXUFUU4mpEftfntfv02vona-C8hKZx-aotnSd4esuvYAIqa90PqH8ZGRhQ" /></p>
+
+</div>
 </div>
 <p style="text-align: center;">
+<a href="2-harjoitus-i.1-asennus-ja-käyttöönotto.html"><button class="btn btn-default">Previous</button></a>
+<a href="4-harjoitus-ii.4-css-kuvaustekniikka.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>

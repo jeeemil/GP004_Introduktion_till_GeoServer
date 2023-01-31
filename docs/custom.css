@@ -204,6 +204,15 @@ h5 { font-size: 100% !important; }
     margin-top: 2em;
 }
 
+/* Tables */
+table {
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #434662;
+    padding: 0.4em
+  }
+
 /* Buttons */
 
 .btn {

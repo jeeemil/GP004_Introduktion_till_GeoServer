@@ -7,7 +7,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="Page not found | Johdanto GeoServerin käyttöön" />
+<meta property="og:title" content="9 HARJOITUS I.4: KUVAUSTEKNIIKAN PERUSTEET (SLD) | Johdanto GeoServerin käyttöön" />
 <meta property="og:type" content="book" />
 
 
@@ -19,9 +19,9 @@
 <meta name="date" content="2023-01-31" />
 
 
-<meta name="description" content="Page not found | Johdanto GeoServerin käyttöön">
+<meta name="description" content="9 HARJOITUS I.4: KUVAUSTEKNIIKAN PERUSTEET (SLD) | Johdanto GeoServerin käyttöön">
 
-<title>Page not found | Johdanto GeoServerin käyttöön</title>
+<title>9 HARJOITUS I.4: KUVAUSTEKNIIKAN PERUSTEET (SLD) | Johdanto GeoServerin käyttöön</title>
 
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
@@ -240,13 +240,162 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="harjoitus-i.4-kuvaustekniikan-perusteet-sld" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> HARJOITUS I.4: KUVAUSTEKNIIKAN PERUSTEET (SLD)</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa käsitellään eri aineistoille sovellettavia kuvaustekniikoita ja hyödynnetään SLD-tyylejä karttojen visualisointiin.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Harjoituksen jälkeen opiskelija osaa hyödyntää peruskuvaustekniikoita GeoServerillä eri aineistojen visualisointiin, käyttäen SLD-kieltä.</p>
+<p><strong>Arvioitu kesto</strong></p>
+<p>40 minuuttia.</p>
+<div id="valmistautuminen-6" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> <strong>Valmistautuminen</strong></h2>
+<p>Käynnistä koneessa web-selain ja kirjaudu osoitteeseen:</p>
+<p>Aiemmissa harjoituksissa on luotu GeoServerin palvelimelle taso <strong>rakennukset</strong>, johon luodaan nyt kuvaustekniikka.</p>
+</div>
+<div id="geoserverin-kuvaustekniikka" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> <strong>GeoServerin kuvaustekniikka</strong></h2>
+<p>WMS-palvelut visualisoivat karttakuvia GeoServerissä ennalta määritetyillä kuvaustekniikoilla. Tähän asti olemme käyttäneet oletuskuvaustekniikoita aina lisättyämme uusia aineistoja, esimerkiksi kun olemme esikatselleet jotain tasoa.</p>
+<p>Avaa päävalikosta <strong>Layers</strong>-näkymä ja <strong>rakennukset</strong>-taso. Avaa sitten <strong>Publishing</strong>-välilehti.<img src="https://lh5.googleusercontent.com/Q2gO9tkzFyhGNzkMskQMP4Y5CtOEnYtTXbVk_DuqPcMtNYGGRYqVJ5AoAsYbLh4F6rZ2oG_679DWscGCvwo45QW8i_5jfgYYji80Do4sl7_e4M_boUBP_MMoytFAuG8LgueYiMClbQSQnvWrzNshd7xpD-6DmbdzTEwVIhcp5mZMVAKdZdmWvAgHDVZ6" />Huomaa, että <strong>WMS Settings</strong> -kohdasta löytyy <strong>Default Style</strong> -valikko, johon on valittu <strong>polygon</strong>-kuvaustekniikka.</p>
+<p><br />
+<img src="https://lh4.googleusercontent.com/uMbyiuQjPvbfMkzw1d59jk-eqR-jjHQ1NN6V0zdGMajg80_yNvfpJEi-Gop2MGkRHS10EfgqROuT-4TqsORuXgQrpgpe_US3cc_qdu8DC5JG6R3piPTI86hGzPU86KsAJCFPH1GyOIl_7IymdVNiJuxOdfDYEzTyfUOPD-CU9IdkxvHUHKH9wxp_cHnF" /></p>
+</div>
+<div id="sld-kuvaustekniikka" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> <strong>SLD-kuvaustekniikka</strong></h2>
+<p>Geoserverin tyylit on määritelty <strong>Styled Layer Descriptorilla</strong> (SLD), joka on XML-kieli.</p>
+<p>Poistu tason näkymästä ja avaa <strong>Data → Styles</strong> näkymä päävalikon alta. Tässä näkymässä määritellään tyylit (kuvaustekniikat), joita WMS-karttatasoissa käytetään.</p>
+<p>Listalla on parikymmentä tyyliä valmiina, jotka tulevat GeoServerin asennuksen mukana. Katsotaan aluksi, miltä <strong>rakennukset</strong>-tason käyttämä polygon-tyyli näyttää. Avaa se painamalla <strong>polygon</strong>-kohtaa. <img src="https://lh4.googleusercontent.com/7wmSU1hD0Z7JlVaxlQJ4HefWYL2H724vJQ3pWYQUFIyBdrXS7N98tT9ea1riMoyiUjAvXyw5X3UWRtWyADhntwdsPVhFSqPDxN7Dx5rp8y7h--QV8z863XLjG4JXXn4zBkyrg1ejP3rxC3Xs3lFARZ-Lb3gCjqgFfQs4jxqP_BeWf-QPErOz-UXjB1AC" /></p>
+<p>Huomaa, että <strong>Format</strong> on <strong>SLD</strong>. Tutustu nyt tyylin koodiin: se muistuttaa verkkosivujen HTML-koodia. Siinä voit tunnistaa muun muassa <strong>&lt;Fill&gt;</strong>-ja <strong>&lt;Stroke&gt;</strong>-tagit, jotka määrittelevät monikulmion täyte- ja rajaviivan värejä.</p>
+<p>Koodin toimivuutta voi kokeilla <strong>Validate</strong>- ja selitteen esikatselua <strong>Preview legend</strong> -toiminnolla.</p>
+<p>Palaa <strong>Styles</strong>-näkymään painamalla <strong>Cancel</strong>.</p>
+</div>
+<div id="uuden-tyylin-luominen" class="section level2" number="9.4">
+<h2><span class="header-section-number">9.4</span> <strong>Uuden tyylin luominen</strong></h2>
+<p>Laaditaan nyt oma kuvaustekniikka Helsingin rakennukset -aineistolle.</p>
+<p><strong>Data → Styles</strong> näkymässä, lisää uusi SLD-tyyli painamalla <strong>Add a new style</strong>.</p>
+<p>Anna uudelle tyylille nimeksi <strong>oletus_polygoni</strong>. Valitse workspace:ksi <strong>helsinki</strong>.</p>
+<p><img src="https://lh4.googleusercontent.com/XxjyA0U7pn2_WEh1v6UPLBM1mCIlEES0WI1InkbQWn0yT60DyoA4HpU0Zmb59RpuBx8kB7rrmC1qbeg6qQ_LcsAHmgMRyntLC6Sx4yvti7AvlQntmky0nRfmM1P-34DYavZ1dHoN1hX3Be7w2OxI-p0BtZ7LAY3OHizXaRkIncGywFwkiqAcrklS112j" /></p>
+<p>Helpottaakseen omien tyylien kirjoittamisen aloittamista, SLD-koodikentän täyttämiseen voidaan valita malliksi GeoServerin oletustyylit tai kopioida olemassa oleva tyyli.</p>
+<p>Valitse <strong>Generate a default style</strong> -alasvetovalikosta <strong>Polygon</strong> ja paina sen jälkeen <strong>Generate…</strong><img src="https://lh6.googleusercontent.com/rYMJ-o4f3bHqKVOOauv6-Rw7M_zK55QqRoDax0DAzlKk_G4oeD0R0PehdQ1yEtVhuHRJ1BC_WHde4uuNisZYEHkqdChtslc_cjJhgQNYZC5YDpAj5HG1rXiu6cRF0aatwZ_4qj1N3fpP7l5z1HvbXGO5MKPVbgmeRSLOK3lICyyHZbWz__dJx-xB3N9w" /></p>
+<p>Voit nyt testata SLD-koodia <strong>Validate-</strong>toiminnolla. Testauksen onnistuminen näkyy ilmoituksena sivun yläpuolella.</p>
+<p><img src="https://lh4.googleusercontent.com/dRtlhVHLDvQ5KbAQOuT5RbgFhyMlToHReQhUSVO_lmEVjUbDDKd6D0VL4tMTshvjAILOc9Q2yEp2IN_rkVT4gjcLF5QwLNmekfJg4rO7Uw_8tWt66bWRuODjl4WulLYkLX9M_zcVfSbSgAmW9sHU77lsflE6IbRysO8XfTl1sFOjatL0aNDM6-XB6UjC" /></p>
+<p>Tallenna muutokset painamalla ensin <strong>Submit</strong>.</p>
+</div>
+<div id="sld-kuvaustekniikan-käyttöönotto" class="section level2" number="9.5">
+<h2><span class="header-section-number">9.5</span> <strong>SLD-kuvaustekniikan käyttöönotto</strong></h2>
+<p>Kun uusi tyyli on luotu, voimme käyttää sitä aineistojen visualisoinnissa, esimerkiksi Helsingin rakennuksien esittämiseen kartalla. Sitä varten ilmoitamme GeoServerille, millä tyylillä <strong>rakennukset</strong>-taso on piirrettävä.</p>
+<p>Avaa <strong>rakennukset</strong>-tason editointinäkymä päävalikosta <strong>Data → Layers</strong>. </p>
+<p><strong>Publishing</strong> välilehdellä valitse <strong>Default Style</strong> -valikosta uusi <strong>oletus_polygoni</strong>-tyyli.</p>
+<p>Paina sitten <strong>Save</strong>.</p>
+<p><strong>Data → Layer Preview</strong> näkymästä voit nyt esikatsella <strong>rakennukset</strong>-tasoa, uusi tyyli on nyt käytössä.<img src="https://lh6.googleusercontent.com/68kaqvJIupXeyrknLs9el2tADO2DWw1_bDgSnXTh1XghsFBqF3tsKvfc2yi-citjq2P1VApIDIBmuDA1I_cfXXhf1Cr7ufX5FWn6qnFmAEt6UnjxrvYDzKP0H1BIk9hqrbSzXT-gmRZYFDMHdoCVn42Mws8JW2AAH9dpzlLHPU3tss09ycBjuFLoluaT" /></p>
+</div>
+<div id="sld-cookbook" class="section level2" number="9.6">
+<h2><span class="header-section-number">9.6</span> <strong>SLD Cookbook</strong></h2>
+<p>Kannattaa tutustua SLD-tyylien kirjoittamiseen SLD Cookbook -sivuilta. SLD Cookbook on osa GeoServerin verkkodokumentaatiota ja sisältää erilaisia kuvaustekniikkaesimerkkejä.</p>
+<p>Käytetään seuraavaksi pohjana uuteen tyyliimme esimerkkiä <strong>SLD Cookbookista</strong>. </p>
+<p>Avaa uudessa selainikkunassa GeoServerin SLD Cookbook alla olevasta linkistä (tai voit etsiä selaimella Googlesta “geoserver sld cookbook”). Etsi <strong>Polygon with styled label</strong> -kohta ja paina sitä:</p>
+<div class="note-box">
+<p><a href="http://docs.geoserver.org/stable/en/user/styling/sld/cookbook/" class="uri">http://docs.geoserver.org/stable/en/user/styling/sld/cookbook/</a></p>
+</div>
+<p>Löydät lyhyen esityksen kuvaustekniikasta ja SLD-koodin. Tutustu lyhyesti koodiin ja yritä löytää tärkeimmät elementit (tagit) kuten monikulmion viivan ja täytön värit sekä tekstien fonttimääritelmät. Voit kirjoittaa muistiinpanoja tärkeimmistä elementeistä ja määritelmistä harjoituksen viimeiselle sivulle.</p>
+<p>Esimerkissä <strong>&lt;Stroke&gt;</strong>-koodissa on määritelty reunaviivan väri ja paksuus.</p>
+<p><strong>&lt;TextSymbolizer&gt;</strong> sisältää tekstitysominaisuudet eli labelit (kartan kohteiden, esimerkiksi katujen nimet) kuten <strong>&lt;Label&gt;</strong>, joka määrittää tekstejä varten käytettävän kentän/sarakkeen  ominaisuustiedoista.</p>
+<p>Tavanomaisen SLD-kielen lisäksi tämä mallikoodi sisältää kaksi GeoServerin omaa lisäosaa, joita käytetään SLD:ssä tekstien sijoittamiseen. Tunnistat tällaiset kohdat koodista <strong>&lt;VendorOption...&gt;</strong>-tageista.</p>
+<p>Etsi SLD-tyylien esimerkkisivuilta <strong>View and download the full “Polygon with styled label” SLD</strong> -linkki, avaa se uudessa ikkunassa ja tallenna kyseinen sivu .sld-tiedostona, käyttämällä selaimen tallennus (save as / tallenna nimellä) toimintoa. Anna tiedostolle nimi, jonka muistat vielä myöhemmin (esimerkiksi polygon_polygonwithstyledlabel.sld).</p>
+<p>Palaa nyt GeoServerin käyttöliittymään ja paina koodilaatikon alta <strong>Browse</strong>. Etsi äskettäin ladattu SLD-tyyli levyltä ja paina lopuksi <strong>Upload</strong>.<img src="https://lh5.googleusercontent.com/aSY-d3KVncXnL2B9QRjPpuVJp8CgCJ9EhIJmen38mYydfx70Gt37oCzJflhXharlT5xCR0D-lSMc2R3U-6O0BlbGVyGOQHISRzLB0fWlNh8KSBRw7s1a-NomoPqy0K8Dp7TTyJMvNQ9PsNfbFkCMElEhf_nk9ROl2K0DP8yR_WdFpW-TJyh-DDaox5fI" /></p>
+<p>Anna uudelle tyylille nimeksi <strong>rakennukset</strong>. Valitse <strong>helsinki</strong> workspace:ksi.</p>
+<div class="hint-box">
+<p>Psst! Huomaa, että jos olit aiemmin määritellyt tyylin nimen ja workspacen, GeoServer mahdollisesti korvaa niitä kun lataat .sld tiedostoa.</p>
+</div>
+<p>Voit nyt testata SLD-koodia <strong>Validate-</strong>toiminnolla. Voit esikatsella karttamerkkien selitettä painamalla <strong>Preview legend</strong>.</p>
+<p>Muokkaa vielä monikulmion SLD-tyyli seuraavasti:</p>
+<ul>
+<li><p><strong>Täyteväri</strong> (PolygonSymbolizer → FILL) vaaleanpunaiseksi (#FFCC99)</p></li>
+<li><p><strong>Reunaviivan väri</strong> (PolygonSymbolizer → Stroke) mustaksi (#000000)</p></li>
+<li><p><strong>Reunaviivan paksuudeksi</strong> 0.5</p></li>
+<li><p><strong>Aseta</strong> ensimmäisellä rivillä encoding=“UTF-8”</p></li>
+</ul>
+<div class="hint-box">
+<p>Psst! Huomaa, että GeoServerissä desimaalierottimena toimii ainoastaan piste “.”. Tämä pätee kaikissa GeoServerin asetuksissa.</p>
+</div>
+<p>Tallenna sitten muutokset painamalla ensin <strong>Submit</strong>.</p>
+<p>Lopuksi vaihda <strong>rakennukset</strong>-tasolle tyyliksi <strong>rakennukset</strong>-tyyli (<strong>Data → Layers → rakennukset → Publishing</strong>).<img src="https://lh4.googleusercontent.com/-pnzXwZv9wY6_slXUvlVn2NyCzOrmTalEQpR_kOP08mYihQhNvNZcN9wM00BKxDz66vpA3FJayUCi2skI0ACVEKeOumbPakGZoe77L9fDblA8TrgcbJgUuypKT7VnjxsElm25uRCOt2h8Goy05-DA3CqtGDnwdOVizaU1axXxukkYt2qRZBseU8Use0G" /></p>
+</div>
+<div id="sld-kuvaustekniikan-muokkaaminen" class="section level2" number="9.7">
+<h2><span class="header-section-number">9.7</span> <strong>SLD-kuvaustekniikan muokkaaminen</strong></h2>
+<p>Lisätään vielä teksteille puskuri (halo), niin tekstiä on helpompi lukea.</p>
+<p>Palaa <strong>Styles</strong>-näkymälle ja valitse taas <strong>rakennukset</strong>-tyyli. Poista SLD-koodista <strong>&lt;TextSymbolizer&gt;</strong>-tagin sisältä:</p>
+<div class="code-box">
+<p>+———————————————————+
+| &lt;Fill&gt; |
+| |
+|    &lt;CssParameter name=“fill”&gt;#000000&lt;/CssParameter&gt; |
+| |
+| &lt;/Fill&gt; |
++=========================================================+
++———————————————————+</p>
+</div>
+<p>ja korvaa sen tilalle:</p>
+<div class="code-box">
+<p>+————————————————————–+
+| &lt;Halo&gt; |
+| |
+|    &lt;Radius&gt;3&lt;/Radius&gt; |
+| |
+|     &lt;Fill&gt; |
+| |
+|         &lt;CssParameter name=“fill”&gt;#FFFFFF&lt;/CssParameter&gt; |
+| |
+|     &lt;/Fill&gt; |
+| |
+| &lt;/Halo&gt; |
++==============================================================+
++————————————————————–+</p>
+</div>
+<p>SLD-koodi ikkunassa näyttää tältä:
+<img src="https://lh6.googleusercontent.com/g_4iv_mKEzttrbwJxCWGhVrsj8k6UcNumuGuXIp_1_LU_A8TQAa9Plc9FIuSiAWE2iCHFKZEA6XuIlUnZWeF6Jfx0ObaymaNOAiMmbJQ_latp17MIDVvbhElNXC8VXNjB55hgWcvzFdq3iuQ4cGxph0FfgexjHhAcMnLDQBoYTRvlfdf9VhttBMGGK-F" /></p>
+<p>Paina sitten <strong>Validate</strong>.</p>
+<p>Jos koodin käytössä tulee virheilmoituksia tai se ei toimi, pyydä kouluttajalta apua. Muuten paina <strong>Submit</strong>, niin tyyli tallentuu.</p>
+<p>Päivitetty tyyli on heti käytössä palvelimella ja sitä voi esikatsella <strong>rakennukset</strong>-tason avulla. Selainikkunan voit päivittää painamalla <strong>F5</strong>-näppäintätai <strong>CTRL+R</strong>-näppäimiä.</p>
+<p><img src="https://lh6.googleusercontent.com/CIVWe-X8z4V0Gc6mJUHil9KsDg712M7fV4PWha4WV6ufVsELwXKWUt24HYuyT0KMg3oNcfZvuiQUR7Q5-bF65BfmTQJysFt9Uyh9rRM-8n92jv6_j2gTpTv0Tgfo6IkVB7trOxigdRyaD2Ew_PwPWGIyuPVOttjuz1cWWrcVKkF8npDybNh2BH1mMqvp" /></p>
+<p>Osoitteessa <a href="http://colorbrewer2.org/" class="uri">http://colorbrewer2.org/</a> voi tutustua erilaisiin visualisointityyleihin ja valita  sopivia värejä visualisointiin.</p>
+</div>
+<div id="tiestön-tyylin-luominen" class="section level2" number="9.8">
+<h2><span class="header-section-number">9.8</span> <strong>Tiestön tyylin luominen</strong></h2>
+<p>Luo nyt uusi tyyli, jota tullaan käyttämään tiestön kuvaamiseen.</p>
+<p>Samalla tavalla kuin aiemmin, käytä hyväksi GeoServerissa olemassa oleva tyyli. <strong>Tiger_roads</strong>-tyyli sopii tiestön kuvaamiseen. Esikatsele tiger_roads-tasoa.<img src="https://lh6.googleusercontent.com/p-4evIghL3ftHMOO7-EequtfG3XlLRhwl91tT6yxIGnkskz0FDn70W6vd0rlybgI2F2zbdIckQKVvMdvXJAS6u5OvK1BaueqYSWk41Uj_udXSwr0JfDONOgxdXRbXukRAEOypNi57xJ8hTHjRcW-mqe_aVtjkuHGQlVb_9pXuzEvL1HWj7zokJE5rnbC" /></p>
+<p>Kadut on kuvattu leveinä valkoisina kaistoina kun karttaa lähennetään tarpeeksi. Tehdään seuraavaksi samankaltainen tyyli aikaisemmin julkaistua tiesto-aineistoa varten.</p>
+<p>Luo uusi tyyli (<strong>Data → Styles → Add a new style</strong>), nimeä se <strong>tiesto</strong>. Kopioi <strong>simple_roads</strong> tyyli.</p>
+<p>Etsi <strong>&lt;Rule&gt;</strong> kappaleen sisällä oleva <strong>&lt;Title&gt;</strong> ja lisää sen alle:</p>
+<div class="code-box">
+<p>&lt;MinScaleDenominator&gt;32000&lt;/MinScaleDenominator&gt;</p>
+</div>
+<p><img src="https://lh3.googleusercontent.com/ncvreQGdEvYvGZhZWpw79FxdC4gsRHh3xeTzBmQNowkzzcvL1kUFELqxx2EZMmqj71YAkB7c8b4o6DlPY_pAjcEMkHRzFztkRCJPMJMHxWlZOdOzIww081Z7oijAeG6760Q2TV0P9XX42zJlyJsh8iTTnGQ2afM2RG1jymspaR3fTeVt-9iGevQ_T_V4" /></p>
+<p>Paina sitten <strong>Submit</strong>.</p>
+<p>Aseta vielä tiesto-tason oletustyyliksi <strong>tiesto-tyyli</strong>. (<strong>Data → Layers → helsinki:tiesto → Publishing</strong>).<img src="https://lh6.googleusercontent.com/2BOqTpMR8oapUF8sqTUgCJMxPmhwRMKCdZcI5WLvoUkuY4_nDnoOXpMbddZHQ10Mmp4Lu4ZfK-6VrtViehe3LqWyr9rfr0l0w_4CXRkoVGbTIw7QslwfPuriIlitfh4xEE1VxmMcjpdNCpUgj7jNiBsc5lSeNGVl1GIJYF_iHao947MOTbMokbWFzqZs" /></p>
+<p>Paina <strong>Save</strong> ja esikatsele tasoa. Huomaa, että kun loitonnat karttaa siten että mittakaava on pienempi kuin 1:32 000, tiet eivät enää tule näkyviin.</p>
+<p>Lisätään nyt tiet myös mittakaavaan 1:32 000 ja suuremmille. Tämä onnistuu luomalla <strong>&lt;Rule&gt;</strong>-osio, jossa maksimimittakaava (<strong>&lt;MaxScaleDenominator&gt;</strong>) on määritelty <strong>32000</strong> arvoksi.</p>
+<p>Voit hyödyntää edellisen sääntö osiota: kopioi koko <strong>&lt;Rule&gt;</strong> kappale. Lisää se <strong>&lt;/Rule&gt;</strong> jälkeen.<img src="https://lh6.googleusercontent.com/T4BVdR1Q-ImpuqWflSoQJBEjWfhV4z5VyL1cuPnGJmirmCJEAw73Et-qhvACT-ob00MJIcgwfrcdCSj8tnZP5kA2GnG-EZ5DHSrwfo5NYHdDXgeDregbVwCqz3yzArJSnw9o0mKHXeL37KIEekND_ji6h5hLaoERySPtMwvv-ykqgdkui5ij8bczmLP9" /></p>
+<p>Muuta vielä:</p>
+<div class="code-box">
+<p>&lt;MinScaleDenominator&gt;32000&lt;/MinScaleDenominator&gt;</p>
+</div>
+<p>... tällaiseksi:</p>
+<div class="code-box">
+<p>&lt;MaxScaleDenominator&gt;32000&lt;/MaxScaleDenominator&gt;</p>
+</div>
+<p>Vaihda viivan väri harmaaksi <strong>#666666</strong>, otsikoksi <strong>Paksu viiva</strong> ja paksuudeksi <strong>7</strong>.<img src="https://lh4.googleusercontent.com/F6romb2d9q5LqMrYU5IqdVJw-ZhncAMVSXpGhwIBy3OQz8DVwHpi0SU4XP_5DiMRaljQiVNKBEkQORz9IMjQp37ub-gZRMtBsJB_534fG1yObFPo8VV08r8EDLdwYPs2cs8oFoIgRh1n8CHctMcAAikgWhJwRTNIKxyfaTTZNsRlB5eh4o7kNf8x9XBh" /></p>
+<p>Paina <strong>Submit</strong> ja esikatsele.Huomaa, että nyt kun lähennät karttaikkunaa (suurennat mittakaavaa), niin teiden väri ja paksuus muuttuu.</p>
+<p>Lisätään vielä täyteväri viivoille lisäämällä uusi sääntö. Kopioi edellinen <strong>&lt;Rule&gt;</strong> -koodi kappale (jolla on &lt;MaxScaleDenominator&gt;32000&lt;/MaxScaleDenominator&gt;) ja liitä se kopioidun kappaleen jatkoksi.</p>
+<p>Muuta taas otsikko, väri ja paksuus kuvan mukaisesti:<img src="https://lh5.googleusercontent.com/qX-grGsOsPeKkRldMzei_KVhC-59tGFgmYiFQWQgRsoID68wDYvzGHhYKoRUnEG10O9eP4sTUL_r124LN6qCziiVZ6Cg5D9r60efl6n-3rj4O1SZV7v14WKdSB6Po0cSvVVPNJVod9hmxHeCQoN-KYj7BUXExYOnxNwF6SxKFkPaRM-yhy897P87ZMz-" /></p>
+<p>Tämä viiva tulee piirretyksi edellisen paksumman viivan päälle, josta aiheutuu viivareunan efekti.</p>
+<p>Esikatsele lopputulosta:<img src="https://lh4.googleusercontent.com/DCU26UVSxVUrf2WgbcUztS6eVEYTiAZVpj0UDi_CF80OPoiRxANd0F3zSedlCVBiIY6aXDHZK2lZE-m2o5jZfuG8R_Hc7IcWLvSzIqQ20XD-eaZ2tffYkIVoPJbJARH6oDoUwRWpu_ORcvrhU--fzTVU6gYH3AKs2me5e8BeQ45UIu1BJ2QDhALNdsn4" /></p>
+
+</div>
 </div>
 <p style="text-align: center;">
+<a href="8-harjoitus-i.3-vektoriaineistot.html"><button class="btn btn-default">Previous</button></a>
+<a href="10-harjoitus-i.5-wms--ja-wcs-palvelut.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>

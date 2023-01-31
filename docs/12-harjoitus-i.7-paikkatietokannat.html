@@ -7,7 +7,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="Page not found | Johdanto GeoServerin käyttöön" />
+<meta property="og:title" content="12 HARJOITUS I.7: PAIKKATIETOKANNAT | Johdanto GeoServerin käyttöön" />
 <meta property="og:type" content="book" />
 
 
@@ -19,9 +19,9 @@
 <meta name="date" content="2023-01-31" />
 
 
-<meta name="description" content="Page not found | Johdanto GeoServerin käyttöön">
+<meta name="description" content="12 HARJOITUS I.7: PAIKKATIETOKANNAT | Johdanto GeoServerin käyttöön">
 
-<title>Page not found | Johdanto GeoServerin käyttöön</title>
+<title>12 HARJOITUS I.7: PAIKKATIETOKANNAT | Johdanto GeoServerin käyttöön</title>
 
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
@@ -240,13 +240,171 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="harjoitus-i.7-paikkatietokannat" class="section level1" number="12">
+<h1><span class="header-section-number">12</span> HARJOITUS I.7: PAIKKATIETOKANNAT</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa lisätään aineistoja GeoServeriin tietokantalähteestä.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Harjoituksen jälkeen opiskelija osaa yhdistää paikkatietokannan tietoja GeoServeriin ja julkaista sillä niiden aineistoja.</p>
+<p><strong>Arvioitu kesto</strong></p>
+<p>30 minuuttia.</p>
+<div id="valmistautuminen-9" class="section level2" number="12.1">
+<h2><span class="header-section-number">12.1</span> <strong>Valmistautuminen</strong></h2>
+<p>Käynnistä koneessa web-selain ja kirjaudu osoitteeseen:</p>
+<p>Palvelinkoneeseen on asennettu PostgreSQL-tietokanta ja sen PostGIS-laajennos. Tietokantaan on ladattu valmiiksi erilaisia vektoriaineistoja.</p>
+</div>
+<div id="yhteyden-muodostaminen-paikkatietokantaan" class="section level2" number="12.2">
+<h2><span class="header-section-number">12.2</span> <strong>Yhteyden muodostaminen paikkatietokantaan</strong></h2>
+<p>GeoServer tukee useimpia paikkatietokantoja, kuten PostGIS, ArcSDE, Oracle ja Microsoft SQL Server. </p>
+<p>PostGIS-paikkatietokannat ovat hyödynnettävissä automaattisesti GeoServerin oletusasennuksien kautta. Muiden tietokantojen tuki asennetaan lisäosien kautta.</p>
+<p>Koulutusympäristöön on asennettu valmiiksi PostGIS-tietokanta, josta löytyy valmiina erilaisia vektoriaineistoja. Aineistot ovat <strong>Helsinki Region Infoshare</strong>, <strong>Jyväskylän yliopiston avoimen datan palveluista</strong> ja <strong>OpenStreetMap -kartta-aineistosta</strong> (geofabrik.de-palvelusta).</p>
+<p>Kuten muiden aineistojen kanssa, jotta aineistoja voidaan käyttää GeoServerissa, niihin on viitattava luomalla sopiva store.</p>
+<p>Luo uusi store (<strong>Data → Stores → Add new Store</strong>).</p>
+<p>Valitse formaatiksi <strong>PostGIS - PostGIS Database</strong>:<img src="https://lh6.googleusercontent.com/ZWmATLifFJkmO8MLthcNhLM6qcSSWADBNd9r09JlKpk6WqSygQzWnTZXRRevKpo4XzymWiUA8hO0-6jcUM0WuOFLPjll9Cx6zc9LRDBIoaYh46v-wfUDAX2SXOL9P6C5bI9DLdL9fUSSMgz_8-RHnQ" /></p>
+<p>Valitse <strong>Workspaceksi</strong> tuttu <strong>helsinki</strong>-workspace ja nimeä se <strong>hki_lipas</strong> (<strong>Data Source Name</strong>).</p>
+<p>Täytä sitten PostGIS-tietokannan <strong>Connection Parameters</strong> -yhteysasetukset seuraavasti:</p>
+<table style="width:50%;">
+<colgroup>
+<col width="29%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>##### <strong>Dbtype</strong></th>
+<th>postgis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><h5 id="host"><strong>Host</strong></h5></td>
+<td>localhost</td>
+</tr>
+<tr class="even">
+<td><h5 id="port"><strong>Port</strong></h5></td>
+<td>5432</td>
+</tr>
+<tr class="odd">
+<td><h5 id="database"><strong>Database</strong></h5></td>
+<td>gs_training</td>
+</tr>
+<tr class="even">
+<td><h5 id="schema"><strong>Schema</strong></h5></td>
+<td>lipas</td>
+</tr>
+<tr class="odd">
+<td><h5 id="user"><strong>User</strong></h5></td>
+<td>postgres</td>
+</tr>
+<tr class="even">
+<td><h5 id="passwd"><strong>Passwd</strong></h5></td>
+<td>gispo</td>
+</tr>
+</tbody>
+</table>
+<p>Jätä loput asetukset oletuksiin ja paina lopulta <strong>Save</strong>.<img src="https://lh6.googleusercontent.com/gwGxTwINspKTuBVc0J5WT3BVudRd5z341uLRzpwA-FXvUjoCqGnxfcmeoM8MC4Kg5-EMnSCluXwG2sEc2QCjSniFYx6sIKRUnmknRjxtTl4s8cru9BxylsimSy17-JyWRX1eHK25uvPQmIKNbchHog" /></p>
+<p>Samalla tavalla kuin aiemmin, uuden tason luomisen näkymä tulee esiin automaattisesti storen luomisen jälkeen. Näkymässä on listattu kaikki tasot, jotka löytyvät kyseisessä tietokannassa.</p>
+<p>Aineistoon on nyt tehty viittaukset <strong>hki_lipas</strong>-storen kautta ja voit nähdä, mitä aineistoja se sisältää:<img src="https://lh5.googleusercontent.com/O56GKj7f3lxXpDCqe-S6QBvwf4oVDKlSo9sepikj2DiA-ziobs15r7-2pKOWDQM0YtdApYXXpZ8YBUsbrh4XYcavqldxendmv0GAyirMn9iAHe4f7_1vMxBrSa6dMo25lWRbt-1KRl8L1exsZVCjLg" /></p>
+</div>
+<div id="postgis-tason-lisääminen" class="section level2" number="12.3">
+<h2><span class="header-section-number">12.3</span> <strong>PostGIS-tason lisääminen</strong></h2>
+<p>Voit heti julkaista jonkin tason storen luomisen jälkeen painamalla <strong>Publish</strong>. Julkaise nyt <strong>pisteet</strong>-taso. Lipas on Jyväskylän yliopiston hallinnoima valtakunnallinen liikunnan paikkatietojärjestelmä.</p>
+<div class="hint-box">
+<p>Psst! Kun myöhemmin haluat julkaista muita tasoja hki_HRI-storesta se onnistuu päävalikosta Data → Layers → Add a new layers ja valitsemalla haluamasi store.</p>
+</div>
+<p>Tason editoinnin näkymässä, tason nimi ja otsikko on automaattisesti täytettynä. Pidä oletusnimet ja lisää halutessasi lisätietoja <strong>Abstract</strong>-kentälle.</p>
+<p>Tarkista, että <strong>Enabled</strong> ja <strong>Advertised</strong> ovat rastittuina.</p>
+<p>Kuten olet varmasti nyt huomannut, uuden tason asetukset ovat samanlaiset, oli kyseessä sitten shapefile-formaatti tai PostGIS-tietokanta.</p>
+<p>Katso vielä <strong>Coordinate Reference Systems</strong> -osiosta, että GeoServer on tunnistanut koordinaattijärjestelmäksi <strong>EPSG:3067</strong>. PostGIS ja GeoServer käyttävät EPSG-koodeja määrittääkseen koordinaattijärjestelmän, joten useimmiten koordinaattijärjestelmä tulee oikein määritellyksi automaattisesti.<img src="https://lh6.googleusercontent.com/HK14JBj6BTJZrb6v5yltMMZc1wlkuo6vo7cw0kglqceTJF9NCTl0hTBkbNifeGdORLdwAL78WufwZ34XTWV1T8FTcbJOqno70E3NwKV2YaNUltx7MNVVd2unmgzmt4uiBaEya0xewc1UQT8D4NakQQ" /></p>
+<p>Ennen kuin tallennetaan tason julkaisuasetukset, määritä tason <strong>Bounding Boxes</strong> samalla tavalla kuin aikaisemmin lisäämiesi aineistojen kanssa.<img src="https://lh6.googleusercontent.com/qR0rlhHsuGEKQ_nce9ABdGsjfXdzbFuiKFMDZwlPYFlvzSlBu0H2Je_kSTL0szDdl9Fi5jsDsA5LSPhHQScAk5wXvsfNEeT9vOuPGC2oJaFOtpUjc6bAeI_ucuXPTLnr9AukpMR0ZpeqBlltpBGJtA" /></p>
+<p>Paina lopulta <strong>Save</strong>. Voit esikatsella uutta tasoa <strong>Layer Preview</strong>:n kautta.<br />
+<img src="https://lh3.googleusercontent.com/mzmo186DzKMnkrC5WgnSQiXEPIXgonFoY8IVew9swmo3K7uQrhXt5UvT0u8-lvI9fPD-FjjZL-8P_l8_v4hM4uuGTawv-lMXGNs4AatStNTvBWdKhlRzqUuxkjslBLgyRq6XEFP9qOO2Rt3Of40zPA" /></p>
+</div>
+<div id="monikulmio--ja-viiva-tason-lisääminen-postgis-tietokannasta" class="section level2" number="12.4">
+<h2><span class="header-section-number">12.4</span> <strong>Monikulmio- ja viiva-tason lisääminen PostGIS-tietokannasta</strong></h2>
+<p>Lisää samalla tavalla vielä kaksi uutta tasoa PostGIS-tietokannasta:</p>
+<ul>
+<li><p><strong>lipas_kaikki_alueet</strong></p></li>
+<li><p><strong>lipas_kaikki_reitit</strong></p></li>
+</ul>
+<p>Muista, että saat tasoja lisättyä <strong>Data → Layers → Add new layer</strong> -toiminnon kautta ja valitsemalla <strong>helsinki:hki_lipas</strong> lähteeksi. Esikatsele sen jälkeen näitä tasoja tarkistaen niiden toimivuus.</p>
+<div class="hint-box">
+<p>Mitkä vaiheet ovat pakollisia tason julkaisemiseksi? Mitkä ovat tasojen koordinaattijärjestelmät ja niiden laajuudet?</p>
+</div>
+</div>
+<div id="tasojen-oletustyylien-asettaminen" class="section level2" number="12.5">
+<h2><span class="header-section-number">12.5</span> <strong>Tasojen oletustyylien asettaminen</strong></h2>
+<p>Vaihda lopuksi oletustyylit kyseisille tasoille käyttäen GeoServerin valmiita kuvaustekniikoita (default styles). Voit vaihtaa tason tyylin päävalikosta <strong>Data → Layers</strong> ja avaamalla haluamasi tason. Tyylit määritellään <strong>Publish</strong> välilehdestä. Käytä seuraavia tyylejä:</p>
+<table style="width:69%;">
+<colgroup>
+<col width="44%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>##### <strong>Taso</strong></th>
+<th>##### <strong>Tyyli</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><h4 id="lipas_kaikki_pisteet"><strong>lipas_kaikki_pisteet</strong></h4></td>
+<td>burg</td>
+</tr>
+<tr class="even">
+<td><h4 id="lipas_kaikki_alueet"><strong>lipas_kaikki_alueet</strong></h4></td>
+<td>giant_polygon</td>
+</tr>
+<tr class="odd">
+<td><h4 id="lipas_kaikki_reitit"><strong>lipas_kaikki_reitit</strong></h4></td>
+<td>simple_roads</td>
+</tr>
+</tbody>
+</table>
+<p>Voit vielä lopuksi tehdä aineistoista ryhmätason. Kuvassa on yhdistetty Helsingin taustakartta-ryhmätaso ja lipas-aineistot yhteen karttapalvelutasoon:<img src="https://lh6.googleusercontent.com/3rjXXSdFd-YlsQ7-LLM90CrkKYz3LMbJQS6UasWjSTqnNeBkHgpKYQDY0jp-CF-k9Ip6lsbMJ1tj_9yJ6WtpUrCtMmPCe0Cc4L3xD9ODiDre5JEcmx-jejGpjNfsNE5mVnwX5N5wTJ5c-gIhjpQGeQ" /></p>
+</div>
+<div id="sql-näkymät" class="section level2" number="12.6">
+<h2><span class="header-section-number">12.6</span> <strong>SQL-näkymät</strong></h2>
+<p>GeoServerin avulla voidaan hyödyntää myös SQL-kyselyitä paikkatietoaineistojen jakamisessa.</p>
+<p>Lisätään toistamiseen <strong>lipas_kaikki_reitit</strong>-aineisto uutena tasona palvelimelle. Tavoite on luoda taso, jossa ainoastaan Helsingissä olevat aineistot näytetään.</p>
+<p>Annan nimeksi <strong>lipas_kaikki_reitit_helsinki</strong>.</p>
+<div class="hint-box">
+<p>Psst! SQL-näkymä voitaisiin luoda myös suoraan tietokantaan ja käyttää tuota näkymää (view) tason luomiseen.</p>
+</div>
+<p>SQL-kyselyjen tekemiseksi on hyvä ensin selvittää tietokannan taulujen kenttien nimet ja tyypit. Voit tarkistaa aineiston kentät avaamalla tason <strong>Data → Layers</strong>-näkymästä; kentät on lueteltu <strong>Data</strong>-välilehden lopussa. Aineiston ominaisuustietojen tyyppejä pääset tarkastelemaan parhaiten käyttäen muita ohjelmistoja kuten pgAdmin tai QGIS. Voit  myös tutustua niihin Lipas-sivuilta (<a href="http://www.liikuntapaikat.fi/lipas" class="uri">http://www.liikuntapaikat.fi/lipas</a>). Attribuuttitiedot GeoServerissä näyttävät tältä:</p>
+<p><img src="https://lh5.googleusercontent.com/U0RRHULjFXieslLtiZL99uSIpCM3Gem9uIY1iq_5oSNS4yf165GhvWv0CQXPAbmpsRpjp6X0KOWYdB_uckVtNDI3Sappi3QC435ObGN3oEjj6BQ1CD3iSQI9b2a0e31w8yzitR8WEYUYubHmxHvTyQ" /></p>
+<p>Aineiston tarkastelemisen jälkeen voidaan päätellä, että paikkakuntatieto löytyy <strong>kunta_nimi</strong>-kentästä.</p>
+<p>Avaa <strong>Data → Layers → Add new layer</strong> ja valitse <strong>helsinki:hki_lipas</strong>. Painamalla <strong>Configure new SQL view…</strong> pääset määrittelemään SQL-kielellä, mitkä tiedot haluat julkaista kyseisestä aineistosta.<img src="https://lh3.googleusercontent.com/nvhmYTeJR8Xxj-qiV8g10bOPlJV7OG2K2WyJzZcGBO4trPGJa27MIFy8h0glJ24QAJJMr5IdImxF9D5XEsk2JBKnPxvvuQUeL2hmkNQ2qzgrqpfpte11RnIUfjOb1rHObUTTsSUz92tYQ1vsEySIsA" /></p>
+<p>Määrittele näkymän nimeksi <strong>lipas_kaikki_reitit_helsinki</strong>. Kirjoita <strong>SQL statement</strong> -kenttään seuraavaa SQL-lauseke:</p>
+<div class="code-box">
+<p>SELECT *</p>
+<p>FROM lipas.reitit</p>
+<p>WHERE kunta_nimi = ‘Helsinki’</p>
+</div>
+<p>Rastita <strong>Guess geometry type and srid</strong> -toiminto ja paina sitten <strong>Refresh</strong>. Huomaa, että olla olevassa kuvassa on virhe SQL-kyselyssä. Ole tarkkana! kunta_nimi_fi-tekstin sijaan siinä pitäisi lukea vain kunta_nimi.<img src="https://lh4.googleusercontent.com/9ddJukWQtpuhoxPQ48MgnilS3TgDNUXK2hBFs377xu9LBlKCY_BZbN_AFX3YT4HijJ-FEqiUca0bST9Rt5uK6Qgu_4ohZEoatSaVJtsAqS1W57k0gmowtKysoVyH-xWpxnuoibwHcbAFTdnfz5NRPQ" /></p>
+<p>Tarkista sitten, että <strong>geom</strong>-nimisen kentän kohdalla <strong>SRID</strong> on määritelty oikean EPSG-tunnuksen mukaisesti (meidän tapauksessamme tunnus on <strong>3067</strong>).</p>
+<p><img src="https://lh5.googleusercontent.com/SzH4x9F9fWwQZ7FvqLXZrx5exJN1fpebs-Ese9JNyl7zr16hhSVmZ9EMD8oFRmAE5aTZuSPp22gJJGkrJ1ye7WoqXt53GKfHVSNyJEA0L_U0jepUO__eTbWKSMy1OlOYJj7-Z223uz8hJiIouDskbQ" /></p>
+<p>Paina lopulta <strong>Save</strong>.</p>
+<p>Määrittele seuraavaksi tason ulottuvuudet (Bounding Box) ja paina <strong>Save</strong>. Voit esikatsella Helsingin liikuntareitit -tasoa nyt.<img src="https://lh5.googleusercontent.com/DLGJnOAaht-7d01B9Wrp_iZwVvNBP1ywqw9dC_YB4DIo5sv98SsBpmExlZoozToxQ4u2p2dWOyNCApa1jBn-1Z5bNbheBh5q0HAUHLhZkNPmIN8RcNBiTKlBhclIjKi26WOebwtBzhRAYysOurkVLg" /></p>
+</div>
+<div id="paikkatietotoiminnot-sql-näkymien-kautta" class="section level2" number="12.7">
+<h2><span class="header-section-number">12.7</span> <strong>Paikkatietotoiminnot SQL-näkymien kautta</strong></h2>
+<p>Voit käyttää SQL-lausekkeissa myös paikkatietofunktioita. Käytetään esimerkkinä vyöhyke-funktiota (ST_Buffer).</p>
+<p>Avaa tason  <strong>lipas_kaikki_reitit_helsinki</strong> uudelleen (<strong>Data → Layers</strong>)</p>
+<p>Selaa <strong>Data</strong> välilehdessä sivun loppuun. Sieltä löytyy <strong>Edit sql view</strong> -toiminto.</p>
+<p>Päivitä <strong>SQL statement</strong> seuraavaksi:</p>
+<div class="code-box">
+<p>SELECT ST_Union (ST_Buffer ( geom, 10 ))</p>
+<p>FROM lipas.reitit</p>
+<p>WHERE kunta_nimi = ‘Helsinki’</p>
+</div>
+<p>Päivitä taas attribuuttien formaatti ja paina sitten <strong>Save</strong>.<img src="https://lh5.googleusercontent.com/Nm4DIt634DT0UaLzPTpK84Bl6hwqxNYOnNINxm9WCfqvFRaGgTg-3HRmvXOzzyn0_zWjXPDEiiO2s65OiGF-xBzy5JQaMnii77Mi0o18_BZt8qGNkZCSvnD-OJWqkw-VCp8Keoul20262ZHwKADj9w" /></p>
+<p>Esikatselussa huomaat, että reitit-aineisto on nyt puskuroitu 10 metrillä:<img src="https://lh5.googleusercontent.com/te32NmYXhoB_vHVyGAXnWoXwrUdXNFXgZKtecQ0gr6gTuQO6hCbpjNOzZq740wHWniei9F8I1dIVgHnWv8X5wpIWZWcq7OwrezXXMyVblT5riC6muXbXxiXnyTS-dtbnha3t0ifqUwL-SnDah4jdeg" /></p>
+
+</div>
 </div>
 <p style="text-align: center;">
+<a href="11-harjoitus-i.6-rasteriaineistot.html"><button class="btn btn-default">Previous</button></a>
+<a href="13-harjoitus-ii.1-wfs-palvelut.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>

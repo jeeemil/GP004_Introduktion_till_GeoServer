@@ -7,7 +7,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="Page not found | Johdanto GeoServerin käyttöön" />
+<meta property="og:title" content="4 HARJOITUS II.4: CSS-KUVAUSTEKNIIKKA | Johdanto GeoServerin käyttöön" />
 <meta property="og:type" content="book" />
 
 
@@ -19,9 +19,9 @@
 <meta name="date" content="2023-01-31" />
 
 
-<meta name="description" content="Page not found | Johdanto GeoServerin käyttöön">
+<meta name="description" content="4 HARJOITUS II.4: CSS-KUVAUSTEKNIIKKA | Johdanto GeoServerin käyttöön">
 
-<title>Page not found | Johdanto GeoServerin käyttöön</title>
+<title>4 HARJOITUS II.4: CSS-KUVAUSTEKNIIKKA | Johdanto GeoServerin käyttöön</title>
 
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
@@ -240,13 +240,456 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="harjoitus-ii.4-css-kuvaustekniikka" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> HARJOITUS II.4: CSS-KUVAUSTEKNIIKKA</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa käsitellään eri aineistoille sovellettavia kuvaustekniikoita ja hyödynnetään CSS-tyylejä karttojen visualisoinnissa.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Harjoituksen jälkeen opiskelija osaa hyödyntää peruskuvaustekniikoita GeoServerillä eri aineistojen visualisointiin käyttäen CSS-kieltä.</p>
+<p><strong>Arvioitu kesto</strong></p>
+<p>40 minuuttia.</p>
+<div id="valmistautuminen-2" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> <strong>Valmistautuminen</strong></h2>
+<p>Erilaisia aineistoja on ladattu GeoServer-palvelimelle. CSS-lisäosa on asennettu GeoServeriin.</p>
+</div>
+<div id="css-tyylit" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> <strong>CSS-tyylit</strong></h2>
+<p>Kun CSS-lisäosa on asennettu, voidaan kirjoittaa kuvaustekniikkatyylejä CSS-kielellä, joka SLD-kieleen verrattuna on käyttäjäystävällisempi tapa muokata kuvaustekniikkaa.</p>
+<p>Lisäosa toimii niin, että CSS-kielellä kirjoitettava koodi kääntyy SLD-kieleksi automaattisesti.</p>
+</div>
+<div id="tyylin-luominen" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> <strong>Tyylin luominen</strong></h2>
+<p>Luodaan nyt uusi tyyli <strong>tiesto</strong>-tasolle.</p>
+<p>Avaa päävalikosta <strong>Styles</strong> ja paina <strong>Add a new style</strong>.</p>
+<p>Määrittele uuden tyylin nimeksi <strong>tiesto_css</strong> ja jätä workspace-kohta tyhjäksi.</p>
+<p>Valitse <strong>Style Content</strong> valikosta geometriatyypiksi <strong>Line</strong> ja paina <strong>Generate</strong>.</p>
+<p><strong>Style Editor</strong> -laatikossa on nyt seuraavankaltainen teksti:</p>
+<table style="width:38%;">
+<colgroup>
+<col width="37%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><p>/* @title red line */</p>
+<p>* {</p>
+<p>    stroke: #ff3300;</p>
+}</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Paina <strong>Submit</strong>. Avaa <strong>Styles</strong>-valikosta juuri luomasi tyyli ja valitse <strong>Layer Preview</strong> -välilehti. Valitse esikatseltavaksi tasoksi tiestötaso.</p>
+<p>Lähennä karttaa siten, että tiet alkavat näkyä kunnolla.</p>
+<p>Pystyt muokkaamaan CSS-koodia myös <strong>Layer Preview</strong> -välilehdellä. Huomaa merkki “<strong>*</strong>”. Se tarkoittaa, että sääntö koskee kaikkia kohteita (samoin kuin *-merkki esimerkiksi tiedostojen listauksessa komentoriviltä). <img src="https://lh6.googleusercontent.com/rZB5CGwg35CcqHeeWzfLK4vQDwS8EV1TW-y1uK-Pu031ir2lUtfpTtvEbqsaghvHnRB-FNt3vjjaus9yC2Ahc71qZweglEp-71t8nr3VRNYqs7LXKsqMcobJAvadvDbX0cP7sGdJ6JnzbR5EO4rFgg" /></p>
+<p>Vaihda nyt <strong>stroke</strong>-komennon arvoksi <strong>blue</strong>.</p>
+<table>
+<thead>
+<tr class="header">
+<th>* { stroke: blue; }</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>Paina <strong>Apply</strong> ja esikatsele karttaa. Nyt tiet näkyvät kartassa sinisinä.<img src="https://lh5.googleusercontent.com/UdB_9dUv7bIr4eMBiy7fpxriiBMyRNxQmcpvVRoEaOc9Atu19mylX5gWrALUNprwDZBnxgTJULcO4O7Fm0Gf2MCBGwCVWmo1FV-lzAoWWVUXUX-2OHWyxAdcGU_wtT0yXZQC8hj2OaAh5YMXD3WwLg" /></p>
+</div>
+<div id="aineiston-luokittelu" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> <strong>Aineiston luokittelu</strong></h2>
+<p>Luokitellaan nyt tiet kahteen luokkaan: <strong>päätiet</strong> ja <strong>muut</strong>. Kullekin luokalle voidaan määritellä oma tyyli.</p>
+<p>Päätiet luokitellaan korvaamalla merkki “<strong>*</strong>” seuraavalla koodilla (huomaa, että rajauksessa käytetään <strong>type</strong>-kentän tietoja):</p>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><p>[type = ‘motorway’ or type = ‘primary’ or type = ‘secondary’ or type = ‘trunk’]</p>
+{ stroke: red;}</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Paina <strong>Apply</strong>. Nyt vain päätiet ovat näkyvissä.</p>
+<p>Luo nyt tyyli muille teille.<img src="https://lh4.googleusercontent.com/bFy2DPS0GRwXLicjCfzE1AYlzEXISYFK_cU4xUIn33302tPf9qsOsos_OR_ingmgYxM0ybqCQFBEL9q29sDBHaTGqyM61nyHPIHANnSObDUKiZM6YdAiXZ7PUF3O8kXLqGR7gNg__qVL3GxQpgXxAw" /></p>
+<p>Muokkaa CSS-tyyliä vielä seuraavasti:</p>
+<p>Kopioi pääteiden luokitus-koodi ja laita se koodilaatikon loppuun.</p>
+<p>Korvaa “<strong>=</strong>”-merkki “<strong>eri kuin</strong>”-merkillä “<strong>&lt;&gt;</strong>”, niin tulee määrittelyksi tiet, jotka eivät kuulu edelliseen luokitukseen, eli toisin sanoen pienemmät tiet.</p>
+<p>Vaihda vielä “<strong>or</strong>”-komento “<strong>and</strong>”-komennoksi. </p>
+<p>Kopioi sitten vielä edellisen CSS-tyylin koodinpätkä (aaltosulut ja niiden sisällä oleva koodi) ja liitä kopioitu koodi muiden teiden luokittelu-osion jälkeen.</p>
+<p>Vaihda muiden teiden tyyli niin, että viivan väri on musta (black).</p>
+<p>Pääteiden ja muiden teiden tyylit näyttävät nyt tältä:</p>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><p>[type = ‘motorway’ or type = ‘primary’ or type = ‘secondary’ or type = ‘trunk’]</p>
+<p>{ stroke: red;}</p>
+<p>[type &lt;&gt; ‘motorway’ and type &lt;&gt; ‘primary’ and type &lt;&gt; ‘secondary’ and type &lt;&gt; ‘trunk’]</p>
+{ stroke: black;}</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Esikatsele nyt tulos painamalla <strong>Apply</strong>.<img src="https://lh3.googleusercontent.com/v7NujbiG--yTkpn9pfqs_GNfYscM13UBfmNHWnr-f7ZFLIq6XtwSvsN23x3-m6KkrmAXTS2umcKCpftgHVegzVY0IMECKuoKx3iL0noz-aYy6Y1Fu12TFpGc35c6t25CZOqeZkvhOp5xqQBhmSyfFQ" /></p>
+</div>
+<div id="tyylin-virittäminen" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> <strong>Tyylin virittäminen</strong></h2>
+<p>Tiet ovat vielä vaikea erottaa toisistaan. Tehdään nyt pari parannusta tyyliin. Määrittele pääteiden viivan paksuus 0.5:ksi komennolla “<strong>stroke-width</strong>”. Lisää uusi rivi “<strong>stroke: red;</strong>”-kohdan jälkeen, johon kirjoitetaan “<strong>stroke-width: 0.5;</strong>”.</p>
+<p>Määrittele samalla tavalla muille teille viivan paksuudeksi <strong>0.1</strong>:</p>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><p>[type = ‘motorway’ or type = ‘primary’ or type = ‘secondary’ or type = ‘trunk’]</p>
+<p>{ stroke: red;</p>
+<p>stroke-width: 0.5;}</p>
+<p>[type &lt;&gt; ‘motorway’ and type &lt;&gt; ‘primary’ and type &lt;&gt; ‘secondary’ and type &lt;&gt; ‘trunk’]</p>
+<p>{ stroke: black;</p>
+stroke-width: 0.1;}</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Paina sitten <strong>Apply</strong> niin esikatselu päivittyy: päätiet ja pienemmät tiet erottuvat paremmin.</p>
+<p>Kokeile seuraavaksi lisätä seuraava CSS-koodi, jonka avulla luodaan <strong>pääteille</strong> selkeämpi visualisointityyli.</p>
+<p>Poista vanha “<strong>stroke</strong>”-määrittely ensin. Tarkoituksena on visualisoida pääteitä keltaisen ja mustan viivan avulla siten, että keltainen viiva on kapeampi ja jää mustan viivan päälle.  Pyydä kouluttajalta apua tarvittaessa ja korvaa pääteiden tyyli seuraavalla koodilla CSS-tyylien muokkaustilassa:</p>
+<table style="width:38%;">
+<colgroup>
+<col width="37%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>stroke: black, yellow;<br />
+stroke-width: 5px, 3px;<br />
+z-index: 0, 3;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Huomaa, että tällä tavalla määrittelet pääteille päällekkäiset tyylit, jotka muodostavat monimutkaisempia visualisointeja.</p>
+<p>Paina vielä <strong>Submit</strong> ja visualisoi lopputulos:<img src="https://lh5.googleusercontent.com/YHfCdNcQmWQfMtAEd5wyj_O4RVB9AjdcHVmNSSQHSRTpRVejQj4AczG65aD02vucaQMkbyEPFgmw5qYpArXsOyf486B_O_FX3flM-BzeyRa4FCq4dkoEqnTe2xBsLQyDoJL4ZxBqL2mzb7IY9MVQmQ" /></p>
+<p><strong>Z-index</strong> -komennolla määritellään, missä järjestyksessä eri tyylit piirtyvät. Indeksin arvolla 0 viitataan mustaan viivaan, jonka paksuus määritellään viiteen pikseliin. Indeksin arvo kolme viittaa keltaiseen viivaan , jonka paksuus on kolme pikseliä. Huomaa, kuinka Z-indeksin pienemmät arvot piirtyvät ensin ja suuremmat arvot myöhemmin.</p>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>##### <strong>Psst! Huomaa, että esikatselun selite ei ymmärrä näitä monimutkaisia tyylejä oikein. Työkalu vaatii kehitystä, mutta nopeaa esikatselua varten kartta on riittävän hyvä.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Kokeile vaihtaa symbolien järjestystä, värejä ja paksuuksia.</p>
+<p>Koodisi näyttäisi tässä vaiheessa tältä:</p>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><p>[type = ‘motorway’ or type = ‘primary’ or type = ‘secondary’ or type = ‘trunk’]</p>
+<p>{ stroke: black, yellow;</p>
+<p>stroke-width: 5px, 3px;</p>
+<p>z-index: 0, 3;}</p>
+<p><br />
+</p>
+<p>[type &lt;&gt; ‘motorway’ and type &lt;&gt; ‘primary’ and type &lt;&gt; ‘secondary’ and type &lt;&gt; ‘trunk’]</p>
+<p>{ stroke: black;</p>
+stroke-width: 0.1;}</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="luokkien-nimeäminen" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> <strong>Luokkien nimeäminen</strong></h2>
+<p>Lisätehtävänä voit muokata selitteen tekstejä (Legend) CSS-kielellä. Eri tasojen selitteen teksti määritellään “<strong>/* @title</strong>”-avaus ja “<strong>*/</strong>”-sulkukomennoilla, ja ne sijoitetaan ennen hakasulkujen sisään asetettuja tasomäärityksiä seuraavalla tavalla. Tämän avulla saadaan nimet näkymään esikatselukartan selitteessä, ja samalla koodin lukeminen helpottuu.</p>
+<p>Laita pääteiden määrittelyn eteen <strong>/* @title Paatiet */</strong>:</p>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><p>/* @title Paatiet */</p>
+<p>[type = ‘motorway’ or type = ‘primary’ or type = ‘secondary’ or type = ‘trunk’]</p>
+<p>{stroke: black, yellow;</p>
+<p>stroke-width: 5px, 3px;</p>
+z-index: 0, 3;}</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Laita myös <strong>/* @title Sivutiet */</strong>: sivuteiden määrittelyn eteen samalla tavalla.</p>
+<p>Lisää vielä koodin loppuun seuraava koodi: </p>
+<table style="width:46%;">
+<colgroup>
+<col width="45%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>/* @title Tiesto */<br />
+* { font-family: Helvetica; }</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Edellä esitetty ja viimeinen taso/koodi määrittää “<strong>*</strong>”-merkin toimesta kokonaisvaltaisia CSS-tyylisääntöjä, joissa tässä on määritelty “<strong>Tiesto</strong>”-etuliite symboliikan teksteihin ja <strong>Helvetica</strong>-tyyli kartan tekstityksiin.</p>
+<p>Paina nyt <strong>Apply</strong>, jolloin kartta päivittyy.<img src="https://lh4.googleusercontent.com/sqCQqhWAZhyP3Bp_9kQwcFmqRxsb85pCzTg_asLrlJoz30loLiTKgq7pi1D2hRpr9y3hwLh53m4a-MR5JeJnJqtzdVQgO-9hk6FbuyZvqGYIARj1ezkTLrviU7Cogimnjd-_BK9UAv37uMr6BpSyng" /></p>
+<p>Koodisi tässä vaiheessa pitäisi näyttää jotenkin tältä:</p>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><p>/* @title Paatiet */</p>
+<p>[type = ‘motorway’ or type = ‘primary’ or type = ‘secondary’ or type = ‘trunk’]</p>
+<p>{ stroke: black, yellow;</p>
+<p>stroke-width: 5px, 3px;</p>
+<p>z-index: 0, 3;}</p>
+<p><br />
+</p>
+<p>/* @title Sivutiet */</p>
+<p>[type &lt;&gt; ‘motorway’ and type &lt;&gt; ‘primary’ and type &lt;&gt; ‘secondary’ and type &lt;&gt; ‘trunk’]</p>
+<p>{ stroke: black;</p>
+<p>stroke-width: 0.1;}</p>
+<p><br />
+</p>
+<p>/* @title Tiesto */</p>
+* { font-family: Helvetica;}</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="mittakaavaperusteinen-näkyvyys" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> <strong>Mittakaavaperusteinen näkyvyys</strong></h2>
+<p>Laitetaan vielä pätkä koodia, jonka avulla määrittelemme muille teille mittakaavaperusteinen rajaus, jotta ne eivät näkyisi kaikilla zoomaus-tasoilla:</p>
+<p>Laita pienempien teiden tyylin eteen:</p>
+<table>
+<thead>
+<tr class="header">
+<th>[@scale &lt; 50000]</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>Paina <strong>Apply</strong>.</p>
+<p>Nyt muut tiet näkyvät vain, jos <strong>zoom</strong>-taso on tarkempi kuin <strong>1:50 000</strong>. Ja kun zoomataan kauemmaksi, niin vain päätiet näkyvät kartalla:<img src="https://lh3.googleusercontent.com/O--TcCTdH9bDPXJ6Bvl3U1gYEGIRIPT5-e80FynPO8luVNnuCFawVEAXSJWbJtv2JOtgXRtUoA-5wv5m1GjzNRgSLar5GiCAQTWHI0Oe8ziO5zV-z4PjvJIVsjIP_NsYsuJxehH_rugOnJsfQQrhgA" /></p>
+<p>Koodisi tässä vaiheessa pitäisi näyttää jotenkin tältä:</p>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><p>/* @title Paatiet */</p>
+<p>[type = ‘motorway’ or type = ‘primary’ or type = ‘secondary’ or type = ‘trunk’]</p>
+<p>{ stroke: black, yellow;</p>
+<p>stroke-width: 5px, 3px;</p>
+<p>z-index: 0, 3;}</p>
+<p><br />
+</p>
+<p>/* @title Sivutiet */</p>
+<p>[@scale &lt; 50000]</p>
+<p>[type &lt;&gt; ‘motorway’ and type &lt;&gt; ‘primary’ and type &lt;&gt; ‘secondary’ and type &lt;&gt; ‘trunk’]</p>
+<p>{ stroke: black;</p>
+<p>stroke-width: 0.1;}</p>
+<p><br />
+</p>
+<p>/* @title Tiesto */</p>
+* { font-family: Helvetica;}</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tekstityksen-lisääminen" class="section level2" number="4.8">
+<h2><span class="header-section-number">4.8</span> <strong>Tekstityksen lisääminen</strong></h2>
+<p>Lisätään nyt tekstit teille. </p>
+<p>Avaa <strong>Layer Attributes</strong> -välilehti ja tarkista, että muun muassa <strong>name</strong>-sarake löytyy listalta. Ota se käyttöön lisäämällä <strong>label</strong>-komento pääteiden koodiin:</p>
+<table>
+<thead>
+<tr class="header">
+<th>label: [name];</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>Muuta vielä tekstien kirjaimia:</p>
+<table style="width:29%;">
+<colgroup>
+<col width="29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><p>font-weight: bold;</p>
+<p>font-fill: black;</p>
+font-size: 12;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Esikatsele tuloksia painamalla <strong>Apply</strong>.</p>
+<p>Tulos ei ole vielä hyvä, tarvitaan muutama teksteihin tarkoitettu erikoiskomento:</p>
+<table style="width:49%;">
+<colgroup>
+<col width="48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><p>-gt-label-follow-line: true;</p>
+<p>-gt-label-max-angle-delta: 90;</p>
+<p>-gt-label-max-displacement: 400;</p>
+-gt-label-repeat: 150;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>-gt-label-*</strong> kertoo, miten tekstit eli labelit piirretään. Kokeile muuttaa edellisten komentojen arvoja.<img src="https://lh5.googleusercontent.com/dXZErr_uxcwKf-rmuTk1kznjCQf0Msh_8zgonF62x6RdgGCVYzi02rMeLC9iNISa2UESaM1f0-y_L1vHzhrZH90suGwLJIicjP0Bim-JzQBillSfF2LhJYvfOktDgeT5LX1Pi3jH4dpukw98Vff1Tw" /></p>
+<p>Lisää vielä puskuri teksteille:</p>
+<table style="width:29%;">
+<colgroup>
+<col width="29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><p>halo-color: white;</p>
+halo-radius: 1;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Voit määritellä pienemmille teille myös nimiöt samalla tavalla kun äsken tehtiin pääteille.<img src="https://lh6.googleusercontent.com/f-SferTR2olXOoyEGBqEFg3Cs9u4UDehnO-6zmw1VpnN6-OT-N1XVk9mzERMBpnYD-OjM0zzimNttZVv96zswwyN6VNW1ytziqy_H-3BxFmgB14V1vrDslkAqj6xAC3VSTU1n7lvh_y5s7oBNtM7fw" /></p>
+<p>Tässä on esimerkkikoodi, jossa kaikki aiemmin mainitut tyylit ovat käytössä:</p>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><p>/* @title Paatiet */</p>
+<p>[type = ‘motorway’ or type = ‘primary’ or type = ‘secondary’ or type = ‘trunk’]</p>
+<p>{ stroke: black, yellow;</p>
+<p>stroke-width: 5px, 3px;</p>
+<p>z-index: 0, 3;</p>
+<p>label: [name];</p>
+<p>font-weight: bold;</p>
+<p>font-fill: black;</p>
+<p>font-size: 12;</p>
+<p>-gt-label-follow-line: true;</p>
+<p>-gt-label-max-angle-delta: 90;</p>
+<p>-gt-label-max-displacement: 400;</p>
+<p>-gt-label-repeat: 150;</p>
+<p>halo-color: white;</p>
+<p>halo-radius: 1;}</p>
+<p><br />
+</p>
+<p>/* @title Sivutiet */</p>
+<p>[@scale &lt; 50000]</p>
+<p>[type &lt;&gt; ‘motorway’ and type &lt;&gt; ‘primary’ and type &lt;&gt; ‘secondary’ and type &lt;&gt; ‘trunk’]</p>
+<p>{ stroke: black;</p>
+<p>stroke-width: 0.1;</p>
+<p>label: [name];</p>
+<p>font-fill: black;</p>
+<p>font-size: 9;</p>
+<p>-gt-label-follow-line: true;</p>
+<p>-gt-label-max-angle-delta: 90;</p>
+<p>-gt-label-max-displacement: 400;</p>
+<p>-gt-label-repeat: 150;</p>
+<p>halo-color: white;</p>
+<p>halo-radius: 1;}</p>
+<p><br />
+</p>
+<p>/* @title Tiesto */</p>
+* { font-family: Helvetica;}</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Tämän tyylin esikatselu näyttää kartassa tältä:<img src="https://lh3.googleusercontent.com/ukd5Z3ipn_UzB5WKsAVLH0WpPrjob36trESTr46oGbLzveEg5xmC6yb0y3KwqV5aO5Po5wYaW9xNaGz9J6miK34d6HPPPbM15DK_tFUTDNuODPqf8ET70M3GsUlOpuW_tEnRKGEg2I_h6sAlTRBoew" /></p>
+<p>Voit vielä kokeilla erilaisia komentoja virittämään karttasi tyyliä pidemmälle. GeoServer CSS-lisäosan nettisivuilla löytyy ohjeita ja esimerkkejä: <a href="http://docs.geoserver.org/stable/en/user/extensions/css/index.html." class="uri">http://docs.geoserver.org/stable/en/user/extensions/css/index.html.</a></p>
+</div>
+<div id="kuvaustekniikan-soveltaminen" class="section level2" number="4.9">
+<h2><span class="header-section-number">4.9</span> <strong>Kuvaustekniikan soveltaminen</strong></h2>
+<p>Avaa <strong>Publishing</strong>-välilehti ja aseta ruksi <strong>Default</strong>-sarakkeeseen tiestötason kohdalle. Paina vielä <strong>Apply</strong> asettaaksesi luomasi tyylin tiestötason oletustyyliksi. Tarkista <strong>Data → Layers → tiesto → Publishing</strong>-sivulta, että oletustyyli tälle tasolle on nyt <strong>tiesto_css</strong>.</p>
+<p>Voit vielä tehdä tyylipäivitykset <strong>taustakartta</strong>-tasolle. Avaa <strong>Data → Layer Groups → taustakartta</strong>, ja varmista, että <strong>Layers</strong>-taulussa <strong>Default Style</strong> on rastitettu kaikille tasoille. Paina lopuksi <strong>Save</strong>.</p>
+<p>Esikatsele <strong>taustakartta</strong>-taso. Lopputulos näyttää tältä:</p>
+<p><img src="https://lh4.googleusercontent.com/3CTGD4Kiqn3vha_nTnIkWsgD25xBjfXDG7ENGUSKhPxirgTLLLDw6Wst0NeOm4IT7sNDWoe15Zb5S-ZH5cWjf-wnijMcA3eGCDVNUjvN2VF5mK0ipBntSo8_POazJHS6TsnswvEQr4D1M7kIGEPBow" /></p>
+
+</div>
 </div>
 <p style="text-align: center;">
+<a href="3-harjoitus-ii.3-arkkitehtuuri-ja-käyttöönotto.html"><button class="btn btn-default">Previous</button></a>
+<a href="5-harjoitus-ii.5-pääsynhallinta.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>

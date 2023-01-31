@@ -7,7 +7,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="Page not found | Johdanto GeoServerin käyttöön" />
+<meta property="og:title" content="11 HARJOITUS I.6: RASTERIAINEISTOT | Johdanto GeoServerin käyttöön" />
 <meta property="og:type" content="book" />
 
 
@@ -19,9 +19,9 @@
 <meta name="date" content="2023-01-31" />
 
 
-<meta name="description" content="Page not found | Johdanto GeoServerin käyttöön">
+<meta name="description" content="11 HARJOITUS I.6: RASTERIAINEISTOT | Johdanto GeoServerin käyttöön">
 
-<title>Page not found | Johdanto GeoServerin käyttöön</title>
+<title>11 HARJOITUS I.6: RASTERIAINEISTOT | Johdanto GeoServerin käyttöön</title>
 
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
@@ -240,13 +240,121 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="harjoitus-i.6-rasteriaineistot" class="section level1" number="11">
+<h1><span class="header-section-number">11</span> HARJOITUS I.6: RASTERIAINEISTOT</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa lisätään rasteriaineistoja GeoServer-palvelimelle ja muokataan tason asetuksia WCS-palvelun julkistamista varten.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Harjoituksen jälkeen opiskelija osaa lisätä rasteriaineistoja ja tehdä välttämättömät asetukset aineiston julkaisemiseksi.</p>
+<p><strong>Arvioitu kesto</strong></p>
+<p>40 minuuttia.</p>
+<div id="valmistautuminen-8" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> <strong>Valmistautuminen</strong></h2>
+<p>Aiemmissa harjoituksissa on luotu <strong>helsinki</strong>-workspace, joihin on määritelty muun muassa vesileima näkyväksi.</p>
+<p>GeoServerin palvelimen aineistohakemistoon on valmiiksi ladattu muutama rasteriaineisto: yksi korkeusmalli ja neljä ilmakuvaa Helsingin alueelta.</p>
+</div>
+<div id="rasteriaineiston-lisääminen" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> <strong>Rasteriaineiston lisääminen</strong></h2>
+<p>Rasteriaineiston lisääminen GeoServeriin tapahtuu melko samalla tavalla kun aiemmissa harjoituksissa vektoriaineistojen kanssa. Ladataan nyt GeoServeriin käytettäväksi rasteriaineisto, jonka alkuperäinen formaatti on <strong>ArcGrid</strong> (ASCII-pohjainen rasteriformaatti). Rasteriaineisto on Maanmittauslaitoksen korkeusmalli Helsingin alueelta (ruutukoolla 2 m x 2 m).</p>
+<p>Ensin meidän pitää luoda viitereferenssi aineistoon, jotta GeoServer tietäisi, missä aineisto sijaitsee fyysisesti. Muista, että tämä tapahtuu luomalla storeja.</p>
+<p>Luo uusi store valitsemalla <strong>Stores → Add new Store</strong>. Paina sitten <strong>ArcGrid</strong> storen formaatiksi.</p>
+<p>Valitse taas <strong>helsinki</strong>-workspace ja nimeä uusi store: <strong>hki_korkeusmalli_L4133A</strong>.</p>
+<p>Selaa sitten kansioon <strong>/koulutus/korkeusmalli_2m/</strong> ja valitse tiedosto <strong>L4133A.asc</strong>.<br />
+<img src="https://lh5.googleusercontent.com/RANAIxr8uHroyIMYQAYdSarkrhrrJ8A-TIXYefwefyb7UJGYdOd4SIIOss_NogSXNp_pxhzCTDiHREh2IflSxjlzw3W-iWpAXQ00QQVzn3c1PylWg9E1YIVY9ifA8BelwA4mh6QD7KELHEizZo5U8A" /></p>
+<p>Paina sitten <strong>Save</strong> ja sen jälkeen <strong>Publish</strong>.</p>
+<p>Kuten aiemmin vektoriaineistojen luomisen yhteydessä, pääset nyt tason editointinäkymään. Tarkista yleisasetukset niin, että sekä <strong>Enabled</strong> että <strong>Advertised</strong> ovat valittuna.</p>
+<p>Laita nimeksi <strong>korkeusmalli</strong> ja otsikoksi <strong>Helsingin korkeusmalli</strong> ja lisätiedoksi <strong>Korkeusmalli 2m – Maanmittauslaitos.</strong><img src="https://lh6.googleusercontent.com/7APF1HuDQ00JeG-f8jXyGEEGp4gPTYn1B6Sv5lhwIVWjuLlDs11-0tYCpAFbppSMkAtbm9WCq9owm7l2Y-7kgp4XdBs1PGmEWrgxDK5TqG-vBAJKWvvMLE1dPUc2Pj7hbsc2zyLOW-JeHkauLdXLXQ" /></p>
+<p>Huomaa, että <strong>Coordinate Reference Systems</strong> -kohdassa, koordinaattijärjestelmä on määritelty väärin. Aineiston oikea järjestelmä on <strong>ETRS89 / ETRS-TM35FIN</strong> (<strong>EPSG:3067</strong>). Korjaa sitä käsin <strong>Declared SRS</strong> -kentässä ja valitse <strong>SRS handling</strong> kentästä <strong>Force declared</strong>. Käytä sen jälkeen pikalinkkejä määrittääksesi aineiston laajuuden.<img src="https://lh6.googleusercontent.com/8c9Jhn-N6lPTODD03RrNX77FYMW9KhdXF-1e-Un8UN_NpCyGwNEhN5SFR3O18S9vry0-FJI4UyJpQzfTCDX3Dq9cfjpRL2jNSeZ6vHKveJPDWqW5rqY1krJi58J2GaB6QPfCzosfisVbYOELI7-_dw" /></p>
+<p>Paina sitten <strong>Save.</strong></p>
+<p>Tarkista, että taso on <strong>Data → Layers</strong>-taulussa. Voit esikatsella uutta rasteritasoa <strong>Data → Layer Preview</strong> -ikkunan kautta.<br />
+<img src="https://lh5.googleusercontent.com/ahBTsemDyvf0pZr4qLx3ASGcYcBfifGEUW3hgZ6jWjWj4kUqSWE2_LitOO0DWNxdBRT-FmnQAx7ZcGGQCof7hpTcEhx7GsAG2Z0S4DFv4TwS5a7NG7-Ps9edtFzcniZSE-Wr4SA05Hr0m3cdaooamA" /></p>
+</div>
+<div id="ilmakuvan-lisääminen" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> <strong>Ilmakuvan lisääminen</strong></h2>
+<p>Samalla tavalla kun lisäsit edellisessä kohdassa ArcGrid-tiedoston voit lisätä GeoTIFF-aineistoja. </p>
+<p>Seuraa edellisen kohdan ohjeita ja lisää samalta alueelta ilmakuva. GeoTIFF-tiedosto löytyy täältä: <strong>/koulutus/ilmakuvat_geotiff/L4133A.tif</strong>.</p>
+<p>Nimeä seuraavasti:<br />
+store: <strong>hki_ilmakuva<br />
+</strong> taso: <strong>ilmakuva</strong></p>
+<p>Ilmakuva esikatselussa:<img src="https://lh6.googleusercontent.com/ut0d9fYswl38HeiiBhORa6DN3dnxSnDZc7_vh5wBiC4gdJ2EQIQR9M4lwd0tBwPCgCW8PGrieGtTBdcKxtUq991mjPnh0yLDO4uXKPvg1pHnQ2XqELZhuSZ28Y1u32tWKuu688Lb2x6huQIWRswSKg" /></p>
+</div>
+<div id="image-mosaic" class="section level2" number="11.4">
+<h2><span class="header-section-number">11.4</span> <strong>Image Mosaic</strong></h2>
+<p>GeoServerin avulla voi julkaista useita rasteriaineistoja (esim. GeoTIFF-tiedostoja) yhtenä WMS-palveluna käyttämällä <strong>Image mosaic</strong> -formaattia.</p>
+<p>Mosaiikin muodostaminen vaatii, että kaikki aineistot ovat samassa kansiossa ja tiedostoformaatissa sekä samassa koordinaattijärjestelmässä. Rasteriformaatti tulee olla tuettuna GeoServerissä, esim. GeoTIFF tai ArcGrid.</p>
+<p>Tämä storen tyyppi on tarkoitettu käytettäväksi samantyyppisten rasteriaineistojen kanssa. Esimerkiksi useita ilmakuvia, jotka muodostavat mosaiikin suositellaan julkaistavaksi kyseisellä tavalla välttäen tasokohtaista julkaisemista.</p>
+<p>Edellisen ilmakuvan kansiossa on muutamia ilmakuvia Helsingistä. Aineisto on ladattu Maanmittauslaitoksen aineistopalvelusta. Ne ovat <strong>GeoTIFF-</strong>formaatissa ja <strong>TM35FIN</strong>-<strong>koordinaattijärjestelmässä</strong> (<strong>EPSG:3067</strong>). Kuten nähdään kyseinen aineisto täyttää kaikki mosaiikin muodostamiseen vaatimukset.</p>
+<p>Luo uusi store <strong>helsinki</strong> workspaceen. Valitse formaatiksi <strong>ImageMosaic - Image mosaicking plugin</strong>.</p>
+<p>Selaa kansioon <strong>/koulutus/ilmakuvat_geotiff/</strong> ja paina <strong>OK</strong>. Täten, kaikki kuvat kansiossa yhdistetään yhteen ja mosaiikkia käsitellään sen jälkeen yhtenä tasona.</p>
+<p>Anna nimi ja selitys esimerkiksi seuraavan kuvan mukaisella tavalla:<img src="https://lh4.googleusercontent.com/az274_fKO_7ixizJoQKrQsMn3jKQDsej5l5_z4NISdBWOnPD3mQvnzxGAvMotO4VbHZHWDZCOAZqxam43ju74I76Askc-EDDjpucceqtLoq5UsXLWeuu79IIuFjaux-CVHsSrd9QXa3Dlye_RSV7oQ" /></p>
+<p>Paina sitten <strong>Save</strong> ja sen jälkeen julkista taso painamalla <strong>Publish</strong>.</p>
+<p>Laita tason nimeksi <strong>ilmakuvat_keskusta</strong> ja otsikoksi <strong>Helsingin keskustan ilmakuvat</strong>. Lisätiedoksi voit kirjoittaa esimerkiksi <strong>Helsingin ilmakuvat - Maanmittauslaitos 2014</strong>. Tarkista tason editointinäkymästä, että <strong>Enabled</strong> ja <strong>Advertised</strong> ovat rastitettuna.<img src="https://lh3.googleusercontent.com/dRKDzxuuK7ztsqoRuCkDYkzEXGyYt_dDfD0JAJFr7hNFvDl8ofgBUT5JF2uw9bAYsWBOjPwUmliRb0WUsMkkC6-VfUHJ9pbcENQmntafhb87G7dMyYahiazDg1pUH270UR1bPxVdqpBemUAe2QMwfA" /></p>
+<p>Huomaa, että GeoTIFF-tiedoston koordinaattijärjestelmän tiedot (EPSG:3067) ja aineiston laajuus on tässä määrittynyt oikein automaattisesti (oletusarvojen mukaisesti).<img src="https://lh4.googleusercontent.com/UQtIv1wbxbIMHuaAbIMJeRmXVFmXQ5YqmN8F8dLSfgxt-e-cXWjrjvm0KwtO9_tlzXDBbo2r7bCqNIe-iREoZFR9IyjtQNVeRXXslgRFdW9l41CYGVgFzWiIAoEVki3l3DlXYn5s4ShnXa_ao9tH5A" /></p>
+<div class="hint-box">
+<p>Psst! Kuten aiemmin mainittiin, GeoServer pyrkii tulkitsemaan alkuperäisen aineiston koordinaattijärjestelmän alkuperäisistä tiedoista, joka tässä tapauksessa oli EPSG-muodossa.</p>
+</div>
+<p>Paina lopuksi <strong>Save</strong>.</p>
+<p>Tarkista, että uusi taso löytyy <strong>Data → Layers</strong> -näkymältä. Voit myös esikatsella sitä tuttuun tapaan käyttäen <strong>Data → Layers Preview</strong>.<img src="https://lh6.googleusercontent.com/4LM2ExL9PG9tSL9nW3VAibHUwmU857_6aJaJegEMwqSu0AOdvFql7AtsBNWVd_qgDaRDAcxlSo___iad1b5HK_4avDHpLi2iEv4B_6ZZiCdnr1yFFg4TiIUe6rYUXjWoRM8I0kWMmGjSMW2Ou2o1qQ" /></p>
+</div>
+<div id="layer-groups-1" class="section level2" number="11.5">
+<h2><span class="header-section-number">11.5</span> <strong>Layer Groups</strong></h2>
+<p>GeoServerin tasoja ja/tai aiemmin luotuja tasoryhmiä voidaan ryhmittää. Tasoryhmissä voi yhdistää eri vektori- ja rasteriformaatteja. Yksi selkeä käyttötapaus on taustakartan julkaiseminen yhtenä WMS-tasopalveluna. </p>
+<p>Luodaan nyt tasoryhmä käyttäen aiemmin palvelimelle lisättyjä <strong>ilmakuvat_keskusta-</strong>, <strong>rakennukset-</strong> ja <strong>tiesto</strong>-tasoja.</p>
+<p>Valitse päävalikosta <strong>Data → Layer Groups</strong> ja sitten <strong>Add new layer group</strong>.</p>
+<p>Laita ryhmätason nimeksi <strong>taustakartta</strong> ja otsikoksi <strong>Helsingin taustakartta</strong>. Lisää <strong>Abstract</strong> kentälle "Helsingin keskustan taustakartta".</p>
+<div class="hint-box">
+<p>Psst! Joissain selaimissa ääkkösten käyttö ei välttämättä onnistu. Vältä ääkkösten käyttöä tasojen nimissä ja otsikoissa.</p>
+</div>
+<p>Valitse <strong>helsinki</strong> workspace:ksi.</p>
+<p>Selaa sivua alaspäin, paina <strong>Add Layer…</strong> ja lisää <strong>ilmakuvat_keskusta</strong>-taso. Taso on nyt lisätty <strong>Layers</strong>-listalle.</p>
+<p>Paina <strong>Generate Bounds</strong> ja huomaa, kuinka tason alkuperäinen koordinaatistojärjestelmä ja laajuus on nyt määritettynä niille kuuluvissa kentissä. Pidetään ryhmätason järjestelmänä <strong>ETRS89 / TM35FIN</strong>. <img src="https://lh5.googleusercontent.com/EZ_wpGZn2DmBDKu7JzAFk7NAuofdBzKxnl0oxqMve2ZiwmiSpU-nfFI8udpDMBY3EkZGcjpEpBYjpHTtdxDjKpNx0NZo_lONv2nzXEwYX_xf2U4zQFZui7Fd2w3bG8WohIgADnaOrSooeSqFKwKoCQ" /></p>
+<p>Lisää samalla tavalla Helsingin <strong>rakennukset</strong>- ja <strong>tiesto</strong>-tasot.</p>
+<p>Huomaa, että voit järjestää tasot käyttämällä <strong>Drawing order</strong> -nuolia. Ylempänä oleva (sija 1) piirretään ensimmäiseksi; sen päälle piirretään seuraava taso, ja niin edelleen. Järjestele tasot tämän kuvan mukaan:</p>
+<p>Varmista, että <strong>Default Style</strong> ovat rastittuina.</p>
+<p>Paina lopulta uudelleen <strong>Generate Bounds</strong> päivittämään ryhmätason laajuustiedot, jotta myös uudet aineistot otetaan huomioon laajuustietojen määrittämisessä. Aina kun lisäät uutta aineistoa tasoryhmään tulisi painaa uudelleen <strong>Generate Bounds</strong> päivittääksesi ryhmätason laajuustiedot.</p>
+<p>Paina vielä <strong>Save</strong>.</p>
+<p>Voit esikatsella ryhmätasoa samalla tavalla kuin muitakin tasoja:<img src="https://lh6.googleusercontent.com/rt3D65z6xBEVsoo8OBcKWfM-GKTA5Fs5FQTG0tG9F-5dgIyZb885IR3_wwmmYfF0bsUR7OkoJhAZLyZCDc6Wkbg4VevrUbj59-gdlrrdOUm179OmjxC2OpCwRg1Qo-AGwj6VVLLLUZF2QgIEblcZeA" /><img src="https://lh3.googleusercontent.com/Q-1NzpBeQf_9VRJVDISWQ2bwCBvuh0ZE8Dx-cJdGo3q88yqXMdFl8Oi20SDEOuDMRyw6AhgT09m_T1TI3tAHA2GhGpTITNyWChP5W-iAFrAecGbNFAWkEG9yfcB5ZC8_ZmAPop-fG8KjvX2QFE2FFw" /></p>
+<div id="ryhmätasojen-julkaisemisen-muoto" class="section level3" number="11.5.1">
+<h3><span class="header-section-number">11.5.1</span> <strong>Ryhmätasojen julkaisemisen muoto</strong></h3>
+<p>Palaa ryhmätason asetuksiin (<strong>Data → Layer Groups → taustakartta</strong>). Selaa alaspäin <strong>Mode</strong>-kohdalle asti. Tässä kohdassa voit valita erilaisia muotoja ryhmätason tasoille:</p>
+<ul>
+<li><p><strong>Single</strong>-ryhmätaso on nähtävissä yhtenä tasona, lähtötasoja ei voi erotella toisistaan</p></li>
+<li><p><strong>Named Tree</strong> -ryhmätaso on nähtävissä ryhmänä ja yksittäisinä tasoina</p></li>
+<li><p><strong>Container Tree</strong> -ryhmätaso on nähtävissä ainoastaan yksittäisinä tasoina</p></li>
+<li><p><strong>Earth Observation Tree</strong> -ryhmätaso on tarkoitettu Earth Observation -aineistoa varten ja se on nähtävissä vain ryhmätason esikatselunäkymässä</p></li>
+</ul>
+<p>Pidä oletus <strong>Single</strong> valittuna. Se asettaa WMS-tasot näkyville yhtenä tasona.</p>
+<p>Pidä loput asetukset oletuksina ja paina lopuksi <strong>Save</strong>. Ryhmätasoja voidaan esikatsella samalla tavalla kuin muita tasoja. Mene <strong>Layer Preview</strong> -näkymään ja avaa uuden ryhmätason esikatselutila OpenLayers-linkin avulla. Huomaa, että oletuskuvaustekniikka on käytössä. Tämän ryhmätason kuvaustekniikkaa parannetaan vielä myöhemmin.</p>
+<p>Kun olet saanut ryhmätason valmiiksi, voit palata ryhmätason asetuksiin ja kokeilla muita <strong>Mode</strong>-asetuksia. Seuraavat esimerkkikuvat ovat QGISin WMS-palvelun työkalusta. .</p>
+<p><strong>Mode → Single</strong> näyttää tältä:<img src="https://lh5.googleusercontent.com/Uyk2CDd9wvbxmLRXhJB7eiqae2FsSA_0XU2KAO_g7AmuHW7pjvuH85sWiZXX1525Tb8Z6Rnx4zBCDFYQ2g4ZvO2B3AVyZpFm0cgkGzp-V-HInhR4Rgu2Pm-sIa-uq3vqlvDn_cSjvdYou97ueoasVQ" /></p>
+<p>Tässä muodossa koko ryhmätaso on aina ladattavissa yhtenä pakettina, eikä sen alitasoista ole saatavilla tietoa erikseen tai niitä voida ladata erikseen.</p>
+<p>Kun taas <strong>Mode →  Named Tree</strong> näyttää tältä:<img src="https://lh4.googleusercontent.com/dR-RmaBEQBKZRdErM4Pmfza5mYv5wRJQ0oOLyUldbW7TZUXziT3en19w1mP-2tNSzHsOJAFrdFGUnuKUsVkUcHxTeuU-zqwjZCzEKI13wU_k1YYsZbTBdpZW2Z0DPQpB8ZNVOk44zINw_Emld4piJg" /></p>
+<p>Tässä muodossa on mahdollista ladata tasoja yksitellen.</p>
+</div>
+<div id="muiden-wms-palvelujen-hyödyntäminen-cascading-wms" class="section level3" number="11.5.2">
+<h3><span class="header-section-number">11.5.2</span> <strong>Muiden WMS-palvelujen hyödyntäminen (cascading WMS)</strong></h3>
+<p>Rasteriaineisto voi olla peräisin myös muista WMS-palveluista. Tätä kutsutaan englanniksi <strong>cascading-</strong>tyyppiseksi ratkaisuksi. Käytännössä voidaan ketjuttaa WMS-tasoja toisista palveluista siten, että loppukäyttäjä ei huomaa eroa. Ketjuttaminen mahdollistaa esimerkiksi muiden paikkatietopalvelujen käytön GeoServeristämme. Heikkona puolena on se, että pitkistä ketjutuksista voi syntyä tilanne, jossa palvelun käytettävyys (vasteaika ja saatavuus) huononee oleellisesti.</p>
+<p>Lisää uusi store (<strong>Data → Stores → Add new Store</strong>), valitse <strong>WMS</strong>-listalta.<img src="https://lh3.googleusercontent.com/_kyYTPMnDGTwTtWyG-qoKpBHt5qaNNX7YJhibbESLbmjnWlfioiGi-vsY_enZahfQ8CSwE8eLuZVjP2PShXDyv2JICHvuHheIXvPjcMQqQs_ogXnwl-D1caQiYx_1WJUQqpzuKQswi39Ec6C_dNGdw" /></p>
+<p>Lisätään Helsingin kaupungin avoimet paikkatietopalvelut GeoServeriimme uudeksi WMS-yhteydeksi (remote WMS connection). Kyseinen Helsingin kaupungin palvelu löytyy osoitteesta: </p>
+<div class="note-box">
+<p> <a href="https://kartta.hel.fi/ws/geoserver/avoindata/wms?REQUEST=Getcapabilities"><strong>https://kartta.hel.fi/ws/geoserver/avoindata/wms?REQUEST=Getcapabilities</strong></a>.</p>
+</div>
+<p>Täytä tiedot seuraavan kuvan mukaisesti, laita yllä oleva osoite <strong>Capabilities URL</strong> -kenttään:<img src="https://lh6.googleusercontent.com/AnU_aeV3J3yuyB5Lq6U5XFz3K0v8TNiwO-S2M2KnUwn3Z3oDvWlXAOjKMvB1nnA2KY1FCX_i6Yxrgvl_7faWtzff3QDNx-yByuY_dbLjuvv3ATSllitKy2tWi6296uvzKXnQaWxvae6W3l946iuOjw" /></p>
+<p>Loput asetukset voit jättää oletuksiin. Paina sitten <strong>Save</strong>.</p>
+<p>Seuraavasti voit julkaista tasoja suoraan siitä palvelusta. Julkaise esimerkiksi <strong>Ajantasa_asemakaava</strong>.<img src="https://lh6.googleusercontent.com/aXBuWXYn6SWefwGxt30kukTa6jn4NjZgAbZXY3B7MlFNvCU4Ht1a0J29RSaOfqAHvKk4quHT79rnNJfg-5mdv8V0S9fqXgg6H4un6nzNE3WrlxEJoPtA5Mw4ewkUnHn1_MKLoe-tEEh_Z28ApQZE8Q" /></p>
+<p>Uuden tason oletusasetukset ovat oikein. Selaa sivun loppuun ja paina <strong>Save</strong>.</p>
+<p>Voit nyt esikatsella uutta tasoa samalla tavalla kuin aiemmin:<img src="https://lh5.googleusercontent.com/P0kzk-dlyggG8J3tJeMnGvVDRjtXQQO3WE6D-1av_UF27npOrNHVWG3q_7TkNIPZR8ndjekUQsNArJJoHYEys7WKz2v_jSm6Vy-khah2avj9Qo8I7W5Vb2yd8xeVS8aQUYiqZ5owDvv-W8iB-evDTA" /></p>
+<div class="hint-box">
+<p>Psst! Huomaa, että WMS-cascade-tasojen tyyliin tai sisältöön ei voida vaikuttaa, sillä ne ovat Helsingin kaupungin omassa palvelimessa.
+Helsingin kaupungin paikkatietopalvelujen metatietoihin voit tutustua tässä: <a href="http://ptp.hel.fi/avoindata/aineistot/Aineistolista_wms_avoindata_ulkoverkko.html" class="uri">http://ptp.hel.fi/avoindata/aineistot/Aineistolista_wms_avoindata_ulkoverkko.html</a>.</p>
+</div>
+
+</div>
+</div>
 </div>
 <p style="text-align: center;">
+<a href="10-harjoitus-i.5-wms--ja-wcs-palvelut.html"><button class="btn btn-default">Previous</button></a>
+<a href="12-harjoitus-i.7-paikkatietokannat.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>
