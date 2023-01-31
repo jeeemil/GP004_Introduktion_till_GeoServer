@@ -7,7 +7,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="Johdanto GeoServerin käyttöön" />
+<meta property="og:title" content="4 Harjoitus 1.3: VEKTORIAINEISTOT | Johdanto GeoServerin käyttöön" />
 <meta property="og:type" content="book" />
 
 
@@ -19,9 +19,9 @@
 <meta name="date" content="2023-01-31" />
 
 
-<meta name="description" content="Johdanto GeoServerin käyttöön">
+<meta name="description" content="4 Harjoitus 1.3: VEKTORIAINEISTOT | Johdanto GeoServerin käyttöön">
 
-<title>Johdanto GeoServerin käyttöön</title>
+<title>4 Harjoitus 1.3: VEKTORIAINEISTOT | Johdanto GeoServerin käyttöön</title>
 
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
@@ -240,81 +240,122 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </div>
 <div class="row">
 <div class="col-sm-12">
-<!-- This title section is only rendered to index.html -->
-<div id="title-container">
-
-<h1 id="title-header">Johdanto GeoServerin käyttöön</h1>
-
-<h4 class="author">Gispo Oy</h4>
-
-<h4 id="build-date">Version: 2023-01-31</h4>
-
-<div class="abstract"><p>Johdantokurssi GeoServerin käyttöön.</p></div>
-
-</div>
-<div id="johdanto-geoserverin-käyttöön" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> JOHDANTO GEOSERVERIN KÄYTTÖÖN</h1>
-<div id="tervetuloa-geoserver-kurssille" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Tervetuloa GeoServer-kurssille!</h2>
-<p>Tämän kurssin tarkoituksena on opastaa sinut GeoServerin käyttöön. Paikkatietojen tai muiden paikkatieto-ohjelmistojen käyttökokemus ei ole välttämätöntä koulutukseen osallistumisel­le. Toki niistä on paljon hyötyä. Kysy rohkeasti opettajalta lisätietoja, jos käytetty terminologia tai joku asia jää epäselväksi.</p>
-</div>
-<div id="geoserverin-taustaa" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> GeoServerin taustaa</h2>
-<p>GeoServer on avoimen lähdekoodin palvelinohjelmisto, jossa voi jakaa, käsitellä ja hallinnoida geospatiaalista dataa. GeoServer on ollut toiminnassa vuodesta 2001 alkaen “The Open Planning Project”-hankkeen kautta. Vuonna 2014 GeoServer siirtyi OSGeo-projektin alle. GeoServeriä päivitetään puolen vuoden välein ja ohjelmiston käyttäjäkunta on varsin vilkas ja aktiivinen.</p>
-</div>
-<div id="lukuohje" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Lukuohje</h2>
-<p><strong>Web-selaimessa</strong> suoritettavat komennot on merkitty seuraavasti:</p>
-<div class="note-box">
-<p><a href="http://localhost:8080/geoserver" class="uri">http://localhost:8080/geoserver</a></p>
-</div>
-<p><strong>Komentorivillä</strong> suoritettavat komennot on merkitty seuraavasti:</p>
-<div class="commandline-box">
-<p>sudo lsb_release -a</p>
-</div>
-<p><strong>Tiedostojen sisältö</strong> on esitetty seuraavasti:</p>
-<div class="file-content-box">
-<p>#IPv4 local connections: #host all all 127.0.0.1/32 md5</p>
-</div>
-<p><strong>HTML- ja CSS-koodit, SQL-komennot sekä Python-scriptit</strong> on esitetty seuraavasti:</p>
+<div id="harjoitus-1.3-vektoriaineistot" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Harjoitus 1.3: VEKTORIAINEISTOT</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa lisätään vektoriaineistoja GeoServer-palvelimelle ja muokataan tason asetukset WFS-palvelun julkaisemista varten.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Harjoituksen jälkeen opiskelija osaa lisätä vektoriaineistoja ja tehdä välttämättömät asetukset aineiston julkaisemiseksi.</p>
+<p><strong>Arvioitu kesto</strong></p>
+<p>40 minuuttia.</p>
+<div id="valmistautuminen-2" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> <strong>Valmistautuminen</strong></h2>
+<p>Kaikki koulutusaineistot ovat valmiiksi GeoServerin aineistohakemisto <strong>/data/koulutus/</strong>-kansiossa. Voit tarkistaa sen sijainnin omassa palvelimessasi <strong>Server Status</strong> -näkymästä. Sijainti on <strong>Data directory</strong> -kentässä; uusia aineistoja voidaan tarvittaessa lisätä siihen. </p>
+<p>Harjoituksessa käytettävät aineistot on ladattu käytössä oleville palvelimille.<img src="https://lh5.googleusercontent.com/NMnlvZKUjtx9MsuYWRNCudQ_fLavX11-qg9YllazBDaoD6XHEcbfnKb9EIS85_1vG7NssLmD5qa4uWa6uOELsNpF6aFyg9HD343_JdFkhoTnR6Y9_XQm8JlQySmozxAi15M9JKUN_u-OuFPv8t5w7OKTttRB7U1Dwry-4bULBcKdKrIIK64bqoaR2-dA" /></p>
+<p>GeoServerin aineistohakemistossa on paikkatiedon lisäksi muita aineistoja, kuten karttatyylejä ja tasoryhmien määrittelyjä. Tarkemmin, kurssin paikkatietoaineistot ovat koulutuskoneen kansiossa: </p>
 <div class="code-box">
-<p>SELECT version();</p>
+<p>/var/lib/tomcat8/webapps/geoserver/data/koulutus/</p>
 </div>
-<p><strong>Kysymykset, lisätiedot ja vihjeet</strong> on esitetty seuraavasti:</p>
 <div class="hint-box">
-<p>Mistä löydät tietoa GeoServeristä?</p>
-<p>GeoServerillä on omat kotisivut.</p>
-<p>Psst! Tietoa GeoServeristä löydät internetistä.</p>
+<p>Psst! Aineistojen lisäämisen yhteydessä ilmenevät virheilmoitukset liittyvät usein tiedostojen ja hakemistojen käyttöoikeuksiin.</p>
+</div>
+<p>Varmista, että koulutuskansio ja kaikki sen sisältämät alikansiot ja tiedostot ovat tomcat8-käyttäjän omistamia suorittamalla komentorivillä seuraava komento:</p>
+<div class="commandline-box">
+<p>sudo chown -R tomcat8:tomcat8 /var/lib/tomcat8/webapps/geoserver/data/koulutus</p>
+</div>
+<p>Koulutuskoneen <strong>salasana on gispo</strong>.</p>
+</div>
+<div id="vektoriaineisto-storen-luominen" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> <strong>Vektoriaineisto Storen luominen</strong></h2>
+<p>Koulutuksen aineistosta löytyy muun muassa OpenStreetMapsin rakennukset Helsingistä shapefile-formaatissa <strong>buildings.shp</strong>, joka lisätään nyt GeoServeriin.</p>
+<p>Aineiston formaatin ollen <strong>shapefile</strong> täytyy sille luoda <strong>store</strong>, joka on shapefile-formaatin kanssa yhteensopiva.</p>
+<p>Päävalikosta valitse <strong>Stores</strong> ja paina sitten <strong>Add new Store</strong>.</p>
+<p>Valitse Shapefile aineiston formaatiksi <strong>New data source</strong> -näkymässä, <strong>Vector Data Sources -kohdan</strong> alta.<img src="https://lh5.googleusercontent.com/oTJ1uMsH1Mj_QSsOey14TqQNB85QpzsXb0Wd_VbmLe12uo2FEBHFNm7TPzG7qq1Th-UcpLPhR6I6z6eG6SUY_3R3hB4xo0rtENOKH5SjqQkg8hTstjtDnTPUuc5t3mPQLp7uGKZf-ZkBeva2mFz4H3QBknPZkyZWTur3LrHbXqxurup2wgfTb26R2ZOz" /><img src="https://lh6.googleusercontent.com/QIhYOQqx5beu_0mmsw8FW-KEW3gb_dOYNb9BV2zJdVTeOtgVOpQrVNqd-IcKJn73fTfTh-WgLJ1lD-MtCmwnJgKo3-THxRtp_XM1rVLIjNS6UBMPE4a9HhHGi7q2Uvg1rcTzDJ0nWyH7gJBKRiCu6kCF6JLdbyw07ljIKNxfRfknBl97G4pC9tzgviSQ" /></p>
+<p>Seuraavassa näkymässä pääset määrittelemään juuri luomasi store:n muut asetukset, kuten nimen ja tiedoston sijainnit. Nimeä ne seuraavalla tavalla:</p>
+<ul>
+<li><p><strong>Valitse</strong> workspaceksi helsinki</p></li>
+<li><p><strong>Nimeä</strong> aineisto hki_rakennukset</p></li>
+<li><p><strong>Lisää</strong> halutessasi aineistolle kuvaus, esimerkiksi “Helsingin OpenStreetMaps rakennukset”</p></li>
+</ul>
+<p>Seuraavaksi määritellään mihin aineistoon (shape-tiedostoon) viitataan tämän store:n kautta. Muokkaa <strong>Connection Parameters</strong>:</p>
+<ul>
+<li>Paina <strong>Browse…</strong>, ja selaa tiedostoon: <strong>/koulutus/Helsinki.osm.shp/buildings.shp</strong></li>
+</ul>
+<p>Pidä <strong>Enabled</strong> ruksattuna ja varmista näin tekemäsi store:n (ja siitä luotujen tasojen) käytettävyys GeoServer-palvelimelta. Tätä valintaa voidaan käyttää halutessa piilottaa joitakin aineistoja käyttäjiltä ilman niiden poistamista palvelimelta (ylläpitäjät voivat vielä käyttää niitä).</p>
+<p>Tarkista vielä, että <strong>DBF charset</strong> arvo on <strong>UTF-8</strong>.</p>
+<p>Loput asetukset voidaan pitää oletusarvoina.</p>
+<p>Paina <strong>Save</strong>, niin store tallentuu GeoServerille ja on jatkossa käytettävissä</p>
+<p>Storen luomisen jälkeen GeoServer olettaa, että halutaan julkaista uusi taso ja siksi uusi taso -näkymä (<strong>New Layer</strong>) aukeaa automaattisesti.<img src="https://lh5.googleusercontent.com/56Vo1Huz8HxY88dOxNkQTE-dBwhiBoOm_MN-pypkvC96UDxKx5dUzd3ElhtxlrfiZ4EqJRIFqb44nciFaw4ejXrXsIJlp4JxbtR2ugU6N7tPadv7PKaJePv5ksJW4tsCMcb7-RYVstA-K_iYHH2XJijPFyB58tGBwD4VEqIcSfYqEE_zqC2E2xS7WmfA" /><img src="https://lh4.googleusercontent.com/BfVEW8-IGp8q3FegVwfybWqtJYgHE1CZZmmol0WE7nVkP7AAm8zAwFFBoHRGQo8j3HCiI2uh2VDh0mfgFbbZJvvbamxv7tz2ZdQlBsWgDc2EmAcrq0fGwWIVvHK-eQoVOGSZTTuBWCWZq3x2ZiDB_GSoXwPm7FtyKJbtCDGIDj9BBrQxdi11Trmo1cI6" /></p>
+<p>Paina <strong>Publish</strong> tason julkaisemiseksi.</p>
+</div>
+<div id="vektoritason-julkaiseminen" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> <strong>Vektoritason julkaiseminen</strong></h2>
+<p>Luodaan ja julkaistaan nyt uusi taso. Jos et vielä tehnyt niin, paina <strong>Publish</strong> niin pääset muuttamaan julkaistavan tason ominaisuuksia.</p>
+<div class="hint-box">
+<p>Psst! Jos ehdit poistumaan edellisestä näkymästä, samaan uuden tason luonti -näkymään pääsee päävalikosta Layers &gt; Add a new layer ja valitsemalla haluttu store (meidän tapauksessa helsinki:hki_rakennukset).</p>
+</div>
+<p>Tason julkistamisen ominaisuudet ovat jaettu neljään välilehteen:</p>
+<ul>
+<li><p><strong>Data</strong></p></li>
+<li><p><strong>Publishing</strong></p></li>
+<li><p><strong>Dimensions</strong></p></li>
+<li><p><strong>Tile Caching</strong></p></li>
+</ul>
+</div>
+<div id="data-asetukset" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> <strong>Data asetukset</strong></h2>
+<p>Keskitytään nyt <strong>Data</strong>-välilehdessä oleviin valintoihin. Määrittele yleistiedot seuraavasti:</p>
+<ul>
+<li><p><strong>Pidä</strong> Enabled ja Advertised rastitettuna</p></li>
+<li><p><strong>Nimeä</strong> aineisto rakennukset</p></li>
+<li><p><strong>Otsikoi</strong> Helsingin OpenStreetMap rakennukset</p></li>
+</ul>
+<p><strong>Lisää</strong> halutessasi selitystä tasosta ja tasoon liittyviä avainsanoja (keywords). Avainsanojen avulla sekä Geoserverin ylläpitäjien ja käyttäjien on helpompi löytää heille tarpeellisia paikkatietoaineistoja.</p>
+<div id="coordinate-reference-systems" class="section level3" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> <strong>Coordinate Reference Systems</strong></h3>
+<p>Selaa alaspäin kunnes löydät <strong>Coordinate Reference Systems</strong> -kohdan. Tässä määritellään tasolle koordinaattijärjestelmä.</p>
+<p>Kun uutta aineistoa tuodaan GeoServeriin, se yrittää tunnistaa alkuperäisen koordinaattijärjestelmän EPSG-koodin. Jos tunnistus ei onnistu, niin <strong>Native SRS</strong> -kentän arvoksi tulee <strong>UNKNOWN</strong> ja sen oikealta puolelta löytyy linkki, josta saa tiedot aineiston alkuperäisen koordinaattijärjestelmän selvittämistä varten.</p>
+<p>Tässä tapauksessa, projektiotiedot tulevat shapefilen aineiston .prj-tiedostosta. Paina <strong>GCS_WGS_1984…</strong> -linkkiä, niin saat auki projektiotiedot.</p>
+<p><img src="https://lh4.googleusercontent.com/cdz5VFXU4fuqWiHtwdATXCN0a3_TW_wTCEuEJ98nL4WlWDusJ8ZFcTW4CIbosnM9_70IpJtDgshjS30_AAAXvPsCuovSby5CrjsxG-pwL9c6TS0AOeubRju6bOPX3_txmn9AgYsC80qnzt8yRgiLoaVQ1HJREeEzSMGy-UOZy6p9Qpjnji60qVtnzjWx" /></p>
+<div class="hint-box">
+<p>Psst! Huomaa, että Native SRS tiedot ovat tarkoitettu vaan esikatselua varten. Tiedot tulevat suoraan alkuperäisen aineiston asetuksista, esimerkiksi shapefilen tai PostGIS-tason koordinaattijärjestelmätiedoista. Siksi niitä ei voida muokata GeoServerin selaimessa käyttöliittymän kautta.</p>
+</div>
+<p>Kirjoita <strong>EPSG:4326</strong> koodi <strong>Declared SRS</strong> -kohdassa. Voit myös etsiä EPSG-koodeja <strong>Find</strong> -toiminnolla.</p>
+<p>Pidä <strong>SRS handling</strong> oletusarvo (<strong>Force declared</strong>) ennallaan.<img src="https://lh4.googleusercontent.com/Taek9Bk9DYdtYZTWQQpV7Op_HiX_UEb_0v2eOkmCV-U1Wk_0lRz8xf3KEZBk1SvPsFHOe2KzAEHgCgZw9tzniTDixvJGCSXXhndD4IAtiWLcx2den1Y8x_ChevxZL5UWyd2JctqX_aoBMweeqF2z9XQO-FMCM_j18WmdAIrWTb6cL3-g3xIxdsogw_Jh" /></p>
+</div>
+<div id="bounding-boxes" class="section level3" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> <strong>Bounding Boxes</strong></h3>
+<p>Täytä alla <strong>Bounding Boxes</strong> -kohdassa tiedot aineiston laajuudesta.</p>
+<div class="hint-box">
+<p>Psst! Laajuus olisi mahdollista määritellä automaattisesti, mutta GeoServer vaatii, että tämä asetus tehdään valvotusti. Syy on se, että suurien aineistojen kanssa palvelin voisi jäädä pitkäksi ajaksi laskemaan tasojen laajuutta. Pyyntö voisi jopa epäonnistua, jos palvelimen timeout-asetus ylittyisi ja näin aineiston lisääminen olisi hankala.</p>
+</div>
+<p>Harjoituksen aineisto on sen verran pieni, että voimme käyttää automaattista määrittelyä. Paina ensin <strong>Native Bounding Box → Compute from data</strong> ja sitten <strong>Lat/Lon Bounding Box → Compute from native bounds</strong>. <img src="https://lh6.googleusercontent.com/OEMrmmA4MkfpxjQUUy_tDBpoCHbXf4gXF8nQP6NNAtRZnJdyfQHKmzF4ZjgxL_EbyRhliwytSFPyWL-mD9ejIigBWUts4CKyuS5UwtoxD6yhRNvANOflrylcYq2AwsEAvLnirjw8YRubg689kwhEOtBc8DwuSRcpLNxkxRyUUJ337f7RiQYsBtODs8QD" /></p>
+</div>
+<div id="feature-type-details" class="section level3" number="4.4.3">
+<h3><span class="header-section-number">4.4.3</span> <strong>Feature Type Details</strong></h3>
+<p><strong>Data</strong>-näkymän loppuosasta löytyy <strong>Feature Type Details</strong>, josta nähdään vektoriaineiston ominaisuustiedot ja niiden tyypit.</p>
+<p>Muita julkaisun ominaisuuksia katsotaan vielä myöhemmin. Paina nyt <strong>Save</strong>, ja aineisto on saatavilla GeoServeristä. Tarkista, että uusi taso <strong>rakennukset</strong> on tasojen listalla.</p>
+<div class="hint-box">
+<p>Psst! Voit käyttää “etsi”-toimintoa kun haluat suodattaa näkymää.</p>
+</div>
+<p>Avaa nyt <strong>Layer Preview</strong> -näkymä, jolla pääset esikatselemaan <strong>rakennukset</strong>-tasoa samalla tavalla kun aiemmin olet esikatselut muita demoaineistoja.<img src="https://lh5.googleusercontent.com/ORKD1fXW0LkrfvrcFFKbe_0w8hr5H8Y8kFxZg2kXsv9MLfn88Un-_wmLGK7kYA6YiCi7_gfI2iR8YIGKVFQBBC8Bfr24lz_SHrD0M7YjDa27YCQlMQ0TBprQ-_yKOvicZtYF4uy2OeEV4lLcTltl5nuVCBz8DzV9cZTnqjyma9xzf0QdxC8p6gNhaTRJ" /></p>
+<div class="hint-box">
+<p>Psst! Huomaa, että Layer Preview näkymässä (ja myös Layer näkymässä) tason nimen edessä on laitettu workspacen nimi. Helsingin rakennukset -tason nimi on siksi helsinki:rakennukset.</p>
+</div>
+<p>OpenLayers esikatselu näyttää tältä:<img src="https://lh6.googleusercontent.com/7Ut2UEn1b9XCgD7zUz_h3DHTYFZfMRoKjDg8rla_3TfVo2bpv3uYvqN95CVSdKn1r3tiXmfqyK3AVDf8WlGrm_rXim5cuMskFN0CTtv6GfAjdu62AmAffoKXUEKfZCdQU4neeZ55RqNf9Sds9qXj2OEBOkdxgy1Dch5prXvarmA0IVBfiMKWsT0fftAN" /><img src="https://lh3.googleusercontent.com/W1gFn1eC4oJuLJFkubajRiOJjm2t-fxrEjCB_1Z6KCvauY8bZ7flUBHwvdq5IVeyBLGBF_sNUepdcHV2OuIb3M8RLUoXvuZEq6VrJuvfHaY47jCRx3PpAsT_MLulA_pPBwHcJES87doIJK-7WIkpTAYVJ3__V-brGTFQg3fUcwfsXl0o27uWclNUGZzw" /></p>
+<p>Zoomaa karttaan ja paina jonkun rakennuksen päällä niin saat sen ominaisuustiedot näkyviin.</p>
 </div>
 </div>
-<div id="mistä-lisätietoja" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Mistä lisätietoja?</h2>
-<p>Ohessa muutamia web-sivustoja, joista saat lisätietoja:</p>
-<div class="note-box">
-<p><a href="http://www.qgis.org/" class="uri">http://www.qgis.org/</a></p>
-</div>
-<div class="note-box">
-<p><a href="http://docs.qgis.org/" class="uri">http://docs.qgis.org/</a></p>
-</div>
-<div class="note-box">
-<p><a href="http://gis.stackexchange.com/" class="uri">http://gis.stackexchange.com/</a></p>
-</div>
-<div class="note-box">
-<p><a href="http://www.osgeo.fi" class="uri">http://www.osgeo.fi</a></p>
-</div>
-</div>
-<div id="virheet" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Virheet</h2>
-<p>Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla <a href="mailto:info@gispo.fi-osoitteeseen" class="email">info@gispo.fi-osoitteeseen</a>.</p>
-</div>
-<div id="lisenssi-ja-oikeudet" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Lisenssi ja oikeudet</h2>
-<p>Nämä materiaalit on “Johdanto GeoServerin käyttöön”-kurssille kehittänyt Gispo Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: <a href="https://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0</a></p>
+<div id="helsingin-tiestön-lisääminen" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> <strong>Helsingin tiestön lisääminen</strong></h2>
+<p>Lisää nyt OpenStreetMap Helsingin tiestö GeoServeriin samalla tavalla kuin edellisessä harjoituksessa. Aineisto löytyy samasta kansiosta kuin <strong>rakennukset-</strong>aineisto, nimellä <strong>roads.shp</strong>.</p>
+<p>Muista, että ennen kun tason voi lisätä GeoServeriin, sille täytyy luoda sopiva store. Nimeä uusi store <strong>hki_tiesto</strong> ja siitä luotu taso <strong>tiesto</strong> niin tasojen nimet pysyvät samankaltaisina. Muista korjata myös koordinaattijärjestelmä (<strong>EPSG:4326</strong>) ja <strong>DBF charset</strong> (<strong>UTF-8</strong>).</p>
 
 </div>
 </div>
 <p style="text-align: center;">
-<a href="2-harjoitus-1.1-asennus-ja-käyttöönotto.html"><button class="btn btn-default">Next</button></a>
+<a href="3-harjoitus-1.2-geoserverin-web-käyttöliittymä.html"><button class="btn btn-default">Previous</button></a>
+<a href="5-harjoitus-1.4-kuvaustekniikan-perusteet-sld.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>

@@ -7,7 +7,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="Johdanto GeoServerin käyttöön" />
+<meta property="og:title" content="13 HARJOITUS 2.5: PÄÄSYNHALLINTA | Johdanto GeoServerin käyttöön" />
 <meta property="og:type" content="book" />
 
 
@@ -19,9 +19,9 @@
 <meta name="date" content="2023-01-31" />
 
 
-<meta name="description" content="Johdanto GeoServerin käyttöön">
+<meta name="description" content="13 HARJOITUS 2.5: PÄÄSYNHALLINTA | Johdanto GeoServerin käyttöön">
 
-<title>Johdanto GeoServerin käyttöön</title>
+<title>13 HARJOITUS 2.5: PÄÄSYNHALLINTA | Johdanto GeoServerin käyttöön</title>
 
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
@@ -240,81 +240,223 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </div>
 <div class="row">
 <div class="col-sm-12">
-<!-- This title section is only rendered to index.html -->
-<div id="title-container">
-
-<h1 id="title-header">Johdanto GeoServerin käyttöön</h1>
-
-<h4 class="author">Gispo Oy</h4>
-
-<h4 id="build-date">Version: 2023-01-31</h4>
-
-<div class="abstract"><p>Johdantokurssi GeoServerin käyttöön.</p></div>
-
+<div id="harjoitus-2.5-pääsynhallinta" class="section level1" number="13">
+<h1><span class="header-section-number">13</span> HARJOITUS 2.5: PÄÄSYNHALLINTA</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa tutustutaan erilaisiin turvallisuusasetuksiin ja luodaan käyttäjiä ja rooleja. Asetetaan käyttöoikeuksia palveluille, aineistoille ja käyttäjille.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Harjoituksen jälkeen opiskelija osaa asettaa palvelimen perusasetuksia, luoda käyttäjiä ja rooleja. Opiskelija osaa myös asettaa käyttöoikeuksia palveluille ja aineistoille.</p>
+<p><strong>Arvioitu kesto</strong></p>
+<p>40 minuuttia.</p>
+<div id="geoserverin-yleiset-turvallisuusasetukset" class="section level2" number="13.1">
+<h2><span class="header-section-number">13.1</span> <strong>GeoServerin yleiset turvallisuusasetukset</strong></h2>
+<p>Avaa <strong>Security → Settings</strong>. Tässä näkymässä voit määritellä yleisesti käytössä olevia turvallisuusasetuksia.<img src="https://lh4.googleusercontent.com/7BU1feiQ36CMef3KQLkgZkaentunSSy4mPf_5brlvaDu9TaML0YL3asSVh42vcTL3AFIW2jMH-tMFECAowRdgqLI4MlAGBCwBbJ6KEiDkvFtg78kP0stdlbeNh9hqTsgZ2Timymmr1lfyYTE6IzBDA" /></p>
+<p>Tässä näkymässä voidaan myös määrittää, mikä <strong>Active role service</strong> (roolipalvelu) on käytössä. GeoServer sallii valittavaksi vain yhden roolipalvelumuodon palvelimelle. Roolipalvelu  sisältää kaikki palvelimen käyttäjä-, ryhmä- ja roolisäännöt. Pidetään <strong>default-</strong>roolipalvelu käytössä.</p>
+<p><strong>Encryption</strong>-kohdan alta löytyy salaukseen liittyviä asetuksia. <strong>Encrypt web admin URL parameter</strong> -valinta salaa käyttäjäliittymän URL-parametreja selaimella.</p>
+<p>Esimerkiksi, <strong>Security</strong>-valikon selaimen URL (missä nyt ollaan)… </p>
+<p>… ilman salausta on:</p>
+<p>+—————————————————————————————————————–+
+| <a href="http://localhost:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.security.web.SecuritySettingsPage" class="uri">http://localhost:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.security.web.SecuritySettingsPage</a> |
++=================================================================================================================+
++—————————————————————————————————————–+</p>
+<p>… salauksen kanssa se on:</p>
+<p>+——————————————————————————————————————————————————+
+| <a href="http://localhost:8080/geoserver/web/?x=xAiOmyK-CQmBXDhILZrWpny28bhFcImLrBRYk0INwrBDmbzQlmeLRdiaRoNSaBSx3o6elVC9JMPcy5gkRljLXMKGrvMx3Yui3*ANGkUW-hE" class="uri">http://localhost:8080/geoserver/web/?x=xAiOmyK-CQmBXDhILZrWpny28bhFcImLrBRYk0INwrBDmbzQlmeLRdiaRoNSaBSx3o6elVC9JMPcy5gkRljLXMKGrvMx3Yui3*ANGkUW-hE</a> |
++======================================================================================================================================================+
++——————————————————————————————————————————————————+</p>
+<p>Huomaa, että palvelimessa ei ole asennettu Java policy -tiedostoja, joten vahvaa salausta ei voida ottaa käyttöön.</p>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>##### <strong>Psst! Java policy -tiedostojen asennus riippuu siitä, mikä Java ohjelmisto on palvelimessa asennettu. Jos asennettu on Open JDK, niin policy-tiedostot on oletuksena asennettu ja Strong cryptography käytössä. Jos taas asennetaan Oracle Java (joka on aikaisemmin ollut GeoServerin suositus) niin täytyy ladata Oraclen JCE policy jars ja purkaa ne JRE_HOME/lib/security -kansioon, jonka jälkeen Strong cryptography on käytössä.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Password encryption</strong> määrittää, mikä salauksen tyyli on käytössä salasanojen varastossa: <strong>Plain text</strong>, <strong>Weak PBE</strong> ja <strong>Strong PBE</strong>.</p>
+<p>Pidä <strong>Weak PBE</strong> ja paina <strong>Save</strong>.</p>
 </div>
-<div id="johdanto-geoserverin-käyttöön" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> JOHDANTO GEOSERVERIN KÄYTTÖÖN</h1>
-<div id="tervetuloa-geoserver-kurssille" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Tervetuloa GeoServer-kurssille!</h2>
-<p>Tämän kurssin tarkoituksena on opastaa sinut GeoServerin käyttöön. Paikkatietojen tai muiden paikkatieto-ohjelmistojen käyttökokemus ei ole välttämätöntä koulutukseen osallistumisel­le. Toki niistä on paljon hyötyä. Kysy rohkeasti opettajalta lisätietoja, jos käytetty terminologia tai joku asia jää epäselväksi.</p>
+<div id="tunnistautuminen" class="section level2" number="13.2">
+<h2><span class="header-section-number">13.2</span> <strong>Tunnistautuminen</strong></h2>
+<p><strong>Authentication</strong>-asetusten (tunnistautuminen) kautta määritellään, miten GeoServer kerää käyttäjätunnuksia ja verifioi niitä.</p>
+<p>Oletuksena GeoServerin asetukset sallivat palvelimen käytön (eli WMS-, WFS- ja WCS-palvelujen käytön) ilman mitään käyttäjätunnusta. Voit tarkistaa tämän seuraavasti.</p>
+<p>Esikatsele tasoa <strong>ilmakuvat_keskusta</strong> samalla tavalla kuin aiemmin muita tasoja. Taso aukeaa selaimella ongelmitta, koska olet kirjautunut <strong>admin</strong>-tunnuksella.  Älä sulje esikatselusivua vielä.</p>
+<p>Mene nyt takaisin GeoServerin ylläpitosivulle ja paina <strong>Logout</strong>.</p>
+<p>Palaa esikatselusivulle ja lataa sivu uudelleen painamalla F5. Sivu latautuu edelleen normaalisti.</p>
+<p>Muutetaan asetuksia nyt niin, että palvelujen käyttö vaatii käyttäjältä tunnistautumisen, eivätkä kirjautumattomat käyttäjät pysty enää käyttämään palveluja. Avaa taas <strong>Security → Authentication</strong>, etsi <strong>Filter Chains</strong> ja paina <strong>default</strong>-linkkiä.</p>
+<p>Valitse nyt <strong>Chain filters</strong> -kohdasta, <strong>Selected</strong>-laatikosta <strong>anonymous</strong> ja siirrä se <strong>Available</strong>-laatikkoon käyttäen laatikkojen välistä löytyviä siirtonuolia. Anonymous-tunnistautumistyyli sallii palveluiden käytön tunnistautumattomille käyttäjille.<img src="https://lh4.googleusercontent.com/TPg2LDK9hrwkCNqDD8w6_-0GcXvIMrpBGuTxiD3uISW97HU0WREVw5rNoJNjHvZG0xgsciIvqZjURG7-HIhukvnNg2ya8ivIq7FFyu-5SXwa0VpqCRsPp1gD-AC9u2svscv-8Z5P9czO2TYHJyMPRQ" /></p>
+<p>Nyt ainoastaan <strong>basic</strong>-tunnistautumisen tyyli on Selected-laatikossa eli käytössä. Tämä tarkoittaa sitä, että jatkossa tarvitaan aina tunnus ja salasana palvelimen käyttöön.<img src="https://lh4.googleusercontent.com/2ZfEdGuHR1lCX0MtW6nFP7VsoH5VfjS0qMnSSJkuhmap8yn4aN9mQaTIPJMnbO-YPL9Y50vDE0JsLaJXamjVP_h_55i2ahdks7rBGtghqM_Eso1ckS2hLaz9tNU_9bhTCssVRvsrOrSXFNH1VFiPSw" /></p>
+<p>Paina nyt <strong>Close</strong> ja pääset takaisin <strong>Authentication</strong> valikkoon. Paina sitten <strong>Save</strong>, niin muutokset tulevat voimaan.</p>
+<p>Jos kirjaudut nyt ulos GeoServeristä ja päivität aiemmin avattua esikatselusivua uudelleen, tunnuksella ja salasanalla tunnistautuminen on pakollista.</p>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>##### <strong>Psst! Palvelimen pääsynhallinnan asetuksia voi helpoiten testata käyttämällä eri web-selainta (Internet Explorer / FireFox / Chrome) tai selaimen yksityisyyden salaavaa toimintoa (Incognito-mode) normaalin selaimen rinnalla. Toisella selaimella ollaan kirjautuneet ylläpitäjän tunnuksilla (kuten tähän asti) ja toisella kokeillaan erilaisia kirjautumistiloja. Voit kysyä opastusta kouluttajalta tarvittaessa. Huomaa, että mahdollisesti sinun täytyy kirjautua ulos ja uudelleen sisään asetusten uudelleen lataamista varten.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="geoserverin-taustaa" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> GeoServerin taustaa</h2>
-<p>GeoServer on avoimen lähdekoodin palvelinohjelmisto, jossa voi jakaa, käsitellä ja hallinnoida geospatiaalista dataa. GeoServer on ollut toiminnassa vuodesta 2001 alkaen “The Open Planning Project”-hankkeen kautta. Vuonna 2014 GeoServer siirtyi OSGeo-projektin alle. GeoServeriä päivitetään puolen vuoden välein ja ohjelmiston käyttäjäkunta on varsin vilkas ja aktiivinen.</p>
+<div id="uuden-roolin-ja-käyttäjän-luominen" class="section level2" number="13.3">
+<h2><span class="header-section-number">13.3</span> <strong>Uuden roolin ja käyttäjän luominen</strong></h2>
+<p>GeoServerin pääsynhallinnassa keskeisessä asemassa ovat käyttäjä-, ryhmä- ja rooliasetukset.</p>
+<p>Luodaan nyt uusi käyttäjä, jolla on vain oikeuksia käsitellä <strong>helsinki</strong>-workspace:n aineistoa.</p>
+<p>Avaa päävalikosta <strong>Security → Users</strong>, <strong>Groups, and Roles</strong>.</p>
+<p><strong>Services</strong>-välilehdestä löytyvät käyttäjien ja roolien pääsynhallinnan asetukset. Niihin tallennetaan tietoja siitä, ketkä käyttäjät kuuluvat mihinkin ryhmään tai mitä rooleja on ylipäätänsä määritelty pääsynhallinnassa.</p>
+<p>Listalla on GeoServerin luomia <strong>default</strong>-asetuksia. Käytetään niitä nyt hyväksi.</p>
+<p>Luodaan ensin rooli, johon uusi käyttäjä tulee kuulumaan.</p>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>##### <strong>Psst! Pääsynhallinnan hallinnoimisen helpottamiseksi, oikeudet määritellään roolikohtaisesti.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Avaa <strong>Roles</strong>-välilehti ja paina <strong>Add new role</strong>, anna uudelle roolille nimeksi <strong>hki_rooli</strong>.<img src="https://lh5.googleusercontent.com/JvsrNto0SBz9J5INooad5AraBECqY-cbJdegESf6O5ZPdqZsj9JZChhJzI7E0JiwWdvwXLGhrRhMqTh_UdqEU9-krSKhnypRhQ35Y7VJJiDvS3VqlRd_c-_oDKx0muNZPLyHQYwWCHd8LOfJ0KCFZQ" /></p>
+<p>Paina sitten <strong>Save</strong>.</p>
+<p>Luodaan nyt uusi käyttäjä. Avaa <strong>Users/Groups</strong> -välilehti.</p>
+<p>Huomaa, että täällä on määritelty <strong>admin</strong>-tunnus, jota olet käyttänyt koulutuksen aikana.<img src="https://lh5.googleusercontent.com/xubuBTr3ZdHwCGMREF6A0lhBTn02gjZ4RrTD0lYl5R6N5osX2uPcAvlaW0MMfw6pqcUutn0ouoaKiqbh-zYClao3rmxxi7hKcXFkd0a32rOGL7VdoIld_fOp_jmS1VdmxZfNfTggpVVpo-86HN6RqA" /></p>
+<p>Luo uusi käyttäjä painamalla <strong>Add new user</strong>.</p>
+<p>Laita käyttäjän nimeksi <strong>hki_kayttaja</strong> ja salasanaksi <strong>hki-kayttaja</strong>.</p>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>##### <strong>Psst! Huomaa, että erikoismerkit ja ääkköset ovat sallittuja GeoServerissä, mutta tarkoituksenmukaisuuden ja eri selainten välisten erojen vuoksi tässä koulutuksessa vältetään niiden käyttöä.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Uudelle käyttäjälle annetaan oikeuksia määrittämällä mitä rooleja käyttäjällä on. Roolit on määritelty <strong>Roles taken from active role service: default</strong> -kohdassa. Siinä on valittavissa muun muassa <strong>hki_rooli</strong>, lisää se <strong>Selected Roles</strong> -laatikkoon käyttäen laatikkojen välistä löytyviä siirtonuolia.</p>
+<p>Paina sitten <strong>Save</strong>,niin uusi käyttäjä <strong>hki_kayttaja</strong> on luotu ja sillä on oikeudet <strong>hki_rooli</strong>:nmukaisesti. Koska <strong>hki_rooli</strong>:lle ei vielä ole määritelty oikeuksia, niin uudella käyttäjälläkään ei ole vielä määritelty mitään oikeuksia.<img src="https://lh6.googleusercontent.com/M9tFj7P8AqMY5csVXqQLI5blaGXOLQyB0hEyMrXiHg7pURXuqLWbEpT99SVA-Ysuw1vCmiE9xxpvSslVhg2q2ojzYkBjUNlHFc8vLhT0zjFCA_M-PRm7DD3JTzdnXgbfIleioksW6q8kvY2FdSySBQ" /></p>
+<p>Kokeile uuden käyttäjän oikeudet kirjautumalla sisään uudella käyttäjätunnuksella. Voit joko kirjautua uudestaan tai käyttämällä toista selainta, kuten aikaisemmin on mainittu.</p>
 </div>
-<div id="lukuohje" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Lukuohje</h2>
-<p><strong>Web-selaimessa</strong> suoritettavat komennot on merkitty seuraavasti:</p>
-<div class="note-box">
-<p><a href="http://localhost:8080/geoserver" class="uri">http://localhost:8080/geoserver</a></p>
+<div id="aineiston-käyttöoikeuksien-rajoittaminen" class="section level2" number="13.4">
+<h2><span class="header-section-number">13.4</span> <strong>Aineiston käyttöoikeuksien rajoittaminen</strong></h2>
+<p>Avaa <strong>Security → Data.</strong> Tässä näkymässä näkyvät GeoServer-palvelimen käyttäjille (rooleille) määritetyt säännöt. Oletusasennuksessa vain kaksi sääntöä on määritelty eli luku (r) ja kirjoitusoikeudet (w):<img src="https://lh3.googleusercontent.com/swKvkjNDItbwmPrRo8myqGkYlfasbQvl4xwVzHseNvBZCqU99WTYpo2lUrGb6B7zUY5-TuE1Ck738m2TyrUK2nJ73cP3iuYGPVt_N5F_vj1gXdA57YgP-YCdk23Zi0UkNMLhjIqwy1QGjC8ESZCORw" /></p>
+<p><strong>Rule path</strong> -sarakkeen alla olevat säännöt ovat muodoltaan <strong>*.*.r</strong>, joka antaa lukemisoikeudet kaikille tasoille kaikissa workspace:ssa.</p>
+<p>Huomaa vielä, että <strong>Roles</strong>-sarakkeen alla on määritelty, mille rooleille oikeudet on myönnetty. Tässä on määritelty <strong>*</strong>-merkillä, joka tarkoittaa “kaikki roolit”.</p>
+<p>Seuraava kuva esittää GeoServerin aineistosääntöjen määrittelyä:<img src="https://lh5.googleusercontent.com/ABxbgCKCoUCEBLNqC4-WomGEU1Y35Gf-nv_ptwSuotThO3Hzq1JM0Qur7w-NusAAxXVf-cSWza6l_qCOkWZeXxAJm7XhEv3OSlWAw2cZBNmh5iKva6dJM1R4HcpFVz3wSV1uCjVI2L4V0NKXcweyVw" /></p>
+<p>Sääntö koostu kolmesta osasta, pisteellä eroteltuina. Ensimmäinen osa määrittelee workspacen, jolla sääntö on voimassa. Toinen osa määrittelee tason (layer), jolla sääntö on voimassa. Kolmas ja viimeinen osa määrittelee, mikä toiminto sallitaan. Toimintoja on kolme: lukeminen (r = read), kirjoittaminen (w = write) ja ylläpitäminen (a = admin).</p>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>##### <strong>Psst! Kaikissa osissa voidaan käyttää myös *-merkkiä, jolla voidaan viitata kaikkiin workspaceihin, tasoihin tai oikeuksiin.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Paina listalta <strong>*.*.r</strong>.</p>
+<p>Tässä säännössä määritellään, että kaikkiin workspace:ihin ja kaikkiin tasoihin on lukemisoikeus.<img src="https://lh4.googleusercontent.com/OsUaSM6388s8EQt-gxNFTPbyKU0myLCV98LgF7vrFCYDm4itrAAhkUfdQzcFzTaQLbmMTPkw9kaf7rL0TpZofi0-MTHTP57m9L2gPxn-5BYsmAiYMZqAsqMtzk1zPA1Y4_RhFri5redxT-OWLl63eA" /></p>
+<p><strong>Roles</strong>-osion alla on määritelty se, että tämä sääntö kuuluu kaikille rooleille (<strong>Grant access to any role</strong>). Huomaa, että <strong>Grant access to any role</strong> on rastittu, joten kaikki roolit voivat lukea kaikki tasoja kaikista workspace:sta.</p>
+<p>Rajoitetaan nyt sääntöä vain ylläpitäjien rooleille.<img src="https://lh4.googleusercontent.com/UU_FhAyuLubRfWFo9psqGbuwLINKKoRdkWAQaCfVhEuXkmcz4m2ldxS2pcjNuHrC8j9VZcPDi068AcVLffVEPrRFmDXlqL-a_NxfIudCAujbV3D7wcQJmhcBXkx52cLqwhZ5XFtORJ1Y6A0qoe_7NQ" /></p>
+<p>Rastita pois <strong>Grant access to any role</strong> ja lisää roolit <strong>Admin</strong> ja <strong>GROUP_ADMIN</strong> laatikkoon <strong>Selected Roles</strong>.</p>
+<p>Paina lopuksi <strong>Save</strong>.</p>
+<p>Tee lopuksi samat muutokset <strong>*.*.w</strong> -säännölle.<img src="https://lh4.googleusercontent.com/nwkSHdncQokiR8MQ6K0NGS6nFau83ayKYIg2YGhYbnrVt0s5zZTzxhjSsJgRGhfNYy407qvJA4r_Us3KJuR3-7dSimaMeUrwNCZcA0U1mTSeRoa_QaMA_XacY4V4lgIszCzT4D3ThZQZ1FevOnM6hw" /></p>
+<p>Näiden muutosten jälkeen, vain <strong>Admin</strong>-tunnuksella on lukemis- ja esikatseluoikeudet.</p>
+<p>Kokeile nyt esikatsella jotain aineistoja <strong>hki_kayttaja</strong>-tunnuksella, yhtään aineistoa ei ole tarjolla.<img src="https://lh4.googleusercontent.com/cV9aXOzZe6YDHMUftvcvoqk_R9BovOKCdQXwtHePZOo1kn3rjz3Qf29zxFbyp-T8NXOJ6_TEWEA-H0ZFwTZ5fLMnQ31ZOGitv4WavmQVI0MWwBsGkDMfgGkoZkQY3WOXzlDwLU4hY3_NDluwMnL_cQ" /></p>
 </div>
-<p><strong>Komentorivillä</strong> suoritettavat komennot on merkitty seuraavasti:</p>
-<div class="commandline-box">
-<p>sudo lsb_release -a</p>
+<div id="aineiston-käyttäjäkohtaiset-käyttöoikeudet" class="section level2" number="13.5">
+<h2><span class="header-section-number">13.5</span> <strong>Aineiston käyttäjäkohtaiset käyttöoikeudet</strong></h2>
+<p>Seuraavaksi määritellään <strong>hki_kayttaja</strong>-tunnukselle luku- ja kirjoitusoikeudet <strong>helsinki</strong>-workspace:en. Käytännössä pitää määritellä oikeudet roolille johon käyttäjä kuuluu, eli <strong>hki_rooli</strong>-roolille.</p>
+<p>Tähän asti <strong>hki_rooli</strong>:lle ei ole annettu vielä mitään oikeuksia, täten <strong>hki_kayttaja</strong>:llä ei ole enää oikeuksia mihinkään aineistoon (ellei joku sääntö on määritelty kaikille rooleille käyttäen <strong>*</strong>-merkkiä).</p>
+<p>Lisätään nyt <strong>hki_kayttaja</strong>:lle <strong>Read</strong>- ja <strong>Write</strong>-käyttöoikeudet, mutta vain <strong>helsinki-</strong>workspace:en. Tämä tapahtuu määrittämällä lisää aineiston sääntöjä.</p>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>##### <strong>Psst! Varmista, että olet kirjautunut ylläpitäjänä (tunnus: admin ja salasana: gispo).</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Avaa taas <strong>Security → Data</strong> ja lisää nyt kaksi uutta sääntöä käyttäen <strong>Add new rule</strong> -valintaa.</p>
+<p>Laita <strong>Workspace</strong>-kohtaan <strong>helsinki</strong> ja jätä <strong>Layer</strong>-arvoksi “<strong>*</strong>”, joka viittaa kaikkiin tasoihin.</p>
+<p>Aseta <strong>Access mode</strong> -valikkoon arvoksi <strong>Read</strong>, joka antaa lukemisoikeudet edellä määrätyille aineistoihin.</p>
+<p>Siirrä lopulta <strong>hki_rooli</strong> laatikosta <strong>Available Roles</strong>, laatikkoon <strong>Selected Roles</strong>.<img src="https://lh3.googleusercontent.com/LZAZ0BfPvNeapB9cUNV0uIfU6PP2B6zWOO0DN9lAAOIdEtSXTr_mpH_gVtx-koW0xNFmaWLSqWVGdo-ZQcJdgtIHDc0cMNDZDU8DyzGsmlXD70xuXvo99t42MBpz9X4fhFwxWCK1Z5D5PRc7O3hgqQ" /></p>
+<p>Paina lopuksi <strong>Save</strong>. </p>
+<p>Nyt <strong>hki_kayttaja</strong>:llä on read-oikeudet kaikkiin helsinki workspace:n tasoihin.</p>
+<p>Lisää samalla tavalla vielä <strong>Write</strong>. Kirjoitusoikeudet sallivat käyttäjälle aineistojen muokkausoikeudet aina kun se on sallittu GeoServerissa, esimerkiksi WFS-T-palvelun kautta.</p>
+<p>Kokeile uudelleen esikatsella aineistoja <strong>hki_kayttaja</strong>-tunnuksella. Esikatselu on mahdollista nyt kaikkien <strong>helsinki</strong>-workspacen tasojen kanssa, mutta muut tasot eivät näy.</p>
+<p>Huomaa, että käyttäjällä ei ole kuitenkaan oikeuksia lisätä GeoServeriin uusia aineistoja tai tasoja. Voit antaa <strong>hki_kayttaja</strong>-tunnukselle <strong>Admin</strong>-oikeudet määrittämällä vielä ylläpitäjän oikeudet.</p>
+<p>Loppujen lopuksi on luotu kolme uutta sääntöä, jotka ovat <strong>hki_rooli</strong>:lla voimassa.<img src="https://lh3.googleusercontent.com/1VLiAKFjAcs7Ik1sjVpYS0puZlZJ9sjh4Abs8vWEc1mLFqOt9sXE_mJ29gvtNe1NH-5GiBmgW7ypUZi7-jPtfHmuznljl_mgrLtUrGVKP0WW7nLv-hiZ-hz2Kw9fKuGV_oQXG2xWzikHa9w2uJLA3g" /></p>
+<p>Kirjaudu uudelleen palvelimelle käyttäen <strong>hki_kayttaja</strong>-tunnusta ja tarkista, että <strong>helsinki</strong>-workspacen tasot ovat käytettävissä ja aineiston ylläpitäminenkin onnistuu. Huomaa, että muut workspacet eivät näy lainkaan.<br />
+<img src="https://lh6.googleusercontent.com/wCIK5QNygIsVabkn2A2kA1BbtAcQKn9iWcUSn5Pe3kqTi06U8AK1y-yys3uUEj__hn1UT-G-AdwhFooPLkf3LsQfC3YVG3Gx4CaursP_1tO_YKmA1K5T93M8HDoXn88h1xsRToGDMIvroNybReVGPA" /></p>
 </div>
-<p><strong>Tiedostojen sisältö</strong> on esitetty seuraavasti:</p>
-<div class="file-content-box">
-<p>#IPv4 local connections: #host all all 127.0.0.1/32 md5</p>
-</div>
-<p><strong>HTML- ja CSS-koodit, SQL-komennot sekä Python-scriptit</strong> on esitetty seuraavasti:</p>
-<div class="code-box">
-<p>SELECT version();</p>
-</div>
-<p><strong>Kysymykset, lisätiedot ja vihjeet</strong> on esitetty seuraavasti:</p>
-<div class="hint-box">
-<p>Mistä löydät tietoa GeoServeristä?</p>
-<p>GeoServerillä on omat kotisivut.</p>
-<p>Psst! Tietoa GeoServeristä löydät internetistä.</p>
-</div>
-</div>
-<div id="mistä-lisätietoja" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Mistä lisätietoja?</h2>
-<p>Ohessa muutamia web-sivustoja, joista saat lisätietoja:</p>
-<div class="note-box">
-<p><a href="http://www.qgis.org/" class="uri">http://www.qgis.org/</a></p>
-</div>
-<div class="note-box">
-<p><a href="http://docs.qgis.org/" class="uri">http://docs.qgis.org/</a></p>
-</div>
-<div class="note-box">
-<p><a href="http://gis.stackexchange.com/" class="uri">http://gis.stackexchange.com/</a></p>
-</div>
-<div class="note-box">
-<p><a href="http://www.osgeo.fi" class="uri">http://www.osgeo.fi</a></p>
-</div>
-</div>
-<div id="virheet" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Virheet</h2>
-<p>Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla <a href="mailto:info@gispo.fi-osoitteeseen" class="email">info@gispo.fi-osoitteeseen</a>.</p>
-</div>
-<div id="lisenssi-ja-oikeudet" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Lisenssi ja oikeudet</h2>
-<p>Nämä materiaalit on “Johdanto GeoServerin käyttöön”-kurssille kehittänyt Gispo Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: <a href="https://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0</a></p>
+<div id="karttapalvelukohtaiset-oikeudet" class="section level2" number="13.6">
+<h2><span class="header-section-number">13.6</span> <strong>Karttapalvelukohtaiset oikeudet</strong></h2>
+<p>Kirjaudu <strong>admin</strong>-tunnuksella uudelleen Geoserver palvelimelle.</p>
+<p>Samalla tavalla kuin äsken määriteltiin käyttäjäkohtaisesti oikeudet yhdelle workspace:lle, voidaan asettaa oikeudet palvelukohtaisesti eri käyttäjille.</p>
+<p>Avaa <strong>Security → Services</strong>. Määriteltynä on oletuksena vain yksi sääntö <strong>*.*</strong>. Samalla tavalla kuin aiemmin, tämä tarkoittaa se, että kaikki palvelujen toiminnot (säännön toinen <strong>*</strong>-merkki) ovat käytettävissä kaikissa palveluissa (säännön ensimmäinen <strong>*</strong>-merkki).</p>
+<p>Seuraava kuva esittää GeoServerin palvelusääntöjen määrittelyä:<img src="https://lh5.googleusercontent.com/8Gc3KEPA4SaTHOjIgjAxeIgx9kNXDWvgK0930Nyy-r7LwybSGGBdLIZ6TmwfZnaA9NYJNUVpX6K3BaYT70x6GGNvYaU2sM8EkC4ddUMiWC51OaUFov-A1J_LToOIsvllqGDy4pHNeqRUFmktuL2FPw" /></p>
+<p>Avaa sääntö <strong>*.*</strong> ja rajoita sen käyttöä vain ylläpitäjille.<img src="https://lh5.googleusercontent.com/Tp8IeE0jx_zRrQCRTZfJtGu5gIgG7euo9Nv4YOI10JnzNMlBhtWdWUw7RqF-2-aiwbNbqXzsBY5uTpVm8zXWxH_Q6oMux1IMHYCMS7PK1dCaubpB3r-HlWwTw5HWzh02pomhLuSGXEYC2fv3aRSzMA" /></p>
+<p>Paina <strong>Save</strong>. Nyt GeoServerin palvelut ovat käytettävissä ainoastaan ylläpito-rooleille.</p>
+<p>Luo sen jälkeen sääntö, joka on käytössä vain <strong>hki_rooli</strong>:lle ja sillä on oikeudet käyttää kaikkia <strong>WMS-karttapalvelujen</strong> toimintoja.</p>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>##### <strong>Psst! Huomaa, että säännöt eivät välttämättä tule voimaan kuin vasta käyttäjän seuraavalla istunnolla.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Lopussa <strong>Service access rules list</strong> -näkymä näyttää tältä:<img src="https://lh3.googleusercontent.com/AASPRvlOPmAa6u4JVcH717bdt1EZk3EW-8MBElf-Ot648UAyzwvU2JvTMreW5UoJzMwrmaz-5jnEatGa1HbZk6z6s7oXkjUMSuHWMvGHGjotRyU_1ju_PrrujpiTyQHuUjjUIuIKQumgq2fMw011sQ" /></p>
+<p>Kirjaudu taas <strong>hki_kayttaja</strong>:nä ja kokeile esikatsella jotain aineistoa sekä WMS- että WFS-karttapalveluna. WFS-esikatselu ei enää onnistu, koska kyseisellä käyttäjällä ei ole oikeuksia WFS-toimintoihin, vain WMS-toimintoihin. </p>
+<p>Poista lopuksi edellisessä kuvassa näkyvä sääntö (wms.*), jotta wms-palvelu olisi taas käytettävissä kaikilla käyttäjillä.</p>
 
 </div>
 </div>
 <p style="text-align: center;">
-<a href="2-harjoitus-1.1-asennus-ja-käyttöönotto.html"><button class="btn btn-default">Next</button></a>
+<a href="12-harjoitus-2.4-css-kuvaustekniikka.html"><button class="btn btn-default">Previous</button></a>
+<a href="14-harjoitus-2.6-suodattimet.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>
