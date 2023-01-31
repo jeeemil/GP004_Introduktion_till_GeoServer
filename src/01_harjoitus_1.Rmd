@@ -1,12 +1,98 @@
-# Training environment
+# HARJOITUS I.1: ASENNUS JA KÄYTTÖÖNOTTO
 
-QGIS is a free open-source desktop GIS that can be easily installed on Linux, Windows, and Mac.
-You can use QGIS as a WMS/WFS client to see how the different services provided by GS work.
-Download and install the latest version of QGIS at [qgis.org](https://qgis.org).
+**Harjoituksen sisältö**
 
-GDAL and OGR are libraries that provide useful tools for processing raster and vector spatial data, respectively.
-The easiest way to install GDAL/OGR on Windows is to simply install QGIS.
-A standard QGIS installation should also install the OSGeo4W Shell.
-Opening the OSGeo4W shell from the Start menu brings up a new terminal window where GDAL and OGR commands are available to be used.
+Olemassa olevaan GeoServer-palvelimeen otetaan yhteys web-selaimen kautta. Opitaan muokkaamaan palvelimen yleistietoja ja asettamaan ylläpitäjän käyttäjäprofiilitiedot (tunnus ja salasana).
 
-TODO: Keep adding more materials here...
+**Harjoituksen tavoite**
+
+Harjoituksen jälkeen opiskelija osaa kirjautua ylläpitäjänä GeoServeriin ja tuntee yleisellä tasolla sen käyttöliittymän.
+
+**Arvioitu kesto**
+
+40 minuuttia.
+
+## **Valmistautuminen**
+
+Käynnistä koneessa web-selain ja kirjaudu osoitteeseen:
+
+::: note-box
+<http://localhost:8080/geoserver>
+:::
+
+Jos käytössä on etäpalvelin, kysy oma ip-osoitteesi ja portti opettajalta. Muokkaa sitten verkko-osoitteen **localhost:8080**-osaa ohjeiden mukaan.
+
+Edessäsi on GeoServerin  käyttöliittymä. Ennen kun kirjaudut sisään, näet muutamia yleisiä tietoja palvelimesta. ![](https://lh6.googleusercontent.com/EbHQ4wsXcvV5VHwA2IBh5wuDoDaZP5UXNySw7nmXLd11fIloCoBYNFWWqfoqObWf0_BJhgQPLfomFJZhVZVyVuc9G9wUPn0vJ8Dr1iuolYNlcRWdcMX2Xs87CO7wJMtv3SXW5fCQpVk-QdAuSIIU4gFf67Ch8IXupL5QuBpGD173JxmKPV4sE5p9icfQ)
+
+**Keskellä (1)** on yleistä tietoa palvelimesta ja sen omistajasta/ylläpitäjästä (näitä päivitetään pian). Keskellä näkyy asennetun GeoServerin versionumero, joka on kuvassa 2.9.0. Tämä on GeoServer-palvelimen aloitussivu ja siihen pääset aina painamalla **GeoServer-logoa** vasemmalta ylhäältä
+
+Lähtökohtaisesti keskellä näkyy vasemmalla puolella sijaitsevan sivupalkin (jäljempänä "päävalikko" (2)) valintojen tarkempia tietoja.
+
+**Päävalikon (2)** avulla hallitaan ja tarkastellaan palvelimen toimintoja.
+
+**Yläpalkissa (3)** on kirjautumistiedot ja GeoServer-logo, jonka kautta pääset aina aloitussivulle.
+
+Oikealla puolella sijaitseva **sivupalkki (4)** näyttää aloitusnäkymässä palvelimen tukemat karttapalvelut ja niiden versiot.
+
+## **Päävalikko** 
+
+Päävalikossa on näkyvissä aloitussivulla vain muutamia toimintoja. Nämä ovat nähtävissä kaikille, jotka tietävät palvelimen osoiteen (URL).
+
+-   **About & Status** -osio tarjoaa vain **About GeoServer** -valinnan, joka kertoo tarkemmin GeoServerin asennuksen tietoja ja antaa linkkejä GeoServerin dokumentaatioon. GeoTools- ja GeoWebCache-ohjelmistojen versiotiedot voit tarkistaa myös tältä sivulta.
+
+-   **Data**-osiossa on **Layer Preview** -valinta, jonka avulla voidaan esikatsella palvelimella julkaistuja tasoja (layers).
+
+-   **Demos**-osion kautta voi tutustua muutaman karttapalvelutyypin toimintaan.
+
+Tutustu niihin lyhyesti nyt, ja kysy kouluttajalta mitä eri elementit tarkoittavat.
+
+### **About GeoServer**
+
+Avaa **About GeoServer** ja tutki, mikä GeoServer-versio sinulla on käytössä ja mitkä muiden asennettujen ohjelmistojen versiot ovat. Tämäntyyppiset tiedot ovat tärkeitä palvelimen ongelmia selvitettäessä, tapahtuipa ongelmatilanteiden ratkaiseminen omatoimisesti taikka tukipalvelun avulla.
+
+### **Layer Preview**
+
+Kokeile **Layer Preview -toimintoa** ja esikatsele GeoServerin oletusaineistoja. Tätä näkymää tulemme käyttämään usein kurssin aikana. Käytä nyt muutama minuutti oppiaksesi sen perustoiminnallisuudet.
+
+### **Service Capabilities (palvelutoiminnallisuudet)**
+
+Palaa palvelimen pääsivulle painamalla **GeoServer-logoa**. Oikealla puolella löydät **Service Capabilities -palkin**.
+
+Ennen kun kirjaudutaan palvelimelle voit nähdä, mitä rajapintapalveluita käytössä olevalla GeoServerin asennuksella on mahdollista julkaista. 
+
+Harjoituksen GeoServerille on asennettu oletuksena WCS, WFS, WMS, TMS, WMS-C ja WMTS. Muita rajapintapalveluita, kuten esimerkiksi WPS-palvelu, voidaan julkaista GeoServeriin laajennosten avulla. Painamalla rajapintapalvelujen versionumeroita, voit tutustua niiden toiminnallisuuksiin (capabilities).
+
+Tämä sivupalkki on nähtävissä vain aloitussivulla. Muista, että aloitussivuun pääset aina painamalla GeoServer-logoa.
+
+### **Demos**
+
+Tämän valikon alta löytyy muutamia GeoServerin testityökaluja:\
+![](https://lh5.googleusercontent.com/7a4Q5EnPtp7H6gVvkv9VzbXPoXfs3s9MPYImu8Jupn-9BtBsRxGCCsMMxDZb9XepCLejG-XWE03Z9K73ZHVQSh5cN59J3PzO_iRwYclArnHscovjwnSbVLy2eR6m3CM-jCjElTrwdCfuF4vmLY7rb3vIpd8PZVkC188pB3ZLJdqgkfDGuu-goKeHcGZT)
+
+### **Demo requests**
+
+Kokeile erilaisten kyselyjen (toiminnallisuuksien) tuloksia ja näe, mitä kukin kyselykomento tuottaa. Kokeile **WMS_getMap_OpenLayers.url**-kyselyn toimivuutta valitsemalla kyseinen kysely valikosta ja paina **Submit**-toimintoa. 
+
+GeoServerin eri toiminnot ja operaatiot muodostuvat URL:n liittyvistä parametreistä. Parametrit ohjaavat Geoserverin rajapintapalveluita: mitä karttatasoa kysytään, miltä alueelta tietoja haetaan tai kuva muodostetaan, vastauksen koordinaattijärjestelmä jne.
+
+Muokkaa kyselyn parametrejä BBOX, WIDTH ja HEIGHT. Mitä vaikutuksia muutoksilla on vastaukseen?
+
+## **SRS List ja Reprojection console**
+
+SRS List -toiminto listaa Geoserverin tukemat koordinaattijärjestelmät. Geoserver sisältää suurimman osan käytettävistä koordinaattijärjestelmistä eli CRS:t (Coordinate Reference System). SRS (Spatial Reference System) on synonyymi CRS:lle.
+
+Koordinaattijärjestelmien välisiä muunnoksia ja konversioita voit kokeilla Reprojection Console-toiminnon avulla.
+
+Koordinaatit esitetään WKT-formaatissa (Well Known Text). 
+
+Seuraavassa kuvassa on piste geometria määritelty WKT-formaatissa EPSG:3067 koordinaattijärjestelmässä **POINT (522800 7615630)**:![](https://lh4.googleusercontent.com/maeBYTzAdPW2ujnPF9mSVd-uz3DfpNX6cLW7MGJoIJg2nOmgIvnsmdsA_ou8vOnt0czOBwRJJpqMKdKjxNOE6nOeQkB4A5JUqxcol0oe8H08Sr4WulHlU-Ign8QSgSvLxI6XxiKRKXTWfe927U-d-XKOiANhERQfEOmu8oeJP4SZ8_L7ofDxHftyb2QS)
+
+Voit myös kokeilla ETRS89 / TM35FIN viivageometriaa. Löydät esimerkkitiedoston koulutuskansiosta nimellä **esimerkki_wkt_geometry_3067.txt**. Avaa se tekstieditorissa ja käytä sitä **Reprojection console** -työkalussa. Kokeile muuntaa se esimerkiksi WGS 84 -järjestelmään.![](https://lh6.googleusercontent.com/dDbbPDfJnjbBKeoJddl9jZzIKOsIxiGluK2dqderFxdYXx2rnx6X4xtxWT2vJDmXDPnaGUBpDso65NTY6vLmvRzSlIP3YdduSrpzup7ScKe855U6SIsFNDqFpXcTMvnMRLJ8nO2RdIfyjD4jbX8Ndt15dHipxdnCGfdURD6XEe1MnKpSe-3QpgqKp5D5)
+
+## **WCS request builder**
+
+Tämän toiminnon avulla voit kokeilla Web Coverage Service -palvelun toimivuutta.
+
+Lataa **nurc:mosaic**-aineisto PNG-tiedostona Suomen kansallisessa koordinaattijärjestelmässä (**ETRS89/TM35FIN** (EPSG 3067)). Jätä muut asetukset oletusarvoiksi:![](https://lh5.googleusercontent.com/AKC1I69DNpGhCkWF3KEaH3YQ04TFx8OqFdlu2jhLiHNVBvhvBj2P3A9cnu71lQMlEj6R-aQup92hIHLCF6iWJCxagRIvtsd0Qs7ZMYHYoB2bZ4HKUuP1uBLg8hqwuryWppgeTbynOoUr8-LVVZWwHLu4hh5ic1fa4n3Fa3FNcxhu0Z1Ee3ZpubLiIUqr)
+
+Paina lopussa **Get Coverage**.

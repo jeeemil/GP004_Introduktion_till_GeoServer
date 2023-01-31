@@ -1,26 +1,29 @@
 ---
-title: "Introduction to QGIS"
-author: "Gispo Ltd."
+title: "Johdanto GeoServerin käyttöön"
+author: "Gispo Oy"
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
-abstract: "A course covering advanced GeoServer topics."
+abstract: "Johdantokurssi GeoServerin käyttöön."
 output:
     bookdown::html_book:
         toc: true
         theme: null
         template: custom.html
         css: custom.css
-        split_by: rmd
+        split_by: chapter+number #rmd
 documentclass: book
 ---
 
 <!-- Harjoitukset -->
 
-# Template
+# JOHDANTO GEOSERVERIN KÄYTTÖÖN
 
-## Tervetuloa kurssille!
+## Tervetuloa GeoServer-kurssille!
+Tämän kurssin tarkoituksena on opastaa sinut GeoServerin käyttöön. Paikkatietojen tai muiden paikkatieto-ohjelmistojen käyttökokemus ei ole välttämätöntä koulutukseen osallistumisel­le. Toki niistä on paljon hyötyä. Kysy rohkeasti opettajalta lisätietoja, jos käytetty terminologia tai joku asia jää epäselväksi.
 
-Kurssilla tehdään ja opitaan niitä ja näitä.
+## GeoServerin taustaa
+GeoServer on avoimen lähdekoodin palvelinohjelmisto, jossa voi jakaa, käsitellä ja hallinnoida geospatiaalista dataa. GeoServer on ollut toiminnassa vuodesta 2001 alkaen “The Open Planning Project”-hankkeen kautta. Vuonna 2014 GeoServer siirtyi OSGeo-projektin alle. GeoServeriä päivitetään puolen vuoden välein ja ohjelmiston käyttäjäkunta on varsin vilkas ja aktiivinen.
+
 
 ## Lukuohje
 
@@ -84,4 +87,4 @@ Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä koulu
 
 ## Lisenssi ja oikeudet
 
-Nämä materiaalit on "_____"-kurssille kehittänyt Gispo Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
+Nämä materiaalit on "Johdanto GeoServerin käyttöön"-kurssille kehittänyt Gispo Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
