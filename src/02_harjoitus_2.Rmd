@@ -96,9 +96,9 @@ GeoServer Logs -valinnan kautta voit katsoa palvelimen lokitietoja. ![](https:/
 
 ## **Data-valikko**
 
-Tämä valikko sisältää GeoServerin tärkeimmät toiminnot. Aineistot lisätään ja määritellään näiden toimintojen avulla. Myös aineistojen esikatselu tapahtuu täällä olevia toimintoja käyttäen. Huomaa yhteydet valikon ja kuvassa esitellyn aineistojen järjestäytymisen välillä. ![](https://lh5.googleusercontent.com/Q88gsT7q_NZyMVygefwpufd_yXu4X7EsG_OMfp00xj7E2dQrzxHNwR2DOZ3pGj-PJw5fXbBN_hZlkxKIWcUGDbSwp5WBa1JcpBkeR_l30jMeResE-Pp0JPuIzM4v1m2H4o6n_e1bX_kyR00mXqYQ4mGsLeZlE5oMQARSd3ui7Og6ilPAOTavW3cn5DzB)
+Tämä valikko sisältää GeoServerin tärkeimmät toiminnot. Aineistot lisätään ja määritellään näiden toimintojen avulla. Myös aineistojen esikatselu tapahtuu täällä olevia toimintoja käyttäen. Huomaa yhteydet valikon ja kuvassa esitellyn aineistojen järjestäytymisen välillä.
 
-![](img/harjoitus_2/image6.png)
+![](https://lh3.googleusercontent.com/EWl28H2suHUL-9phHqbTicozdDIFOG4_tJ5nX9_5lzQTX2AAq_OtZDewPYIAtheYnU9dmG9kISDBkJG86gJnwl3Xd2cPIY9RQeci1b2u8ocTLUs-ggA-M4FtDS2O9TEiToXc7SPrnx_FIFOfOgTRh2c)
 
 **Styles** kohdassa määritellään tasoille (**Layers**) kuvaustekniikka, visualisointi. 
 
