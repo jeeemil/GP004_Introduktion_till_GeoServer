@@ -1,4 +1,4 @@
-# Harjoitus I.3: VEKTORIAINEISTOT
+# Harjoitus 1.3: VEKTORIAINEISTOT
 
 **Harjoituksen sisältö**
 

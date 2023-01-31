@@ -1,4 +1,4 @@
-# HARJOITUS II.1: WFS-PALVELUT
+# HARJOITUS 2.1: WFS-PALVELUT
 
 **Harjoituksen sisältö**
 

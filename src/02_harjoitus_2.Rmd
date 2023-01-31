@@ -1,4 +1,4 @@
-# HARJOITUS I.2: GEOSERVERIN WEB-KÄYTTÖLIITTYMÄ
+# HARJOITUS 1.2: GEOSERVERIN WEB-KÄYTTÖLIITTYMÄ
 
 **Harjoituksen sisältö**
 
@@ -70,7 +70,9 @@ Psst! Ero master ja admin-käyttäjien välillä on se, että admin-käyttäjä 
 
 Näiden käyttäjien salasanat voi vaihtaa tarvittaessa pääsynhallinnan työkaluilla (**Security**-valikko).
 
-## **About & Status -asetukset**![](https://lh4.googleusercontent.com/AFPiCKcmJCMx6I4pQrzRXecwDY-qqr4m4q_37cp_lskhTQ6vV43wVeO5XXct2pLM8YnenKYirX9ypmPV-jgLXXny-Ycb0b1Modr0pflf1dtzr1xdlpcvgYlIdg3bN-We_Lw4zlfo3JTcKV40w8WEjAm5AjeqAOdyuUZXOtYrgiKCmaKOCLDPbfgWcFsF)
+## **About & Status -asetukset**
+
+![](https://lh4.googleusercontent.com/AFPiCKcmJCMx6I4pQrzRXecwDY-qqr4m4q_37cp_lskhTQ6vV43wVeO5XXct2pLM8YnenKYirX9ypmPV-jgLXXny-Ycb0b1Modr0pflf1dtzr1xdlpcvgYlIdg3bN-We_Lw4zlfo3JTcKV40w8WEjAm5AjeqAOdyuUZXOtYrgiKCmaKOCLDPbfgWcFsF)
 
 ### **Contact Information**
 

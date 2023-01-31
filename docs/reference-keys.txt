@@ -1,7 +1,0 @@
-template
-tervetuloa-kurssille
-lukuohje
-mistä-lisätietoja
-virheet
-lisenssi-ja-oikeudet
-training-environment

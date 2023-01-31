@@ -1,4 +1,4 @@
-# HARJOITUS I.7: PAIKKATIETOKANNAT
+# HARJOITUS 1.7: PAIKKATIETOKANNAT
 
 **Harjoituksen sisältö**
 
@@ -36,21 +36,21 @@ Valitse **Workspaceksi** tuttu **helsinki**-workspace ja nimeä se **hki_lipas**
 
 Täytä sitten PostGIS-tietokannan **Connection Parameters** -yhteysasetukset seuraavasti:
 
-+--------------------+--------------+
-| ##### **Dbtype**   | postgis      |
-+====================+==============+
-| ##### **Host**     | localhost    |
-+--------------------+--------------+
-| ##### **Port**     | 5432         |
-+--------------------+--------------+
-| ##### **Database** | gs_training  |
-+--------------------+--------------+
-| ##### **Schema**   | lipas        |
-+--------------------+--------------+
-| ##### **User**     | postgres     |
-+--------------------+--------------+
-| ##### **Passwd**   | gispo        |
-+--------------------+--------------+
++--------------------+---------------+
+| ##### **Dbtype**   | postgis       |
++====================+===============+
+| ##### **Host**     | localhost     |
++--------------------+---------------+
+| ##### **Port**     | 5432          |
++--------------------+---------------+
+| ##### **Database** | gs_training   |
++--------------------+---------------+
+| ##### **Schema**   | lipas         |
++--------------------+---------------+
+| ##### **User**     | postgres      |
++--------------------+---------------+
+| ##### **Passwd**   | gispo         |
++--------------------+---------------+
 
 Jätä loput asetukset oletuksiin ja paina lopulta **Save**.![](https://lh6.googleusercontent.com/gwGxTwINspKTuBVc0J5WT3BVudRd5z341uLRzpwA-FXvUjoCqGnxfcmeoM8MC4Kg5-EMnSCluXwG2sEc2QCjSniFYx6sIKRUnmknRjxtTl4s8cru9BxylsimSy17-JyWRX1eHK25uvPQmIKNbchHog)
 
