@@ -16,11 +16,13 @@ Harjoituksen jälkeen opiskelija osaa lisätä vektoriaineistoja ja tehdä vält
 
 Kaikki koulutusaineistot ovat valmiiksi GeoServerin aineistohakemisto **/data/koulutus/**-kansiossa. Voit tarkistaa sen sijainnin omassa palvelimessasi **Server Status** -näkymästä. Sijainti on **Data directory** -kentässä; uusia aineistoja voidaan tarvittaessa lisätä siihen. 
 
-Harjoituksessa käytettävät aineistot on ladattu käytössä oleville palvelimille.![](https://lh5.googleusercontent.com/NMnlvZKUjtx9MsuYWRNCudQ_fLavX11-qg9YllazBDaoD6XHEcbfnKb9EIS85_1vG7NssLmD5qa4uWa6uOELsNpF6aFyg9HD343_JdFkhoTnR6Y9_XQm8JlQySmozxAi15M9JKUN_u-OuFPv8t5w7OKTttRB7U1Dwry-4bULBcKdKrIIK64bqoaR2-dA)
+Harjoituksessa käytettävät aineistot on ladattu käytössä oleville palvelimille.
+
+![](img/harjoitus_3/image1.png)
 
 GeoServerin aineistohakemistossa on paikkatiedon lisäksi muita aineistoja, kuten karttatyylejä ja tasoryhmien määrittelyjä. Tarkemmin, kurssin paikkatietoaineistot ovat koulutuskoneen kansiossa: 
 
-::: code-box
+::: note-box
 /var/lib/tomcat8/webapps/geoserver/data/koulutus/
 :::
 
@@ -44,7 +46,11 @@ Aineiston formaatin ollen **shapefile** täytyy sille luoda **store**, joka on s
 
 Päävalikosta valitse **Stores** ja paina sitten **Add new Store**.
 
-Valitse Shapefile aineiston formaatiksi **New data source** -näkymässä, **Vector Data Sources -kohdan** alta.![](https://lh5.googleusercontent.com/oTJ1uMsH1Mj_QSsOey14TqQNB85QpzsXb0Wd_VbmLe12uo2FEBHFNm7TPzG7qq1Th-UcpLPhR6I6z6eG6SUY_3R3hB4xo0rtENOKH5SjqQkg8hTstjtDnTPUuc5t3mPQLp7uGKZf-ZkBeva2mFz4H3QBknPZkyZWTur3LrHbXqxurup2wgfTb26R2ZOz)![](https://lh6.googleusercontent.com/QIhYOQqx5beu_0mmsw8FW-KEW3gb_dOYNb9BV2zJdVTeOtgVOpQrVNqd-IcKJn73fTfTh-WgLJ1lD-MtCmwnJgKo3-THxRtp_XM1rVLIjNS6UBMPE4a9HhHGi7q2Uvg1rcTzDJ0nWyH7gJBKRiCu6kCF6JLdbyw07ljIKNxfRfknBl97G4pC9tzgviSQ)
+Valitse Shapefile aineiston formaatiksi **New data source** -näkymässä, **Vector Data Sources -kohdan** alta.
+
+![](img/harjoitus_3/image2.png)
+
+![](img/harjoitus_3/image3.png)
 
 Seuraavassa näkymässä pääset määrittelemään juuri luomasi store:n muut asetukset, kuten nimen ja tiedoston sijainnit. Nimeä ne seuraavalla tavalla:
 
@@ -66,7 +72,11 @@ Loput asetukset voidaan pitää oletusarvoina.
 
 Paina **Save**, niin store tallentuu GeoServerille ja on jatkossa käytettävissä
 
-Storen luomisen jälkeen GeoServer olettaa, että halutaan julkaista uusi taso ja siksi uusi taso -näkymä (**New Layer**) aukeaa automaattisesti.![](https://lh5.googleusercontent.com/56Vo1Huz8HxY88dOxNkQTE-dBwhiBoOm_MN-pypkvC96UDxKx5dUzd3ElhtxlrfiZ4EqJRIFqb44nciFaw4ejXrXsIJlp4JxbtR2ugU6N7tPadv7PKaJePv5ksJW4tsCMcb7-RYVstA-K_iYHH2XJijPFyB58tGBwD4VEqIcSfYqEE_zqC2E2xS7WmfA)![](https://lh4.googleusercontent.com/BfVEW8-IGp8q3FegVwfybWqtJYgHE1CZZmmol0WE7nVkP7AAm8zAwFFBoHRGQo8j3HCiI2uh2VDh0mfgFbbZJvvbamxv7tz2ZdQlBsWgDc2EmAcrq0fGwWIVvHK-eQoVOGSZTTuBWCWZq3x2ZiDB_GSoXwPm7FtyKJbtCDGIDj9BBrQxdi11Trmo1cI6)
+Storen luomisen jälkeen GeoServer olettaa, että halutaan julkaista uusi taso ja siksi uusi taso -näkymä (**New Layer**) aukeaa automaattisesti.
+
+![](img/harjoitus_3/image4.png)
+
+![](img/harjoitus_3/image5.png)
 
 Paina **Publish** tason julkaisemiseksi.
 
@@ -108,7 +118,7 @@ Kun uutta aineistoa tuodaan GeoServeriin, se yrittää tunnistaa alkuperäisen k
 
 Tässä tapauksessa, projektiotiedot tulevat shapefilen aineiston .prj-tiedostosta. Paina **GCS_WGS_1984...** -linkkiä, niin saat auki projektiotiedot.
 
-![](https://lh4.googleusercontent.com/cdz5VFXU4fuqWiHtwdATXCN0a3_TW_wTCEuEJ98nL4WlWDusJ8ZFcTW4CIbosnM9_70IpJtDgshjS30_AAAXvPsCuovSby5CrjsxG-pwL9c6TS0AOeubRju6bOPX3_txmn9AgYsC80qnzt8yRgiLoaVQ1HJREeEzSMGy-UOZy6p9Qpjnji60qVtnzjWx)
+![](img/harjoitus_3/image6.png)
 
 ::: hint-box
 Psst! Huomaa, että Native SRS tiedot ovat tarkoitettu vaan esikatselua varten. Tiedot tulevat suoraan alkuperäisen aineiston asetuksista, esimerkiksi shapefilen tai PostGIS-tason koordinaattijärjestelmätiedoista. Siksi niitä ei voida muokata GeoServerin selaimessa käyttöliittymän kautta.
@@ -116,7 +126,9 @@ Psst! Huomaa, että Native SRS tiedot ovat tarkoitettu vaan esikatselua varten. 
 
 Kirjoita **EPSG:4326** koodi **Declared SRS** -kohdassa. Voit myös etsiä EPSG-koodeja **Find** -toiminnolla.
 
-Pidä **SRS handling** oletusarvo (**Force declared**) ennallaan.![](https://lh4.googleusercontent.com/Taek9Bk9DYdtYZTWQQpV7Op_HiX_UEb_0v2eOkmCV-U1Wk_0lRz8xf3KEZBk1SvPsFHOe2KzAEHgCgZw9tzniTDixvJGCSXXhndD4IAtiWLcx2den1Y8x_ChevxZL5UWyd2JctqX_aoBMweeqF2z9XQO-FMCM_j18WmdAIrWTb6cL3-g3xIxdsogw_Jh)
+Pidä **SRS handling** oletusarvo (**Force declared**) ennallaan.
+
+![](img/harjoitus_3/image7.png)
 
 ### **Bounding Boxes**
 
@@ -126,7 +138,9 @@ Täytä alla **Bounding Boxes** -kohdassa tiedot aineiston laajuudesta.
 Psst! Laajuus olisi mahdollista määritellä automaattisesti, mutta GeoServer vaatii, että tämä asetus tehdään valvotusti. Syy on se, että suurien aineistojen kanssa palvelin voisi jäädä pitkäksi ajaksi laskemaan tasojen laajuutta. Pyyntö voisi jopa epäonnistua, jos palvelimen timeout-asetus ylittyisi ja näin aineiston lisääminen olisi hankala.
 :::
 
-Harjoituksen aineisto on sen verran pieni, että voimme käyttää automaattista määrittelyä. Paina ensin **Native Bounding Box → Compute from data** ja sitten **Lat/Lon Bounding Box → Compute from native bounds**. ![](https://lh6.googleusercontent.com/OEMrmmA4MkfpxjQUUy_tDBpoCHbXf4gXF8nQP6NNAtRZnJdyfQHKmzF4ZjgxL_EbyRhliwytSFPyWL-mD9ejIigBWUts4CKyuS5UwtoxD6yhRNvANOflrylcYq2AwsEAvLnirjw8YRubg689kwhEOtBc8DwuSRcpLNxkxRyUUJ337f7RiQYsBtODs8QD)
+Harjoituksen aineisto on sen verran pieni, että voimme käyttää automaattista määrittelyä. Paina ensin **Native Bounding Box → Compute from data** ja sitten **Lat/Lon Bounding Box → Compute from native bounds**.
+
+![](img/harjoitus_3/image8.png)
 
 ### **Feature Type Details**
 
@@ -138,13 +152,17 @@ Muita julkaisun ominaisuuksia katsotaan vielä myöhemmin. Paina nyt **Save**, j
 Psst! Voit käyttää "etsi"-toimintoa kun haluat suodattaa näkymää.
 :::
 
-Avaa nyt **Layer Preview** -näkymä, jolla pääset esikatselemaan **rakennukset**-tasoa samalla tavalla kun aiemmin olet esikatselut muita demoaineistoja.![](https://lh5.googleusercontent.com/ORKD1fXW0LkrfvrcFFKbe_0w8hr5H8Y8kFxZg2kXsv9MLfn88Un-_wmLGK7kYA6YiCi7_gfI2iR8YIGKVFQBBC8Bfr24lz_SHrD0M7YjDa27YCQlMQ0TBprQ-_yKOvicZtYF4uy2OeEV4lLcTltl5nuVCBz8DzV9cZTnqjyma9xzf0QdxC8p6gNhaTRJ)
+Avaa nyt **Layer Preview** -näkymä, jolla pääset esikatselemaan **rakennukset**-tasoa samalla tavalla kun aiemmin olet esikatselut muita demoaineistoja.
+
+![](img/harjoitus_3/image9.png)
 
 ::: hint-box
 Psst! Huomaa, että Layer Preview näkymässä (ja myös Layer näkymässä) tason nimen edessä on laitettu workspacen nimi. Helsingin rakennukset -tason nimi on siksi helsinki:rakennukset.
 :::
 
-OpenLayers esikatselu näyttää tältä:![](https://lh6.googleusercontent.com/7Ut2UEn1b9XCgD7zUz_h3DHTYFZfMRoKjDg8rla_3TfVo2bpv3uYvqN95CVSdKn1r3tiXmfqyK3AVDf8WlGrm_rXim5cuMskFN0CTtv6GfAjdu62AmAffoKXUEKfZCdQU4neeZ55RqNf9Sds9qXj2OEBOkdxgy1Dch5prXvarmA0IVBfiMKWsT0fftAN)![](https://lh3.googleusercontent.com/W1gFn1eC4oJuLJFkubajRiOJjm2t-fxrEjCB_1Z6KCvauY8bZ7flUBHwvdq5IVeyBLGBF_sNUepdcHV2OuIb3M8RLUoXvuZEq6VrJuvfHaY47jCRx3PpAsT_MLulA_pPBwHcJES87doIJK-7WIkpTAYVJ3__V-brGTFQg3fUcwfsXl0o27uWclNUGZzw)
+OpenLayers esikatselu näyttää tältä: ![](img/harjoitus_3/image10.png)
+
+![](img/harjoitus_3/image11.png)
 
 Zoomaa karttaan ja paina jonkun rakennuksen päällä niin saat sen ominaisuustiedot näkyviin.
 

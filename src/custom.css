@@ -1,6 +1,7 @@
 /* Import fonts */
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courier:wght@300;400;700&display=swap");
 
 /* Generics */
 body { overflow-x: hidden; }
@@ -318,7 +319,7 @@ th, td {
 }
 
 .code-box {
-    background: #ffe1cd;
+    background: #B6D7A8;
     padding: 10px;
     border: none;
     margin-bottom: 1rem;
@@ -326,6 +327,7 @@ th, td {
 
 .code-box p {
     color: #444444;
+    font-family: 'Courier', sans-serif !important;
     margin: 0 !important;
 }
 

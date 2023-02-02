@@ -30,7 +30,8 @@ Kuten muiden aineistojen kanssa, jotta aineistoja voidaan käyttää GeoServeris
 
 Luo uusi store (**Data → Stores → Add new Store**).
 
-Valitse formaatiksi **PostGIS - PostGIS Database**:![](https://lh6.googleusercontent.com/ZWmATLifFJkmO8MLthcNhLM6qcSSWADBNd9r09JlKpk6WqSygQzWnTZXRRevKpo4XzymWiUA8hO0-6jcUM0WuOFLPjll9Cx6zc9LRDBIoaYh46v-wfUDAX2SXOL9P6C5bI9DLdL9fUSSMgz_8-RHnQ)
+Valitse formaatiksi **PostGIS - PostGIS Database**:
+![](img/harjoitus_7/image1.png)
 
 Valitse **Workspaceksi** tuttu **helsinki**-workspace ja nimeä se **hki_lipas** (**Data Source Name**).
 
@@ -38,7 +39,7 @@ Täytä sitten PostGIS-tietokannan **Connection Parameters** -yhteysasetukset se
 
 +--------------------+---------------+
 | ##### **Dbtype**   | postgis       |
-+====================+===============+
++--------------------+---------------+
 | ##### **Host**     | localhost     |
 +--------------------+---------------+
 | ##### **Port**     | 5432          |
@@ -52,11 +53,13 @@ Täytä sitten PostGIS-tietokannan **Connection Parameters** -yhteysasetukset se
 | ##### **Passwd**   | gispo         |
 +--------------------+---------------+
 
-Jätä loput asetukset oletuksiin ja paina lopulta **Save**.![](https://lh6.googleusercontent.com/gwGxTwINspKTuBVc0J5WT3BVudRd5z341uLRzpwA-FXvUjoCqGnxfcmeoM8MC4Kg5-EMnSCluXwG2sEc2QCjSniFYx6sIKRUnmknRjxtTl4s8cru9BxylsimSy17-JyWRX1eHK25uvPQmIKNbchHog)
+Jätä loput asetukset oletuksiin ja paina lopulta **Save**.
+![](img/harjoitus_7/image2.png)
 
 Samalla tavalla kuin aiemmin, uuden tason luomisen näkymä tulee esiin automaattisesti storen luomisen jälkeen. Näkymässä on listattu kaikki tasot, jotka löytyvät kyseisessä tietokannassa.
 
-Aineistoon on nyt tehty viittaukset **hki_lipas**-storen kautta ja voit nähdä, mitä aineistoja se sisältää:![](https://lh5.googleusercontent.com/O56GKj7f3lxXpDCqe-S6QBvwf4oVDKlSo9sepikj2DiA-ziobs15r7-2pKOWDQM0YtdApYXXpZ8YBUsbrh4XYcavqldxendmv0GAyirMn9iAHe4f7_1vMxBrSa6dMo25lWRbt-1KRl8L1exsZVCjLg)
+Aineistoon on nyt tehty viittaukset **hki_lipas**-storen kautta ja voit nähdä, mitä aineistoja se sisältää:
+![](img/harjoitus_7/image3.png)
 
 ## **PostGIS-tason lisääminen**
 
@@ -72,12 +75,14 @@ Tarkista, että **Enabled** ja **Advertised** ovat rastittuina.
 
 Kuten olet varmasti nyt huomannut, uuden tason asetukset ovat samanlaiset, oli kyseessä sitten shapefile-formaatti tai PostGIS-tietokanta.
 
-Katso vielä **Coordinate Reference Systems** -osiosta, että GeoServer on tunnistanut koordinaattijärjestelmäksi **EPSG:3067**. PostGIS ja GeoServer käyttävät EPSG-koodeja määrittääkseen koordinaattijärjestelmän, joten useimmiten koordinaattijärjestelmä tulee oikein määritellyksi automaattisesti.![](https://lh6.googleusercontent.com/HK14JBj6BTJZrb6v5yltMMZc1wlkuo6vo7cw0kglqceTJF9NCTl0hTBkbNifeGdORLdwAL78WufwZ34XTWV1T8FTcbJOqno70E3NwKV2YaNUltx7MNVVd2unmgzmt4uiBaEya0xewc1UQT8D4NakQQ)
+Katso vielä **Coordinate Reference Systems** -osiosta, että GeoServer on tunnistanut koordinaattijärjestelmäksi **EPSG:3067**. PostGIS ja GeoServer käyttävät EPSG-koodeja määrittääkseen koordinaattijärjestelmän, joten useimmiten koordinaattijärjestelmä tulee oikein määritellyksi automaattisesti.
+![](img/harjoitus_7/image4.png)
 
-Ennen kuin tallennetaan tason julkaisuasetukset, määritä tason **Bounding Boxes** samalla tavalla kuin aikaisemmin lisäämiesi aineistojen kanssa.![](https://lh6.googleusercontent.com/qR0rlhHsuGEKQ_nce9ABdGsjfXdzbFuiKFMDZwlPYFlvzSlBu0H2Je_kSTL0szDdl9Fi5jsDsA5LSPhHQScAk5wXvsfNEeT9vOuPGC2oJaFOtpUjc6bAeI_ucuXPTLnr9AukpMR0ZpeqBlltpBGJtA)
+Ennen kuin tallennetaan tason julkaisuasetukset, määritä tason **Bounding Boxes** samalla tavalla kuin aikaisemmin lisäämiesi aineistojen kanssa.
+![](img/harjoitus_7/image5.png)
 
 Paina lopulta **Save**. Voit esikatsella uutta tasoa **Layer Preview**:n kautta.\
-![](https://lh3.googleusercontent.com/mzmo186DzKMnkrC5WgnSQiXEPIXgonFoY8IVew9swmo3K7uQrhXt5UvT0u8-lvI9fPD-FjjZL-8P_l8_v4hM4uuGTawv-lMXGNs4AatStNTvBWdKhlRzqUuxkjslBLgyRq6XEFP9qOO2Rt3Of40zPA)
+![](img/harjoitus_7/image6.png)
 
 ## **Monikulmio- ja viiva-tason lisääminen PostGIS-tietokannasta**
 
@@ -97,17 +102,18 @@ Mitkä vaiheet ovat pakollisia tason julkaisemiseksi? Mitkä ovat tasojen koordi
 
 Vaihda lopuksi oletustyylit kyseisille tasoille käyttäen GeoServerin valmiita kuvaustekniikoita (default styles). Voit vaihtaa tason tyylin päävalikosta **Data → Layers** ja avaamalla haluamasi tason. Tyylit määritellään **Publish** välilehdestä. Käytä seuraavia tyylejä:
 
-+-------------------------------+-----------------+
-| ##### **Taso**                | ##### **Tyyli** |
-+===============================+=================+
-| #### **lipas_kaikki_pisteet** | burg            |
-+-------------------------------+-----------------+
-| #### **lipas_kaikki_alueet**  | giant_polygon   |
-+-------------------------------+-----------------+
-| #### **lipas_kaikki_reitit**  | simple_roads    |
-+-------------------------------+-----------------+
++--------------------------+-----------------+
+| ##### **Taso**           | ##### **Tyyli** |
++==========================+=================+
+| **lipas_kaikki_pisteet** | burg            |
++--------------------------+-----------------+
+| **lipas_kaikki_alueet**  | giant_polygon   |
++--------------------------+-----------------+
+| **lipas_kaikki_reitit**  | simple_roads    |
++--------------------------+-----------------+
 
-Voit vielä lopuksi tehdä aineistoista ryhmätason. Kuvassa on yhdistetty Helsingin taustakartta-ryhmätaso ja lipas-aineistot yhteen karttapalvelutasoon:![](https://lh6.googleusercontent.com/3rjXXSdFd-YlsQ7-LLM90CrkKYz3LMbJQS6UasWjSTqnNeBkHgpKYQDY0jp-CF-k9Ip6lsbMJ1tj_9yJ6WtpUrCtMmPCe0Cc4L3xD9ODiDre5JEcmx-jejGpjNfsNE5mVnwX5N5wTJ5c-gIhjpQGeQ)
+Voit vielä lopuksi tehdä aineistoista ryhmätason. Kuvassa on yhdistetty Helsingin taustakartta-ryhmätaso ja lipas-aineistot yhteen karttapalvelutasoon:
+![](img/harjoitus_7/image7.png)
 
 ## **SQL-näkymät**
 
@@ -123,11 +129,12 @@ Psst! SQL-näkymä voitaisiin luoda myös suoraan tietokantaan ja käyttää tuo
 
 SQL-kyselyjen tekemiseksi on hyvä ensin selvittää tietokannan taulujen kenttien nimet ja tyypit. Voit tarkistaa aineiston kentät avaamalla tason **Data → Layers**-näkymästä; kentät on lueteltu **Data**-välilehden lopussa. Aineiston ominaisuustietojen tyyppejä pääset tarkastelemaan parhaiten käyttäen muita ohjelmistoja kuten pgAdmin tai QGIS. Voit  myös tutustua niihin Lipas-sivuilta (<http://www.liikuntapaikat.fi/lipas>). Attribuuttitiedot GeoServerissä näyttävät tältä:
 
-![](https://lh5.googleusercontent.com/U0RRHULjFXieslLtiZL99uSIpCM3Gem9uIY1iq_5oSNS4yf165GhvWv0CQXPAbmpsRpjp6X0KOWYdB_uckVtNDI3Sappi3QC435ObGN3oEjj6BQ1CD3iSQI9b2a0e31w8yzitR8WEYUYubHmxHvTyQ)
+![](img/harjoitus_7/image8.png)
 
 Aineiston tarkastelemisen jälkeen voidaan päätellä, että paikkakuntatieto löytyy **kunta_nimi**-kentästä.
 
-Avaa **Data → Layers → Add new layer** ja valitse **helsinki:hki_lipas**. Painamalla **Configure new SQL view...** pääset määrittelemään SQL-kielellä, mitkä tiedot haluat julkaista kyseisestä aineistosta.![](https://lh3.googleusercontent.com/nvhmYTeJR8Xxj-qiV8g10bOPlJV7OG2K2WyJzZcGBO4trPGJa27MIFy8h0glJ24QAJJMr5IdImxF9D5XEsk2JBKnPxvvuQUeL2hmkNQ2qzgrqpfpte11RnIUfjOb1rHObUTTsSUz92tYQ1vsEySIsA)
+Avaa **Data → Layers → Add new layer** ja valitse **helsinki:hki_lipas**. Painamalla **Configure new SQL view...** pääset määrittelemään SQL-kielellä, mitkä tiedot haluat julkaista kyseisestä aineistosta.
+![](img/harjoitus_7/image9.png)
 
 Määrittele näkymän nimeksi **lipas_kaikki_reitit_helsinki**. Kirjoita **SQL statement** -kenttään seuraavaa SQL-lauseke:
 
@@ -139,15 +146,17 @@ FROM lipas.reitit
 WHERE kunta_nimi = 'Helsinki'
 :::
 
-Rastita **Guess geometry type and srid** -toiminto ja paina sitten **Refresh**. Huomaa, että olla olevassa kuvassa on virhe SQL-kyselyssä. Ole tarkkana! kunta_nimi_fi-tekstin sijaan siinä pitäisi lukea vain kunta_nimi.![](https://lh4.googleusercontent.com/9ddJukWQtpuhoxPQ48MgnilS3TgDNUXK2hBFs377xu9LBlKCY_BZbN_AFX3YT4HijJ-FEqiUca0bST9Rt5uK6Qgu_4ohZEoatSaVJtsAqS1W57k0gmowtKysoVyH-xWpxnuoibwHcbAFTdnfz5NRPQ)
+Rastita **Guess geometry type and srid** -toiminto ja paina sitten **Refresh**. Huomaa, että olla olevassa kuvassa on virhe SQL-kyselyssä. Ole tarkkana! kunta_nimi_fi-tekstin sijaan siinä pitäisi lukea vain kunta_nimi.
+![](img/harjoitus_7/image10.png)
 
 Tarkista sitten, että **geom**-nimisen kentän kohdalla **SRID** on määritelty oikean EPSG-tunnuksen mukaisesti (meidän tapauksessamme tunnus on **3067**).
 
-![](https://lh5.googleusercontent.com/SzH4x9F9fWwQZ7FvqLXZrx5exJN1fpebs-Ese9JNyl7zr16hhSVmZ9EMD8oFRmAE5aTZuSPp22gJJGkrJ1ye7WoqXt53GKfHVSNyJEA0L_U0jepUO__eTbWKSMy1OlOYJj7-Z223uz8hJiIouDskbQ)
+![](img/harjoitus_7/image11.png)
 
 Paina lopulta **Save**.
 
-Määrittele seuraavaksi tason ulottuvuudet (Bounding Box) ja paina **Save**. Voit esikatsella Helsingin liikuntareitit -tasoa nyt.![](https://lh5.googleusercontent.com/DLGJnOAaht-7d01B9Wrp_iZwVvNBP1ywqw9dC_YB4DIo5sv98SsBpmExlZoozToxQ4u2p2dWOyNCApa1jBn-1Z5bNbheBh5q0HAUHLhZkNPmIN8RcNBiTKlBhclIjKi26WOebwtBzhRAYysOurkVLg)
+Määrittele seuraavaksi tason ulottuvuudet (Bounding Box) ja paina **Save**. Voit esikatsella Helsingin liikuntareitit -tasoa nyt.
+![](img/harjoitus_7/image12.png)
 
 ## **Paikkatietotoiminnot SQL-näkymien kautta**
 
@@ -167,6 +176,8 @@ FROM lipas.reitit
 WHERE kunta_nimi = 'Helsinki'
 :::
 
-Päivitä taas attribuuttien formaatti ja paina sitten **Save**.![](https://lh5.googleusercontent.com/Nm4DIt634DT0UaLzPTpK84Bl6hwqxNYOnNINxm9WCfqvFRaGgTg-3HRmvXOzzyn0_zWjXPDEiiO2s65OiGF-xBzy5JQaMnii77Mi0o18_BZt8qGNkZCSvnD-OJWqkw-VCp8Keoul20262ZHwKADj9w)
+Päivitä taas attribuuttien formaatti ja paina sitten **Save**.
+![](img/harjoitus_7/image13.png)
 
-Esikatselussa huomaat, että reitit-aineisto on nyt puskuroitu 10 metrillä:![](https://lh5.googleusercontent.com/te32NmYXhoB_vHVyGAXnWoXwrUdXNFXgZKtecQ0gr6gTuQO6hCbpjNOzZq740wHWniei9F8I1dIVgHnWv8X5wpIWZWcq7OwrezXXMyVblT5riC6muXbXxiXnyTS-dtbnha3t0ifqUwL-SnDah4jdeg)
+Esikatselussa huomaat, että reitit-aineisto on nyt puskuroitu 10 metrillä:
+![](img/harjoitus_7/image14.png)

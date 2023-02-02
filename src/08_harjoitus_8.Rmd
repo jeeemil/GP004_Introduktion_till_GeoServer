@@ -42,13 +42,19 @@ Katsele sen jälkeen **tiesto**-tasoa WFS-rajapinnan kautta Layer Previewin GML-
 Miten äsken määritellyt ominaisuudet ovat vaikuttaneet lopputulokseen? Miksi?
 :::
 
-Esikatsele samaa **tiesto**-tasoa nyt käyttäen **GML**-linkkiä.![](https://lh6.googleusercontent.com/-k0uieZAPY1dAZeijrJm3KdMdB5AlG5C0ztJZsLkvAUHjhKb2sdAVWtfHx9anL_tdiKIMf6Cxqna7dSqqwecxyV41UWGjJCbTcukp0diT2Rbh-Zlm1Q1apTaeqTVQHw1IIRRiIlmpd3V-DzdgmEq_w)
+Esikatsele samaa **tiesto**-tasoa nyt käyttäen **GML**-linkkiä.
 
-Palvelun vastaus (xml-muodossa) sisältää nyt vain yhden geometrian, kuten olimme määritelleet asetuksissa.![](https://lh6.googleusercontent.com/WVmqP7pU62kv-z1B3o-VdmASUbO_ujKBOnl4lqQO5tnv_h67Ilv0z_WL2UKxbVHdYWaJ7507MNzFPW3oJ-vMaSbKLBTQCmV15EJbeYACSEhxaFFQToeaDFymSaVU1UAeOhMaVZ9Nl4a-bADG2oLKjw)
+![](img/harjoitus_8/image1.png)
+
+![](img/harjoitus_8/image2.png)
+
+Palvelun vastaus (xml-muodossa) sisältää nyt vain yhden geometrian, kuten olimme määritelleet asetuksissa.
 
 Palaa vielä **Services → WFS**-näkymään ja rastita **Return bounding box with every feature**. Esikatsele taas samaa tasoa ja vertaile sitä aiemman palvelupyynnön tulokseen. Tietyissä sovelluksissa voi olla tarpeen saada tiedot jokaisen paikkatietokohteen sijainnin rajauksesta (bounding box).
 
-Tarkista tiesto-tason GML-esikatselusta, että GeoServerin lähettämä vastaus sisältää nyt myös geometrioita rajaavan suorakaiteen.![](https://lh5.googleusercontent.com/24R_3wTFJYkTVATPtKQVG5p_mQOhQqLug17Axod_UovQY3VD6zC7FLcUgmEy63tFaaonDwjAotaiPweXcH3VC2GJvxKmU5csA0yq9CmPxAxpyTyl9Tfe8XKuuiRKV7CWLhS6zy_Tq5Y_p0iTsTZCRA)
+Tarkista tiesto-tason GML-esikatselusta, että GeoServerin lähettämä vastaus sisältää nyt myös geometrioita rajaavan suorakaiteen.
+
+![](img/harjoitus_8/image3.png)
 
 Palaa uudelleen **Services → WFS** -näkymään ja palauttaa oletuksiin **Maximum number of features**: **1 000 000** ja **Maximum number of features for preview**: **50**.
 
@@ -80,7 +86,9 @@ Paina **GeoServer-logoa** vasemmasta yläkulmasta (palaa siis web-käyttöliitty
 
 Etsimällä "**EPSG**" sivulta löydät EPSG-koodit WFS-palvelun dokumentaatiosta (xm-formaatissa):
 
-Huomaa, ettei tämä asetus toimi WFS 1.0.0, sillä siinä ilmoitetaan EPSG-koodit vain tasokohtaisesti.![](https://lh6.googleusercontent.com/H6txfUglRKhy05pjgUQnoeBWmxeX_vrzH4k10BCHu9_ULeagfd6yQ3wVEZDKZrPtC5_Nudx4ab_KGN0xu7oBLGWLJUbytioONP6uN-ZS81s9x2q6y_WbIgW6e0qXn02T9P6LiPgHpq7p68CcR9a26g)
+Huomaa, ettei tämä asetus toimi WFS 1.0.0, sillä siinä ilmoitetaan EPSG-koodit vain tasokohtaisesti.
+
+![](img/harjoitus_8/image4.png)
 
 ## **Service Levels**
 
@@ -90,7 +98,7 @@ GeoServerissa voidaan julkaista vektoriaineisto editoitavaksi **WFS-T (Transacti
 
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ##### **Basic**         | Tarjoaa perustoiminnallisuuden: GetCapabilities, DescribeFeatureType ja GetFeature                                                                          |
-+=========================+=============================================================================================================================================================+
++-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ##### **Transactional** | (WFS-T) perustoiminnallisuuden lisäksi transaktio-toiminto on käytettävissä                                                                                 |
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ##### **Complete**      | Lisää vielä LockFeature-tuen, joka estää paikkatietokohteiden (feature) muokkauksen sen jälkeen, kun toinen käyttäjä on jo aloittanut kohteiden muokkauksen |
@@ -106,7 +114,7 @@ Erilaiset WFS-palvelun versiot palauttavat oletuksena eri GML-formaatit:
 
 +---------------------+---------------+
 | ##### **WFS 1.0.0** | GML 2         |
-+=====================+===============+
++---------------------+---------------+
 | ##### **WFS 1.1.0** | GML 3         |
 +---------------------+---------------+
 | ##### **WFS 2.0.0** | GML 3.2       |
@@ -134,15 +142,21 @@ Jokaiselle GML-formaatille on mahdollista määritellä koordinaattijärjestelm�
 | **OGC HTTP URI**         | srsName="[http://www.opengis.net/def/crs/EPSG/0/4326"](http://www.opengis.net/def/crs/EPSG/0/4326%22)     |
 +--------------------------+-----------------------------------------------------------------------------------------------------------+
 
-Esimerkiksi **Lipas-alueet**-taso GML2-esikatselusta (EPSG-koodi muodossa OGC HTTP URL):![](https://lh6.googleusercontent.com/JPwtlYuQZVwtlUclZaD1_mSuiI-aCdgX-7eW_w2kwCMltzNT7LkONShCefPJL9ouVr4IqfaE5KKUnOpPSNqkBiO7Ex6zHaMnWzBtYtA9nw8wiuWGz3l90aFMsUmaNKKepD-QvTX_qR-L7iQggFitvA)
+Esimerkiksi **Lipas-alueet**-taso GML2-esikatselusta (EPSG-koodi muodossa OGC HTTP URL):
+
+![](img/harjoitus_8/image5.png)
 
 ## **Workspace kohtaiset asetukset**
 
 Samalla tavalla kun WMS-palvelujen kanssa, myös WFS-asetuksia on mahdollista määrittää workspace-kohtaisesti. Esimerkiksi WFS-T toiminnallisuus voidaan sallia vain yhden workspacen kautta ja pääsynhallinnan avulla sallia vain tunnistetut käyttäjät muokkaamaan aineistoja.
 
-Avaa **Data → Workspaces** ja valitse sitten **helsinki**-workspace. Rastita sitten **Services → WFS** ja paina sen jälkeen **WFS**-linkkiä.![](https://lh4.googleusercontent.com/F9S81T4hn2yDnScoqD8CGQ9msoYzAUUjoBtORoXOK0pwTM9Fin5qpm_XLkX3tQu_nwbshHSOXK5TDzvLnd-ViRssuQWMvNmdw-R7FNmA01k-hdI3orliWPSlwD_2GsmgQI1xXLWoFB5Y4IkoQUg6bw)
+Avaa **Data → Workspaces** ja valitse sitten **helsinki**-workspace. Rastita sitten **Services → WFS** ja paina sen jälkeen **WFS**-linkkiä.
 
-Varmista, että **Service Level** asetus on **Complete**.![](https://lh4.googleusercontent.com/Ln3bLVNk1-bLwkHEYUx0MeHhMySo8xg5Ix72obe8WKp3wl4Iag4n6pwygUjcIXaaXuhyF7AiBag_RzNk5esPxjCHHe7X8Ec28AIoJU4M3k7rWWh4_tjJ7GO_3pP88ZG9ol8x313g2cw6yZ5L4WEc2g)
+![](img/harjoitus_8/image6.png)
+
+Varmista, että **Service Level** asetus on **Complete**.
+
+![](img/harjoitus_8/image7.png)
 
 Paina sen jälkeen **Submit** (sivun lopussa).
 
@@ -165,16 +179,18 @@ Tarvitaan ensin WFS-palvelun osoite. Saat tämän esimerkiksi GeoServerin etusiv
  Osoite on muotoa:
 
 ::: note-box
-[http://\<ip.osoite\>:8080/geoserver/ows?service=wfs&version=1.1.0&request=GetCapabilities](http://<ip.osoite>:8080/geoserver/ows?service=wfs&version=1.1.0&request=GetCapabilities)
+<http://%3Cip.osoite%3E:8080/geoserver/ows?service=wfs&version=1.1.0&request=GetCapabilities>
 :::
 
 GeoServerin oletusasetuksilla workspace-kohtaisen osoitteen saa lisäämällä osoitteeseen workspacen URI:n. Esimerkiksi helsinki-workspacen osoite olisi:
 
 ::: note-box
-[http://\<ip.osoite\>:8080/geoserver/ows?service=wfs&version=1.1.0&request=GetCapabilities](http://<ip.osoite>:8080/geoserver/ows?service=wfs&version=1.1.0&request=GetCapabilities)
+<http://%3Cip.osoite%3E:8080/geoserver/ows?service=wfs&version=1.1.0&request=GetCapabilities>
 :::
 
-Avaa QGIS työpöydän pikakuvakkeesta. Lisää uusi WFS-palvelu ja liitä URL-kenttään äsken kopioimasi osoite. Syötä myös käyttäjänimi (admin) sekä salasana (gispo).![](https://lh4.googleusercontent.com/wf9iohULa68iXf621x1eZJrU7FlSv-0Wn4z2xKoMNZBJ6CE1xybcygc5fr-UQ4KR0fDQ2fMOn4LvtKuOzBJ0_3-sew93zBat7i7djySVwdv8Jq2BRuiqjkJZcOrq2MARsHOSk0MCj-I0s8DbstPt0A)
+Avaa QGIS työpöydän pikakuvakkeesta. Lisää uusi WFS-palvelu ja liitä URL-kenttään äsken kopioimasi osoite. Syötä myös käyttäjänimi (admin) sekä salasana (gispo).
+
+![](img/harjoitus_8/image8.png)
 
 Tarvittaessa, seuraa kouluttajan ohjeita **QGISin** käytössä. Yhdistä QGIS omaan WFS-karttapalveluusi, lisää karttaprojektiin **lipas_kaikki_reitit**-taso, jonka lisäsit aiemmin toisessa harjoituksessa. Editoi joitakin paikkatietokohteita ja tallenna muutokset.
 
@@ -184,19 +200,23 @@ Katso jälkeenpäin GeoServerin esikatselusta editoimasi kohteet ja totea, että
 
 Samalla tavalla kun on mahdollista edelleen julkaista WMS-palveluja (**cascading WMS**), niin GeoServerin avulla voidaan myös edelleen julkaista WFS-palveluja (**cascading WFS**).
 
-Lisää uusi store (**Data → Stores → Add new Store**), valitse **Web Feature Server (NG)** listalta.![](https://lh5.googleusercontent.com/9vVMg4jkSyY3-BnhTkQOekLnaHSwp1haNZ2UICaGgwVLTH6LfgW1CJ53JYq8KTbKFna4KpwWHnW7FF-pSn7_l_RfDPguuUFYey_vzq0JE_JxMBn0BImFQIqYgbczxhBAd7JOLIZHPzbg8wFs_9ad5g)
+Lisää uusi store (**Data → Stores → Add new Store**), valitse **Web Feature Server (NG)** listalta.
+
+![](img/harjoitus_8/image9.png)
 
 Lisätään Lipas-WFS palvelu. Nimeä uusi vektori-store **lipas_WFS** ja laittaa **WFS GetCapabilities URL** arvoksi:
 
 ::: note-box
-[http://lipas.cc.jyu.fi/geoserver/lipas/ows?service=WFS&REQUEST=Getcapabilities](http://lipas.cc.jyu.fi/geoserver/lipas/ows?service=WFS&REQUEST=Getcapabilities)
+<http://lipas.cc.jyu.fi/geoserver/lipas/ows?service=WFS&REQUEST=Getcapabilities>
 :::
 
-![](https://lh6.googleusercontent.com/HAAqAueLui66t-5CQJI_cAPIduHQTbNZTVu_WsWCF3bBbgzOOYpVFHyjlct4AeKIEnjWmmCBCVi9ungjKjycznCkTJKqDzAMegyhX6G2ZjZczq_kpXZoAW-TUPomPoMT384fsUfJI4VoT06UroWs6w)
+![](img/harjoitus_8/image10.png)
 
 Loput asetukset voit jättää oletusarvoihin. Paina sitten **Save**.
 
-Uusi store sisältää karttatasoja, jotka on jaettu alkuperäisessä  WFS-palvelimessa:![](https://lh6.googleusercontent.com/dHchRtuFeQDilG2RAYkX6vpfsmYVrxRvMYjhwq4rmH3-tVaAX7dr-6RK7eJhivWcGfngkZZyw4f4UMcoG3vIN_IJe_ULpjwNSrlmfoHoEngaR8M8QB0iqtUciWi2xvNcoGfaMko_b0HaD9W0D3kVIw)
+Uusi store sisältää karttatasoja, jotka on jaettu alkuperäisessä  WFS-palvelimessa:
+
+![](img/harjoitus_8/image11.png)
 
 Voit julkaista tasoja suoraan palvelusta. Julkaise esimerkiksi **lipas_retkikartta_reitit**. Paina oikealta **Publish** ja määrittele **Bounding  Boxes** totutulla tavalla.
 
@@ -204,7 +224,7 @@ Paina sitten **Save**.
 
 Voit nyt esikatsella uutta tasoa (oletusnimeksi tulee **retkikartta_reitit**).
 
-![](https://lh5.googleusercontent.com/J6Hxzf18dMNvpDyq85n7w48v9HKH1JQlssTpgJ4tGan2YYMjoxx--Rl-f0BsBTxY6G5SYc8tCEXLA4hFrK4Ryy6FdDJygQhKSsknz7X1_dkOZRWyMkE7Qn2CVdiTM7pm-F5Cl2wTXCa0jTIab0vMeA)
+![](img/harjoitus_8/image12.png)
 
 ::: hint-box
 Psst! Mikäli aineisto on suuri ja maksimilatausaika on määritelty alhaiseksi, GeoServer voi tuottaa error-koodin kun aineistoa ei saada ladattua määrättyyn aikaan mennessä. Muuta tätä aikaa, mikäli aineisto on suuri.

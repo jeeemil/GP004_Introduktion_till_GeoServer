@@ -29,20 +29,22 @@ Luo uusi store valitsemalla **Stores → Add new Store**. Paina sitten **ArcGrid
 Valitse taas **helsinki**-workspace ja nimeä uusi store: **hki_korkeusmalli_L4133A**.
 
 Selaa sitten kansioon **/koulutus/korkeusmalli_2m/** ja valitse tiedosto **L4133A.asc**.\
-![](https://lh5.googleusercontent.com/RANAIxr8uHroyIMYQAYdSarkrhrrJ8A-TIXYefwefyb7UJGYdOd4SIIOss_NogSXNp_pxhzCTDiHREh2IflSxjlzw3W-iWpAXQ00QQVzn3c1PylWg9E1YIVY9ifA8BelwA4mh6QD7KELHEizZo5U8A)
+![](img/harjoitus_6/image1.png)
 
 Paina sitten **Save** ja sen jälkeen **Publish**.
 
 Kuten aiemmin vektoriaineistojen luomisen yhteydessä, pääset nyt tason editointinäkymään. Tarkista yleisasetukset niin, että sekä **Enabled** että **Advertised** ovat valittuna.
 
-Laita nimeksi **korkeusmalli** ja otsikoksi **Helsingin korkeusmalli** ja lisätiedoksi **Korkeusmalli 2m -- Maanmittauslaitos.**![](https://lh6.googleusercontent.com/7APF1HuDQ00JeG-f8jXyGEEGp4gPTYn1B6Sv5lhwIVWjuLlDs11-0tYCpAFbppSMkAtbm9WCq9owm7l2Y-7kgp4XdBs1PGmEWrgxDK5TqG-vBAJKWvvMLE1dPUc2Pj7hbsc2zyLOW-JeHkauLdXLXQ)
+Laita nimeksi **korkeusmalli** ja otsikoksi **Helsingin korkeusmalli** ja lisätiedoksi **Korkeusmalli 2m -- Maanmittauslaitos.**
+![](img/harjoitus_6/image2.png)
 
-Huomaa, että **Coordinate Reference Systems** -kohdassa, koordinaattijärjestelmä on määritelty väärin. Aineiston oikea järjestelmä on **ETRS89 / ETRS-TM35FIN** (**EPSG:3067**). Korjaa sitä käsin **Declared SRS** -kentässä ja valitse **SRS handling** kentästä **Force declared**. Käytä sen jälkeen pikalinkkejä määrittääksesi aineiston laajuuden.![](https://lh6.googleusercontent.com/8c9Jhn-N6lPTODD03RrNX77FYMW9KhdXF-1e-Un8UN_NpCyGwNEhN5SFR3O18S9vry0-FJI4UyJpQzfTCDX3Dq9cfjpRL2jNSeZ6vHKveJPDWqW5rqY1krJi58J2GaB6QPfCzosfisVbYOELI7-_dw)
+Huomaa, että **Coordinate Reference Systems** -kohdassa, koordinaattijärjestelmä on määritelty väärin. Aineiston oikea järjestelmä on **ETRS89 / ETRS-TM35FIN** (**EPSG:3067**). Korjaa sitä käsin **Declared SRS** -kentässä ja valitse **SRS handling** kentästä **Force declared**. Käytä sen jälkeen pikalinkkejä määrittääksesi aineiston laajuuden.
+![](img/harjoitus_6/image3.png)
 
 Paina sitten **Save.**
 
 Tarkista, että taso on **Data → Layers**-taulussa. Voit esikatsella uutta rasteritasoa **Data → Layer Preview** -ikkunan kautta.\
-![](https://lh5.googleusercontent.com/ahBTsemDyvf0pZr4qLx3ASGcYcBfifGEUW3hgZ6jWjWj4kUqSWE2_LitOO0DWNxdBRT-FmnQAx7ZcGGQCof7hpTcEhx7GsAG2Z0S4DFv4TwS5a7NG7-Ps9edtFzcniZSE-Wr4SA05Hr0m3cdaooamA)
+![](img/harjoitus_6/image4.png)
 
 ## **Ilmakuvan lisääminen**
 
@@ -54,7 +56,8 @@ Nimeä seuraavasti: \
 	store:	**hki_ilmakuva\
 ** taso:	**ilmakuva**
 
-Ilmakuva esikatselussa:![](https://lh6.googleusercontent.com/ut0d9fYswl38HeiiBhORa6DN3dnxSnDZc7_vh5wBiC4gdJ2EQIQR9M4lwd0tBwPCgCW8PGrieGtTBdcKxtUq991mjPnh0yLDO4uXKPvg1pHnQ2XqELZhuSZ28Y1u32tWKuu688Lb2x6huQIWRswSKg)
+Ilmakuva esikatselussa:
+![](img/harjoitus_6/image5.png)
 
 ## **Image Mosaic**
 
@@ -70,13 +73,16 @@ Luo uusi store **helsinki** workspaceen. Valitse formaatiksi **ImageMosaic - Ima
 
 Selaa kansioon **/koulutus/ilmakuvat_geotiff/** ja paina **OK**. Täten, kaikki kuvat kansiossa yhdistetään yhteen ja mosaiikkia käsitellään sen jälkeen yhtenä tasona.
 
-Anna nimi ja selitys esimerkiksi seuraavan kuvan mukaisella tavalla:![](https://lh4.googleusercontent.com/az274_fKO_7ixizJoQKrQsMn3jKQDsej5l5_z4NISdBWOnPD3mQvnzxGAvMotO4VbHZHWDZCOAZqxam43ju74I76Askc-EDDjpucceqtLoq5UsXLWeuu79IIuFjaux-CVHsSrd9QXa3Dlye_RSV7oQ)
+Anna nimi ja selitys esimerkiksi seuraavan kuvan mukaisella tavalla:
+![](img/harjoitus_6/image6.png)
 
 Paina sitten **Save** ja sen jälkeen julkista taso painamalla **Publish**.
 
-Laita tason nimeksi **ilmakuvat_keskusta** ja otsikoksi **Helsingin keskustan ilmakuvat**. Lisätiedoksi voit kirjoittaa esimerkiksi **Helsingin ilmakuvat - Maanmittauslaitos 2014**. Tarkista tason editointinäkymästä, että **Enabled** ja **Advertised** ovat rastitettuna.![](https://lh3.googleusercontent.com/dRKDzxuuK7ztsqoRuCkDYkzEXGyYt_dDfD0JAJFr7hNFvDl8ofgBUT5JF2uw9bAYsWBOjPwUmliRb0WUsMkkC6-VfUHJ9pbcENQmntafhb87G7dMyYahiazDg1pUH270UR1bPxVdqpBemUAe2QMwfA)
+Laita tason nimeksi **ilmakuvat_keskusta** ja otsikoksi **Helsingin keskustan ilmakuvat**. Lisätiedoksi voit kirjoittaa esimerkiksi **Helsingin ilmakuvat - Maanmittauslaitos 2014**. Tarkista tason editointinäkymästä, että **Enabled** ja **Advertised** ovat rastitettuna.
+![](img/harjoitus_6/image7.png)
 
-Huomaa, että GeoTIFF-tiedoston koordinaattijärjestelmän tiedot (EPSG:3067) ja aineiston laajuus on tässä määrittynyt oikein automaattisesti (oletusarvojen mukaisesti).![](https://lh4.googleusercontent.com/UQtIv1wbxbIMHuaAbIMJeRmXVFmXQ5YqmN8F8dLSfgxt-e-cXWjrjvm0KwtO9_tlzXDBbo2r7bCqNIe-iREoZFR9IyjtQNVeRXXslgRFdW9l41CYGVgFzWiIAoEVki3l3DlXYn5s4ShnXa_ao9tH5A)
+Huomaa, että GeoTIFF-tiedoston koordinaattijärjestelmän tiedot (EPSG:3067) ja aineiston laajuus on tässä määrittynyt oikein automaattisesti (oletusarvojen mukaisesti).
+![](img/harjoitus_6/image8.png)
 
 ::: hint-box
 Psst! Kuten aiemmin mainittiin, GeoServer pyrkii tulkitsemaan alkuperäisen aineiston koordinaattijärjestelmän alkuperäisistä tiedoista, joka tässä tapauksessa oli EPSG-muodossa.
@@ -84,7 +90,8 @@ Psst! Kuten aiemmin mainittiin, GeoServer pyrkii tulkitsemaan alkuperäisen aine
 
 Paina lopuksi **Save**.
 
-Tarkista, että uusi taso löytyy **Data → Layers** -näkymältä. Voit myös esikatsella sitä tuttuun tapaan käyttäen **Data → Layers Preview**.![](https://lh6.googleusercontent.com/4LM2ExL9PG9tSL9nW3VAibHUwmU857_6aJaJegEMwqSu0AOdvFql7AtsBNWVd_qgDaRDAcxlSo___iad1b5HK_4avDHpLi2iEv4B_6ZZiCdnr1yFFg4TiIUe6rYUXjWoRM8I0kWMmGjSMW2Ou2o1qQ)
+Tarkista, että uusi taso löytyy **Data → Layers** -näkymältä. Voit myös esikatsella sitä tuttuun tapaan käyttäen **Data → Layers Preview**.
+![](img/harjoitus_6/image9.png)
 
 ## **Layer Groups**
 
@@ -104,7 +111,8 @@ Valitse **helsinki** workspace:ksi.
 
 Selaa sivua alaspäin, paina **Add Layer...** ja lisää **ilmakuvat_keskusta**-taso. Taso on nyt lisätty **Layers**-listalle.
 
-Paina **Generate Bounds** ja huomaa, kuinka tason alkuperäinen koordinaatistojärjestelmä ja laajuus on nyt määritettynä niille kuuluvissa kentissä. Pidetään ryhmätason järjestelmänä **ETRS89 / TM35FIN**. ![](https://lh5.googleusercontent.com/EZ_wpGZn2DmBDKu7JzAFk7NAuofdBzKxnl0oxqMve2ZiwmiSpU-nfFI8udpDMBY3EkZGcjpEpBYjpHTtdxDjKpNx0NZo_lONv2nzXEwYX_xf2U4zQFZui7Fd2w3bG8WohIgADnaOrSooeSqFKwKoCQ)
+Paina **Generate Bounds** ja huomaa, kuinka tason alkuperäinen koordinaatistojärjestelmä ja laajuus on nyt määritettynä niille kuuluvissa kentissä. Pidetään ryhmätason järjestelmänä **ETRS89 / TM35FIN**.
+![](img/harjoitus_6/image10.png)
 
 Lisää samalla tavalla Helsingin **rakennukset**- ja **tiesto**-tasot.
 
@@ -116,7 +124,9 @@ Paina lopulta uudelleen **Generate Bounds** päivittämään ryhmätason laajuus
 
 Paina vielä **Save**.
 
-Voit esikatsella ryhmätasoa samalla tavalla kuin muitakin tasoja:![](https://lh6.googleusercontent.com/rt3D65z6xBEVsoo8OBcKWfM-GKTA5Fs5FQTG0tG9F-5dgIyZb885IR3_wwmmYfF0bsUR7OkoJhAZLyZCDc6Wkbg4VevrUbj59-gdlrrdOUm179OmjxC2OpCwRg1Qo-AGwj6VVLLLUZF2QgIEblcZeA)![](https://lh3.googleusercontent.com/Q-1NzpBeQf_9VRJVDISWQ2bwCBvuh0ZE8Dx-cJdGo3q88yqXMdFl8Oi20SDEOuDMRyw6AhgT09m_T1TI3tAHA2GhGpTITNyWChP5W-iAFrAecGbNFAWkEG9yfcB5ZC8_ZmAPop-fG8KjvX2QFE2FFw)
+Voit esikatsella ryhmätasoa samalla tavalla kuin muitakin tasoja:
+![](img/harjoitus_6/image11.png)
+![](img/harjoitus_6/image12.png)
 
 ### **Ryhmätasojen julkaisemisen muoto**
 
@@ -136,11 +146,13 @@ Pidä loput asetukset oletuksina ja paina lopuksi **Save**. Ryhmätasoja voidaan
 
 Kun olet saanut ryhmätason valmiiksi, voit palata ryhmätason asetuksiin ja kokeilla muita **Mode**-asetuksia. Seuraavat esimerkkikuvat ovat QGISin WMS-palvelun työkalusta. .
 
-**Mode → Single** näyttää tältä:![](https://lh5.googleusercontent.com/Uyk2CDd9wvbxmLRXhJB7eiqae2FsSA_0XU2KAO_g7AmuHW7pjvuH85sWiZXX1525Tb8Z6Rnx4zBCDFYQ2g4ZvO2B3AVyZpFm0cgkGzp-V-HInhR4Rgu2Pm-sIa-uq3vqlvDn_cSjvdYou97ueoasVQ)
+**Mode → Single** näyttää tältä:
+![](img/harjoitus_6/image13.png)
 
 Tässä muodossa koko ryhmätaso on aina ladattavissa yhtenä pakettina, eikä sen alitasoista ole saatavilla tietoa erikseen tai niitä voida ladata erikseen.
 
-Kun taas **Mode →  Named Tree** näyttää tältä:![](https://lh4.googleusercontent.com/dR-RmaBEQBKZRdErM4Pmfza5mYv5wRJQ0oOLyUldbW7TZUXziT3en19w1mP-2tNSzHsOJAFrdFGUnuKUsVkUcHxTeuU-zqwjZCzEKI13wU_k1YYsZbTBdpZW2Z0DPQpB8ZNVOk44zINw_Emld4piJg)
+Kun taas **Mode →  Named Tree** näyttää tältä:
+![](img/harjoitus_6/image14.png)
 
 Tässä muodossa on mahdollista ladata tasoja yksitellen.
 
@@ -148,7 +160,8 @@ Tässä muodossa on mahdollista ladata tasoja yksitellen.
 
 Rasteriaineisto voi olla peräisin myös muista WMS-palveluista. Tätä kutsutaan englanniksi **cascading-**tyyppiseksi ratkaisuksi. Käytännössä voidaan ketjuttaa WMS-tasoja toisista palveluista siten, että loppukäyttäjä ei huomaa eroa. Ketjuttaminen mahdollistaa esimerkiksi muiden paikkatietopalvelujen käytön GeoServeristämme. Heikkona puolena on se, että pitkistä ketjutuksista voi syntyä tilanne, jossa palvelun käytettävyys (vasteaika ja saatavuus) huononee oleellisesti.
 
-Lisää uusi store (**Data → Stores → Add new Store**), valitse **WMS**-listalta.![](https://lh3.googleusercontent.com/_kyYTPMnDGTwTtWyG-qoKpBHt5qaNNX7YJhibbESLbmjnWlfioiGi-vsY_enZahfQ8CSwE8eLuZVjP2PShXDyv2JICHvuHheIXvPjcMQqQs_ogXnwl-D1caQiYx_1WJUQqpzuKQswi39Ec6C_dNGdw)
+Lisää uusi store (**Data → Stores → Add new Store**), valitse **WMS**-listalta.
+![](img/harjoitus_6/image15.png)
 
 Lisätään Helsingin kaupungin avoimet paikkatietopalvelut GeoServeriimme uudeksi WMS-yhteydeksi (remote WMS connection). Kyseinen Helsingin kaupungin palvelu löytyy osoitteesta: 
 
@@ -156,15 +169,18 @@ Lisätään Helsingin kaupungin avoimet paikkatietopalvelut GeoServeriimme uudek
  [**https://kartta.hel.fi/ws/geoserver/avoindata/wms?REQUEST=Getcapabilities**](https://kartta.hel.fi/ws/geoserver/avoindata/wms?REQUEST=Getcapabilities).
 :::
 
-Täytä tiedot seuraavan kuvan mukaisesti, laita yllä oleva osoite **Capabilities URL** -kenttään:![](https://lh6.googleusercontent.com/AnU_aeV3J3yuyB5Lq6U5XFz3K0v8TNiwO-S2M2KnUwn3Z3oDvWlXAOjKMvB1nnA2KY1FCX_i6Yxrgvl_7faWtzff3QDNx-yByuY_dbLjuvv3ATSllitKy2tWi6296uvzKXnQaWxvae6W3l946iuOjw)
+Täytä tiedot seuraavan kuvan mukaisesti, laita yllä oleva osoite **Capabilities URL** -kenttään:
+![](img/harjoitus_6/image16.png)
 
 Loput asetukset voit jättää oletuksiin. Paina sitten **Save**.
 
-Seuraavasti voit julkaista tasoja suoraan siitä palvelusta. Julkaise esimerkiksi **Ajantasa_asemakaava**.![](https://lh6.googleusercontent.com/aXBuWXYn6SWefwGxt30kukTa6jn4NjZgAbZXY3B7MlFNvCU4Ht1a0J29RSaOfqAHvKk4quHT79rnNJfg-5mdv8V0S9fqXgg6H4un6nzNE3WrlxEJoPtA5Mw4ewkUnHn1_MKLoe-tEEh_Z28ApQZE8Q)
+Seuraavasti voit julkaista tasoja suoraan siitä palvelusta. Julkaise esimerkiksi **Ajantasa_asemakaava**.
+![](img/harjoitus_6/image17.png)
 
 Uuden tason oletusasetukset ovat oikein. Selaa sivun loppuun ja paina **Save**.
 
-Voit nyt esikatsella uutta tasoa samalla tavalla kuin aiemmin:![](https://lh5.googleusercontent.com/P0kzk-dlyggG8J3tJeMnGvVDRjtXQQO3WE6D-1av_UF27npOrNHVWG3q_7TkNIPZR8ndjekUQsNArJJoHYEys7WKz2v_jSm6Vy-khah2avj9Qo8I7W5Vb2yd8xeVS8aQUYiqZ5owDvv-W8iB-evDTA)
+Voit nyt esikatsella uutta tasoa samalla tavalla kuin aiemmin:
+![](img/harjoitus_6/image18.png)
 
 ::: hint-box
 Psst! Huomaa, että WMS-cascade-tasojen tyyliin tai sisältöön ei voida vaikuttaa, sillä ne ovat Helsingin kaupungin omassa palvelimessa. 

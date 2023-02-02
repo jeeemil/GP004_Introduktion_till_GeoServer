@@ -22,24 +22,25 @@ GeoServer sisältää **Tile**-palvelut osana **GeoWebCache-**palvelua.
 
 Avaa **Tile Caching → Caching defaults** ja tarkista, mitkä karttatiilipalvelut ovat käytössä GeoServerin asennuksessasi.
 
-![](https://lh5.googleusercontent.com/D6yoRJ3aCnGrJIrOw0m9MCDs_8z2mtRWBmcjAsL8AUU0R-vds3f2SsKBG6TGXRUJKLUILfHkAmcU8ZNQyqQ-WTiFU7f3DpJCY5V8MnOx_1q9ndvFR1qRhnkzoYNV6-_3WpMo0DHcGzZ_52rBj-N2YQ)
+![](img/harjoitus_9/image1.png)
 
 Oletuksena aktivoituna ovat **WMS-C**- (WMS Service-Cached) ja **TMS** (Tile Map Service)-karttatiilipalvelut.
 
 Avaa vielä **Tile Caching → Tile Layers** ja huomaa myös, että kaikille tasoille on automaattisesti luotu oma karttatiilitaso.\
-![](https://lh4.googleusercontent.com/-7kU3zHYr64Mcf-vYME0E4V9PPOeyJnDKWz8jSuC4c8Wrfk9Jrw2Zqf-0HhpvkIwv1GqXjqY4O1sF6al7D9J3_axEvI_V6NbulsAScZLd8QAD1ie-5T3axLi-Kcks0vr4L5OJE7KGSxm0OFsiMZ-5w)
+![](img/harjoitus_9/image2.png)
 
 ## **GeoWebCache-käyttöliittymä**
 
 Yleisimmät karttatiilipalvelun asetukset määritellään jo tutuiksi tulleissa eri GeoServerin web-käyttöliittymän asetusosissa. Tarkemmin karttatiilipalvelun toimintaa hallitaan GeoWebCache:n käyttöliittymästä.
 
-Palaa **Tile Caching → Caching Defaults** -näkymään ja avaa vielä GeoWebCache:n oma asetusnäkymä painamalla **Go to the embedded GeoWebCache home page**.![](https://lh4.googleusercontent.com/-3nsMPLHPpdIANnGg5YxBpAVBD1UaTJ-Q4hL9n7MFOtHWD7P0bGTFFOoNx-0FSOjf4oAW8_S3SsbKXzFekkP9SOYrmUAzleBmqi7nxPEFwo8tlFV4zhu1xyBzmhkis1RNpetJpI6oqxhuIZb0tj09Q)
+Palaa **Tile Caching → Caching Defaults** -näkymään ja avaa vielä GeoWebCache:n oma asetusnäkymä painamalla **Go to the embedded GeoWebCache home page**.\
+![](img/harjoitus_9/image3.png)
 
 GeoWebCache on oletuksena asennettu GeoServeriin ja se hallitsee kaikkia karttatiiliä, joita jaetaan karttatiilipalvelujen kautta.
 
 Avaa lista demoista **A list of all the layers and automatic demos**.
 
-Kaikilla GeoServerin tasoilla on oma karttatiilipalvelu käytössä:![](https://lh6.googleusercontent.com/CpXG0AB3EmeqpPenWyI01kPPQ-AnCtos7SbbJEfq1NjLHAB5XCmRTVnWCro2Jm0J_eLaKxYMCNsbCM8nSgKRdOK4HHk1FnWceVAGqimjMmBwSL4wtPpHAxdvGNgq5VI29MvdE4tlUm7B06SB_20leQ)
+Kaikilla GeoServerin tasoilla on oma karttatiilipalvelu käytössä: ![](img/harjoitus_9/image4.png)
 
 Avaa **helsinki:ilmakuvat** OpenLayers **png**-esikatselu linkkiä ja selaile karttaa. Huomaat, miten eri karttatiilet lasketaan ja piirretään näyttöön sen mukaan kun palvelin saa niitä luotua.
 
@@ -47,15 +48,15 @@ Testaa, että karttatiilet pysyvät palvelimessa uudelleen käytettävänä siir
 
 ## **Tasokohtaiset asetukset**
 
-Tasojen karttatiiliasetukset löytyvät päävalikon **Tile Caching → Tile Layers** -näkymän kautta. Avaa **helsinki:ilmakuvat_keskusta** -tason ominaisuudet painamalla tason linkkiä taulusta.![](https://lh6.googleusercontent.com/-Lv0b1A6a58zbt8UBd1NgZmnKXAecxDpX3LUXVRZCLjxulHTUM6J-bKwwHPtu5tvuhkN2j9w3kcEhAxDv50o2RvhjJKEbDmvuflbX3GrMqZgtiliDdws9NJaROKWPIaDqtfN3k1jGQoyF8DRLpegsg)
+Tasojen karttatiiliasetukset löytyvät päävalikon **Tile Caching → Tile Layers** -näkymän kautta. Avaa **helsinki:ilmakuvat_keskusta** -tason ominaisuudet painamalla tason linkkiä taulusta. ![](img/harjoitus_9/image5.png)
 
 Valitse sitten **Tile Caching**.
 
-![](https://lh5.googleusercontent.com/8XKybMpK5P99SvoCMbFA4d6PY27Zdr3nFtb3O4WUYq--jyK62lOQ2pZQM3szYHZcGdmUHBCChVGgwym344MiOIBkbnvdEFcwa9vjktVFgk3NPQ7lDLanL84wo_CLuS9pWE4aqNCdomZFFTgW0dVYPw)
+![](img/harjoitus_9/image6.png)
 
 Oletusasetukset on määritelty siten, että kaikille uusille tasoille luodaan automaattisesti karttatiilet. Myös sekä jpeg- että png-kuvatiilet ovat oletuksena aktivoituna.
 
-Selaa vielä tämän näkymän alaosaan, josta selviää **Available gridsets** -osiosta, että kaksi eri karttatiiliruudukkoa on oletuksena käytössä: **EPSG:4326** (WGS 84) ja **EPSG:900913** (Google Mercator):![](https://lh5.googleusercontent.com/JZnrmQw7Rq_bAXvKjpW_bGUnLPE_k93BhtTbxP2O88Kfk6UaODelp1IvY0YXHASq6RIIEufgi9-i8WvC2OH4eXosgk93N01PfACiFrCQUj5yw85KxvXNMb6Nx1fgOM_6f2kbInm6qRzlezUZGtJOhg)
+Selaa vielä tämän näkymän alaosaan, josta selviää **Available gridsets** -osiosta, että kaksi eri karttatiiliruudukkoa on oletuksena käytössä: **EPSG:4326** (WGS 84) ja **EPSG:900913** (Google Mercator): ![](img/harjoitus_9/image7.png)
 
 ::: hint-box
 Psst! Tasokohtaisia tiilitysasetuksia pääset myös muokkaamaan Data → Layers näkymän kautta valitsemalla tason ja sen jälkeen Tile Caching -välilehden.
@@ -67,33 +68,33 @@ Palaa **Tile Caching → Tile Layers** näkymään. Tältä sivulta voit myös e
 
 **Preview**-sarakkeen alta valikosta löytyy kyseiselle tasolle saatavilla olevat tiilitysvaihtoehdot. Saat aikaiseksi saman esikatselun kuin käyttäessäsi GeoWebCache:n näkymää.
 
-**Actions**-sarakkeen alta löytyy vielä linkki **Seed/Truncate**, jolla pääse GeoWebCache:n tasojen esitiilittämiseen. **Empty**-linkillä tyhjennetään kaikki tasolle aiemmin tallennetut karttatiilet.![](https://lh6.googleusercontent.com/M_nv-MvnaWgT_H8g1g1EGNvP4R9505MgxxUGVhsTnApCAWm0RPjU03_6idurdR1oLjSJ6zARPvdIdFl3aoUM1_OT12g4_PCQ8ZzNWZIlhRag-97TB67PqsWWYOLgpol-pPQ-2mYD0B4OV4Y0nVYxxA)
+**Actions**-sarakkeen alta löytyy vielä linkki **Seed/Truncate**, jolla pääse GeoWebCache:n tasojen esitiilittämiseen. **Empty**-linkillä tyhjennetään kaikki tasolle aiemmin tallennetut karttatiilet. ![](img/harjoitus_9/image8.png)
 
 Valitse nyt **Seed/Truncate** -linkki Helsingin ilmakuvien tason karttatiilien luomista varten.
 
-**GeoWebCache**-näkymässä sivun yläosasta löytyy yleisiä toimintoja ja lista meneillään olevista tehtävistä. Karttatiilien luominen on hyvin resurssi-intensiivinen ja kohtuullisia levytiloja vaativa prosessi. On myös tyypillistä, että tehtävien eli karttatiilien luominen voi kestää hyvinkin pitkään (tunteja, jopa päiviä). Sivun tiedot päivitetään käyttämällä **Refresh list** -toimintoa.![](https://lh3.googleusercontent.com/k4luZn6KG8IjdqWOOLtg993Uay-53Pq04AUBvUVO-sjzWI4I8VT6x7cH-pFnrpGozWbwP4_0LhG_o1RgD_9P8K8nU3S0oA-EudHpsLsO6TtJ-pjSyDB7UyRUL-Qdau1QocQCVt-2gOBV3dN_gkJ6kQ)
+**GeoWebCache**-näkymässä sivun yläosasta löytyy yleisiä toimintoja ja lista meneillään olevista tehtävistä. Karttatiilien luominen on hyvin resurssi-intensiivinen ja kohtuullisia levytiloja vaativa prosessi. On myös tyypillistä, että tehtävien eli karttatiilien luominen voi kestää hyvinkin pitkään (tunteja, jopa päiviä). Sivun tiedot päivitetään käyttämällä **Refresh list** -toimintoa. ![](img/harjoitus_9/image9.png)
 
 Tiilien luomista varten asetukset löytyvät sivun alapuolelta **Create a new task** -osiosta.
 
-+---------------------------------+----------------------------------------------------------------------------------------------+
-| #### **Number of tasks to use** | Määrittää kuinka monta prosessia käynnistetään karttatiilien luomiseksi                      |
-+=================================+==============================================================================================+
-| #### **Type of operation**      | Tiilien luomisen toimintotapa                                                                |
-|                                 |                                                                                              |
-|                                 | Reseed: luodaan kaikki karttatiilet, korvataan vanhat karttatiilet                           |
-|                                 |                                                                                              |
-|                                 | Seed: luodaan vain puuttuvat karttatiilet                                                    |
-|                                 |                                                                                              |
-|                                 | Truncate: poistetaan karttatiilet palvelimesta                                               |
-+---------------------------------+----------------------------------------------------------------------------------------------+
-| #### **Grid set**               | Määrittää mille karttatiiliruudukolle luodaan karttatiilet                                   |
-+---------------------------------+----------------------------------------------------------------------------------------------+
-| #### **Format**                 | Karttakuvan tiedostomuoto (esim. jpg, png)                                                   |
-+---------------------------------+----------------------------------------------------------------------------------------------+
-| #### **Zoom start, Zoom stop**  | Mittakaavavälit luotavalle karttatiilille (mittakaavat on määritelty karttatiiliruudukoille) |
-+---------------------------------+----------------------------------------------------------------------------------------------+
-| #### **Bounding box**           | Sijainnin suorakaiderajaus, jolta karttatiilet luodaan                                       |
-+---------------------------------+----------------------------------------------------------------------------------------------+
++----------------------------+----------------------------------------------------------------------------------------------+
+| **Number of tasks to use** | Määrittää kuinka monta prosessia käynnistetään karttatiilien luomiseksi                      |
++----------------------------+----------------------------------------------------------------------------------------------+
+| **Type of operation**      | Tiilien luomisen toimintotapa                                                                |
+|                            |                                                                                              |
+|                            | Reseed: luodaan kaikki karttatiilet, korvataan vanhat karttatiilet                           |
+|                            |                                                                                              |
+|                            | Seed: luodaan vain puuttuvat karttatiilet                                                    |
+|                            |                                                                                              |
+|                            | Truncate: poistetaan karttatiilet palvelimesta                                               |
++----------------------------+----------------------------------------------------------------------------------------------+
+| **Grid set**               | Määrittää mille karttatiiliruudukolle luodaan karttatiilet                                   |
++----------------------------+----------------------------------------------------------------------------------------------+
+| **Format**                 | Karttakuvan tiedostomuoto (esim. jpg, png)                                                   |
++----------------------------+----------------------------------------------------------------------------------------------+
+| **Zoom start, Zoom stop**  | Mittakaavavälit luotavalle karttatiilille (mittakaavat on määritelty karttatiiliruudukoille) |
++----------------------------+----------------------------------------------------------------------------------------------+
+| **Bounding box**           | Sijainnin suorakaiderajaus, jolta karttatiilet luodaan                                       |
++----------------------------+----------------------------------------------------------------------------------------------+
 
 Aseta **Number of tasks to use** -asetukseksi 1.
 
@@ -111,17 +112,19 @@ Muodostamisen ajan käyttöliittymässä voi seurata karttatiilien valmistumista
 
 Paina **Refresh list** -linkkiä, kun haluat päivittää tiedot laskennan etenemisestä.
 
-Karttatiiliruudukon määritelmä ja tason sijainnin rajauksen mukaan mittakaavoille 0-15 tarvitaan 1 922 karttatiiltä. Kuvien piirtäminen kestää etäpalvelimella näillä asetuksilla minuutin verran.![](https://lh3.googleusercontent.com/-miTQx8Eg4DTe2Kd4BZ8coY7Y8XKsYlbYLXhLsyW7mK6cSLZKQrT4r6MRWz4wHdHaMYyUb6ZGNQEBa_RqEOKS4814xDM4hCD87VBfcu5TJorvWAESfJoEZQotnrnADq0yYM5mxAv3kqN3jtvKAnESQ)
+Karttatiiliruudukon määritelmä ja tason sijainnin rajauksen mukaan mittakaavoille 0-15 tarvitaan 1 922 karttatiiltä. Kuvien piirtäminen kestää etäpalvelimella näillä asetuksilla minuutin verran.\
+![](img/harjoitus_9/image10.png)
 
-Huomaa, että karttatiilet luodaan oletuksena tason sijainnin rajauksen mukaisesti (ellei sitä toisin ole määritelty).![](https://lh6.googleusercontent.com/JDL0KXJ31Nog9g2awBO2L5BuiLTnhZVQW46ILFZ1awbTswHR8TvCNJL5QqUScEjgf3BaSUCcqoKRpqYhFWanK_Rx4YcRyMT0oZbLJKZ9WWUq3OC5oBLUsRigl4nbOjUPcd0l0oUHuLsD8481tssRog)
+Huomaa, että karttatiilet luodaan oletuksena tason sijainnin rajauksen mukaisesti (ellei sitä toisin ole määritelty). ![](img/harjoitus_9/image11.png)
 
-Laske vielä karttatiilet **tasolle 16** (määrittele zoomaus aloitus- ja lopputasoksi 16). Päivitä laskennan aikana sivua ja tutki karttatiilien luomisen etenemistä.![](https://lh3.googleusercontent.com/VzYOYGP0tGQxPBNCSPGEdrl00FVC9O_qZrrNvYgMsIk9AW3k8G62VkNORwwCizQ4l8aQj72sd_c7RVkRbKdgkwvp_5PXSs5Q9UMUIzFAltbSV5x5O5mcJs0lE5z8xaOdlhGbL6kP-U6v8sNNR1FVEQ)
+Laske vielä karttatiilet **tasolle 16** (määrittele zoomaus aloitus- ja lopputasoksi 16). Päivitä laskennan aikana sivua ja tutki karttatiilien luomisen etenemistä.\
+![](img/harjoitus_9/image12.png)
 
-Jos erehdyt määrittelemään vääriä asetuksia, voit pysäyttää laskennan käyttämällä **Kill all Tasks...** -toimintoa painamalla **Submit**-näppäintä.![](https://lh4.googleusercontent.com/45E_fLPei46HK0Qgp_rQ_abXS-VeM5EltgECtYIjU6tfS23fu6I7K4crz4AE4VvteBBZGnbIbJdJdpHXS-kWKqqcCIkf5RS2FNckeu8Cf-oVwb4CTbtZWvvWU7hmZLDKPhrWHwpExEXk84ULIK8jtg)
+Jos erehdyt määrittelemään vääriä asetuksia, voit pysäyttää laskennan käyttämällä **Kill all Tasks...** -toimintoa painamalla **Submit**-näppäintä. ![](img/harjoitus_9/image13.png)
 
 Taso 16 vastaa mittakaavaa 1:4 262. Kaikkiaan sen tiilittämiseen tarvitaan 3 700 karttatiiliä, joiden luomiseen menee noin pari minuuttia. Laske vielä taso 17 samalla tavalla ja kirjoita muistiinpanot prosessorimäärästä, karttatiilistä sekä ajasta.
 
-Taso 17 näyttää kartalla tältä:![](https://lh5.googleusercontent.com/vLoKFdHQSimoqAt47l23KzHU6YBtAgI9kK_Umum5E0fB5o9bjPUCz-Q5y7_1j7hrud_LPclRrbOt4KCcxisBz67cU7seu3r-cORXDlbjx-yR3NBvgrXZRMRZUica_d8Ap1Ma546G6lFwbuFkJUXodg)
+Taso 17 näyttää kartalla tältä: ![](img/harjoitus_9/image14.png)
 
 ## **Karttatiilien kovalevyn käyttö**
 
@@ -135,11 +138,11 @@ Avaa **Tile Caching → Tile Layers** -näkymästä **ilmakuvat_keskusta** tason
 
 Sivun asetuksista voit tarkistaa, että sekä **jpeg**- että **png**-kuvaformaatit ovat rastitettuina. Sen lisäksi on määritelty **kaksi eri karttatiiliruudukkoa** käytettäväksi. Tämä tarkoittaa sitä, että tämä taso on saatavilla kuudella eri karttatiilitasolla. Äskettäin laskettiin valmiiksi karttatiiliä vain yhdelle.
 
-Voit tarkistaa kovalevyn käytön tasokohtaisesti **Tile Caching → Tile Layers** -näkymästä. Huomaa kuitenkin, että oletusasetuksilla tämä tieto ei ole saatavilla (**N/A**).![](https://lh3.googleusercontent.com/50H3yvHDze5bOX_MqQ-9rIrq6D_50O2G_lmITsUXpW9cnMJNBg4uC1BrttGHhyUL39J9fUAyeQPqI675ay5eRhWf9IcdR1v2xN7dut1jlPy_dxnX6Ua9ARTOuY_hNYZHDSwNBp2h7QyPoudw1gvegQ)
+Voit tarkistaa kovalevyn käytön tasokohtaisesti **Tile Caching → Tile Layers** -näkymästä. Huomaa kuitenkin, että oletusasetuksilla tämä tieto ei ole saatavilla (**N/A**). ![](img/harjoitus_9/image15.png)
 
 Tiedon näkymiseksi pitää ensin määrittää, kuinka paljon kovalevytilaa karttatiilipalvelulla on lupa käyttää. Oletuksena GeoWebCache voi käyttää koko palvelimen levytilan.
 
-Palataan hetkeksi takaisin näkymään **Tile Caching** → **Disk Quota**. Rastita siellä **Enable disk quota** ja määrittele vielä **Maximum tile cache size** -arvoksi **2 GiB**.![](https://lh4.googleusercontent.com/365h_2FcrE2-OJEN6Z6SHmEizqPeops6e_hCd5FuyxJPUllFLzPKCGsEPR8UkCk4rVz0RijGC_V9h0DCrfidl1KsIyjb5eYbY5ck33EmbDd-Y7zFwJqcXlaB1W0q3ZQ3qRj-bApuvwujIJW6RRrNFA)
+Palataan hetkeksi takaisin näkymään **Tile Caching** → **Disk Quota**. Rastita siellä **Enable disk quota** ja määrittele vielä **Maximum tile cache size** -arvoksi **2 GiB**. ![](img/harjoitus_9/image16.png)
 
 Paina lopulta **Submit**, niin asetukset tulevat tallennetuksi.
 
@@ -151,11 +154,11 @@ Huomaa vielä, että **When enforcing disk quota limits, remove tiles that are**
 
 Paina **Submit** ja palaa **Tile Caching → Tile Layers -**näkymään.
 
-Tarkista, että nyt **Disk Used** -sarakkeessa näkyy tarvittavat tiedot. Ilmakuvien karttatiilet vievät tällä hetkellä alle 500 megatavua. Muut tasot eivät käytä yhtään levytilaa.![](https://lh3.googleusercontent.com/qVXl4H0LHuzGfBA34ZhyAIQq8GovvYs7YYd7rFdr3b5EQXSn502JvLnXHMEIKzVaGjmSJgTUiIMv0FH9xZnObsCF5En1e5PixQp7mkSf2HQSeNMbnaX4LuZJwcf73-TqE5DayDDDaucPx_QUMVMauw)
+Tarkista, että nyt **Disk Used** -sarakkeessa näkyy tarvittavat tiedot. Ilmakuvien karttatiilet vievät tällä hetkellä alle 500 megatavua. Muut tasot eivät käytä yhtään levytilaa. ![](img/harjoitus_9/image17.png)
 
-Karttatiilet tulevat myös tallennetuksi automaattisesti aina karttatiilipalvelun luodessa karttatiiliä. Kokeile esikatsella eri tasojen karttatiilitasoja (**Tile Caching** → **Tile Layers** → **Preview**). Esimerkiksi rakennukset- ja taustakartta-tasoja.![](https://lh3.googleusercontent.com/AB6U5E1MOi5nKbIAkcWsrzKZObIeIx-msoCLFdi_qgvOV8ibjyltZ-V1AVEbO7hNmvTVyRaDeLv0Xxg0YIh0kvWoeT2SL4y01GOuyaKhQrwp_5AXpthlv9Twc_SGbkFLqWizSs7fGIWnWNrnQgUIog)
+Karttatiilet tulevat myös tallennetuksi automaattisesti aina karttatiilipalvelun luodessa karttatiiliä. Kokeile esikatsella eri tasojen karttatiilitasoja (**Tile Caching** → **Tile Layers** → **Preview**). Esimerkiksi rakennukset- ja taustakartta-tasoja. ![](img/harjoitus_9/image18.png)
 
-Voidaan todeta, että sen jälkeen myös niiden kohdalla **Disk Used** -sarakkeessa on tietoa levytilan käytöstä. Niiden levytilan käyttö kasvaa sitä mukaan kun eri kartta-alueita ja tiilitasoja käytetään.![](https://lh4.googleusercontent.com/9eiMLufqJZ4HhVZ4frU7U7QzKP9oDplxcSlFYq-sI0wJFgWYkyyjuPj9olNARZdtGyZdotv5m4yUI66Z8j9HAQrdzJxbSuMNVcKs5vYfZrDFaPLd8RwcqqGaGOWGz739-BX4EVg9UQeYaLEFeps0DQ)
+Voidaan todeta, että sen jälkeen myös niiden kohdalla **Disk Used** -sarakkeessa on tietoa levytilan käytöstä. Niiden levytilan käyttö kasvaa sitä mukaan kun eri kartta-alueita ja tiilitasoja käytetään. ![](img/harjoitus_9/image19.png)
 
 Edellisessä kohdassa laskettiin muutama karttatiilitasoja. Esimerkiksi Helsingin ilmakuvien mittakaavatason 16 karttatiilet vievät levytilaa reilut 300 megatavua.
 
@@ -177,17 +180,17 @@ Psst! Helsingin ilmakuvien mittakaavataso 17 vaatii 1,4 GB.
 
 GeoServerin oletusasennuksesta löytyy muutama valmiiksi määritelty karttatiiliruudukko. Nämä ruudukot ovat joko WGS 84 tai Web Mercator -koordinaattijärjestelmässä.
 
-Avaa **Tile Caching → Gridsets** ja paina sitten **EPSG:4326** -nimistä ruudukkoa.![](https://lh5.googleusercontent.com/NHWMrr0qbhwyhWlJd-ltsMSzubKlJt7yA3NRE2cR3mWMNmKCXN_1yxfIo72ibsq48cqi0FEjo1QaH8-KSTAem1xbS2Ay5uCHDa7JF7hWZ3IagT0X_Pe38ZWcyEUyNGBZowD2jaCElVCwLv1QpMD69g)
+Avaa **Tile Caching → Gridsets** ja paina sitten **EPSG:4326** -nimistä ruudukkoa. ![](img/harjoitus_9/image20.png)
 
 Karttatiiliruudukon määritelmiin kuuluvat muun muassa:
 
-+---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ##### **Coordinate Reference System** | Koordinaattijärjestelmä, jolla ruudukot määritellään. \|                                                                                                        |
-+=======================================+=================================================================================================================================================================+
-| ##### **Gridset bounds**              | Karttalehtijaon sijainnin rajaus, jolla määritetään, mille sijainnille karttatiiliruudukko on rajattu.                                                          |
-+---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ##### **Tile Matrix Set**             | Karttatiilimalli (kuvapyramidi), jolla määritellään karttatiiliruudukolle valitut mittakaavat. Tämä voidaan määritellä joko resoluution tai mittakaavan mukaan. |
-+---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Coordinate Reference System** | Koordinaattijärjestelmä, jolla ruudukot määritellään.\                                                                                                          |
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Gridset bounds**              | Karttalehtijaon sijainnin rajaus, jolla määritetään, mille sijainnille karttatiiliruudukko on rajattu.                                                          |
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Tile Matrix Set**             | Karttatiilimalli (kuvapyramidi), jolla määritellään karttatiiliruudukolle valitut mittakaavat. Tämä voidaan määritellä joko resoluution tai mittakaavan mukaan. |
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Karttatiiliruudukkoja voi myös laatia omiin tarpeisiin.
 
@@ -195,19 +198,19 @@ Karttatiiliruudukkoja voi myös laatia omiin tarpeisiin.
 
 JHS180 suosituksesta löytyy muun muassa suositus kansallisesta karttatiiliruudukosta, joka perustuu OGC-standardien määrittelyihin. Suosituksesta löytyy muun muassa seuraavat määritelmät:
 
-+------------------------------------+----------------------------------------------------------------------------------------------------------------+
-| ##### **Rajapintastandardi**       | OGC:n WMS-T standardi                                                                                          |
-+====================================+================================================================================================================+
-| ##### **Koordinaattijärjestelmä**  | ETRS89 / TM35-FIN (EPSG:3067)                                                                                  |
-+------------------------------------+----------------------------------------------------------------------------------------------------------------+
-| ##### **Käytettävä origo**         | Itä -548 576 m, pohjoinen 8 388 608 m (tiilien ankkuripiste on vasen yläkulma)                                 |
-+------------------------------------+----------------------------------------------------------------------------------------------------------------+
-| ##### **Resoluutiotasot**          | 0.25 m, 0.5 m, 1 m, 2 m, 4 m, 8 m, 16 m, 32 m, 64 m, 128 m, 256 m, 512 m, 1 024 m, 2 048 m, 4 096 m ja 8 192 m |
-+------------------------------------+----------------------------------------------------------------------------------------------------------------+
-| ##### **Tiilien koko pikseleissä** | 256\*256 pikseliä                                                                                              |
-+------------------------------------+----------------------------------------------------------------------------------------------------------------+
-| ##### **Kuvaformaatti**            | Image/png                                                                                                      |
-+------------------------------------+----------------------------------------------------------------------------------------------------------------+
++------------------------------+----------------------------------------------------------------------------------------------------------------+
+| **Rajapintastandardi**       | OGC:n WMS-T standardi                                                                                          |
++------------------------------+----------------------------------------------------------------------------------------------------------------+
+| **Koordinaattijärjestelmä**  | ETRS89 / TM35-FIN (EPSG:3067)                                                                                  |
++------------------------------+----------------------------------------------------------------------------------------------------------------+
+| **Käytettävä origo**         | Itä -548 576 m, pohjoinen 8 388 608 m (tiilien ankkuripiste on vasen yläkulma)                                 |
++------------------------------+----------------------------------------------------------------------------------------------------------------+
+| **Resoluutiotasot**          | 0.25 m, 0.5 m, 1 m, 2 m, 4 m, 8 m, 16 m, 32 m, 64 m, 128 m, 256 m, 512 m, 1 024 m, 2 048 m, 4 096 m ja 8 192 m |
++------------------------------+----------------------------------------------------------------------------------------------------------------+
+| **Tiilien koko pikseleissä** | 256\*256 pikseliä                                                                                              |
++------------------------------+----------------------------------------------------------------------------------------------------------------+
+| **Kuvaformaatti**            | Image/png                                                                                                      |
++------------------------------+----------------------------------------------------------------------------------------------------------------+
 
 Näillä määritelmillä, karkeimmalla resoluutiotasolla (taso 0) on vain yksi tiilikuva kooltaan 2 097 152 m \* 2 097 152 m (8 192\*8 192 pikseliä). Tämän kuvatiilen pohjois-etelä -suuntainen keskilinja sijoittuu projektiokaistan keskimeridiaanille (27 astetta). Ja tiilen pohjoisreunan pohjoiskoordinaatti on tiilen koon monikerta päiväntasaajalta laskien (4 \* 2 097 152).
 
@@ -231,23 +234,25 @@ Suosituksissa sanotaan, että vasemman yläkulman koordinaatit (origo) ovat itä
 
 **Min Y** on sitten: 8388608 -- 2097152 = **6 291 456** m
 
-+---------------------------------------------+
-| #### **JHS180-mukaisen ruudukon kattavuus** |
-+=============================================+
-| Min X: -548 576 m                           |
-+---------------------------------------------+
-| Min Y: 6 291 456 m                          |
-+---------------------------------------------+
++------------------------------------------------------------------------------------------+
+| **  JHS180-mukaisen ruudukon kattavuus**                                                 |
++=================================================+========================================+
+| Min X: -548 576 m                               | Max X: 1 548 576 m                     |
++-------------------------------------------------+----------------------------------------+
+| Min Y: 6 291 456 m                              | Max Y: 8 388 608 m                     |
++-------------------------------------------------+----------------------------------------+
 
 Pidä tiilen pikselikoko oletuksena, **256** px.
 
 Samat arvot löydät suosituksen mukaisesta tiiliruudukosta.
 
-Täytä karttatiiliruudukon tiedot yllä mainituilla arvoilla, kuitenkin siten, että et käytä välilyöntejä koordinaatteja kirjoittaessasi.![](https://lh4.googleusercontent.com/I3h6eZbknuv-DgTcywwkaxooSDxHDRBztISUmwjiE4O_TQcqThs2V3tjH-SQ2dEZrNcG362ODO3dE6o1uteHZA1OLTEdGY2sGUSxK8-J8Oin-OfOLUO8R45T20mVjPhz7Qc_Ssiai9U6s61u9fBveA)
+![](img/harjoitus_9/image21.png)
+
+Täytä karttatiiliruudukon tiedot yllä mainituilla arvoilla, kuitenkin siten, että et käytä välilyöntejä koordinaatteja kirjoittaessasi.
 
 Määritellään seuraavaksi resoluutiotasot. **Tile Matrix Set** -asetuksissa voit määritellä JHS180 suosituksessa mainitut **resoluutiotasot**.
 
-Pidä valittuna **Resolutions**. Aloita määrittelemällä taso 0.![](https://lh3.googleusercontent.com/ibKt6gdNt5dhNBEQ-KdSh_UU1g3tYVd1Dm4BxpPHaBaUH4ifCfssnu3pjV_apqBTJQ_ECDxAkphOffAm4ayWCobVDGM7JTB88S3T7K0nYwl6TSRYyg3EHUV5VtcQl8a44ACrzuAY2B2eaNXjNIB6RA)
+Pidä valittuna **Resolutions**. Aloita määrittelemällä taso 0. ![](img/harjoitus_9/image22.png)
 
 Paina **Add zoom level** ja huomaa, että **Pixel Size** -arvoksi tulee **8 192** (pilkut numeroissa johtuvat englannin numeroformaatista), joka on juuri suosituksessa mainittu kuvatiilen pikselikoko tällä tasolla. Huomaa, että **Scale**-arvo täyttyy myös automaattisesti.
 
@@ -258,7 +263,7 @@ Luo loput resoluutiotasot (tasolle 15 asti) samalla tavalla.
 **Tiles**-kohdalta voit tarkista kuinka monta tiiliä tarvitaan jokaisen tason puolelta.
 
 Paina lopulta **Save**, niin uusi JHS180-karttatiiliruudukko on käytettävissä palvelimessasi.\
-![](https://lh5.googleusercontent.com/Wfm8ysT38wpm5UDtPcCtRE6Hei8xUG8vV6-99pmSljTwWDYOlUSSGDxZiD7h2OjhDys9y3FDzgJ1c2Zq1TvoVReu_tWgrC2c5YJCBm-RJC5S8iuiSzPZ3KQwZED6yewg2GCBkXmvakZAA8QtyzLSxA)
+![](img/harjoitus_9/image23.png)
 
 ## **Suomen OpenStreetMap-tiestö**
 
@@ -268,11 +273,9 @@ Aiemmissa harjoituksissa olet harjoitellut aineistojen käyttöönottoa GeoServe
 
 Luo uusi taso tiestö-aineistosta. Suomen aineisto löytyy tietokannasta **suomi**-skeemasta nimellä **osm-tiet**.
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ##### **Psst! Muista, että ensin luodaan store, josta luodaan viittaus edellä mainittuun skeemaan ja sen jälkeen voidaan lisätä tasoja GeoServer-palvelimelle.** |
-+==================================================================================================================================================================+
-|                                                                                                                                                                  |
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+::: hint-box
+Psst! Muista, että ensin luodaan store, josta luodaan viittaus edellä mainittuun skeemaan ja sen jälkeen voidaan lisätä tasoja GeoServer-palvelimelle.
+:::
 
 **Voit katsoa ohjeita paikkatietokannat-harjoituksesta**, jossa lisättiin aineistoja GeoServeriin PostGIS-paikkatietokannasta. Voit myös kysyä tarvittaessa kouluttajalta.
 
@@ -283,7 +286,7 @@ Luo PostGIS-store, laita se suomi-workspaceen ja nimeä se **suomi_tiesto_3067**
 Kyseisestä storesta löytyy ainoastaan yksi aineisto (osm-tiet). Luo siitä uusi GeoServer-taso, nimeä se **suomi_tiesto_3067**:ksi (täytä myös muuta tarvittavat tiedot).
 
 Tarpeen vaatiessa, voit katsoa mallia alla olevasta kuvakaappauksesta PostGIS-storen luomisesta:\
-![](https://lh5.googleusercontent.com/w0So2pKK6my1xqdF7dXyYKVVmhAdZFUXllN2SLUJ4sGuhdoOBOzNNpt9F_ckXB-cN9__s6Tnz6I2AcMQbh1E0daic5kVr0mY1-N8aBfKXSzEOL_KnAdbnXsBgaCXWqQyyYzHz0o3_IgK52SK2tPHwQ)![](https://lh3.googleusercontent.com/23fWpnwY8M_CayiQ9yb2BeP-DR0r2Bn-nFr7PwG2O0kAKJ15nUnzF1_xKZnFr2OrJf8KYmaVplA47lbmEnE1moEkAMs-gaQskdETnTRUajiyyrltLgBYBRQVOdpdQZqBp3m7X9A8tokfucPJi1VwKA)
+![](img/harjoitus_9/image24.png) ![](img/harjoitus_9/image25.png)
 
 ## **Oman karttatiiliruudukon käyttöönotto**
 
@@ -293,12 +296,16 @@ Valitse **Available gridsets** -osion alta **Add grid subset** -kohdasta uusi **
 
 Tarvittaessa voit määritellä, mitkä zoomaus-tasot ovat käytettävissä tai mitkä tallentuvat välimuistiin käyttäen **Published**- ja **Cached zoom levels -asetuksia**.
 
-Paina lopulta **Save**.![](https://lh3.googleusercontent.com/D-G4SnjF-rav8dlZ7ANA3xDtQIBfIE3XMi6i1KTzR-weoGWx1TK6JC3rOIo-9AK-N4xfVPHws5lVFkS5-ko7nE6kDWzK-DMvm5h7X5f3iERylrtxuKZ4TmC54uB7b-G6o87HzC0XJoeGdSPl3PPU6Q)
+Paina lopulta **Save**. ![](img/harjoitus_9/image26.png)
 
 Esikatsele nyt **suomi_tiesto_3067** uudella karttatiiliruudukolla näkymästä **Tile Caching → Tile Layers**. Valitse tiestötason kohdalla **JHS180_EPSG3067/png**. 
 
-Esikatselussa on käytössä luomasi EPSG:3067 karttatiiliruudukko (alla huomataan, kuinka käytössä ovat karttatiilet, ja kuinka Etelä-Suomea kohti mentäessä karttatiilet eivät vielä ole ehtineet renderöitymään ruudulle näytönkaappauksen ottohetkeen mennessä):\
-![](https://lh4.googleusercontent.com/sMiF7iOIlEGBmH7--G3o0Lfjg5zJz2EJyWC83IUOnZkR03fFCrw2zsxUaAysdKw6nmExWQ0Zvl5lPSJoAA8nc_F8zIMwALKYGvofJNK6AZhsTiCr0YJt5Is1T6fPH96UUi2txXVrtlTYDsT0Pt7z7A)![](https://lh5.googleusercontent.com/aDwNlHu8MPAxEc93s37DcVH6OmvPs7U9A8o50KnwKdT5sEF_dkWJFsPKnkxTwxWuhl4rijpt0D0k-8_evYPfJHRAIUDGAJQIv38LCLyZupkE9e0JJ75nM_PtksA6Pu7EC7mcYDvVUW4acphWRk-knA)
+Esikatselussa on käytössä luomasi EPSG:3067 karttatiiliruudukko (alla huomataan, kuinka käytössä ovat karttatiilet, ja kuinka Etelä-Suomea kohti mentäessä karttatiilet eivät vielä ole ehtineet renderöitymään ruudulle näytönkaappauksen ottohetkeen mennessä):
+
+![](img/harjoitus_9/image27.png)
+
+\
+![](img/harjoitus_9/image28.png)
 
 ## **Paikallisen karttatiiliruudukon muodostaminen**
 
@@ -310,9 +317,9 @@ Palaa **Tile Caching** → **Gridsets**-näkymään ja paina **Create a new grid
 
 Määrittele sitten **EPSG:3879** koordinaattijärjestelmäksi ja paina vielä **Compute from maximum extent of CRS**.
 
-Rastita **Tile Matrix Set** -osion alta **Scale denominators** ja lisää kymmenen karttatiilitasoa (tasot 0-9) painamalla **Add zoom level**.![](https://lh6.googleusercontent.com/QTDkhQmB_zRidQtaQF2irXZWhpgJSU4buYeBu_kAgvSPVRBgVAYlMSOS-TNGHjhEk1-88DUoufVTe4b1KXDw5LU2NWcr69YoC59jbUSA9LWfA0py2AofhzRHjLtOMjLoAYapcW9umhvDHCVBy-2fTw)
+Rastita **Tile Matrix Set** -osion alta **Scale denominators** ja lisää kymmenen karttatiilitasoa (tasot 0-9) painamalla **Add zoom level**. ![](img/harjoitus_9/image29.png)
 
-Määrittele ensimmäisen tason mittakaava käsin **Scale**-sarakkeessa, anna arvoksi 500 000. Määrittele loput: 250 000, 100 000, 50 000, 20 000, 10 000, 5 000, 2 500, 1 000 ja 500 .![](https://lh5.googleusercontent.com/SdQBIIsXYMg-Mm9sFAxAqSU4-AS5TLMOAcRi6qLP_utSia9yWkvelABIH44w_1uz3qstNRxVOyl-yJtUqRiep3F5A9We34p5dU9cqXyWaj7Rh77Uy4pG1yI5Uu0XWw_s1joCUNn5c2HwF8BI2HzzaQ)
+Määrittele ensimmäisen tason mittakaava käsin **Scale**-sarakkeessa, anna arvoksi 500 000. Määrittele loput: 250 000, 100 000, 50 000, 20 000, 10 000, 5 000, 2 500, 1 000 ja 500 . ![](img/harjoitus_9/image30.png)
 
 Paina lopussa **Save**.
 
@@ -326,4 +333,4 @@ Valitse **Available gridsets** -osion alta **Add grid subsret** -kohdasta uusi *
 
 Paina lopulta **Save**.
 
-Näkymästä **Tile Caching → Tile Layers**, esikatsele nyt **ortokartta** uudella karttatiiliruudukolla (valitse esimerkiksi **HKI_GK25FIN/jpeg**). Huomaa, että mittakaavatasoja on vain kymmenen ja ne vastaavat karttatiiliruudukon asetuksissa määriteltyjä mittakaavoja.![](https://lh4.googleusercontent.com/IUcGR9TaXOGjOCYwCfgHjmYvz8vQEJNzqzp9ky5XOUrmzMzVfMZCaUTGCXLW3IS-9acDV2eUJn_tF02VAxic5EjYwzeP_0IRKYE8w9Wf9ZVMaH0zyAhl3MmKb-Q6INDv7i6M3_f0rMlLuBdd_DMF_Q)
+Näkymästä **Tile Caching → Tile Layers**, esikatsele nyt **ortokartta** uudella karttatiiliruudukolla (valitse esimerkiksi **HKI_GK25FIN/jpeg**). Huomaa, että mittakaavatasoja on vain kymmenen ja ne vastaavat karttatiiliruudukon asetuksissa määriteltyjä mittakaavoja. ![](img/harjoitus_9/image31.png)

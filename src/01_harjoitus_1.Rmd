@@ -22,7 +22,9 @@ Käynnistä koneessa web-selain ja kirjaudu osoitteeseen:
 
 Jos käytössä on etäpalvelin, kysy oma ip-osoitteesi ja portti opettajalta. Muokkaa sitten verkko-osoitteen **localhost:8080**-osaa ohjeiden mukaan.
 
-Edessäsi on GeoServerin  käyttöliittymä. Ennen kun kirjaudut sisään, näet muutamia yleisiä tietoja palvelimesta. ![](https://lh6.googleusercontent.com/EbHQ4wsXcvV5VHwA2IBh5wuDoDaZP5UXNySw7nmXLd11fIloCoBYNFWWqfoqObWf0_BJhgQPLfomFJZhVZVyVuc9G9wUPn0vJ8Dr1iuolYNlcRWdcMX2Xs87CO7wJMtv3SXW5fCQpVk-QdAuSIIU4gFf67Ch8IXupL5QuBpGD173JxmKPV4sE5p9icfQ)
+Edessäsi on GeoServerin  käyttöliittymä. Ennen kun kirjaudut sisään, näet muutamia yleisiä tietoja palvelimesta. 
+
+![](img/harjoitus_1/image1.png)
 
 **Keskellä (1)** on yleistä tietoa palvelimesta ja sen omistajasta/ylläpitäjästä (näitä päivitetään pian). Keskellä näkyy asennetun GeoServerin versionumero, joka on kuvassa 2.9.0. Tämä on GeoServer-palvelimen aloitussivu ja siihen pääset aina painamalla **GeoServer-logoa** vasemmalta ylhäältä
 
@@ -34,7 +36,7 @@ Lähtökohtaisesti keskellä näkyy vasemmalla puolella sijaitsevan sivupalkin (
 
 Oikealla puolella sijaitseva **sivupalkki (4)** näyttää aloitusnäkymässä palvelimen tukemat karttapalvelut ja niiden versiot.
 
-## **Päävalikko** 
+## **Päävalikko**
 
 Päävalikossa on näkyvissä aloitussivulla vain muutamia toimintoja. Nämä ovat nähtävissä kaikille, jotka tietävät palvelimen osoiteen (URL).
 
@@ -67,7 +69,8 @@ Tämä sivupalkki on nähtävissä vain aloitussivulla. Muista, että aloitussiv
 ### **Demos**
 
 Tämän valikon alta löytyy muutamia GeoServerin testityökaluja:\
-![](https://lh5.googleusercontent.com/7a4Q5EnPtp7H6gVvkv9VzbXPoXfs3s9MPYImu8Jupn-9BtBsRxGCCsMMxDZb9XepCLejG-XWE03Z9K73ZHVQSh5cN59J3PzO_iRwYclArnHscovjwnSbVLy2eR6m3CM-jCjElTrwdCfuF4vmLY7rb3vIpd8PZVkC188pB3ZLJdqgkfDGuu-goKeHcGZT)
+
+![](img/harjoitus_1/image2.png)
 
 ### **Demo requests**
 
@@ -85,14 +88,20 @@ Koordinaattijärjestelmien välisiä muunnoksia ja konversioita voit kokeilla Re
 
 Koordinaatit esitetään WKT-formaatissa (Well Known Text). 
 
-Seuraavassa kuvassa on piste geometria määritelty WKT-formaatissa EPSG:3067 koordinaattijärjestelmässä **POINT (522800 7615630)**:![](https://lh4.googleusercontent.com/maeBYTzAdPW2ujnPF9mSVd-uz3DfpNX6cLW7MGJoIJg2nOmgIvnsmdsA_ou8vOnt0czOBwRJJpqMKdKjxNOE6nOeQkB4A5JUqxcol0oe8H08Sr4WulHlU-Ign8QSgSvLxI6XxiKRKXTWfe927U-d-XKOiANhERQfEOmu8oeJP4SZ8_L7ofDxHftyb2QS)
+Seuraavassa kuvassa on piste geometria määritelty WKT-formaatissa EPSG:3067 koordinaattijärjestelmässä **POINT (522800 7615630)**:
 
-Voit myös kokeilla ETRS89 / TM35FIN viivageometriaa. Löydät esimerkkitiedoston koulutuskansiosta nimellä **esimerkki_wkt_geometry_3067.txt**. Avaa se tekstieditorissa ja käytä sitä **Reprojection console** -työkalussa. Kokeile muuntaa se esimerkiksi WGS 84 -järjestelmään.![](https://lh6.googleusercontent.com/dDbbPDfJnjbBKeoJddl9jZzIKOsIxiGluK2dqderFxdYXx2rnx6X4xtxWT2vJDmXDPnaGUBpDso65NTY6vLmvRzSlIP3YdduSrpzup7ScKe855U6SIsFNDqFpXcTMvnMRLJ8nO2RdIfyjD4jbX8Ndt15dHipxdnCGfdURD6XEe1MnKpSe-3QpgqKp5D5)
+![](img/harjoitus_1/image3.png)
+
+Voit myös kokeilla ETRS89 / TM35FIN viivageometriaa. Löydät esimerkkitiedoston koulutuskansiosta nimellä **esimerkki_wkt_geometry_3067.txt**. Avaa se tekstieditorissa ja käytä sitä **Reprojection console** -työkalussa. Kokeile muuntaa se esimerkiksi WGS 84 -järjestelmään.
+
+![](img/harjoitus_1/image4.png)
 
 ## **WCS request builder**
 
 Tämän toiminnon avulla voit kokeilla Web Coverage Service -palvelun toimivuutta.
 
-Lataa **nurc:mosaic**-aineisto PNG-tiedostona Suomen kansallisessa koordinaattijärjestelmässä (**ETRS89/TM35FIN** (EPSG 3067)). Jätä muut asetukset oletusarvoiksi:![](https://lh5.googleusercontent.com/AKC1I69DNpGhCkWF3KEaH3YQ04TFx8OqFdlu2jhLiHNVBvhvBj2P3A9cnu71lQMlEj6R-aQup92hIHLCF6iWJCxagRIvtsd0Qs7ZMYHYoB2bZ4HKUuP1uBLg8hqwuryWppgeTbynOoUr8-LVVZWwHLu4hh5ic1fa4n3Fa3FNcxhu0Z1Ee3ZpubLiIUqr)
+Lataa **nurc:mosaic**-aineisto PNG-tiedostona Suomen kansallisessa koordinaattijärjestelmässä (**ETRS89/TM35FIN** (EPSG 3067)). Jätä muut asetukset oletusarvoiksi:
+
+![](img/harjoitus_1/image5.png)
 
 Paina lopussa **Get Coverage**.

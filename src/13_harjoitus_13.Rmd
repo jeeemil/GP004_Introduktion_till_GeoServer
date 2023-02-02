@@ -18,7 +18,9 @@ GeoServeriin on asennettu palvelinkone ja siihen voi muodostaa yhteyden. 
 
 ## **Ominaisuustietosuodattimet**
 
-Avaa **topp:states**-aineisto **Layer Preview** -ikkunaan:![](https://lh6.googleusercontent.com/q5QLfMqFZ7N5aSsBiUffGq1lryv15XB6abDifmVWbc0nSGHiCv3JfqNtut6H1ch0WRcDisqCss2RYQCYB6-d09IHZQ5omW2tp8ELBqyHg4PeyuOaDbCxQz7H-LF3rjZAnXfMU-P_zwloC74FASbbcQ)
+Avaa **topp:states**-aineisto **Layer Preview** -ikkunaan:
+
+![](img/harjoitus_13/image1.png)
 
 Saat karttaikkunan yläpuolella olevat valikot näkyviin, kun klikkaat kartan vasemmassa ylänurkassa olevaa nappulaa.
 
@@ -28,43 +30,29 @@ Yksinkertaisimmillaan nämä kyselylauseet voivat siis olla esim. muotoa fieldna
 
 Kirjoita hakulausekkeet ylös omiin muistiinpanoihin.
 
-+--------------------------------------------------------------------------------------------------------+
-| ##### **Missä osavaltioissa väkiluku on yli 15 miljoonaa asukasta?**                                   |
-|                                                                                                        |
-| ##### **Psst! Klikkaa ensin osavaltiota ja tarkista väkiluvun sisältävän ominaisuustietokentän nimi.** |
-+========================================================================================================+
-|                                                                                                        |
-+--------------------------------------------------------------------------------------------------------+
+::: hint-box
+Missä osavaltioissa väkiluku on yli 15 miljoonaa asukasta?
+Psst! Klikkaa ensin osavaltiota ja tarkista väkiluvun sisältävän ominaisuustietokentän nimi.
+:::
 
-+------------------------------------------------------------------------------------------------------------------------------------+
-| ##### **Minkä osavaltioiden väkiluku on yli miljoona, mutta vähemmän kuin kolme miljoonaa? Montako osavaltiota piirtyy kartalle?** |
-|                                                                                                                                    |
-| ##### **Psst! Voit käyttää operaattoria "BETWEEN - - AND - -".**                                                                   |
-+====================================================================================================================================+
-|                                                                                                                                    |
-+------------------------------------------------------------------------------------------------------------------------------------+
+::: hint-box
+Minkä osavaltioiden väkiluku on yli miljoona, mutta vähemmän kuin kolme miljoonaa? Montako osavaltiota piirtyy kartalle?
+Psst! Voit käyttää operaattoria “BETWEEN - - AND - -”.
+:::
 
-+----------------------------------------------------------------------------------------------------------------------------+
-| ##### **Minkä osavaltioiden nimet alkavat C-kirjaimella?**                                                                 |
-|                                                                                                                            |
-| ##### **Psst! Käytä operaattoria "LIKE" ja villikortti-symbolia "%". Laita osavaltion nimi lainausmerkkien sisään (' ').** |
-+============================================================================================================================+
-|                                                                                                                            |
-+----------------------------------------------------------------------------------------------------------------------------+
+::: hint-box
+Minkä osavaltioiden nimet alkavat C-kirjaimella?
+Psst! Käytä operaattoria “LIKE” ja villikortti-symbolia “%”. Laita osavaltion nimi lainausmerkkien sisään (‘ ‘).
+:::
 
-+------------------------------------------------------------------+
-| ##### **Missä osavaltioissa on enemmän miespuolisia asukkaita?** |
-+==================================================================+
-|                                                                  |
-+------------------------------------------------------------------+
+::: hint-box
+Missä osavaltioissa on enemmän miespuolisia asukkaita?
+:::
 
-+------------------------------------------------------------------------------------------------------------------------------------+
-| ##### **Mitkä osavaltiot leikkaavat 100º läntistä pituuspiiriä?**                                                                  |
-|                                                                                                                                    |
-| ##### **Psst! Lauseke on muotoa "BBOX(geometriasarake, xmin, ymin, xmax, ymax)". Osavaltioiden geometria on kentässä "the_geom".** |
-+====================================================================================================================================+
-|                                                                                                                                    |
-+------------------------------------------------------------------------------------------------------------------------------------+
+::: hint-box
+Mitkä osavaltiot leikkaavat 100º läntistä pituuspiiriä?
+Psst! Lauseke on muotoa “BBOX(geometriasarake, xmin, ymin, xmax, ymax)”. Osavaltioiden geometria on kentässä “the_geom”.
+:::
 
 GeoServerin dokumentaatiosta löytyy tarkempia kuvauksia (**Tutorials → CQL and ECQL**).
 
