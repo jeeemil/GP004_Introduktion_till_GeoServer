@@ -22,7 +22,7 @@ Käynnistä koneessa web-selain ja kirjaudu osoitteeseen:
 
 Jos käytössä on etäpalvelin, kysy oma ip-osoitteesi ja portti opettajalta. Muokkaa sitten verkko-osoitteen **localhost:8080**-osaa ohjeiden mukaan.
 
-Edessäsi on GeoServerin  käyttöliittymä. Ennen kun kirjaudut sisään, näet muutamia yleisiä tietoja palvelimesta. 
+Edessäsi on GeoServerin  käyttöliittymä. Ennen kun kirjaudut sisään, näet muutamia yleisiä tietoja palvelimesta.
 
 ![](img/harjoitus_1/image1.png)
 
@@ -60,7 +60,7 @@ Kokeile **Layer Preview -toimintoa** ja esikatsele GeoServerin oletusaineistoja.
 
 Palaa palvelimen pääsivulle painamalla **GeoServer-logoa**. Oikealla puolella löydät **Service Capabilities -palkin**.
 
-Ennen kun kirjaudutaan palvelimelle voit nähdä, mitä rajapintapalveluita käytössä olevalla GeoServerin asennuksella on mahdollista julkaista. 
+Ennen kun kirjaudutaan palvelimelle voit nähdä, mitä rajapintapalveluita käytössä olevalla GeoServerin asennuksella on mahdollista julkaista.
 
 Harjoituksen GeoServerille on asennettu oletuksena WCS, WFS, WMS, TMS, WMS-C ja WMTS. Muita rajapintapalveluita, kuten esimerkiksi WPS-palvelu, voidaan julkaista GeoServeriin laajennosten avulla. Painamalla rajapintapalvelujen versionumeroita, voit tutustua niiden toiminnallisuuksiin (capabilities).
 
@@ -74,7 +74,7 @@ Tämän valikon alta löytyy muutamia GeoServerin testityökaluja:\
 
 ### **Demo requests**
 
-Kokeile erilaisten kyselyjen (toiminnallisuuksien) tuloksia ja näe, mitä kukin kyselykomento tuottaa. Kokeile **WMS_getMap_OpenLayers.url**-kyselyn toimivuutta valitsemalla kyseinen kysely valikosta ja paina **Submit**-toimintoa. 
+Kokeile erilaisten kyselyjen (toiminnallisuuksien) tuloksia ja näe, mitä kukin kyselykomento tuottaa. Kokeile **WMS_getMap_OpenLayers.url**-kyselyn toimivuutta valitsemalla kyseinen kysely valikosta ja paina **Submit**-toimintoa.
 
 GeoServerin eri toiminnot ja operaatiot muodostuvat URL:n liittyvistä parametreistä. Parametrit ohjaavat Geoserverin rajapintapalveluita: mitä karttatasoa kysytään, miltä alueelta tietoja haetaan tai kuva muodostetaan, vastauksen koordinaattijärjestelmä jne.
 
@@ -86,7 +86,7 @@ SRS List -toiminto listaa Geoserverin tukemat koordinaattijärjestelmät. Geoser
 
 Koordinaattijärjestelmien välisiä muunnoksia ja konversioita voit kokeilla Reprojection Console-toiminnon avulla.
 
-Koordinaatit esitetään WKT-formaatissa (Well Known Text). 
+Koordinaatit esitetään WKT-formaatissa (Well Known Text).
 
 Seuraavassa kuvassa on piste geometria määritelty WKT-formaatissa EPSG:3067 koordinaattijärjestelmässä **POINT (522800 7615630)**:
 
