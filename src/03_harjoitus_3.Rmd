@@ -124,7 +124,7 @@ Tässä tapauksessa, projektiotiedot tulevat shapefilen aineiston .prj-tiedostos
 Psst! Huomaa, että Native SRS tiedot ovat tarkoitettu vaan esikatselua varten. Tiedot tulevat suoraan alkuperäisen aineiston asetuksista, esimerkiksi shapefilen tai PostGIS-tason koordinaattijärjestelmätiedoista. Siksi niitä ei voida muokata GeoServerin selaimessa käyttöliittymän kautta.
 :::
 
-Kirjoita **EPSG:4326** koodi **Declared SRS** -kohdassa. Voit myös etsiä EPSG-koodeja **Find** -toiminnolla.
+Lisää tarvittaessa **EPSG:4326**-koodi **Declared SRS** -kohtaan. Voit myös etsiä EPSG-koodeja **Find** -toiminnolla.
 
 Pidä **SRS handling** oletusarvo (**Force declared**) ennallaan.
 
