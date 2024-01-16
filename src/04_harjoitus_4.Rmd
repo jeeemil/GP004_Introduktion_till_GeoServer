@@ -104,7 +104,7 @@ Tavanomaisen SLD-kielen lisäksi tämä mallikoodi sisältää kaksi GeoServerin
 
 Etsi SLD-tyylien esimerkkisivuilta **View and download the full "Polygon with styled label" SLD** -linkki, avaa se uudessa ikkunassa ja tallenna kyseinen sivu .sld-tiedostona, käyttämällä selaimen tallennus (save as / tallenna nimellä) toimintoa. Anna tiedostolle nimi, jonka muistat vielä myöhemmin (esimerkiksi polygon_polygonwithstyledlabel.sld).
 
-Palaa nyt GeoServerin käyttöliittymään ja paina koodilaatikon alta **Browse**. Etsi äskettäin ladattu SLD-tyyli levyltä ja paina lopuksi **Upload**.
+Palaa nyt GeoServerin käyttöliittymään ja paina koodilaatikon yläpuolelta **Browse**. Etsi äskettäin ladattu SLD-tyyli levyltä ja paina lopuksi **Upload**.
 
 ![](img/harjoitus_4/image8.png)
 
@@ -199,9 +199,9 @@ Aseta vielä tiesto-tason oletustyyliksi **tiesto-tyyli**. (**Data → Layers �
 
 ![](img/harjoitus_4/image14.png)
 
-Paina **Save** ja esikatsele tasoa. Huomaa, että kun loitonnat karttaa siten että mittakaava on pienempi kuin 1:32 000, tiet eivät enää tule näkyviin.
+Paina **Save** ja esikatsele tasoa. Huomaa, että kun lähennät karttaa siten että mittakaava on suurempi kuin 1:32 000, tiet eivät enää tule näkyviin.
 
-Lisätään nyt tiet myös mittakaavaan 1:32 000 ja suuremmille. Tämä onnistuu luomalla **\<Rule\>**-osio, jossa maksimimittakaava (**\<MaxScaleDenominator\>**) on määritelty **32000** arvoksi.
+Lisätään nyt tiet myös mittakaavaan 1:32 000 ja suuremmille. Tämä onnistuu luomalla **\<Rule\>**-osio, jossa pienin mittakaava (**\<MaxScaleDenominator\>**) on määritelty **32000** arvoksi.
 
 Voit hyödyntää edellisen sääntö osiota: kopioi koko **\<Rule\>** kappale. Lisää se **\</Rule\>** jälkeen.
 
