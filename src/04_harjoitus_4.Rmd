@@ -66,7 +66,7 @@ Voit nyt testata SLD-koodia **Validate-**toiminnolla. Testauksen onnistuminen n�
 
 ![](img/harjoitus_4/image6.png)
 
-Tallenna muutokset painamalla ensin **Submit**.
+Tallenna muutokset painamalla ensin **Apply**.
 
 ## **SLD-kuvaustekniikan käyttöönotto**
 
@@ -130,7 +130,7 @@ Muokkaa vielä monikulmion SLD-tyyli seuraavasti:
 Psst! Huomaa, että GeoServerissä desimaalierottimena toimii ainoastaan piste ".". Tämä pätee kaikissa GeoServerin asetuksissa.
 :::
 
-Tallenna sitten muutokset painamalla ensin **Submit**.
+Tallenna sitten muutokset painamalla ensin **Apply**.
 
 Lopuksi vaihda **rakennukset**-tasolle tyyliksi **rakennukset**-tyyli (**Data → Layers → rakennukset → Publishing**).
 
@@ -165,7 +165,7 @@ SLD-koodi ikkunassa näyttää tältä:
 
 Paina sitten **Validate**.
 
-Jos koodin käytössä tulee virheilmoituksia tai se ei toimi, pyydä kouluttajalta apua. Muuten paina **Submit**, niin tyyli tallentuu.
+Jos koodin käytössä tulee virheilmoituksia tai se ei toimi, pyydä kouluttajalta apua. Muuten paina **Apply**, niin tyyli tallentuu.
 
 Päivitetty tyyli on heti käytössä palvelimella ja sitä voi esikatsella **rakennukset**-tason avulla. Selainikkunan voit päivittää painamalla **F5**-näppäintätai **CTRL+R**-näppäimiä.
 
@@ -193,7 +193,7 @@ Etsi **\<Rule\>** kappaleen sisällä oleva **\<Title\>** ja lisää sen alle:
 
 ![](img/harjoitus_4/image13.png)
 
-Paina sitten **Submit**.
+Paina sitten **Apply**.
 
 Aseta vielä tiesto-tason oletustyyliksi **tiesto-tyyli**. (**Data → Layers → helsinki:tiesto → Publishing**).
 
@@ -223,7 +223,7 @@ Vaihda viivan väri harmaaksi **#666666**, otsikoksi **Paksu viiva** ja paksuude
 
 ![](img/harjoitus_4/image16.png)
 
-Paina **Submit** ja esikatsele.Huomaa, että nyt kun lähennät karttaikkunaa (suurennat mittakaavaa), niin teiden väri ja paksuus muuttuu.
+Paina **Apply** ja esikatsele. Huomaa, että nyt kun lähennät karttaikkunaa (suurennat mittakaavaa), niin teiden väri ja paksuus muuttuu.
 
 Lisätään vielä täyteväri viivoille lisäämällä uusi sääntö. Kopioi edellinen **\<Rule\>** -koodi kappale (jolla on \<MaxScaleDenominator\>32000\</MaxScaleDenominator\>) ja liitä se kopioidun kappaleen jatkoksi.
 
