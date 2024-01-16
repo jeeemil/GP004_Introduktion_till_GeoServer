@@ -66,7 +66,7 @@ Seuraavaksi määritellään mihin aineistoon (shape-tiedostoon) viitataan täm�
 
 Pidä **Enabled** ruksattuna ja varmista näin tekemäsi store:n (ja siitä luotujen tasojen) käytettävyys GeoServer-palvelimelta. Tätä valintaa voidaan käyttää halutessa piilottaa joitakin aineistoja käyttäjiltä ilman niiden poistamista palvelimelta (ylläpitäjät voivat vielä käyttää niitä).
 
-Tarkista vielä, että **DBF charset** arvo on **UTF-8**.
+Tarkista vielä, että **DBF charset** arvo on **ISO-8859-1**.
 
 Loput asetukset voidaan pitää oletusarvoina.
 
@@ -170,4 +170,4 @@ Zoomaa karttaan ja paina jonkun rakennuksen päällä niin saat sen ominaisuusti
 
 Lisää nyt OpenStreetMap Helsingin tiestö GeoServeriin samalla tavalla kuin edellisessä harjoituksessa. Aineisto löytyy samasta kansiosta kuin **rakennukset-**aineisto, nimellä **roads.shp**.
 
-Muista, että ennen kun tason voi lisätä GeoServeriin, sille täytyy luoda sopiva store. Nimeä uusi store **hki_tiesto** ja siitä luotu taso **tiesto** niin tasojen nimet pysyvät samankaltaisina. Muista korjata myös koordinaattijärjestelmä (**EPSG:4326**) ja **DBF charset** (**UTF-8**).
+Muista, että ennen kun tason voi lisätä GeoServeriin, sille täytyy luoda sopiva store. Nimeä uusi store **hki_tiesto** ja siitä luotu taso **tiesto** niin tasojen nimet pysyvät samankaltaisina. Muista tarkistaa myös koordinaattijärjestelmä (**EPSG:4326**) ja **DBF charset** (**ISO-8859-1**).
