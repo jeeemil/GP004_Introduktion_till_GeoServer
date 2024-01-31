@@ -1,0 +1,49 @@
+version: "3"
+
+volumes:
+  geoserver-data:
+  geo-db-data:
+
+services:
+  postgres:
+    image: kartoza/postgis:${PG_TAG}
+    volumes:
+    - geo-db-data:/var/lib/postgresql
+    - ./postgis-init.sh:/postgis-init.sh
+    ports:
+      - "5432:5432"
+    environment:
+      - ALLOW_IP_RANGE=0.0.0.0/0
+      - POSTGRES_DB=${PG_DB}
+      - POSTGRES_USER=${PG_USER}
+      - POSTGRES_PASS=${PG_PASS}
+    restart: on-failure
+
+  geoserver:
+    image: kartoza/geoserver:${GS_TAG}
+    volumes:
+    - geoserver-data:${GS_DATA_DIR}
+    - ./training-data/geoserver:/koulutus
+    - ./geoserver-init.sh:/geoserver-init.sh
+
+    environment:
+      - SAMPLE_DATA=true
+      - STABLE_EXTENSIONS=${GS_EXTENSIONS}
+      - GEOSERVER_ADMIN_PASSWORD=${GS_DEFAULT_PASSWORD}
+      - GEOSERVER_DATA_DIR=${GS_DATA_DIR}
+      - HTTP_PROXY_NAME=${PUBLIC_IP}
+      - INITIAL_MEMORY=${GS_INITIAL_MEMORY}
+      - MAXIMUM_MEMORY=${GS_MAXIMUM_MEMORY}
+    ports:
+      - "8080:8080"
+    restart: on-failure
+
+  nginx:
+    image: nginx
+    volumes:
+    - ./nginx.conf:/etc/nginx/nginx.conf
+    - ./docs:/www/html
+    - ./training-data:/www/data
+    ports:
+    - "80:80"
+    - "443:443"
