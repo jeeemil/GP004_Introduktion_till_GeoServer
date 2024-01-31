@@ -194,6 +194,9 @@ Karttatiiliruudukon määritelmiin kuuluvat muun muassa:
 
 Karttatiiliruudukkoja voi myös laatia omiin tarpeisiin.
 
+## **Lisätehtäviä**
+Jos jää aikaa niin voit jatkaa tästä tekemällä lisätehtäviä. 
+
 ## **JHS180 mukainen karttatiiliruudukko**
 
 JHS180 suosituksesta löytyy muun muassa suositus kansallisesta karttatiiliruudukosta, joka perustuu OGC-standardien määrittelyihin. Suosituksesta löytyy muun muassa seuraavat määritelmät:
