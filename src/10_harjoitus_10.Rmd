@@ -112,7 +112,7 @@ Psst! Tutustu REST API:n kuvaukseen GeoServerin ohjeessa.
 
 ## **Monitor-lisäosan käyttö**
 
-GeoServerin **Monitor**-lisäosa on valmiiksi asennettu koulutus palvelimiin ja se näkyy päävalikosta alapuolelta.
+GeoServerin **Monitor**-lisäosa on valmiiksi asennettu koulutus palvelimiin, ja se näkyy päävalikosta alapuolelta. Tällä lisäosalla voidaan tarkastella GeoServerin liikennettä. Voit vapaasti tarkastella mitä Monitor-lisäosalla voi tehdä. Pohdi myös miten se voisi olla hyödyllinen teidän organisaatiossa.
 
 Avaa **Monitor → Activity**.
 
