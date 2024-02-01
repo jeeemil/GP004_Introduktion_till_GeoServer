@@ -71,7 +71,7 @@ Käytä sitten **Browse\...** valitsemaan GeoServerin logo (**/koulutus/GeoServe
 
 Laita vielä läpinäkyvyyttä **30**:ksi ja sijainniksi **Bottom right**.
 
-Paina nyt **Submit** tallentaaksesi muutokset WMS-palveluun. Kaikkien WMS-palvelukartan kautta saatujen karttojen pitäisi nyt sisältää vesileima.
+Paina nyt **Apply** tallentaaksesi muutokset WMS-palveluun. Kaikkien WMS-palvelukartan kautta saatujen karttojen pitäisi nyt sisältää vesileima.
 
 Avaa **Data → Layer Preview**, ja esikatsele joitakin tasoja. Tarkista, että vesileima tulee näkyviin kaikissa WMS-pyynnöissä.
 

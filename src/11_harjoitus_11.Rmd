@@ -41,7 +41,7 @@ Valitse **Style Content** valikosta geometriatyypiksi **Line** ja paina **Genera
 }\
 :::
 
-Paina **Submit**. Avaa **Styles**-valikosta juuri luomasi tyyli ja valitse **Layer Preview** -välilehti. Valitse esikatseltavaksi tasoksi tiestötaso.
+Paina **Save**. Avaa **Styles**-valikosta juuri luomasi tyyli ja valitse **Layer Preview** -välilehti. Valitse esikatseltavaksi tasoksi tiestötaso.
 
 Lähennä karttaa siten, että tiet alkavat näkyä kunnolla.
 
@@ -126,7 +126,7 @@ z-index: 0, 3;
 
 Huomaa, että tällä tavalla määrittelet pääteille päällekkäiset tyylit, jotka muodostavat monimutkaisempia visualisointeja.
 
-Paina vielä **Submit** ja visualisoi lopputulos:
+Paina vielä **Save** ja visualisoi lopputulos:
 ![](img/harjoitus_11/image5.png)
 
 **Z-index** -komennolla määritellään, missä järjestyksessä eri tyylit piirtyvät. Indeksin arvolla 0 viitataan mustaan viivaan, jonka paksuus määritellään viiteen pikseliin. Indeksin arvo kolme viittaa keltaiseen viivaan , jonka paksuus on kolme pikseliä. Huomaa, kuinka Z-indeksin pienemmät arvot piirtyvät ensin ja suuremmat arvot myöhemmin.
