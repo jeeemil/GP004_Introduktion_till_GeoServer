@@ -22,5 +22,5 @@ jobs:
         if: steps.changed-rmd.outputs.any_changed == 'true'
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           event-type: render-deploy
