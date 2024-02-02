@@ -95,6 +95,7 @@ tasokohtaiset-asetukset
 karttatiilien-esiluominen
 karttatiilien-kovalevyn-käyttö
 karttatiiliruudukot
+lisätehtäviä
 jhs180-mukainen-karttatiiliruudukko
 uuden-karttatiiliruudukon-luominen
 suomen-openstreetmap-tiestö
