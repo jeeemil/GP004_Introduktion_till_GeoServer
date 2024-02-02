@@ -23,20 +23,9 @@ Harjoituksessa käytettävät aineistot on ladattu käytössä oleville palvelim
 GeoServerin aineistohakemistossa on paikkatiedon lisäksi muita aineistoja, kuten karttatyylejä ja tasoryhmien määrittelyjä. Tarkemmin, kurssin paikkatietoaineistot ovat koulutuskoneen kansiossa: 
 
 ::: note-box
-/var/lib/tomcat8/webapps/geoserver/data/koulutus/
+/opt/geoserver/data_dir/koulutus/
 :::
 
-::: hint-box
-Psst! Aineistojen lisäämisen yhteydessä ilmenevät virheilmoitukset liittyvät usein tiedostojen ja hakemistojen käyttöoikeuksiin.
-:::
-
-Varmista, että koulutuskansio ja kaikki sen sisältämät alikansiot ja tiedostot ovat tomcat8-käyttäjän omistamia suorittamalla komentorivillä seuraava komento:
-
-::: commandline-box
-sudo chown -R tomcat8:tomcat8 /var/lib/tomcat8/webapps/geoserver/data/koulutus
-:::
-
-Koulutuskoneen **salasana on gispo**.
 
 ## **Vektoriaineisto Storen luominen**
 
