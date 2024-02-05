@@ -40,7 +40,7 @@ Täytä sitten PostGIS-tietokannan **Connection Parameters** -yhteysasetukset se
 +--------------------+---------------+
 | ##### **Dbtype**   | postgis       |
 +--------------------+---------------+
-| ##### **Host**     | localhost     |
+| ##### **Host**     | postgres      |
 +--------------------+---------------+
 | ##### **Port**     | 5432          |
 +--------------------+---------------+
