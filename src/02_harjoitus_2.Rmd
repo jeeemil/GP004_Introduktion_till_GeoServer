@@ -22,9 +22,6 @@ Tähän asti käyttöliittymällä on ollut näkyvissä vain kaikille avoimet to
 
 Kirjaudu nyt palvelimeen käyttäen tunnuksena **admin** ja salasanana **gispo**.
 
-::: hint-box
-Psst! GeoServerin oletusasennuksessa salasana on 'geoserver', mutta koulutusta varten tämä on turvallisuussyistä vaihdettu.
-:::
 
 Ylläpitäjän näkymä muistuttaa äsken nähtyä käyttöliittymää. Sen rakenne on sama, mutta toiminnallisuuksia ja nähtävillä olevia tietoja on huomattavasti enemmän.
 
