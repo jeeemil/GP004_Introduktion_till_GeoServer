@@ -34,7 +34,7 @@ Lähtökohtaisesti keskellä näkyy vasemmalla puolella sijaitsevan sivupalkin (
 
 **Yläpalkissa (3)** on kirjautumistiedot ja GeoServer-logo, jonka kautta pääset aina aloitussivulle.
 
-Oikealla puolella sijaitseva **sivupalkki (4)** näyttää aloitusnäkymässä palvelimen tukemat karttapalvelut ja niiden versiot.
+Oikealla puolella sijaitseva **sivupalkki (4)** näyttää aloitusnäkymässä palvelimen tukemat karttapalvelut ja niiden versiot. Tämä osio on geoserverin uudemmassa versiossa keskellä sivua.
 
 ## **Päävalikko**
 
@@ -56,15 +56,15 @@ Avaa **About GeoServer** ja tutki, mikä GeoServer-versio sinulla on käytössä
 
 Kokeile **Layer Preview -toimintoa** ja esikatsele GeoServerin oletusaineistoja. Tätä näkymää tulemme käyttämään usein kurssin aikana. Käytä nyt muutama minuutti oppiaksesi sen perustoiminnallisuudet.
 
-### **Service Capabilities (palvelutoiminnallisuudet)**
+### **Palvelutoiminnallisuudet**
 
-Palaa palvelimen pääsivulle painamalla **GeoServer-logoa**. Oikealla puolella löydät **Service Capabilities -palkin**.
+Palaa palvelimen pääsivulle painamalla **GeoServer-logoa**.
 
 Ennen kun kirjaudutaan palvelimelle voit nähdä, mitä rajapintapalveluita käytössä olevalla GeoServerin asennuksella on mahdollista julkaista.
 
 Harjoituksen GeoServerille on asennettu oletuksena WCS, WFS, WMS, TMS, WMS-C ja WMTS. Muita rajapintapalveluita, kuten esimerkiksi WPS-palvelu, voidaan julkaista GeoServeriin laajennosten avulla. Painamalla rajapintapalvelujen versionumeroita, voit tutustua niiden toiminnallisuuksiin (capabilities).
 
-Tämä sivupalkki on nähtävissä vain aloitussivulla. Muista, että aloitussivuun pääset aina painamalla GeoServer-logoa.
+Tämä osio on nähtävissä vain aloitussivulla. Muista, että aloitussivuun pääset aina painamalla GeoServer-logoa.
 
 ### **Demos**
 
