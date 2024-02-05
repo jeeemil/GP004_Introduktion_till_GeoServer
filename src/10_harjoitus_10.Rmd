@@ -32,7 +32,6 @@ Tarkista vielä, mitkä Java-asetukset ovat voimassa palvelimessa kuvien käsitt
 
 JAI (Java Advanced Imaging) asetuksia voit muokata **Settings → Image Processing** -näkymän kautta. ![](img/harjoitus_10/image2.png)
 
-TAULUKKO TÄHÄN DOCSISTA
 
 Asetusten muutokset näkyvät **Server Status** -sivulla.
 
