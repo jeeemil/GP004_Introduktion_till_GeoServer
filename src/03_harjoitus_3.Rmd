@@ -168,6 +168,6 @@ Zoomaa karttaan ja paina jonkun rakennuksen päällä niin saat sen ominaisuusti
 
 ## **Helsingin tiestön lisääminen**
 
-Lisää nyt OpenStreetMap Helsingin tiestö GeoServeriin samalla tavalla kuin edellisessä harjoituksessa. Aineisto löytyy samasta kansiosta kuin **rakennukset-**aineisto, nimellä **roads.shp**.
+Lisää nyt OpenStreetMap Helsingin tiestö GeoServeriin samalla tavalla kuin edellisessä harjoituksessa. Aineisto löytyy samasta kansiosta kuin **rakennukset-**aineisto, nimellä **gis.osm_roads_free_1.shp**.
 
 Muista, että ennen kun tason voi lisätä GeoServeriin, sille täytyy luoda sopiva store. Nimeä uusi store **hki_tiesto** ja siitä luotu taso **tiesto** niin tasojen nimet pysyvät samankaltaisina. Muista tarkistaa myös koordinaattijärjestelmä (**EPSG:4326**) ja **DBF charset** (**ISO-8859-1**).
