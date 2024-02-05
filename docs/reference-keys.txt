@@ -10,7 +10,7 @@ valmistautuminen
 päävalikko
 about-geoserver
 layer-preview
-service-capabilities-palvelutoiminnallisuudet
+palvelutoiminnallisuudet
 demos
 demo-requests
 srs-list-ja-reprojection-console

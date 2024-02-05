@@ -16,7 +16,7 @@
 
 <meta name="author" content="Gispo Oy" />
 
-<meta name="date" content="2024-02-02" />
+<meta name="date" content="2024-02-05" />
 
 
 <meta name="description" content="13 HARJOITUS 2.5: PÄÄSYNHALLINTA | Johdanto GeoServerin käyttöön">
@@ -77,7 +77,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <ul>
 <li><a href="2-harjoitus-1.1-asennus-ja-käyttöönotto.html#about-geoserver"><span class="toc-section-number">2.2.1</span> <strong>About GeoServer</strong></a></li>
 <li><a href="2-harjoitus-1.1-asennus-ja-käyttöönotto.html#layer-preview"><span class="toc-section-number">2.2.2</span> <strong>Layer Preview</strong></a></li>
-<li><a href="2-harjoitus-1.1-asennus-ja-käyttöönotto.html#service-capabilities-palvelutoiminnallisuudet"><span class="toc-section-number">2.2.3</span> <strong>Service Capabilities (palvelutoiminnallisuudet)</strong></a></li>
+<li><a href="2-harjoitus-1.1-asennus-ja-käyttöönotto.html#palvelutoiminnallisuudet"><span class="toc-section-number">2.2.3</span> <strong>Palvelutoiminnallisuudet</strong></a></li>
 <li><a href="2-harjoitus-1.1-asennus-ja-käyttöönotto.html#demos"><span class="toc-section-number">2.2.4</span> <strong>Demos</strong></a></li>
 <li><a href="2-harjoitus-1.1-asennus-ja-käyttöönotto.html#demo-requests"><span class="toc-section-number">2.2.5</span> <strong>Demo requests</strong></a></li>
 </ul></li>
@@ -262,10 +262,6 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <div class="note-box">
 <p><a href="http://localhost:8080/geoserver/web/?x=xAiOmyK-CQmBXDhILZrWpny28bhFcImLrBRYk0INwrBDmbzQlmeLRdiaRoNSaBSx3o6elVC9JMPcy5gkRljLXMKGrvMx3Yui3*ANGkUW-hE" class="uri">http://localhost:8080/geoserver/web/?x=xAiOmyK-CQmBXDhILZrWpny28bhFcImLrBRYk0INwrBDmbzQlmeLRdiaRoNSaBSx3o6elVC9JMPcy5gkRljLXMKGrvMx3Yui3*ANGkUW-hE</a></p>
 </div>
-<p>Huomaa, että palvelimessa ei ole asennettu Java policy -tiedostoja, joten vahvaa salausta ei voida ottaa käyttöön.</p>
-<div class="hint-box">
-<p>Psst! Java policy -tiedostojen asennus riippuu siitä, mikä Java ohjelmisto on palvelimessa asennettu. Jos asennettu on Open JDK, niin policy-tiedostot on oletuksena asennettu ja Strong cryptography käytössä. Jos taas asennetaan Oracle Java (joka on aikaisemmin ollut GeoServerin suositus) niin täytyy ladata Oraclen JCE policy jars ja purkaa ne JRE_HOME/lib/security -kansioon, jonka jälkeen Strong cryptography on käytössä.</p>
-</div>
 <p><strong>Password encryption</strong> määrittää, mikä salauksen tyyli on käytössä salasanojen varastossa: <strong>Plain text</strong>, <strong>Weak PBE</strong> ja <strong>Strong PBE</strong>.</p>
 <p>Pidä <strong>Weak PBE</strong> ja paina <strong>Save</strong>.</p>
 </div>
@@ -398,7 +394,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 
 <div class="footer-info">
 <h5 class="footer-title">Johdanto GeoServerin käyttöön</h5>
-<span class="footer-version">v2024-02-02</span>
+<span class="footer-version">v2024-02-05</span>
 <div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
 
