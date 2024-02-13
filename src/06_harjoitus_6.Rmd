@@ -78,7 +78,7 @@ Anna nimi ja selitys esimerkiksi seuraavan kuvan mukaisella tavalla:
 
 Paina sitten **Save** ja sen jälkeen julkista taso painamalla **Publish**.
 
-Laita tason nimeksi **ilmakuvat_keskusta** ja otsikoksi **Helsingin keskustan ilmakuvat**. Lisätiedoksi voit kirjoittaa esimerkiksi **Helsingin ilmakuvat - Maanmittauslaitos 2014**. Tarkista tason editointinäkymästä, että **Enabled** ja **Advertised** ovat rastitettuna.
+Laita tason nimeksi **ilmakuvat** ja otsikoksi **Helsingin keskustan ilmakuvat**. Lisätiedoksi voit kirjoittaa esimerkiksi **Helsingin ilmakuvat - Maanmittauslaitos 2014**. Tarkista tason editointinäkymästä, että **Enabled** ja **Advertised** ovat rastitettuna.
 ![](img/harjoitus_6/image7.png)
 
 Huomaa, että GeoTIFF-tiedoston koordinaattijärjestelmän tiedot (EPSG:3067) ja aineiston laajuus on tässä määrittynyt oikein automaattisesti (oletusarvojen mukaisesti).
