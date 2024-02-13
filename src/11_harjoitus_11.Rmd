@@ -61,10 +61,10 @@ Paina **Apply** ja esikatsele karttaa. Nyt tiet näkyvät kartassa sinisinä.
 
 Luokitellaan nyt tiet kahteen luokkaan: **päätiet** ja **muut**. Kullekin luokalle voidaan määritellä oma tyyli.
 
-Päätiet luokitellaan korvaamalla merkki "**\***" seuraavalla koodilla (huomaa, että rajauksessa käytetään **type**-kentän tietoja):
+Päätiet luokitellaan korvaamalla merkki "**\***" seuraavalla koodilla (huomaa, että rajauksessa käytetään **fclass**-kentän tietoja):
 
 ::: code-box
-[type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']\
+[fclass = \'motorway\' or fclass = \'primary\' or fclass = \'secondary\' or fclass = \'trunk\']\
 { stroke: red;}
 :::
 
@@ -88,9 +88,9 @@ Vaihda muiden teiden tyyli niin, että viivan väri on musta (black).
 Pääteiden ja muiden teiden tyylit näyttävät nyt tältä:
 
 ::: code-box
-[type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']\
+[fclass = \'motorway\' or fclass = \'primary\' or fclass = \'secondary\' or fclass = \'trunk\']\
 { stroke: red;}\
-[type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']\
+[fclass \<\> \'motorway\' and fclass \<\> \'primary\' and fclass \<\> \'secondary\' and fclass \<\> \'trunk\']\
 { stroke: black;}\
 :::
 
@@ -104,10 +104,10 @@ Tiet ovat vielä vaikea erottaa toisistaan. Tehdään nyt pari parannusta tyylii
 Määrittele samalla tavalla muille teille viivan paksuudeksi **0.1**:
 
 ::: code-box
-[type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']\
+[fclass = \'motorway\' or fclass = \'primary\' or fclass = \'secondary\' or fclass = \'trunk\']\
 { stroke: red;\
 stroke-width: 0.5;}\
-[type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']\
+[fclass \<\> \'motorway\' and fclass \<\> \'primary\' and fclass \<\> \'secondary\' and fclass \<\> \'trunk\']\
 { stroke: black;\
 stroke-width: 0.1;}\
 :::
@@ -140,12 +140,12 @@ Kokeile vaihtaa symbolien järjestystä, värejä ja paksuuksia.
 Koodisi näyttäisi tässä vaiheessa tältä:
 
 ::: code-box
- [type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']\
+ [fclass = \'motorway\' or fclass = \'primary\' or fclass = \'secondary\' or fclass = \'trunk\']\
      { stroke: black, yellow;\
      stroke-width: 5px, 3px;\
      z-index: 0, 3;}\
 \
- [type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']\
+ [fclass \<\> \'motorway\' and fclass \<\> \'primary\' and fclass \<\> \'secondary\' and fclass \<\> \'trunk\']\
      { stroke: black;\
      stroke-width: 0.1;}\
 :::
@@ -158,7 +158,7 @@ Laita pääteiden määrittelyn eteen **/\* \@title Paatiet \*/**:
 
 ::: code-box
  /\* \@title Paatiet \*/\
- [type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']\
+ [fclass = \'motorway\' or fclass = \'primary\' or fclass = \'secondary\' or fclass = \'trunk\']\
      {stroke: black, yellow;\
      stroke-width: 5px, 3px;\
      z-index: 0, 3;}\
@@ -181,13 +181,13 @@ Koodisi tässä vaiheessa pitäisi näyttää jotenkin tältä:
 
 ::: code-box
  /\* \@title Paatiet \*/\
- [type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']\
+ [fclass = \'motorway\' or fclass = \'primary\' or fclass = \'secondary\' or fclass = \'trunk\']\
      { stroke: black, yellow;\
      stroke-width: 5px, 3px;\
      z-index: 0, 3;}\
 \
  /\* \@title Sivutiet \*/\
- [type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']\
+ [fclass \<\> \'motorway\' and fclass \<\> \'primary\' and fclass \<\> \'secondary\' and fclass \<\> \'trunk\']\
      { stroke: black;\
      stroke-width: 0.1;}\
 \
@@ -215,7 +215,7 @@ Koodisi tässä vaiheessa pitäisi näyttää jotenkin tältä:
 ::: code-box
  /\* \@title Paatiet \*/
 
- [type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']
+ [fclass = \'motorway\' or fclass = \'primary\' or fclass = \'secondary\' or fclass = \'trunk\']
 
      { stroke: black, yellow;
 
@@ -229,7 +229,7 @@ Koodisi tässä vaiheessa pitäisi näyttää jotenkin tältä:
 
  [\@scale \< 50000]
 
- [type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']
+ [fclass \<\> \'motorway\' and fclass \<\> \'primary\' and fclass \<\> \'secondary\' and fclass \<\> \'trunk\']
 
      { stroke: black;
 
@@ -263,10 +263,10 @@ Esikatsele tuloksia painamalla **Apply**.
 Tulos ei ole vielä hyvä, tarvitaan muutama teksteihin tarkoitettu erikoiskomento:
 
 ::: code-box
--gt-label-follow-line: true; -gt-label-max-angle-delta: 90; -gt-label-max-displacement: 400; -gt-label-repeat: 150;
+label-follow-line: true; -gt-label-max-angle-delta: 90; label-max-displacement: 400; -gt-label-repeat: 150;
 :::
 
-**-gt-label-\*** kertoo, miten tekstit eli labelit piirretään. Kokeile muuttaa edellisten komentojen arvoja.
+**label-\*** kertoo, miten tekstit eli labelit piirretään. Kokeile muuttaa edellisten komentojen arvoja.
 ![](img/harjoitus_11/image8.png)
 
 Lisää vielä puskuri teksteille:
@@ -284,7 +284,7 @@ Tässä on esimerkkikoodi, jossa kaikki aiemmin mainitut tyylit ovat käytössä
 
 /\* \@title Paatiet \*/
 
-[type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']
+[fclass = \'motorway\' or fclass = \'primary\' or fclass = \'secondary\' or fclass = \'trunk\']
 
 { stroke: black, yellow;
 
@@ -300,13 +300,13 @@ font-fill: black;
 
 font-size: 12;
 
--gt-label-follow-line: true;
+label-follow-line: true;
 
--gt-label-max-angle-delta: 90;
+label-max-angle-delta: 90;
 
--gt-label-max-displacement: 400;
+label-max-displacement: 400;
 
--gt-label-repeat: 150;
+label-repeat: 150;
 
 halo-color: white;
 
@@ -318,7 +318,7 @@ halo-radius: 1;}
 
 [\@scale \< 50000]
 
-[type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']
+[fclass \<\> \'motorway\' and fclass \<\> \'primary\' and fclass \<\> \'secondary\' and fclass \<\> \'trunk\']
 
 { stroke: black;
 
