@@ -64,7 +64,7 @@ Voit nyt testata SLD-koodia **Validate-**toiminnolla. Testauksen onnistuminen n�
 
 ![](img/harjoitus_4/image6.png)
 
-Tallenna muutokset painamalla ensin **Apply**.
+Tallenna muutokset väliaikaisesti painamalla ensin **Apply**. Paina tämän jälkeen **Save**, niin muutokset tallentuvat pysyvästi.
 
 ## **SLD-kuvaustekniikan käyttöönotto**
 
