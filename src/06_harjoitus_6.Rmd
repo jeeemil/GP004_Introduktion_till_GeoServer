@@ -50,7 +50,7 @@ Tarkista, että taso on **Data → Layers**-taulussa. Voit esikatsella uutta ras
 
 Samalla tavalla kun lisäsit edellisessä kohdassa ArcGrid-tiedoston voit lisätä GeoTIFF-aineistoja. 
 
-Seuraa edellisen kohdan ohjeita ja lisää samalta alueelta ilmakuva. GeoTIFF-tiedosto löytyy täältä: **/koulutus/ilmakuvat_geotiff/L4133A.tif**.
+Seuraa edellisen kohdan ohjeita ja lisää samalta alueelta ilmakuva. GeoTIFF-tiedosto löytyy täältä: **/nlsfi/Ortokuvat/L4133A.tif**.
 
 Nimeä seuraavasti: \
 	store:	**hki_ilmakuva\
@@ -71,14 +71,14 @@ Edellisen ilmakuvan kansiossa on muutamia ilmakuvia Helsingistä. Aineisto on la
 
 Luo uusi store **helsinki** workspaceen. Valitse formaatiksi **ImageMosaic - Image mosaicking plugin**.
 
-Selaa kansioon **/koulutus/ilmakuvat_geotiff/** ja paina **OK**. Täten, kaikki kuvat kansiossa yhdistetään yhteen ja mosaiikkia käsitellään sen jälkeen yhtenä tasona.
+Selaa kansioon **/koulutus/nlsfi/Ortokuvat/** ja paina **OK**. Täten, kaikki kuvat kansiossa yhdistetään yhteen ja mosaiikkia käsitellään sen jälkeen yhtenä tasona.
 
 Anna nimi ja selitys esimerkiksi seuraavan kuvan mukaisella tavalla:
 ![](img/harjoitus_6/image6.png)
 
 Paina sitten **Save** ja sen jälkeen julkista taso painamalla **Publish**.
 
-Laita tason nimeksi **ilmakuvat_keskusta** ja otsikoksi **Helsingin keskustan ilmakuvat**. Lisätiedoksi voit kirjoittaa esimerkiksi **Helsingin ilmakuvat - Maanmittauslaitos 2014**. Tarkista tason editointinäkymästä, että **Enabled** ja **Advertised** ovat rastitettuna.
+Laita tason nimeksi **ilmakuvat** ja otsikoksi **Helsingin keskustan ilmakuvat**. Lisätiedoksi voit kirjoittaa esimerkiksi **Helsingin ilmakuvat - Maanmittauslaitos 2014**. Tarkista tason editointinäkymästä, että **Enabled** ja **Advertised** ovat rastitettuna.
 ![](img/harjoitus_6/image7.png)
 
 Huomaa, että GeoTIFF-tiedoston koordinaattijärjestelmän tiedot (EPSG:3067) ja aineiston laajuus on tässä määrittynyt oikein automaattisesti (oletusarvojen mukaisesti).
