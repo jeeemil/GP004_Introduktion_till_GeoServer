@@ -77,7 +77,7 @@ Näiden käyttäjien salasanat voi vaihtaa tarvittaessa pääsynhallinnan työka
 
 Aloitetaan päivittämällä yhteystiedot. Valitse päävalikosta **About & Status → Contact Information**.
 
-Täytä omilla tiedoilla ainakin kentät **Contact**, **Organization** ja **Email**.
+Täytä omilla tiedoilla ainakin kentät **Organization**, **Contact**, **Position** ja **Email**.
 
 ![](img/harjoitus_2/image3.png)
 
