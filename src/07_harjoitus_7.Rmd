@@ -147,7 +147,7 @@ FROM lipas.lipas_kaikki_reitit
 WHERE kunta_nimi = \'Helsinki\'
 :::
 
-Rastita **Guess geometry type and srid** -toiminto ja paina sitten **Refresh**. Huomaa, että olla olevassa kuvassa on virhe SQL-kyselyssä. Ole tarkkana! kunta_nimi_fi-tekstin sijaan siinä pitäisi lukea vain kunta_nimi.
+Rastita **Guess geometry type and srid** -toiminto ja paina sitten **Refresh**.
 ![](img/harjoitus_7/image10.png)
 
 Tarkista sitten, että **geom**-nimisen kentän kohdalla **SRID** on määritelty oikean EPSG-tunnuksen mukaisesti (meidän tapauksessamme tunnus on **3067**).
