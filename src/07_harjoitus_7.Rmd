@@ -172,9 +172,9 @@ Päivitä **SQL statement** seuraavaksi:
 ::: code-box
 SELECT ST_Union (ST_Buffer ( geom, 10 ))
 
-FROM lipas.reitit
+FROM lipas.lipas_kaikki_reitit
 
-WHERE kunta_nimi = 'Helsinki'
+WHERE kunta_nimi = \'Helsinki\'
 :::
 
 Päivitä taas attribuuttien formaatti ja paina sitten **Save**.
