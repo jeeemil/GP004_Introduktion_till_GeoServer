@@ -50,7 +50,7 @@ Tarkista, että taso on **Data → Layers**-taulussa. Voit esikatsella uutta ras
 
 Samalla tavalla kun lisäsit edellisessä kohdassa ArcGrid-tiedoston voit lisätä GeoTIFF-aineistoja. 
 
-Seuraa edellisen kohdan ohjeita ja lisää samalta alueelta ilmakuva. GeoTIFF-tiedosto löytyy täältä: **/koulutus/ilmakuvat_geotiff/L4133A.tif**.
+Seuraa edellisen kohdan ohjeita ja lisää samalta alueelta ilmakuva. GeoTIFF-tiedosto löytyy täältä: **/nlsfi/Ortokuvat/L4133A.tif**.
 
 Nimeä seuraavasti: \
 	store:	**hki_ilmakuva\
@@ -71,7 +71,7 @@ Edellisen ilmakuvan kansiossa on muutamia ilmakuvia Helsingistä. Aineisto on la
 
 Luo uusi store **helsinki** workspaceen. Valitse formaatiksi **ImageMosaic - Image mosaicking plugin**.
 
-Selaa kansioon **/koulutus/ilmakuvat_geotiff/** ja paina **OK**. Täten, kaikki kuvat kansiossa yhdistetään yhteen ja mosaiikkia käsitellään sen jälkeen yhtenä tasona.
+Selaa kansioon **/koulutus/nlsfi/Ortokuvat/** ja paina **OK**. Täten, kaikki kuvat kansiossa yhdistetään yhteen ja mosaiikkia käsitellään sen jälkeen yhtenä tasona.
 
 Anna nimi ja selitys esimerkiksi seuraavan kuvan mukaisella tavalla:
 ![](img/harjoitus_6/image6.png)
