@@ -353,7 +353,7 @@ halo-radius: 1;}
 Tämän tyylin esikatselu näyttää kartassa tältä:
 ![](img/harjoitus_11/image10.png)
 
-Voit vielä kokeilla erilaisia komentoja virittämään karttasi tyyliä pidemmälle. GeoServer CSS-lisäosan nettisivuilla löytyy ohjeita ja esimerkkejä: http://docs.geoserver.org/stable/en/user/extensions/css/index.html.
+Voit vielä kokeilla erilaisia komentoja virittämään karttasi tyyliä pidemmälle. GeoServer CSS-lisäosan nettisivuilla löytyy ohjeita ja esimerkkejä: https://docs.geoserver.org/latest/en/user/styling/css/index.html.
 
 ## **Kuvaustekniikan soveltaminen**
 
