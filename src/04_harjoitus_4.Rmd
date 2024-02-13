@@ -14,8 +14,6 @@ Harjoituksen jälkeen opiskelija osaa hyödyntää peruskuvaustekniikoita GeoSer
 
 ## **Valmistautuminen**
 
-Käynnistä koneessa web-selain ja kirjaudu osoitteeseen:
-
 Aiemmissa harjoituksissa on luotu GeoServerin palvelimelle taso **rakennukset**, johon luodaan nyt kuvaustekniikka.
 
 ## **GeoServerin kuvaustekniikka**
