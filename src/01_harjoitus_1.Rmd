@@ -25,16 +25,18 @@ Jos käytössä on etäpalvelin, kysy oma ip-osoitteesi ja portti opettajalta. M
 Edessäsi on GeoServerin  käyttöliittymä. Ennen kun kirjaudut sisään, näet muutamia yleisiä tietoja palvelimesta.
 
 ![](img/harjoitus_1/image1.png)
+**Ylhäällä oikealla (1)** on kirjautumistiedot.
 
-**Keskellä (1)** on yleistä tietoa palvelimesta ja sen omistajasta/ylläpitäjästä (näitä päivitetään pian). Keskellä näkyy asennetun GeoServerin versionumero, joka on kuvassa 2.9.0. Tämä on GeoServer-palvelimen aloitussivu ja siihen pääset aina painamalla **GeoServer-logoa** vasemmalta ylhäältä
+**Ylhäällä keskellä (2)** on tietoja palvelimen workspaceista ja tasoista.
 
-Lähtökohtaisesti keskellä näkyy vasemmalla puolella sijaitsevan sivupalkin (jäljempänä "päävalikko" (2)) valintojen tarkempia tietoja.
+**Ylhäällä vasemmalla (3)** on GeoServer-logo ja kun sitä painaa niin pääsee tähän etusivulle.
 
-**Päävalikon (2)** avulla hallitaan ja tarkastellaan palvelimen toimintoja.
+**Vasemmalla (4)** on päävalikko jonka kautta hallitaan ja tarkastellaan palvelimen toimintoja.
 
-**Yläpalkissa (3)** on kirjautumistiedot ja GeoServer-logo, jonka kautta pääset aina aloitussivulle.
+**Keskellä (5)** on palvelimen tukemat karttapalvelut ja niiden versiot.
 
-Oikealla puolella sijaitseva **sivupalkki (4)** näyttää aloitusnäkymässä palvelimen tukemat karttapalvelut ja niiden versiot. Tämä osio on geoserverin uudemmassa versiossa keskellä sivua.
+**Alhaalla keskellä (6)** näkyy asennetun GeoServerin versionumero, joka on kuvassa 2.22.4.
+
 
 ## **Päävalikko**
 
