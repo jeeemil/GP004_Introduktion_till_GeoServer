@@ -207,7 +207,7 @@ Lisää uusi store (**Data → Stores → Add new Store**), valitse **Web Featur
 Lisätään Lipas-WFS palvelu. Nimeä uusi vektori-store **lipas_WFS** ja laittaa **WFS GetCapabilities URL** arvoksi:
 
 ::: note-box
-<http://lipas.cc.jyu.fi/geoserver/lipas/ows?service=WFS&REQUEST=Getcapabilities>
+<https://lipas.fi/geoserver/lipas/ows>
 :::
 
 ![](img/harjoitus_8/image10.png)
