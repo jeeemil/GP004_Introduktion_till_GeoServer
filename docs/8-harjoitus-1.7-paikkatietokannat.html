@@ -16,8 +16,14 @@
 
 <meta name="author" content="Gispo Oy" />
 
-<meta name="date" content="2024-02-14" />
+<meta name="date" content="2024-02-15" />
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script src="/usr/share/javascript/mathjax/MathJax.js" type="text/javascript"></script>
 
 <meta name="description" content="8 HARJOITUS 1.7: PAIKKATIETOKANNAT | Johdanto GeoServerin käyttöön">
 
@@ -376,15 +382,15 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <p>SQL-kyselyjen tekemiseksi on hyvä ensin selvittää tietokannan taulujen kenttien nimet ja tyypit. Voit tarkistaa aineiston kentät avaamalla tason <strong>Data → Layers</strong>-näkymästä; kentät on lueteltu <strong>Data</strong>-välilehden lopussa. Aineiston ominaisuustietojen tyyppejä pääset tarkastelemaan parhaiten käyttäen muita ohjelmistoja kuten pgAdmin tai QGIS. Voit  myös tutustua niihin Lipas-sivuilta (<a href="http://www.liikuntapaikat.fi/lipas" class="uri">http://www.liikuntapaikat.fi/lipas</a>). Attribuuttitiedot GeoServerissä näyttävät tältä:</p>
 <p><img src="img/harjoitus_7/image8.png" /></p>
 <p>Aineiston tarkastelemisen jälkeen voidaan päätellä, että paikkakuntatieto löytyy <strong>kunta_nimi</strong>-kentästä.</p>
-<p>Avaa <strong>Data → Layers → Add new layer</strong> ja valitse <strong>helsinki:hki_lipas</strong>. Painamalla <strong>Configure new SQL view…</strong> pääset määrittelemään SQL-kielellä, mitkä tiedot haluat julkaista kyseisestä aineistosta.
-<img src="img/harjoitus_7/image9.png" /></p>
+<p>Avaa <strong>Data → Layers → Add new layer</strong> ja valitse <strong>helsinki:hki_lipas</strong>. Painamalla <strong>Configure new SQL view…</strong> pääset määrittelemään SQL-kielellä, mitkä tiedot haluat julkaista kyseisestä aineistosta.</p>
+<p><img src="img/harjoitus_7/image9.png" /></p>
 <p>Määrittele näkymän nimeksi <strong>lipas_kaikki_reitit_helsinki</strong>. Kirjoita <strong>SQL statement</strong> -kenttään seuraavaa SQL-lauseke:</p>
 <div class="code-box">
 <p>SELECT *</p>
-<p>FROM lipas.reitit</p>
-<p>WHERE kunta_nimi = ‘Helsinki’</p>
+<p>FROM lipas.lipas_kaikki_reitit</p>
+<p>WHERE kunta_nimi = 'Helsinki'</p>
 </div>
-<p>Rastita <strong>Guess geometry type and srid</strong> -toiminto ja paina sitten <strong>Refresh</strong>. Huomaa, että olla olevassa kuvassa on virhe SQL-kyselyssä. Ole tarkkana! kunta_nimi_fi-tekstin sijaan siinä pitäisi lukea vain kunta_nimi.
+<p>Rastita <strong>Guess geometry type and srid</strong> -toiminto ja paina sitten <strong>Refresh</strong>.
 <img src="img/harjoitus_7/image10.png" /></p>
 <p>Tarkista sitten, että <strong>geom</strong>-nimisen kentän kohdalla <strong>SRID</strong> on määritelty oikean EPSG-tunnuksen mukaisesti (meidän tapauksessamme tunnus on <strong>3067</strong>).</p>
 <p><img src="img/harjoitus_7/image11.png" /></p>
@@ -400,8 +406,8 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <p>Päivitä <strong>SQL statement</strong> seuraavaksi:</p>
 <div class="code-box">
 <p>SELECT ST_Union (ST_Buffer ( geom, 10 ))</p>
-<p>FROM lipas.reitit</p>
-<p>WHERE kunta_nimi = ‘Helsinki’</p>
+<p>FROM lipas.lipas_kaikki_reitit</p>
+<p>WHERE kunta_nimi = 'Helsinki'</p>
 </div>
 <p>Päivitä taas attribuuttien formaatti ja paina sitten <strong>Save</strong>.
 <img src="img/harjoitus_7/image13.png" /></p>
@@ -423,7 +429,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 
 <div class="footer-info">
 <h5 class="footer-title">Johdanto GeoServerin käyttöön</h5>
-<span class="footer-version">v2024-02-14</span>
+<span class="footer-version">v2024-02-15</span>
 <div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
 

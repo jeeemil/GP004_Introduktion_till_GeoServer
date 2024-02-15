@@ -16,8 +16,14 @@
 
 <meta name="author" content="Gispo Oy" />
 
-<meta name="date" content="2024-02-14" />
+<meta name="date" content="2024-02-15" />
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script src="/usr/share/javascript/mathjax/MathJax.js" type="text/javascript"></script>
 
 <meta name="description" content="12 HARJOITUS 2.4: CSS-KUVAUSTEKNIIKKA | Johdanto GeoServerin käyttöön">
 
@@ -284,9 +290,9 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <div id="aineiston-luokittelu" class="section level2" number="12.4">
 <h2><span class="header-section-number">12.4</span> <strong>Aineiston luokittelu</strong></h2>
 <p>Luokitellaan nyt tiet kahteen luokkaan: <strong>päätiet</strong> ja <strong>muut</strong>. Kullekin luokalle voidaan määritellä oma tyyli.</p>
-<p>Päätiet luokitellaan korvaamalla merkki “<strong>*</strong>” seuraavalla koodilla (huomaa, että rajauksessa käytetään <strong>type</strong>-kentän tietoja):</p>
+<p>Päätiet luokitellaan korvaamalla merkki “<strong>*</strong>” seuraavalla koodilla (huomaa, että rajauksessa käytetään <strong>fclass</strong>-kentän tietoja):</p>
 <div class="code-box">
-<p>[type = ‘motorway’ or type = ‘primary’ or type = ‘secondary’ or type = ‘trunk’]<br />
+<p>[fclass = 'motorway' or fclass = 'primary' or fclass = 'secondary' or fclass = 'trunk']<br />
 { stroke: red;}</p>
 </div>
 <p>Paina <strong>Apply</strong>. Nyt vain päätiet ovat näkyvissä.</p>
@@ -300,9 +306,9 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <p>Vaihda muiden teiden tyyli niin, että viivan väri on musta (black).</p>
 <p>Pääteiden ja muiden teiden tyylit näyttävät nyt tältä:</p>
 <div class="code-box">
-<p>[type = ‘motorway’ or type = ‘primary’ or type = ‘secondary’ or type = ‘trunk’]<br />
+<p>[fclass = 'motorway' or fclass = 'primary' or fclass = 'secondary' or fclass = 'trunk']<br />
 { stroke: red;}<br />
-[type &lt;&gt; ‘motorway’ and type &lt;&gt; ‘primary’ and type &lt;&gt; ‘secondary’ and type &lt;&gt; ‘trunk’]<br />
+[fclass &lt;&gt; 'motorway' and fclass &lt;&gt; 'primary' and fclass &lt;&gt; 'secondary' and fclass &lt;&gt; 'trunk']<br />
 { stroke: black;}<br />
 </p>
 </div>
@@ -314,10 +320,10 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <p>Tiet ovat vielä vaikea erottaa toisistaan. Tehdään nyt pari parannusta tyyliin. Määrittele pääteiden viivan paksuus 0.5:ksi komennolla “<strong>stroke-width</strong>”. Lisää uusi rivi “<strong>stroke: red;</strong>”-kohdan jälkeen, johon kirjoitetaan “<strong>stroke-width: 0.5;</strong>”.</p>
 <p>Määrittele samalla tavalla muille teille viivan paksuudeksi <strong>0.1</strong>:</p>
 <div class="code-box">
-<p>[type = ‘motorway’ or type = ‘primary’ or type = ‘secondary’ or type = ‘trunk’]<br />
+<p>[fclass = 'motorway' or fclass = 'primary' or fclass = 'secondary' or fclass = 'trunk']<br />
 { stroke: red;<br />
 stroke-width: 0.5;}<br />
-[type &lt;&gt; ‘motorway’ and type &lt;&gt; ‘primary’ and type &lt;&gt; ‘secondary’ and type &lt;&gt; ‘trunk’]<br />
+[fclass &lt;&gt; 'motorway' and fclass &lt;&gt; 'primary' and fclass &lt;&gt; 'secondary' and fclass &lt;&gt; 'trunk']<br />
 { stroke: black;<br />
 stroke-width: 0.1;}<br />
 </p>
@@ -340,12 +346,12 @@ z-index: 0, 3;</p>
 <p>Kokeile vaihtaa symbolien järjestystä, värejä ja paksuuksia.</p>
 <p>Koodisi näyttäisi tässä vaiheessa tältä:</p>
 <div class="code-box">
-<p> [type = ‘motorway’ or type = ‘primary’ or type = ‘secondary’ or type = ‘trunk’]<br />
+<p> [fclass = 'motorway' or fclass = 'primary' or fclass = 'secondary' or fclass = 'trunk']<br />
      { stroke: black, yellow;<br />
      stroke-width: 5px, 3px;<br />
      z-index: 0, 3;}<br />
 <br />
- [type &lt;&gt; ‘motorway’ and type &lt;&gt; ‘primary’ and type &lt;&gt; ‘secondary’ and type &lt;&gt; ‘trunk’]<br />
+ [fclass &lt;&gt; 'motorway' and fclass &lt;&gt; 'primary' and fclass &lt;&gt; 'secondary' and fclass &lt;&gt; 'trunk']<br />
      { stroke: black;<br />
      stroke-width: 0.1;}<br />
 </p>
@@ -357,7 +363,7 @@ z-index: 0, 3;</p>
 <p>Laita pääteiden määrittelyn eteen <strong>/* @title Paatiet */</strong>:</p>
 <div class="code-box">
 <p> /* @title Paatiet */<br />
- [type = ‘motorway’ or type = ‘primary’ or type = ‘secondary’ or type = ‘trunk’]<br />
+ [fclass = 'motorway' or fclass = 'primary' or fclass = 'secondary' or fclass = 'trunk']<br />
      {stroke: black, yellow;<br />
      stroke-width: 5px, 3px;<br />
      z-index: 0, 3;}<br />
@@ -374,13 +380,13 @@ z-index: 0, 3;</p>
 <p>Koodisi tässä vaiheessa pitäisi näyttää jotenkin tältä:</p>
 <div class="code-box">
 <p> /* @title Paatiet */<br />
- [type = ‘motorway’ or type = ‘primary’ or type = ‘secondary’ or type = ‘trunk’]<br />
+ [fclass = 'motorway' or fclass = 'primary' or fclass = 'secondary' or fclass = 'trunk']<br />
      { stroke: black, yellow;<br />
      stroke-width: 5px, 3px;<br />
      z-index: 0, 3;}<br />
 <br />
  /* @title Sivutiet */<br />
- [type &lt;&gt; ‘motorway’ and type &lt;&gt; ‘primary’ and type &lt;&gt; ‘secondary’ and type &lt;&gt; ‘trunk’]<br />
+ [fclass &lt;&gt; 'motorway' and fclass &lt;&gt; 'primary' and fclass &lt;&gt; 'secondary' and fclass &lt;&gt; 'trunk']<br />
      { stroke: black;<br />
      stroke-width: 0.1;}<br />
 <br />
@@ -402,7 +408,7 @@ z-index: 0, 3;</p>
 <p>Koodisi tässä vaiheessa pitäisi näyttää jotenkin tältä:</p>
 <div class="code-box">
 <p> /* @title Paatiet */</p>
-<p> [type = ‘motorway’ or type = ‘primary’ or type = ‘secondary’ or type = ‘trunk’]</p>
+<p> [fclass = 'motorway' or fclass = 'primary' or fclass = 'secondary' or fclass = 'trunk']</p>
 <p>     { stroke: black, yellow;</p>
 <p>     stroke-width: 5px, 3px;</p>
 <p>     z-index: 0, 3;}</p>
@@ -410,7 +416,7 @@ z-index: 0, 3;</p>
 </p>
 <p> /* @title Sivutiet */</p>
 <p> [@scale &lt; 50000]</p>
-<p> [type &lt;&gt; ‘motorway’ and type &lt;&gt; ‘primary’ and type &lt;&gt; ‘secondary’ and type &lt;&gt; ‘trunk’]</p>
+<p> [fclass &lt;&gt; 'motorway' and fclass &lt;&gt; 'primary' and fclass &lt;&gt; 'secondary' and fclass &lt;&gt; 'trunk']</p>
 <p>     { stroke: black;</p>
 <p>     stroke-width: 0.1;}</p>
 <p><br />
@@ -433,9 +439,9 @@ z-index: 0, 3;</p>
 <p>Esikatsele tuloksia painamalla <strong>Apply</strong>.</p>
 <p>Tulos ei ole vielä hyvä, tarvitaan muutama teksteihin tarkoitettu erikoiskomento:</p>
 <div class="code-box">
-<p>-gt-label-follow-line: true; -gt-label-max-angle-delta: 90; -gt-label-max-displacement: 400; -gt-label-repeat: 150;</p>
+<p>label-follow-line: true; label-max-angle-delta: 90; label-max-displacement: 400; label-repeat: 150;</p>
 </div>
-<p><strong>-gt-label-*</strong> kertoo, miten tekstit eli labelit piirretään. Kokeile muuttaa edellisten komentojen arvoja.
+<p><strong>label-*</strong> kertoo, miten tekstit eli labelit piirretään. Kokeile muuttaa edellisten komentojen arvoja.
 <img src="img/harjoitus_11/image8.png" /></p>
 <p>Lisää vielä puskuri teksteille:</p>
 <div class="code-box">
@@ -446,7 +452,7 @@ z-index: 0, 3;</p>
 <p>Tässä on esimerkkikoodi, jossa kaikki aiemmin mainitut tyylit ovat käytössä:</p>
 <div class="code-box">
 <p>/* @title Paatiet */</p>
-<p>[type = ‘motorway’ or type = ‘primary’ or type = ‘secondary’ or type = ‘trunk’]</p>
+<p>[fclass = 'motorway' or fclass = 'primary' or fclass = 'secondary' or fclass = 'trunk']</p>
 <p>{ stroke: black, yellow;</p>
 <p>stroke-width: 5px, 3px;</p>
 <p>z-index: 0, 3;</p>
@@ -454,26 +460,26 @@ z-index: 0, 3;</p>
 <p>font-weight: bold;</p>
 <p>font-fill: black;</p>
 <p>font-size: 12;</p>
-<p>-gt-label-follow-line: true;</p>
-<p>-gt-label-max-angle-delta: 90;</p>
-<p>-gt-label-max-displacement: 400;</p>
-<p>-gt-label-repeat: 150;</p>
+<p>label-follow-line: true;</p>
+<p>label-max-angle-delta: 90;</p>
+<p>label-max-displacement: 400;</p>
+<p>label-repeat: 150;</p>
 <p>halo-color: white;</p>
 <p>halo-radius: 1;}</p>
 <p><br />
 </p>
 <p>/* @title Sivutiet */</p>
 <p>[@scale &lt; 50000]</p>
-<p>[type &lt;&gt; ‘motorway’ and type &lt;&gt; ‘primary’ and type &lt;&gt; ‘secondary’ and type &lt;&gt; ‘trunk’]</p>
+<p>[fclass &lt;&gt; 'motorway' and fclass &lt;&gt; 'primary' and fclass &lt;&gt; 'secondary' and fclass &lt;&gt; 'trunk']</p>
 <p>{ stroke: black;</p>
 <p>stroke-width: 0.1;</p>
 <p>label: [name];</p>
 <p>font-fill: black;</p>
 <p>font-size: 9;</p>
-<p>-gt-label-follow-line: true;</p>
-<p>-gt-label-max-angle-delta: 90;</p>
-<p>-gt-label-max-displacement: 400;</p>
-<p>-gt-label-repeat: 150;</p>
+<p>label-follow-line: true;</p>
+<p>label-max-angle-delta: 90;</p>
+<p>label-max-displacement: 400;</p>
+<p>label-repeat: 150;</p>
 <p>halo-color: white;</p>
 <p>halo-radius: 1;}</p>
 <p><br />
@@ -483,7 +489,7 @@ z-index: 0, 3;</p>
 </div>
 <p>Tämän tyylin esikatselu näyttää kartassa tältä:
 <img src="img/harjoitus_11/image10.png" /></p>
-<p>Voit vielä kokeilla erilaisia komentoja virittämään karttasi tyyliä pidemmälle. GeoServer CSS-lisäosan nettisivuilla löytyy ohjeita ja esimerkkejä: <a href="http://docs.geoserver.org/stable/en/user/extensions/css/index.html" class="uri">http://docs.geoserver.org/stable/en/user/extensions/css/index.html</a>.</p>
+<p>Voit vielä kokeilla erilaisia komentoja virittämään karttasi tyyliä pidemmälle. GeoServer CSS-lisäosan nettisivuilla löytyy ohjeita ja esimerkkejä: <a href="https://docs.geoserver.org/latest/en/user/styling/css/index.html" class="uri">https://docs.geoserver.org/latest/en/user/styling/css/index.html</a>.</p>
 </div>
 <div id="kuvaustekniikan-soveltaminen" class="section level2" number="12.9">
 <h2><span class="header-section-number">12.9</span> <strong>Kuvaustekniikan soveltaminen</strong></h2>
@@ -507,7 +513,7 @@ z-index: 0, 3;</p>
 
 <div class="footer-info">
 <h5 class="footer-title">Johdanto GeoServerin käyttöön</h5>
-<span class="footer-version">v2024-02-14</span>
+<span class="footer-version">v2024-02-15</span>
 <div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
 
