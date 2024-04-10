@@ -32,7 +32,7 @@ M채채rittele uuden tyylin nimeksi **tiesto_css** ja j채t채 workspace-kohta tyhj�
 
 Valitse **Style Content** valikosta geometriatyypiksi **Line** ja paina **Generate**.
 
-**Style Editor** -laatikossa on nyt seuraavankaltainen teksti:
+**Style Editor** -laatikossa on nyt seuraavankaltainen teksti (v채ri vaihtelee):
 
 ::: code-box
 /\* \@title red line \*/\
