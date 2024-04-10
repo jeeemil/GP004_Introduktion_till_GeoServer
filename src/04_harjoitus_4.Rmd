@@ -142,7 +142,7 @@ Palaa **Styles**-näkymälle ja valitse taas **rakennukset**-tyyli. Poista SLD-k
 
 ::: code-box
 \<Fill\>\
-   \<CssParameter name="fill"\>#000000\</CssParameter\>\
+   \<CssParameter name=\"fill\"\>#000000\</CssParameter\>\
 \</Fill\>\
 :::
 
@@ -152,7 +152,7 @@ ja korvaa sen tilalle:
 \<Halo\>\
    \<Radius\>3\</Radius\>\
     \<Fill\>\
-        \<CssParameter name="fill"\>#FFFFFF\</CssParameter\>\
+        \<CssParameter name=\"fill\"\>#FFFFFF\</CssParameter\>\
     \</Fill\>\
 \</Halo\>
 :::
