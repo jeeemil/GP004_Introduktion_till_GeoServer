@@ -22,20 +22,13 @@ Tässä näkymässä voidaan myös määrittää, mikä **Active role service** 
 
 **Encryption**-kohdan alta löytyy salaukseen liittyviä asetuksia. **Encrypt web admin URL parameter** -valinta salaa käyttäjäliittymän URL-parametreja selaimella.
 
-Esimerkiksi, **Security**-valikon selaimen URL (missä nyt ollaan)... 
+Esimerkiksi, **Security**-valikon selaimen URL (missä nyt ollaan) olisi paikallisella GeoServer-asennuksella:
 
-... ilman salausta on:
+`http://localhost:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.security.web.SecuritySettingsPage`
 
-::: note-box
-<http://localhost:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.security.web.SecuritySettingsPage>
-:::
+... ja salauksen kanssa se on:
 
-... salauksen kanssa se on:
-
-::: note-box
-<http://localhost:8080/geoserver/web/?x=xAiOmyK-CQmBXDhILZrWpny28bhFcImLrBRYk0INwrBDmbzQlmeLRdiaRoNSaBSx3o6elVC9JMPcy5gkRljLXMKGrvMx3Yui3*ANGkUW-hE>
-:::
-
+`http://localhost:8080/geoserver/web/?x=xAiOmyK-CQmBXDhILZrWpny28bhFcImLrBRYk0INwrBDmbzQlmeLRdiaRoNSaBSx3o6elVC9JMPcy5gkRljLXMKGrvMx3Yui3*ANGkUW-hE` 
 
 **Password encryption** määrittää, mikä salauksen tyyli on käytössä salasanojen varastossa: **Plain text**, **Weak PBE** ja **Strong PBE**.
 
