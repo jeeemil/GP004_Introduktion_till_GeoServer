@@ -14,15 +14,17 @@ Harjoituksen jälkeen opiskelija osaa kirjautua ylläpitäjänä GeoServeriin ja
 
 ## **Valmistautuminen**
 
-Käynnistä koneessa web-selain ja kirjaudu osoitteeseen:
+Käynnistä koneessa web-selain.
+
+Jos käytössä on etäpalvelin, kysy oma ip-osoitteesi ja portti kurssin vetäjältä.
+
+Mikäli harjoittelet paikallisella GeoServer-asennuksella niin osoite on todennäköisesti
 
 ::: note-box
-<http://localhost:8080/geoserver>
+http://localhost:8080/geoserver
 :::
 
-Jos käytössä on etäpalvelin, kysy oma ip-osoitteesi ja portti opettajalta. Muokkaa sitten verkko-osoitteen **localhost:8080**-osaa ohjeiden mukaan.
-
-Edessäsi on GeoServerin  käyttöliittymä. Ennen kun kirjaudut sisään, näet muutamia yleisiä tietoja palvelimesta.
+Edessäsi on GeoServerin käyttöliittymä. Ennen kuin kirjaudut sisään, näet muutamia yleisiä tietoja palvelimesta.
 
 ![](img/harjoitus_1/image1.png)
 **Ylhäällä oikealla (1)** on kirjautumistiedot.

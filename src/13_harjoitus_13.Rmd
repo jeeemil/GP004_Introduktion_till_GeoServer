@@ -50,7 +50,7 @@ Missä osavaltioissa on enemmän miespuolisia asukkaita?
 :::
 
 ::: hint-box
-Mitkä osavaltiot leikkaavat 100$\color{white}{\text{$^\circ$}}$ läntistä pituuspiiriä?
+Mitkä osavaltiot leikkaavat 100. asteen läntistä pituuspiiriä?
 Psst! Lauseke on muotoa “BBOX(geometriasarake, xmin, ymin, xmax, ymax)”. Osavaltioiden geometria on kentässä “the_geom”.
 :::
 

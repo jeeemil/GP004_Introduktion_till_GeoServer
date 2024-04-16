@@ -28,11 +28,11 @@ Luodaan nyt uusi tyyli **tiesto**-tasolle.
 
 Avaa päävalikosta **Styles** ja paina **Add a new style**.
 
-Määrittele uuden tyylin nimeksi **tiesto_css** ja jätä workspace-kohta tyhjäksi.
+Määrittele uuden tyylin nimeksi **tiesto_css** ja jätä workspace-kohta tyhjäksi. Muista myös valita tyylin formaatiksi CSS.
 
 Valitse **Style Content** valikosta geometriatyypiksi **Line** ja paina **Generate**.
 
-**Style Editor** -laatikossa on nyt seuraavankaltainen teksti:
+**Style Editor** -laatikossa on nyt seuraavankaltainen teksti (väri vaihtelee):
 
 ::: code-box
 /\* \@title red line \*/\
