@@ -24,7 +24,7 @@ Mikäli harjoittelet paikallisella GeoServer-asennuksella niin osoite on todenn�
 http://localhost:8080/geoserver
 :::
 
-Edessäsi on GeoServerin käyttöliittymä. Ennen kun kirjaudut sisään, näet muutamia yleisiä tietoja palvelimesta.
+Edessäsi on GeoServerin käyttöliittymä. Ennen kuin kirjaudut sisään, näet muutamia yleisiä tietoja palvelimesta.
 
 ![](img/harjoitus_1/image1.png)
 **Ylhäällä oikealla (1)** on kirjautumistiedot.
