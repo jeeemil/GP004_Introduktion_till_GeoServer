@@ -1,56 +1,56 @@
-# HARJOITUS 1.1: ASENNUS JA KÄYTTÖÖNOTTO
+# Övning 1.1: Installera och ta i bruk
 
-**Harjoituksen sisältö**
+**Övningens innehåll**
 
-Olemassa olevaan GeoServer-palvelimeen otetaan yhteys web-selaimen kautta. Opitaan muokkaamaan palvelimen yleistietoja ja asettamaan ylläpitäjän käyttäjäprofiilitiedot (tunnus ja salasana).
+Anslut till den befintliga GeoServer-servern via en webbläsare. Lär dig att redigera serverns allmänna information och att ställa in administratörens användarprofilinformation (användarnamn och lösenord).
 
-**Harjoituksen tavoite**
+**Övningens målsättning**
 
-Harjoituksen jälkeen opiskelija osaa kirjautua ylläpitäjänä GeoServeriin ja tuntee yleisellä tasolla sen käyttöliittymän.
+Efter övningen kan du logga in som administratör i GeoServer och har en grundläggande förståelse för dess användargränssnitt.
 
-**Arvioitu kesto**
+**Tid**
 
-40 minuuttia.
+40 minuter.
 
-## **Valmistautuminen**
+## **Förberedelser**
 
-Käynnistä koneessa web-selain.
+Öppna en webbläsare på din dator.
 
-Jos käytössä on etäpalvelin, kysy oma ip-osoitteesi ja portti kurssin vetäjältä.
+På kursen använder vi servers via en molntjänst. Fråga kursledaren om din IP-adress och port.
 
-Mikäli harjoittelet paikallisella GeoServer-asennuksella niin osoite on todennäköisesti
+Ifall du övar med en lokal installation av GeoServer så är din adress förmodligen
 
 ::: note-box
 http://localhost:8080/geoserver
 :::
 
-Edessäsi on GeoServerin käyttöliittymä. Ennen kuin kirjaudut sisään, näet muutamia yleisiä tietoja palvelimesta.
+Framför dig har du GeoServers användargränssnitt. Innan du loggar in kan du se några allmänna uppgifter om servern.
 
 ![](img/harjoitus_1/image1.png)
-**Ylhäällä oikealla (1)** on kirjautumistiedot.
+**Uppe till höger (1)** är inloggningsuppggifterna.
 
-**Ylhäällä keskellä (2)** on tietoja palvelimen workspaceista ja tasoista.
+**Uppe i mitten (2)** är uppgifter om serverns arbetsytor (workspaces) och lager.
 
-**Ylhäällä vasemmalla (3)** on GeoServer-logo ja kun sitä painaa niin pääsee tähän etusivulle.
+**Uppe till vänster (3)** är GeoServer-loggan och när man trycker på den så kommer man alltid tillbaka till den här sidan.
 
-**Vasemmalla (4)** on päävalikko jonka kautta hallitaan ja tarkastellaan palvelimen toimintoja.
+**Till vänster (4)** är huvudmenyn, därifrån man kan navigera till olika funktioner och inställningar.
 
-**Keskellä (5)** on palvelimen tukemat karttapalvelut ja niiden versiot.
+**I mitten (5)** ser man vilka karttjänster (och vilka versioner) som servern stöder.
 
-**Alhaalla keskellä (6)** näkyy asennetun GeoServerin versionumero, joka on kuvassa 2.22.4.
+**Nere i mitten (6)** ser man vilken version av GeoServer som är installerad. På bilden är det version 2.22.4.
 
 
-## **Päävalikko**
+## **Huvudmenyn**
 
-Päävalikossa on näkyvissä aloitussivulla vain muutamia toimintoja. Nämä ovat nähtävissä kaikille, jotka tietävät palvelimen osoitteen (URL).
+I huvudmenyn på startsidan visas endast några få funktioner. Dessa är synliga för alla som känner till serverns adress (URL).
 
--   **About & Status** -osio tarjoaa vain **About GeoServer** -valinnan, joka kertoo tarkemmin GeoServerin asennuksen tietoja ja antaa linkkejä GeoServerin dokumentaatioon. GeoTools- ja GeoWebCache-ohjelmistojen versiotiedot voit tarkistaa myös tältä sivulta.
+-   **About & Status** -sektionen visar bara **About GeoServer**, som ger mer detaljerad information om GeoServer-installationen och länkar till GeoServers dokumentation. Versioninformation för GeoTools- och GeoWebCache-programvarorna kan du också kontrollera på denna sida.
 
--   **Data**-osiossa on **Layer Preview** -valinta, jonka avulla voidaan esikatsella palvelimella julkaistuja tasoja (layers).
+-   Under **Data**-sektionen finns **Layer Preview**, där man kan förhandsgranska lager som finns på servern.
 
--   **Demos**-osion kautta voi tutustua muutaman karttapalvelutyypin toimintaan.
+-   **Demos**-sektionen innehåller några karttjänster man kan testa.
 
-Tutustu niihin lyhyesti nyt, ja kysy kouluttajalta mitä eri elementit tarkoittavat.
+Bekanta dig en stund med de olika menyer och deras innehåll. Fråga kursledaren om det är något du undrar!
 
 ### **About GeoServer**
 
