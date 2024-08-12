@@ -54,58 +54,56 @@ Bekanta dig en stund med de olika menyer och deras innehåll. Fråga kursledaren
 
 ### **About GeoServer**
 
-Avaa **About GeoServer** ja tutki, mikä GeoServer-versio sinulla on käytössä ja mitkä muiden asennettujen ohjelmistojen versiot ovat. Tämäntyyppiset tiedot ovat tärkeitä palvelimen ongelmia selvitettäessä, tapahtuipa ongelmatilanteiden ratkaiseminen omatoimisesti taikka tukipalvelun avulla.
+Öppna **About GeoServer** och ta reda på vilken GeoServer-version du har och vilka versioner de andra installerade programmen har. Dessa uppgifter kan vara väldigt viktiga när man försöker lösa problem som uppstått på servern. Ifall ber om hjälp, till exempel via Gispos supporttjänst, så är det första vi frågar vilken version du använder.
 
 ### **Layer Preview**
 
-Kokeile **Layer Preview -toimintoa** ja esikatsele GeoServerin oletusaineistoja. Tätä näkymää tulemme käyttämään usein kurssin aikana. Käytä nyt muutama minuutti oppiaksesi sen perustoiminnallisuudet.
+Testa **Layer Preview**-funktionen och förhandsgranska GeoServers standarddata. Denna vy kommer vi att använda ofta under kursens gång. Ta nu några minuter för att lära dig dess grundläggande funktioner.
 
-### **Palvelutoiminnallisuudet**
+### **Geodatatjänster**
 
-Palaa palvelimen pääsivulle painamalla **GeoServer-logoa**.
+Klicka på**GeoServer-loggan** för att komma tillbaka till framsidan.
 
-Ennen kun kirjaudutaan palvelimelle voit nähdä, mitä rajapintapalveluita käytössä olevalla GeoServerin asennuksella on mahdollista julkaista.
+Innan du loggar in på servern kan du se vilka geodatatjänster som är möjliga att publicera med den aktuella installationen av GeoServer.
 
-Harjoituksen GeoServerille on asennettu oletuksena WCS, WFS, WMS, TMS, WMS-C ja WMTS. Muita rajapintapalveluita, kuten esimerkiksi WPS-palvelu, voidaan julkaista GeoServeriin laajennosten avulla. Painamalla rajapintapalvelujen versionumeroita, voit tutustua niiden toiminnallisuuksiin (capabilities).
+På servern för övningen är WCS, WFS, WMS, TMS, WMS-C och WMTS installerade som standard. Andra geodatatjänster, såsom till exempel WPS-tjänsten, kan publiceras i GeoServer med hjälp av tillägg. Genom att klicka på geodatatjänsternas versionsnummer kan du lära dig mer om deras funktioner (capabilities).
 
-Tämä osio on nähtävissä vain aloitussivulla. Muista, että aloitussivuun pääset aina painamalla GeoServer-logoa.
+Detta avsnitt är endast synligt på startsidan. Kom ihåg att du alltid kan komma tillbaka till startsidan genom att klicka på GeoServer-loggan.
 
 ### **Demos**
 
-Tämän valikon alta löytyy muutamia GeoServerin testityökaluja:\
+Under denna meny hittar du några av GeoServers testverktyg.:\
 
 ![](img/harjoitus_1/image2.png)
 
 ### **Demo requests**
 
-Kokeile erilaisten kyselyjen (toiminnallisuuksien) tuloksia ja näe, mitä kukin kyselykomento tuottaa. Kokeile **WMS_getMap_OpenLayers.url**-kyselyn toimivuutta valitsemalla kyseinen kysely valikosta ja paina **Submit**-toimintoa.
+Testa olika frågekommandons (funktioners) resultat och se vad varje frågekommando ger. Testa funktionen för WMS_getMap_OpenLayers.url genom att välja det frågekommandot från menyn och trycka på Submit-knappen.
 
-GeoServerin eri toiminnot ja operaatiot muodostuvat URL:n liittyvistä parametreistä. Parametrit ohjaavat Geoserverin rajapintapalveluita: mitä karttatasoa kysytään, miltä alueelta tietoja haetaan tai kuva muodostetaan, vastauksen koordinaattijärjestelmä jne.
+GeoServers olika funktioner och operationer baseras på URL-parametrar. Parametrarna styr GeoServerns geodatatjänster: vilket kartlager som efterfrågas, vilket områdes informations som hämtas eller hur bilden skapas, o.s.v.
 
-Muokkaa kyselyn parametrejä BBOX, WIDTH ja HEIGHT. Mitä vaikutuksia muutoksilla on vastaukseen?
+Ändra parametrarna BBOX, WIDTH och HEIGHT i frågan. Vad är händer av dessa ändringar på svaret?
 
-## **SRS List ja Reprojection console**
+## **SRS List och Reprojection console**
 
-SRS List -toiminto listaa Geoserverin tukemat koordinaattijärjestelmät. Geoserver sisältää suurimman osan käytettävistä koordinaattijärjestelmistä eli CRS:t (Coordinate Reference System). SRS (Spatial Reference System) on synonyymi CRS:lle.
+SRS List-funktionen listar de koordinatsystem som stöds av GeoServer. GeoServer innehåller de flesta av de tillgängliga koordinatsystemen, dvs. CRS (Coordinate Reference System). SRS (Spatial Reference System) är ett synonymt begrepp för CRS.
 
-Koordinaattijärjestelmien välisiä muunnoksia ja konversioita voit kokeilla Reprojection Console-toiminnon avulla.
+Du kan testa konversioner och omvandlingar mellan koordinatsystem med hjälp av Reprojection Console-funktionen.
 
-Koordinaatit esitetään WKT-formaatissa (Well Known Text).
+Koordinaterna presenteras i WKT-format (Well Known Text).
 
-Seuraavassa kuvassa on piste geometria määritelty WKT-formaatissa EPSG:3067 koordinaattijärjestelmässä **POINT (522800 7615630)**:
+I följande bild finns en punkt definierad i koordinatsystemet EPSG:3006. Du kan konvertera punkten till ett annat koordinatsystem, t.ex. WGS84 (EPSG:4326).
+
+ **411957.87333196297 6351985.116206663**:
 
 ![](img/harjoitus_1/image3.png)
 
-Voit myös kokeilla ETRS89 / TM35FIN viivageometriaa. Löydät esimerkkitiedoston koulutuskansiosta nimellä **esimerkki_wkt_geometry_3067.txt**. Avaa se tekstieditorissa ja käytä sitä **Reprojection console** -työkalussa. Kokeile muuntaa se esimerkiksi WGS 84 -järjestelmään.
-
-![](img/harjoitus_1/image4.png)
-
 ## **WCS request builder**
 
-Tämän toiminnon avulla voit kokeilla Web Coverage Service -palvelun toimivuutta.
+Med den här funktionen kan du testa hur Web Coverage Service-tjänsten fungerar.
 
-Lataa **nurc:mosaic**-aineisto PNG-tiedostona Suomen kansallisessa koordinaattijärjestelmässä (**ETRS89/TM35FIN** (EPSG 3067)). Jätä muut asetukset oletusarvoiksi:
+Välj **nurc:mosaic**-lagret som PNG-fil i det nationella koordinatsystemet (**SWEREF99 TM** (EPSG 3006)). Du kan ignorera övriga inställningar:
 
 ![](img/harjoitus_1/image5.png)
 
-Paina lopussa **Get Coverage**.
+Välj sedan  **Get Coverage in New Page**.
