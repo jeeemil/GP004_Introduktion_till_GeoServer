@@ -4,7 +4,7 @@
 
 Anslut till den befintliga GeoServer-servern via en webbläsare. Lär dig att redigera serverns allmänna information och att ställa in administratörens användarprofilinformation (användarnamn och lösenord).
 
-**Övningens målsättning**
+**Övningens syfte**
 
 Efter övningen kan du logga in som administratör i GeoServer och har en grundläggande förståelse för dess användargränssnitt.
 

@@ -208,10 +208,14 @@ h5 { font-size: 100% !important; }
 /* Tables */
 table {
     border-collapse: collapse;
+    font-family: 'Karla', sans-serif; /* Match the body text font */
+    color: #434662; /* Match the body text color */
 }
 th, td {
     border: 1px solid #434662;
-    padding: 0.4em
+    padding: 0.4em;
+    font-family: 'Karla', sans-serif; /* Match the body text font */
+    color: #434662; /* Match the body text color */
   }
 
 /* Buttons */

@@ -1,163 +1,162 @@
-# HARJOITUS 1.2: GEOSERVERIN WEB-KÄYTTÖLIITTYMÄ
+# ÖVNING 1.2: GEOSERVERS ANVÄNDARGRÄNSSNITT
 
-**Harjoituksen sisältö**
+**Övningens innehåll**
 
-Harjoituksessa tutustutaan tarkemmin GeoServerin päätoimintoihin käyttöliittymän kautta. Käydään läpi käyttöliittymän eri osioiden päävalintoja ja tärkeimpiä ominaisuuksia.
+I övningen kommer vi att bekanta oss närmare med GeoServers huvudfunktioner genom användargränssnittet. Vi går igenom huvudmenyn och de viktigaste funktionerna i de olika delarna.
 
-**Harjoituksen tavoite**
+**Övningens syfte**
 
-Harjoituksen jälkeen opiskelija ymmärtää GeoServerin toimintaa ja eri osioiden hallintatyökaluja.
+Efter övningen kommer du att förstå hur GeoServer fungerar och ha kunskap om de olika sektionernas verktyg.
 
-**Arvioitu kesto**
+**Tid**
 
-35 minuuttia.
+35 minuter.
 
-## **Valmistautuminen**
+## **Förberedelser**
 
-Edellisessä harjoituksessa kävimme läpi osan GeoServerin web-käyttöliittymän valikoista. Näiden valikoiden ja toimintojen käyttäminen ei vaatinut sisäänkirjautumista. Tässä harjoituksessa kirjaudumme sisään GeoServerin web-käyttöliittymään ylläpitäjinä, jolloin meille avautuu enemmän valikkoja ja toimintoja.
+I den föregående övningen gick vi igenom några av menyerna i GeoServers. Användningen av dessa menyer och funktioner krävde ingen inloggning. I denna övning loggar vi in i GeoServers användargränssnitt som administratörer, vilket ger oss tillgång till fler menyer och funktioner.
 
-## **Ylläpitäjän käyttöliittymä**
+## **Administratörens användargränssnitt**
 
-Tähän asti käyttöliittymällä on ollut näkyvissä vain kaikille avoimet toiminnallisuudet ja aineistot (ilman tunnistautumista). Näitä voidaan rajoittaa käyttäjäkohtaisesti eri pääsynhallinta-asetusten kautta. Pääsynhallinnan perusteisiin tutustutaan myöhemmin kurssilla.
+Hittills har användargränssnittet endast visat öppna funktioner och data (utan inloggning). Dessa kan begränsas individuellt genom olika åtkomstkontrollinställningar. Vi kommer att bekanta oss med grunderna i åtkomstkontroll senare under kursen.
 
-Kirjaudu nyt palvelimeen käyttäen tunnuksena **admin** ja salasanana **gispo**.
+Logga in på servern som administratör med användaren **admin** och lösenordet **gispo**.
 
+Administratörsvyn liknar den tidigare visade användargränssnittet. Den har samma struktur, men erbjuder betydligt fler funktioner och visningsalternativ.
 
-Ylläpitäjän näkymä muistuttaa äsken nähtyä käyttöliittymää. Sen rakenne on sama, mutta toiminnallisuuksia ja nähtävillä olevia tietoja on huomattavasti enemmän.
-
-Päävalikosta löytyviä GeoServerin toimintoja on ryhmitelty niiden käyttötarkoituksen mukaan ryhmiin:
+GeoServers funktioner i huvudmenyn är grupperade efter deras användningsområden:
 
 +--------------------------+----------------------------------------------------------------------------+
-| ##### **About & Status** | Yleistä tietoa GeoServerin asennuksesta ja tilasta                         |
+| ##### **About & Status** | Här finns allmän information om GeoServerinstallationen och dess status    |
 +--------------------------+----------------------------------------------------------------------------+
-| ##### **Data**           | Sisältää aineiston lataamisen, määrittämisen ja kuvaustekniikan toimintoja |
+| ##### **Data**           | Här laddar man upp data, hanterar lager och redigerar kartstilar 
 +--------------------------+----------------------------------------------------------------------------+
-| ##### **Services**       | Valikossa voi määritellä eri paikkatietopalvelujen ominaisuuksia           |
+| ##### **Services**       | Här kan du konfigurera olika geodatatjänster        
 +--------------------------+----------------------------------------------------------------------------+
-| ##### **Tile Caching**   | Karttatiilipalvelujen asetukset                                            |
+| ##### **Tile Caching**   | Här finns inställningar för GeoWebCache                                    
 +--------------------------+----------------------------------------------------------------------------+
-| ##### **Security**       | Pääsynhallintaan liittyviä asetuksia                                       |
+| ##### **Security**       | Här finns inställningar för åtkomsthantering                               
 +--------------------------+----------------------------------------------------------------------------+
-| ##### **Demos**          | Demo-toimintoja GeoServer-palvelujen testaamiseen                          |
+| ##### **Demos**          | Här finns Demo-funktioner för att testa GeoServer-tjänster                 
 +--------------------------+----------------------------------------------------------------------------+
-| ##### **Tools**          | Palvelimen lisätyökaluja                                                   |
+| ##### **Tools**          | Här finns extra verktyg                                         
 +--------------------------+----------------------------------------------------------------------------+
 
-Näiden lisäksi Geoserverin laajennokset voivat lisätä valikkoja käyttöliittymään.
 
-**Päävalikossa** on nyt uusia valikoita ja toiminnallisuuksia. 
+Dessutom kan GeoServer-tillägg (extentions) lägga till menyer i användargränssnittet
 
-Äskettäin läpikäydyt valikot ovat myös muuttaneet muotoaan. Niissä on nyt enemmän tietoa ja ne tarjoavat mahdollisuuden muokata erilaisia tietoja ja asetuksia.
+I **Huvudmenyn** finns nu nya sektioner och verktyg 
+
+De menyer vi nyligen gick igenom har också förändrats. De innehåller nu mer information och erbjuder möjlighet att redigera olika uppgifter och inställningar.
 
 ![](img/harjoitus_2/image1.png)
 
-::: hint-box
-Psst! Huomaa, että nyt käyttöliittymän keskiosassa lukee myös "No Strong cryptography available...". Riippuen asennuksesta vahva salaus (strong cryptography)-toiminnallisuuden mahdollistaminen saattaa tarvita erillisen asennuksen (Java policy jar tiedostot).
-:::
+## **Master- och Administrator-användare**
 
-## **Master- ja Administrator-käyttäjät**
-
-GeoServerin oletusasennuksessa on kaksi käyttäjäprofiilia, **master** ja **admin**. Salasanat on vaihdettu oletuksesta seuraavalla tavalla:
+GeoServers standardinstallation har två användarprofiler: **master** och **admin**. Lösenorden har ändrats från det förinställda värdet på följande vis:
 
 **Master** →  gispogispo
 
 **Admin** →   gispo
 
 ::: hint-box
-Psst! Ero master ja admin-käyttäjien välillä on se, että admin-käyttäjä on tarkoitettu käytettäväksi web-käyttöliittymän hallinnassa. Itse palvelimen asetusten muokkaamiseen käytetään master-käyttäjää, jolla on oikeudet päästä hallitsemaan GeoServerin root-asetuksia sekä suoraan palvelimella että web-käyttöliittymän kautta. Vältä näiden tunnusten käyttöä tuotannollisten palvelimien ylläpidossa.
+Psst! Skillnaden mellan master- och admin-användare är att admin-användaren är avsedd för att användas vid hantering av webbgränssnittet. För att ändra serverinställningarna används master-användaren, som har behörighet att hantera GeoServers root-inställningar både direkt på servern och via webbgränssnittet. Undvik att använda dessa konton för underhåll av produktionsservrar.
 :::
 
-Näiden käyttäjien salasanat voi vaihtaa tarvittaessa pääsynhallinnan työkaluilla (**Security**-valikko).
+Man kan ändra lösenorden på dessa användare via åtkomsthanteringsverktyget i **Security**-sektionen.
 
-## **About & Status -asetukset**
+## **About & Status -inställningar**
 
 ![](img/harjoitus_2/image2.png)
 
 ### **Contact Information**
 
-Aloitetaan päivittämällä yhteystiedot. Valitse päävalikosta **About & Status → Contact Information**.
+Vi börjar med att uppdatera kontaktinformationen. Välj **About & Status → Contact Information** från huvudmenyn.
 
-Täytä omilla tiedoilla ainakin kentät **Organization**, **Contact**, **Position** ja **Email**.
+Fyll i med egna uppgifter, åtminstone följande fält: **Organization**, **Contact**, **Position** och **Email**.
 
 ![](img/harjoitus_2/image3.png)
 
-Palataksesi **Welcome**-näkymään voit aina painaa **GeoServer-logoa** sivun vasemmasta yläreunasta.
+För att återgå till **Welcome**-sidan kan du trycka på **GeoServer-loggan** uppe till vänster.
 
 ### **Server Status**
 
-Server Status -sivulla on tietoa erilaisista GeoServerin asetuksista ja tilasta. Huomaa esimerkiksi **Data directory** -kansion sijainti.
+På **Server Status**-sidan finns information om olika GeoServer-inställningar och status. Observera till exempel platsen för **Data directory**-mappen.
 
-Kirjoita omiin muistiinpanoihisi (harjoituksen viimeinen sivu) palvelimesi **Data directory**:n sijainti.\
+Skriv ner platsen för din servers **Data directory** i dina anteckningar.
 
 ![](img/harjoitus_2/image4.png)
 
 ### **GeoServer Logs**
 
-GeoServer Logs -valinnan kautta voit katsoa palvelimen lokitietoja. 
+Genom att välja **GeoServer Logs** kan du visa serverns logg. 
 
 ![](img/harjoitus_2/image5.png)
 
-## **Data-valikko**
+## **Data-menyn**
 
-Tämä valikko sisältää GeoServerin tärkeimmät toiminnot. Aineistot lisätään ja määritellään näiden toimintojen avulla. Myös aineistojen esikatselu tapahtuu täällä olevia toimintoja käyttäen. Huomaa yhteydet valikon ja kuvassa esitellyn aineistojen järjestäytymisen välillä.
+
+Denna meny innehåller GeoServers viktigaste funktioner. Data läggs till och konfigureras med hjälp av dessa funktioner. Även förhandsgranskning av data sker genom de funktioner som finns här. Observera kopplingen mellan menyn och hur data är organiserade i bilden nedan.
 
 ![](img/harjoitus_2/image6.png)
 
-**Styles** kohdassa määritellään tasoille (**Layers**) kuvaustekniikka, visualisointi. 
+Under **Styles** sektionen visuliserar man kartlagren (**Layers**) med hjälp av stilar. 
 
-**Styles** (kuvaustekniikka) käytetään aina kun tasoja julkaistaan WMS-palveluna. Kuvaustekniikka ei ole riippuvainen tasoista: samaa kuvaustekniikkaa voidaan käyttää useilla tasoilla ja niillä voi olla useita valinnaisia kuvaustekniikoita.
+Stilar används varje gång lager publiceras som WMS-tjänster. Kartstilen är oberoende av lagren: samma kartstil kan användas på flera lager och varje lager kan ha flera valfria kartstilar.
 
 ### **Layer Preview**
 
-Tämän valikon avulla on mahdollista esikatsella GeoServerillä julkaistuja karttatasoja.
+Med den här menyn kan du förhandsgranska kartlager som publicerats på GeoServer.
 
-Geoserverin oletusasennuksessa on julkaistu muutama demotaso, joita voi heti käyttää ja esikatsella.
+I GeoServers standardinstallation finns några demonstrationslager som du omedelbart kan använda och förhandsgranska.
 
 ![](img/harjoitus_2/image7.png)
 
-Tasojen lähtöaineisto voi olla rasteri tai vektori, formaatti on kuvattu näillä kuvakkeilla:
+Ursprungsdatat för lagren kan vara raster eller vektor, och formaten beskrivs med följande ikoner:
 
- ![](img/harjoitus_2/image8.png) Rasteri
+ ![](img/harjoitus_2/image8.png) Raster
 
- ![](img/harjoitus_2/image9.png) Piste (vektori)                                  ![](img/harjoitus_2/image10.png) Monikulmio (vektori)
+ ![](img/harjoitus_2/image9.png) Punkt (vektor)                                ![](img/harjoitus_2/image10.png) Polygon (vektor)
 
- ![](img/harjoitus_2/image11.png) Viiva (vektori)                                  ![](img/harjoitus_2/image12.png) Tasoryhmä
+ ![](img/harjoitus_2/image11.png) Linje (vektor)                                  ![](img/harjoitus_2/image12.png) Lagergrupp
 
-Tason esikatselu aukenee OpenLayers-karttaikkunana uuteen selainikkunaan. Huomaa, että aineiston **OpenLayers**-esikatselussa on käytössä kuvaustekniikka, joka on määritelty GeoServerilla oletukseksi. Kuvaustekniikka-teemaan tutustutaan myöhemmin lisää.
 
-Käyttämällä alasvetovalikkoa (**Select one**), voit myös ladata kyseisen tason eri tiedostomuodoissa (GeoTIFF, csv, shapefile\...).
+Förhandsgranskningen av lagret öppnas som en OpenLayers-karta i ett nytt webbläsarfönster. Observera att **OpenLayers**-förhandsgranskningen använder den visualiseringen som är förinställd på GeoServer. Visualiseringar kommer vi att utforska mer ingående senare.
+
+Genom att använda rullgardinsmenyn (**Select one**) kan du också ladda ner det valda lagret i olika filformat (GeoTIFF, CSV, shapefile\...).
 
 ### **Workspaces**
 
-**Workspace** on GeoServerin tapa säilyttää ja järjestää viittaukset aineistoihin (**Stores**). Aineistot itse on tallennettu hakemistoon (tai tietokantaan), johon GeoServerillä on käyttöoikeudet.
+**Workspace** (arbetsytor) är GeoServers system att organisera referenser till olika datakällor (**Stores**). Datafilerna är själva lagrade i en mapp (eller databas) som GeoServer har åtkomst till.
 
-Tyypillisesti samassa workspace:ssa pidetään samanlaisia ja/tai samasta lähteestä saatuja aineistoja. Esimerkiksi organisaation aineistot voidaan järjestää teemojen mukaan workspacen avulla (ymparisto, kaavoitus, vaesto, terveys, jne.)
+Ofta hålls liknande och/eller data från samma källa inom samma workspace. Till exempel kan en organisations data organiseras i workspaces baserat på teman som miljö, stadsplanering, befolkning, hälsa, etc.
 
-Avaa **Workspaces**-valikko, muutama workspace on valmiiksi luotu GeoServerille:
+Öppna **Workspaces**-sektionen, och du märker att det finns några workspaces där redan:
 
 ![](img/harjoitus_2/image13.png)
 
-Paina **Add new workspace**.
+Tryck på **Add new workspace**.
 
-Luo uusi workspace, jota käytetään jatkossa koulutuksessa, anna sille nimi **helsinki** ja kirjoita **Namespace URI** -kohtaan [**http://gispo.fi/geoserver/helsinki**](http://gispo.fi/geoserver/helsinki):
+Skapa ett nytt workspace, som vi använder oss av under kursen, ge den namnet **helsingborg** och skriv i rutan **Namespace URI**  följande [**http://gispo.se/geoserver/helsingborg**](http://gispo.se/geoserver/helsingborg):
 
 ![](img/harjoitus_2/image14.png)
 
-Rastita vielä **Default Workspace**, niin jatkossa juuri luomasi workspace on oletuksena lisättäessä aineistoja ja tasoja GeoServeriin.
+Kryssa för **Default Workspace**, så kommer GeoServer att föreslå ditt nya workspace, då du lägger till nya datakällor och lager.
 
 ::: hint-box
-Psst! URI (Uniform Resource Identifier) on teksti, joka määrittelee tietyn resurssin nimen. Se voi olla nettiosoite tai vaikka suhteellinen hakemisto kovalevystä. Ainoa vaatimus on se, että URI:n arvo on yksilöivä. Voit viitata esimerkiksi osoitteeseen tai kansioon, jossa on säilytetty workspaceen liittyvää dokumentaatiota.
+Psst! URI (Uniform Resource Identifier) är en text som definierar namnet på en specifik resurs. Det kan vara en webbadress eller till och med en relativ sökväg på hårddisken. Det enda kravet är att URI
+måste vara unik. Du kan till exempel hänvisa till en adress eller en mapp där dokumentation relaterad till workspacet är lagrad.
 :::
 
-Paina **Submit** ja olet nyt lisännyt uuden workspacen Geoserverille.
+Tryck på **Submit** för att skapa ditt nya workspace.
 
-Avaa äsken tekemäsi workspace painamalla **helsinki**-workspace **Workspace Name** -kohdan alta ja huomaa, että lisää valintoja on nyt saatavilla. Palataan niihin myöhemmin säädettäessä workspace-kohtaisia asetuksia.
+Öppna workspacet genom att trycka på**helsingborg** under **Workspace Name**. Observera, att det dykt upp fler inställningar. Vi återkommer senare till dem.
 
 ![](img/harjoitus_2/image15.png)
 
-Palaa **Workspace**-näkymään painamalla **Cancel**.
+Återgå till **Workspace**-vyn genom att trycka på **Cancel**.
 
-Workspaceja voidaan poistaa valitsemalla yksi tai useampi workspace ja painamalla **Remove selected workspace(s)** -toimintoa.
+Man kan ta bort worspaces genom att välja en eller flera workspaces och trycka på **Remove selected workspace(s)**.
 
 ### **Stores**
 
