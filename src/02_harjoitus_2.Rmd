@@ -160,104 +160,109 @@ Man kan ta bort worspaces genom att välja en eller flera workspaces och trycka 
 
 ### **Stores**
 
-Geoserverillä viitataan aineistolähteisiin **Storesien** avulla. Aineistolähteinä voivat olla yksittäiset tiedostot, tiedostoryhmät, hakemistot, tietokannat tai rajapintapalvelut.
+I GeoServer refererar man till datakällor genom **stores**. Datakällor kan vara enstaka filer, grupper av filer, mappar, databaser eller geodatatjänster.
 
-Oletusasennuksessa on valmiina **Store**-viittauksia esimerkkiaineistoihin:
+I standardinstallationen finns det några färdiga **Store**-referenser:
 
 ![](img/harjoitus_2/image16.png)
 
-Jokaisen Storen vieressä on kuvake joka viittaa aineiston tyyppiin:
+Brevid varje Store finns en ikon som berättar vilken typ av datakälla det är frågan om:
 
-Tutustu muutamaan storen asetuksiin. Esimerkiksi **sfdem** viittaa rasteriaineistoon (huomaa kuvake) ja **taz_shapes** viittaa vektoriaineistoon.
+Bekanta dig med några olika datakällors inställningar. Du kan till exempel observera att **sfdem** refererar till rasterdata (se ikonen) och **taz_shapes** referar till vektordata.
 
-![](img/harjoitus_2/image17.png)
-
-Avaa sfdem-store ja taz_shapes-store. Kirjoita muistiinpanoihisi ylös vastaukset seuraaviin kysymyksiin:
+Öppna sfdem och taz_shapes. Hitta svaren på följande frågor:
 
 ::: hint-box
-Mihin aineistoon sfdem-store viittaa?
+
+Vad är det för data som sfdem-store refererar till?
 :::
 
 ::: hint-box
-Mihin aineistoon taz_shapes-store viittaa?
+Vad är det för data som taz_shapes-store refererar till?
 :::
 
-Huomaa, että [**file:data/**](file:data/){.uri} viittaa Geoserverin Data Directory -hakemistoon. Hakemiston sijainti levyjärjestelmässä löytyy **About & Status → Server Status** -valikon kautta.
+Observera att [**file:data/**](file:data/){.uri}  referar till GeoServers Data Directory. Platsen för Data Directoryn hittar du via  **About & Status → Server Status**.
 
-Store **taz_shapes** viittaa hakemistoon, jossa on useampia vektoriaineistoja, tässä tapauksessa .shp-tiedostoja.
+**taz_shapes** refererar till en mapp med olika vektordata, i vårt fall flera .shp-filer.
 
-Avaa vielä **taz_shapes**-store ja huomaa, että asetuksissa on rastittu **Enabled**. Se määrittää onko aineisto käytettävissä palvelimelta tai ei.
+Öppna **taz_shapes** och observera att **Enabled** är valt bland inställningarna. Det betyder att taz_shapes kan användas på servern.
+
 
 ![](img/harjoitus_2/image18.png)
 
-Toisin sanoen haluttaessa estää jonkin aineiston käyttöä GeoServerin kautta, ei tarvitse muuta kun jättää rastittamatta **Enabled**-valinta joko layer-, store- tai jopa workspace-valikossa.\
+Med andra ord kan man alltså förhindra att data används med GeoServer, man lämnar bara bort krysset i **Enabled**-rutan.
 
 ![](img/harjoitus_2/image19.png)
 
 ### **Layers**
 
-Tasot (**Layers**) määrittelevät yhden aineistolähteen (**Store**) julkaisemisen ominaisuudet, kuten kuvaustekniikan, koordinaattijärjestelmän, metatiedot, palvelun ominaisuudet, karttatiilipalvelun (tile caching) määrittelyt jne.
+Lager (**Layers**) definierar egenskaperna för publiceringen av en datakälla (**Store**), såsom visualisering, koordinatsystem, metadata, tjänstegenskaper, inställningar för tile caching osv.
 
-Yksi taso vastaa yhtä aineistoa. Aineisto voidaan julkaista useisiin eri tasoihin, esimerkiksi eri kuvaustekniikoilla tms.
+Ett lager kommer från en datakälla och motsvarar där en fil eller ett lager. En fil från samma datakälla kan publiceras flera olika gånger, till exempel med olika visualiseringar.
 
-**Layers**-näkymässä on mahdollista muokata, lisätä tai poistaa tasoja. **Layers**-näkymän taulukossa on nähtävissä muutama taso ja niiden nimet (**Name**). Taulukossa lukee myös tason otsikko (**Title**) ja missä **Store**:ssa aineistot sijaitsevat.
 
-Sarake **Enabled** näyttää tiedon siitä, onko taso käytettävissä palvelimelta vai ei. Huomaa, että käytettävyyden voi määritellä koko storelle (eli aineistolähteelle) tai erikseen tasoille (aineiston näkymille). Myös tason alkuperäinen koordinaattijärjestelmä on ilmoitettu taulukossa, **Native SRS**.
+I **Layers**-vyn kan du redigera, lägga till eller ta bort lager. I tabellen i **Layers**-vyn visas flera lager och deras namn (Name). Tabellen visar också lagrets titel (Title) och vilken Store datan är lagrad i.
+
+Kolumnen **Enabled** visar om lagret är tillgängligt från servern eller inte. Observera att tillgängligheten kan ställas in för hela storen (dvs. datakällan) eller för enskilda lager. Lagrets ursprungliga koordinatsystem anges också i tabellen under **Native SRS**.
 
 ![](img/harjoitus_2/image20.png)
 
-Avaa **Manhattan (NY) landmarks** -tason asetusten näkymä painamalla tason otsikkoa (**Title**) tai nimeä (**Name**) sarakkeesta. 
+Öppna inställningarna för **Manhattan (NY) landmarks**-lagret genom att trycka på titeln eller namnet.
 
-Tasoon liittyvät asetukset ovat laajat ja siksi ne on jaettu välilehtiin **Data**, **Publishing**, **Dimensions** ja **Tile Caching**. 
+Det finns mycket olika inställningar för lager, därför är de uppdelade på följande flikar: **Data**, **Publishing**, **Dimensions** och **Tile Caching**. 
 
-Tutustu nyt eri välilehtien asetuksiin saadaksesi kuvan siitä, miten tasot määritellään GeoServerillä. Keskustele niistä kouluttajan kanssa.
+Utforska nu inställningarna på de olika flikarna för att få en bild av hur lager definieras i GeoServer. Du kan diskutera dessa med dina kurskamrater och din kursledare.
 
 ![](img/harjoitus_2/image21.png)
 
-Tutustumme tarkemmin tasoasetuksiin myöhemmin, kun lisäämme omia aineistoja GeoServerille.
+Vi kommer att gå igenom lagrens inställningar mer detaljerat senare när vi lägger till egna datasets i GeoServer.
 
 ## **Layer Groups**
 
-**Layer Groups** -toiminnolla muodostetaan tasoryhmiä. Tasoryhmien avulla on muodostetaan useammasta karttatasosta yhdistettyjä karttatasoja. Tasoryhmiin voidaan lisätä sekä karttatasoja että tasoryhmiä. Muun muassa tasojen järjestystä ja kuvaustekniikoita voidaan määrittää tasoryhmän asetuksissa.
+Med funktionen **Layer Groups** skapas lagergrupper. Med lagergrupper kan flera kartlager kombineras till ett enda kartlager. Både kartlager och lagergrupper kan läggas till i lagergrupper. Bland annat kan lagrens ordning och visualisering definieras i lagergruppens inställningar.
 
 ## **Styles**
 
-Avaa **Styles**-valikko, saat näkyviin listan GeoServerilla olevista kuvaustekniikoista.
+Öppna **Styles**-menyn för att se vilka förinställda visualiseringar som finns i GeoServer.
 
 ![](img/harjoitus_2/image22.png)
 
-Avaa **giant_polygon**-tyyli ja tutustu GeoServerin käyttämään kuvaustekniikkaformaattiin. Tasojen kuvaustekniikka määritellään käyttäen Styled Layer Descriptor (SLD) -kieltä.
+Öppna **giant_polygon**-stilen och bekanta dig med visualiseringstekniken. För att göra visualiseringar används Styled Layer Descriptor (SLD)-tekniken.
 
 ![](img/harjoitus_2/image23.png)
 
-Kuvaustekniikka on hyvin laaja aihe; siihen tutustutaan erikseen myöhemmin. Kuvaustekniikan toteuttamista voi helpottaa käyttämällä CSS-laajennosta, tätäkin käsitellään myöhemmin koulutuksessa.
+
+Visualisering är ett mycket omfattande ämne och kommer att behandlas separat senare. Visualisering kan underlättas genom att använda CSS-tillägget, vilket också kommer att tas upp senare i kursen.
 
 ## **Services**
 
-GeoServerin rajapintapalvelujen (WFS, WMS ja WCS) yleisasetukset määritellään **Services**-valikon kautta; näihin tutustutaan tarkemmin myöhemmin.
+GeoServers geodatatjänsters (WFS, WMS och WCS) allmänna inställningar definiers under **Services**-menyn. Vi bekantar oss mer med dessa inställningar senare.
 
 ![](img/harjoitus_2/image24.png)
 
 ## **Settings**
 
-Tämä valikko sisältää erilaisia asetuksia kuten:
+Den här menyn innehåller olika inställningar som gäller för hela GeoServer:
 
-+--------------------------------------+-----------------------------------------------------------------------------+
-| **Global**                           | Rajapintapalvelujen asetuksia ja lokitietojen asetuksia                     |
-+--------------------------------------+-----------------------------------------------------------------------------+
-| **Image Processing & Raster Access** | Asetukset kuvien ja raakakuva-aineiston (coverage) käsittelyyn palvelimessa |
-+--------------------------------------+-----------------------------------------------------------------------------+
++----------------------+---------------+----------------------------------+
+| **Global**           | Geodatatjänsternas och loggningens inställningar |
++----------------------+---------------+----------------------------------+
+| **Image Processing** | Inställningar för hantering av bilder            
++----------------------+---------------+----------------------------------+
+| **Raster Access**    |Inställningar för minnesanvändning för rasterdata |
++----------------------+---------------+----------------------------------+
 
 ## **Tile Caching**
 
-Tämän valikon kautta määritellään karttatiilipalvelujen (tile caching) asetuksia. Karttatiilipalveluihin tutustutaan tarkemmin myöhemmin.
+I denna meny bestämmer man inställningar för tile caching (GeoWebCache). Vi går senare igenom dessa inställningar.
+
 
 ![](img/harjoitus_2/image25.png)
 
 ## **Security**
 
-Valikko sisältää GeoServerin pääsynhallintaan liittyvät asetukset. Huomaa, että muun muassa pääsynhallinta voidaan määrittää sekä käyttäjä-, ryhmä- ja roolikohtaisesti että aineisto- ja palvelukohtaisesti. Vilkaise nyt **Users**, **Groups, and Roles** -valikkoon.
+Menyn innehåller inställningar relaterade till GeoServers åtkomsthantering. Observera att åtkomsthanteringen kan konfigureras både på användar-, grupp- och rollnivå samt på datalager- och tjänstenivå. Ta nu en titt på menyn **Users**, **Groups**, and **Roles**.
 
 ![](img/harjoitus_2/image26.png)
 
-Pääsynhallintaa käsitellään tarkemmin myöhemmin.
+Vi behandlar åtkomsthantering i ett senare skede.
