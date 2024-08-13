@@ -1,26 +1,27 @@
-# HARJOITUS 1.4: KUVAUSTEKNIIKAN PERUSTEET (SLD)
+# ÖVNING 1.4: VISUALISERING (SLD)
 
-**Harjoituksen sisältö**
+**Övningens innehåll**
 
-Harjoituksessa käsitellään eri aineistoille sovellettavia kuvaustekniikoita ja hyödynnetään SLD-tyylejä karttojen visualisointiin.
+I övningen kommer vi att behandla de olika stilar som kan tillämpas på dataset och använda SLD-stilar för att visualisera kartor.
 
-**Harjoituksen tavoite**
+**Övningens syfte**
 
-Harjoituksen jälkeen opiskelija osaa hyödyntää peruskuvaustekniikoita GeoServerillä eri aineistojen visualisointiin, käyttäen SLD-kieltä.
+Efter övningen kommer du att kunna använda grundläggande stiltekniker i GeoServer för att visualisera olika dataset med hjälp av SLD-språket.
 
-**Arvioitu kesto**
+**Tid**
 
-40 minuuttia.
+40 minuter.
 
-## **Valmistautuminen**
+## **Förberedelser**
 
-Aiemmissa harjoituksissa on luotu GeoServerin palvelimelle taso **rakennukset**, johon luodaan nyt kuvaustekniikka.
+I tidigare övningar har ett lager med namnet **byggnader** skapats på GeoServer-servern, och nu kommer en stil att skapas för detta lager.
 
-## **GeoServerin kuvaustekniikka**
+## **GeoServers visualiseringar**
 
-WMS-palvelut visualisoivat karttakuvia GeoServerissä ennalta määritetyillä kuvaustekniikoilla. Tähän asti olemme käyttäneet oletuskuvaustekniikoita aina lisättyämme uusia aineistoja, esimerkiksi kun olemme esikatselleet jotain tasoa.
+WMS-tjänster visualiserar kartbilder på GeoServer med fördefinierade stilar. Hittills har vi använt standardstilar varje gång vi har lagt till nya data, till exempel när vi har förhandsgranskat ett lager.
 
-Avaa päävalikosta **Layers**-näkymä ja **rakennukset**-taso. Avaa sitten **Publishing**-välilehti. ![](img/harjoitus_4/image1.png)
+Öppna **Layers**-vyn från huvudmenyn och välj lagret **byggnader**. Gå sedan till **Publishing**-fliken. ![](img/harjoitus_4/image1.png)
+
 
 Huomaa, että **WMS Settings** -kohdasta löytyy **Default Style** -valikko, johon on valittu **polygon**-kuvaustekniikka.
 

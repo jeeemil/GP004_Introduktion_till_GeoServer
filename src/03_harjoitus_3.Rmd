@@ -150,7 +150,7 @@ Psst! Huomaa, että Layer Preview näkymässä (ja myös Layer näkymässä) tas
 Observera att i Layer Preview-vyn (och även i Layer-vyn) har workspacens namn lagts till framför lagrets namn. Därför är namnet helsingborg:byggnader.
 :::
 
-OpenLayers förhandsgranskning ser ut så här: ![](img/harjoitus_3/image10.png)
+OpenLayers förhandsgranskning ser ut så här:
 
 ![](img/harjoitus_3/image11.png)
 
