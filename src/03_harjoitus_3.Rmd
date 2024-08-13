@@ -1,83 +1,75 @@
-# Harjoitus 1.3: VEKTORIAINEISTOT
+# Övning 1.3: VEKTORDATA
 
-**Harjoituksen sisältö**
+**Övningens innehåll**
 
-Harjoituksessa lisätään vektoriaineistoja GeoServer-palvelimelle ja muokataan tason asetukset WFS-palvelun julkaisemista varten.
+I övningen lägger vi till vektordata i GeoServer och justerar inställningarna för lagret för att publicera det som en WFS-tjänst.
 
-**Harjoituksen tavoite**
+**Övningens syfte**
 
-Harjoituksen jälkeen opiskelija osaa lisätä vektoriaineistoja ja tehdä välttämättömät asetukset aineiston julkaisemiseksi.
+Efter övningen kommer studenten att kunna lägga till vektordata och kunna justera nödvändiga inställningarna för att publicera data.
 
-**Arvioitu kesto**
+**Tid**
 
-40 minuuttia.
+40 minuter.
 
-## **Valmistautuminen**
+## **Förberedelser**
 
-Kaikki koulutusaineistot ovat valmiiksi GeoServerin aineistohakemisto **/data/koulutus/**-kansiossa. Voit tarkistaa sen sijainnin omassa palvelimessasi **Server Status** -näkymästä. Sijainti on **Data directory** -kentässä; uusia aineistoja voidaan tarvittaessa lisätä siihen. 
-
-Harjoituksessa käytettävät aineistot on ladattu käytössä oleville palvelimille.
+Allt material vi använder på kursen finns färdigt i en mapp på servern. Du kan kontrollera den specifika platsen i **Server Status**-sektionen, där det står **Data Directory**. Då nya data läggs till, hamnar de här.
 
 ![](img/harjoitus_3/image1.png)
 
-GeoServerin aineistohakemistossa on paikkatiedon lisäksi muita aineistoja, kuten karttatyylejä ja tasoryhmien määrittelyjä. Tarkemmin, kurssin paikkatietoaineistot ovat koulutuskoneen kansiossa: 
+Förutom geodata så finns det även andra filer i din **Data Directory**, som till exempel kartstilar och lagergruppers konfigureringsfiler. 
 
-::: note-box
-/opt/geoserver/data_dir/koulutus/
-:::
+## **Skapa en Store för vektordata**
+
+På servern finns färdigt OpenStreetMaps byggnader över Helsingborg som GeoPackage under namnet **buildings.gpkg**, som vi nu lägger till.
+
+Välj **Stores** i huvudmenyn och tryck sedan på **Add new Store**.
+Välj GeoPackage som datakällans format i **New data source**-sektionen, under **Vector Data Sources**.
 
 
-## **Vektoriaineisto Storen luominen**
-
-Koulutuksen aineistosta löytyy muun muassa OpenStreetMapsin rakennukset Helsingistä shapefile-formaatissa **buildings.shp**, joka lisätään nyt GeoServeriin.
-
-Aineiston formaatin ollen **shapefile** täytyy sille luoda **store**, joka on shapefile-formaatin kanssa yhteensopiva.
-
-Päävalikosta valitse **Stores** ja paina sitten **Add new Store**.
-
-Valitse Shapefile aineiston formaatiksi **New data source** -näkymässä, **Vector Data Sources -kohdan** alta.
 
 ![](img/harjoitus_3/image2.png)
 
 ![](img/harjoitus_3/image3.png)
 
-Seuraavassa näkymässä pääset määrittelemään juuri luomasi store:n muut asetukset, kuten nimen ja tiedoston sijainnit. Nimeä ne seuraavalla tavalla:
+I nästa vy kommer du att kunna definiera ytterligare inställningar för den store du just har skapat, såsom namn och filvägar. Namnge dem enligt följande:
 
--   **Valitse** workspaceksi helsinki
+-   **Välj** workspace som helsingborg
+-   **Namnge** datasetet till hel_byggnader
+-   **Lägg till** en beskrivning om du vill, till exempel "Helsingborgs byggnader från OpenStreetMap"
 
--   **Nimeä** aineisto hki_rakennukset
+Nästa steg är att definiera vilket dataset (GeoPackage-fil) som ska refereras genom denna store. Justera **Connection Parameters**:
 
--   **Lisää** halutessasi aineistolle kuvaus, esimerkiksi "Helsingin OpenStreetMaps rakennukset"
+Klicka på **Browse...** och navigera till filen: **/data/buildings.gpkg**
 
-Seuraavaksi määritellään mihin aineistoon (shape-tiedostoon) viitataan tämän store:n kautta. Muokkaa **Connection Parameters**:
+Lämna **Enabled** markerat för att säkerställa att denna store
+(och de lager som skapas från den) är tillgängliga från GeoServer-servern. Denna inställning kan användas för att dölja vissa dataset för användare utan att ta bort dem från servern (administratörer kan fortfarande använda dem).
 
--   Paina **Browse...**, ja selaa tiedostoon: **/koulutus/Helsinki.osm.shp/buildings.shp**
+Kontrollera att DBF charset är inställt på ISO-8859-1.
 
-Pidä **Enabled** ruksattuna ja varmista näin tekemäsi store:n (ja siitä luotujen tasojen) käytettävyys GeoServer-palvelimelta. Tätä valintaa voidaan käyttää halutessa piilottaa joitakin aineistoja käyttäjiltä ilman niiden poistamista palvelimelta (ylläpitäjät voivat vielä käyttää niitä).
+Övriga inställningar kan lämnas som de är.
 
-Tarkista vielä, että **DBF charset** arvo on **ISO-8859-1**.
+Klicka på **Save** för att spara denna store i GeoServer.
 
-Loput asetukset voidaan pitää oletusarvoina.
-
-Paina **Save**, niin store tallentuu GeoServerille ja on jatkossa käytettävissä
-
-Storen luomisen jälkeen GeoServer olettaa, että halutaan julkaista uusi taso ja siksi uusi taso -näkymä (**New Layer**) aukeaa automaattisesti.
+Efter att en store har skapats förutsätter GeoServer att du vill publicera ett nytt lager, så en ny lager-vy (**New Layer**) öppnas automatiskt.
 
 ![](img/harjoitus_3/image4.png)
 
 ![](img/harjoitus_3/image5.png)
 
-Paina **Publish** tason julkaisemiseksi.
+Välj **Publish** för att publicera lagret.
 
-## **Vektoritason julkaiseminen**
+## **Publicering av vektorlager**
 
-Luodaan ja julkaistaan nyt uusi taso. Jos et vielä tehnyt niin, paina **Publish** niin pääset muuttamaan julkaistavan tason ominaisuuksia.
+Låt oss nu skapa och publicera ett nytt lager. Om du inte redan gjort det, klicka på **Publish** så kan du ändra egenskaperna för det lager som ska publiceras.
 
 ::: hint-box
-Psst! Jos ehdit poistumaan edellisestä näkymästä, samaan uuden tason luonti -näkymään pääsee päävalikosta Layers \> Add a new layer ja valitsemalla haluttu store (meidän tapauksessa helsinki:hki_rakennukset).
+Psst! Om du råkat lämna föregående vy, kan du komma tillbaka till vyn för att skapa ett nytt lager genom att gå till huvudmenyn Layers \> Add a new layer och välja önskad store (i vårt fall helsingborg).
 :::
 
-Tason julkistamisen ominaisuudet ovat jaettu neljään välilehteen:
+
+Egenskaperna för publicering av lagret är indelade i fyra flikar:
 
 -   **Data**
 
@@ -87,76 +79,86 @@ Tason julkistamisen ominaisuudet ovat jaettu neljään välilehteen:
 
 -   **Tile Caching**
 
-## **Data asetukset**
+## **Datainställningar**
 
-Keskitytään nyt **Data**-välilehdessä oleviin valintoihin. Määrittele yleistiedot seuraavasti:
+Nu fokuserar vi på **Data**-flikens innehåll. Justera följande inställningar:
 
--   **Pidä** Enabled ja Advertised rastitettuna
+-   **Håll** Enabled och Advertised ifyllda
 
--   **Nimeä** aineisto rakennukset
+-   **Namnge** lagret som "byggnader"
 
--   **Otsikoi** Helsingin OpenStreetMap rakennukset
+-   **Ge titeln** "Helsingborgs OpenStreetMap byggnader"
 
-**Lisää** halutessasi selitystä tasosta ja tasoon liittyviä avainsanoja (keywords). Avainsanojen avulla sekä Geoserverin ylläpitäjien ja käyttäjien on helpompi löytää heille tarpeellisia paikkatietoaineistoja.
+**Lägg till** en beskrivning av lagret och relaterade nyckelord (keywords) om du vill. Med hjälp av nyckelorden kan både Geoserver-administratörer och användare enklare hitta de geografiska data de behöver.
 
 ### **Coordinate Reference Systems**
 
-Selaa alaspäin kunnes löydät **Coordinate Reference Systems** -kohdan. Tässä määritellään tasolle koordinaattijärjestelmä.
+Scrolla ner tills du hittar avsnittet **Coordinate Reference Systems**. Här anger du koordinatsystemet för lagret.
 
-Kun uutta aineistoa tuodaan GeoServeriin, se yrittää tunnistaa alkuperäisen koordinaattijärjestelmän EPSG-koodin. Jos tunnistus ei onnistu, niin **Native SRS** -kentän arvoksi tulee **UNKNOWN** ja sen oikealta puolelta löytyy linkki, josta saa tiedot aineiston alkuperäisen koordinaattijärjestelmän selvittämistä varten.
+När du importerar nya data till GeoServer försöker den identifiera det ursprungliga koordinatsystemets EPSG-kod. Om identifieringen misslyckas blir värdet i fältet **Native SRS** UNKNOWN, och till höger om det finns en länk som du kan använda för att få information om det ursprungliga koordinatsystemet för datasetet.
 
-Tässä tapauksessa, projektiotiedot tulevat shapefilen aineiston .prj-tiedostosta. Paina **GCS_WGS_1984...** -linkkiä, niin saat auki projektiotiedot.
+I detta fall kommer projektioninformationen från GeoPackage-filen. Klicka på länken EPSG:WGS84... för att öppna projektioninformationen.
+
 
 ![](img/harjoitus_3/image6.png)
 
 ::: hint-box
-Psst! Huomaa, että Native SRS tiedot ovat tarkoitettu vaan esikatselua varten. Tiedot tulevat suoraan alkuperäisen aineiston asetuksista, esimerkiksi shapefilen tai PostGIS-tason koordinaattijärjestelmätiedoista. Siksi niitä ei voida muokata GeoServerin selaimessa käyttöliittymän kautta.
+Psst! Observera att uppgifterna i Native SRS är endast avsedda för förhandsgranskning. Informationen hämtas direkt från den ursprungliga datakällans inställningar. Därför kan dessa uppgifter inte redigeras via GeoServers webbanvändargränssnitt.
 :::
 
-Lisää tarvittaessa **EPSG:4326**-koodi **Declared SRS** -kohtaan. Voit myös etsiä EPSG-koodeja **Find** -toiminnolla.
+Lägg till vid behov **EPSG:4326-koden** under Declared SRS. Du kan även söka efter EPSG-koder med **Find**-funktionen.
 
-Pidä **SRS handling** oletusarvo (**Force declared**) ennallaan.
+Behåll **SRS handling**-inställningen på standardvärdet (**Force declared**).
 
 ![](img/harjoitus_3/image7.png)
 
 ### **Bounding Boxes**
 
-Täytä alla **Bounding Boxes** -kohdassa tiedot aineiston laajuudesta.
+
+Fyll i uppgifterna om lagrets geografiska omfattningen under avsnittet **Bounding Boxes**.
 
 ::: hint-box
-Psst! Laajuus olisi mahdollista määritellä automaattisesti, mutta GeoServer vaatii, että tämä asetus tehdään valvotusti. Syy on se, että suurien aineistojen kanssa palvelin voisi jäädä pitkäksi ajaksi laskemaan tasojen laajuutta. Pyyntö voisi jopa epäonnistua, jos palvelimen timeout-asetus ylittyisi ja näin aineiston lisääminen olisi hankala.
+Psst! 
+Bounding boxen kan bestämmas automatiskt, men GeoServer kräver att denna inställning görs manuellt. Anledningen är att med stora datamängder kan servern fastna länge i att beräkna lagrens omfattning. Förfrågan kan till och med misslyckas om serverns timeout-inställning överskrids, vilket skulle försvåra att lägga till data.
 :::
 
-Harjoituksen aineisto on sen verran pieni, että voimme käyttää automaattista määrittelyä. Paina ensin **Native Bounding Box → Compute from data** ja sitten **Lat/Lon Bounding Box → Compute from native bounds**.
+Datamängden för övningen är så liten att vi kan använda automatisk bestämning. Tryck först på **Native Bounding Box → Compute from data** och sedan **Lat/Lon Bounding Box → Compute from native bounds**.
 
 ![](img/harjoitus_3/image8.png)
 
 ### **Feature Type Details**
 
-**Data**-näkymän loppuosasta löytyy **Feature Type Details**, josta nähdään vektoriaineiston ominaisuustiedot ja niiden tyypit.
+I den nedre delen av **Data**-sektionen finns **Feature Type Details**, där du kan se egenskaperna och typerna för vektordata.
 
-Muita julkaisun ominaisuuksia katsotaan vielä myöhemmin. Paina nyt **Save**, ja aineisto on saatavilla GeoServeristä. Tarkista, että uusi taso **rakennukset** on tasojen listalla.
+Andra publiceringsinställningar kommer vi att gå igenom senare. Klicka på **Save** nu, så att lagret blir tillgänglig i GeoServer. Kontrollera att det nya lagret **byggnader** finns med på lagerslistan.
+
+
 
 ::: hint-box
-Psst! Voit käyttää "etsi"-toimintoa kun haluat suodattaa näkymää.
+Psst! Du kan använda "sök"-funktionen för att filtrera vyn.
 :::
 
 Avaa nyt **Layer Preview** -näkymä, jolla pääset esikatselemaan **rakennukset**-tasoa samalla tavalla kun aiemmin olet esikatselut muita demoaineistoja.
+
+Öppna nu **Layer Preview**-vyn, där du kan förhandsgranska lagret **byggnader** på samma sätt som du tidigare förhandsgranskat andra demodata.
 
 ![](img/harjoitus_3/image9.png)
 
 ::: hint-box
 Psst! Huomaa, että Layer Preview näkymässä (ja myös Layer näkymässä) tason nimen edessä on laitettu workspacen nimi. Helsingin rakennukset -tason nimi on siksi helsinki:rakennukset.
+
+Observera att i Layer Preview-vyn (och även i Layer-vyn) har workspacens namn lagts till framför lagrets namn. Därför är namnet helsingborg:byggnader.
 :::
 
-OpenLayers esikatselu näyttää tältä: ![](img/harjoitus_3/image10.png)
+OpenLayers förhandsgranskning ser ut så här: ![](img/harjoitus_3/image10.png)
 
 ![](img/harjoitus_3/image11.png)
 
-Zoomaa karttaan ja paina jonkun rakennuksen päällä niin saat sen ominaisuustiedot näkyviin.
+Zooma in på kartan och klicka på en byggnad för att visa dess egenskapsinformation.
 
-## **Helsingin tiestön lisääminen**
+## **Lägg till Helsingborgs vägnät**
 
-Lisää nyt OpenStreetMap Helsingin tiestö GeoServeriin samalla tavalla kuin edellisessä harjoituksessa. Aineisto löytyy samasta kansiosta kuin **rakennukset-**aineisto, nimellä **gis.osm_roads_free_1.shp**.
+Lägg till OpenStreetMap Helsingborgs vägnät till GeoServer på samma sätt som i den tidigare övningen. Datasetet finns i samma mapp som byggnader-datasetet, under namnet vagnat.gpkg.
 
-Muista, että ennen kun tason voi lisätä GeoServeriin, sille täytyy luoda sopiva store. Nimeä uusi store **hki_tiesto** ja siitä luotu taso **tiesto** niin tasojen nimet pysyvät samankaltaisina. Muista tarkistaa myös koordinaattijärjestelmä (**EPSG:4326**) ja **DBF charset** (**ISO-8859-1**).
+Kom ihåg att innan du kan lägga till lagret i GeoServer måste du skapa en lämplig store. Namnge denna nya store
+**hel_vagnat** och det skapade lagret **"vagnat"** så att lagernamnen förblir konsekventa. Kontrollera också koordinatsystemet (**EPSG:4326**) och DBF charset (**ISO-8859-1**).
